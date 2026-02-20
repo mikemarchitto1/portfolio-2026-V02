@@ -101,33 +101,13 @@ function Footer() {
 }
 
 /* ---------------------------------------------
-   METRICS + LOGOS
+   METRICS
 ---------------------------------------------- */
 const metrics = [
   { value: "10", label: "Years of Experience" },
   { value: "4", label: "Products launched" },
   { value: "10,000", label: "Hours Designing" },
   { value: "3", label: "AI Experiments" },
-];
-
-const techLogos = [
-  "/images/logo-figma.svg",
-  "/images/logo-n8n.svg",
-  "/images/logo-tailwindcss.svg",
-  "/images/logo-cursor.svg",
-  "/images/logo-github.svg",
-  "/images/logo-shopify.svg",
-  "/images/logo-webflow.svg",
-  "/images/logo-vercel.svg",
-  "/images/logo-huggingface.svg",
-  "/images/logo-next.svg",
-  "/images/logo-claude.svg",
-  "/images/logo-openai.svg",
-  "/images/logo-react.svg",
-  "/images/logo-typescript.svg",
-  "/images/logo-ollama.svg",
-  "/images/logo-material.svg",
-  "/images/logo-fluent.svg",
 ];
 
 /* ---------------------------------------------
@@ -193,7 +173,6 @@ export default function Home() {
             <h1 className="text-h1 font-light mb-6 text-foreground max-w-4xl">
               Hi, I’m Mike
             </h1>
-
             <p className="text-h4 font-light text-foreground max-w-3xl">
               I design insightful digital experiences for startups and global
               brands.
@@ -204,6 +183,7 @@ export default function Home() {
         {/* HERO BODY */}
         <section className="py-12 px-4">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            {/* LEFT */}
             <div className="max-w-xl">
               <h2 className="text-h2 font-light mb-12 text-foreground">
                 About me
@@ -213,31 +193,20 @@ export default function Home() {
                 <p>
                   I’m originally from Chicago, where I studied graphic design at
                   UIC—a program rooted in Swiss and International design
-                  principles. That foundation shaped my early work in marketing
-                  and communications, where I developed a strong sense of visual
-                  design and story telling. I’ve always been drawn to
-                  typography, simple communication, and design that’s useful.
+                  principles.
                 </p>
-
                 <p>
                   After relocating to Seattle, I moved into UX, drawn to digital
-                  design and the need for better product experiences. Over the
-                  years, I’ve worked across corporations, agencies, and
-                  startups—advocating for user‑centered design. I'm recently
-                  exploring how AI is reshaping creative work through
-                  automation, prototyping, and collaboration.
+                  design and the need for better product experiences.
                 </p>
-
                 <p>
                   Currently based in Miami, I’m a cyclist and outdoors
-                  enthusiast who finds peace on the trail. Time outside helps
-                  reset and balance my life. Whether riding through city streets
-                  or remote gravel paths, I’m always looking for great scenic
-                  routes to the next bike camping destination.
+                  enthusiast who finds peace on the trail.
                 </p>
               </div>
             </div>
 
+            {/* RIGHT */}
             <div className="relative h-[500px] w-full">
               <Image
                 src="/images/thumb-large-profile.png"
@@ -274,22 +243,113 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* RIGHT: LOGOS */}
-              <div className="grid grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-[48px]">
-                {techLogos.map((logo, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-center p-4 md:p-5"
-                  >
-                    <Image
-                      src={logo}
-                      alt="Tech Logo"
-                      width={40}
-                      height={40}
-                      className="opacity-90"
-                    />
-                  </div>
-                ))}
+              {/* RIGHT: LOGOS — FINAL 3×4 LAYOUT */}
+              <div className="mt-12 grid grid-cols-3 gap-x-12 gap-y-[48px] items-start">
+                {/* ROW 1 */}
+                <Image
+                  src="/images/logo-figma.svg"
+                  alt="Figma"
+                  width={97}
+                  height={40}
+                />
+                <Image
+                  src="/images/logo-n8n.svg"
+                  alt="n8n"
+                  width={103}
+                  height={40}
+                />
+                <Image
+                  src="/images/logo-tailwindcss.svg"
+                  alt="TailwindCSS"
+                  width={146}
+                  height={40}
+                />
+
+                {/* ROW 2 */}
+                <Image
+                  src="/images/logo-cursor.svg"
+                  alt="Cursor"
+                  width={109}
+                  height={40}
+                />
+                <Image
+                  src="/images/logo-github.svg"
+                  alt="GitHub"
+                  width={101}
+                  height={40}
+                />
+                <Image
+                  src="/images/logo-shopify.svg"
+                  alt="Shopify"
+                  width={107}
+                  height={40}
+                />
+
+                {/* ROW 3 */}
+                <Image
+                  src="/images/logo-webflow.svg"
+                  alt="Webflow"
+                  width={119}
+                  height={40}
+                />
+                <Image
+                  src="/images/logo-vercel.svg"
+                  alt="Vercel"
+                  width={100}
+                  height={40}
+                />
+                <Image
+                  src="/images/logo-huggingface.svg"
+                  alt="Hugging Face"
+                  width={100}
+                  height={40}
+                />
+
+                {/* ROW 4 — HORIZONTAL PAIRS */}
+                <div className="flex gap-x-4">
+                  <Image
+                    src="/images/logo-react.svg"
+                    alt="React"
+                    width={36}
+                    height={40}
+                  />
+                  <Image
+                    src="/images/logo-typescript.svg"
+                    alt="TypeScript"
+                    width={29}
+                    height={40}
+                  />
+                </div>
+
+                <div className="flex gap-x-4">
+                  <Image
+                    src="/images/logo-shadcn.svg"
+                    alt="shadcn"
+                    width={22}
+                    height={40}
+                  />
+                  <Image
+                    src="/images/logo-ollama.svg"
+                    alt="Ollama"
+                    width={22}
+                    height={40}
+                  />
+                </div>
+
+                <div className="flex gap-x-4">
+                  <Image
+                    src="/images/logo-material.svg"
+                    alt="Material"
+                    width={32}
+                    height={40}
+                  />
+                  <Image
+                    src="/images/logo-fluent.svg"
+                    alt="Fluent"
+                    width={18}
+                    height={40}
+                  />
+                </div>
               </div>
             </div>
           </div>
