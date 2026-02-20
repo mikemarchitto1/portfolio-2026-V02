@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { PanelLeft, MessageCircle } from "lucide-react";
+import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
 import ProjectCard from "@/components/project-card/project-card";
+import HeroHeadline from "@/components/hero-headline/hero-headline";
 
 /* ---------------------------------------------
    HEADER
@@ -24,9 +25,9 @@ function Header() {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full h-12 w-12 border border-border font-semibold text-foreground"
+          className="rounded-full h-12 w-12 border border-border"
         >
-          E
+          <Calendar className="h-5 w-5" />
         </Button>
 
         <Button
@@ -163,16 +164,7 @@ export default function Home() {
       <Header />
 
       <main className="min-h-screen m-0">
-        {/* HERO HEADLINE */}
-        <section className="w-full m-0 p-[64px] bg-white">
-          <div className="max-w-[1200px] mx-auto">
-            <h1 className="text-h1 font-light mb-6">Hi, I’m Mike</h1>
-            <p className="text-h4 font-light max-w-3xl">
-              I design insightful digital experiences for startups and global
-              brands.
-            </p>
-          </div>
-        </section>
+        <HeroHeadline />
 
         {/* HERO BODY */}
         <section className="w-full m-0 p-[64px] bg-gray-100">
@@ -205,21 +197,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* EXPERIENCE + TECH STACK — Title (own component with 64px padding) */}
-        <section className="w-full m-0 p-[64px] bg-amber-100">
-          <div className="max-w-[1200px] mx-auto">
-            <h2 className="text-h2 font-light">
-              Experience and Tech Stack
-            </h2>
-          </div>
-        </section>
-
-        {/* EXPERIENCE + TECH STACK — Content (metrics + logos) */}
+        {/* EXPERIENCE + TECH STACK — title, metadata, and logos in one component */}
         <section className="w-full m-0 p-[64px] bg-orange-100">
           <div className="max-w-[1200px] mx-auto">
+            <h2 className="text-h2 font-light mb-12">
+              Experience and Tech Stack
+            </h2>
             <div className="grid grid-cols-12 gap-x-12 items-start">
               {/* METADATA — col-span-6, internal grid-cols-6, each metric col-span-3 */}
-              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-12 min-w-0">
+              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-6 min-w-0">
                 {metrics.map((metric, i) => (
                   <div key={i} className="col-span-3">
                     <div className="text-h1 font-light mb-2">
@@ -232,8 +218,8 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* LOGOS — col-span-6, 5 rows: 3+3+3+3 then 6, fixed widths (from public/images) */}
-              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-10 min-w-0 items-center">
+              {/* LOGOS — col-span-6, row spacing so last row aligns with bottom of metadata */}
+              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-8 min-w-0 items-start pt-6">
                 {/* Row 1: Figma, n8n, Tailwind */}
                 <div className="col-span-2">
                   <img
@@ -322,43 +308,37 @@ export default function Home() {
                     className="w-[112px] h-auto object-contain object-left"
                   />
                 </div>
-                {/* Row 5: React, TypeScript, Shadcn, Ollama, Material, Fluent — 6 small logos */}
-                <div className="col-span-1">
+                {/* Row 5: 3 columns, each with a pair — Column 1: React+TS, Column 2: shadcn+Ollama, Column 3: Material+Fluent */}
+                <div className="col-span-2 flex items-center gap-x-[28px]">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
                     className="w-[46px] h-auto object-contain object-left"
                   />
-                </div>
-                <div className="col-span-1">
                   <img
                     src="/images/logo-typescript.svg"
                     alt="TypeScript"
                     className="w-[37px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-1">
+                <div className="col-span-2 flex items-center gap-x-[28px]">
                   <img
                     src="/images/logo-shadcn.svg"
                     alt="Shadcn UI"
                     className="w-[32px] h-auto object-contain object-left"
                   />
-                </div>
-                <div className="col-span-1">
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
                     className="w-[32px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-1">
+                <div className="col-span-2 flex items-center gap-x-[28px]">
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
                     className="w-[40px] h-auto object-contain object-left"
                   />
-                </div>
-                <div className="col-span-1">
                   <img
                     src="/images/logo-fluent.svg"
                     alt="Fluent UI"
