@@ -34,7 +34,9 @@ function Header() {
           className="rounded-full h-12 px-5 flex items-center gap-2 border border-border"
         >
           <MessageCircle className="h-5 w-5" />
-          <span className="text-body1 font-normal">Let’s Chat</span>
+          <span className="text-body1 font-normal text-foreground">
+            Let’s Chat
+          </span>
         </Button>
       </div>
     </header>
@@ -52,7 +54,7 @@ function Footer() {
           Let’s Connect
         </h1>
 
-        <h4 className="text-h4 text-muted-foreground max-w-2xl mb-12 font-light">
+        <h4 className="text-h4 text-foreground max-w-2xl mb-12 font-light">
           I like teams that build meaningful things. If you’re exploring a new
           idea, I’m open to contract work and creative partnerships.
         </h4>
@@ -129,7 +131,7 @@ const techLogos = [
 ];
 
 /* ---------------------------------------------
-   PROJECT CARDS — FIXED WITH REAL FILENAMES
+   PROJECT CARDS
 ---------------------------------------------- */
 const projects = [
   {
@@ -192,7 +194,7 @@ export default function Home() {
               Hi, I’m Mike
             </h1>
 
-            <p className="text-h4 font-light text-muted-foreground max-w-3xl">
+            <p className="text-h4 font-light text-foreground max-w-3xl">
               I design insightful digital experiences for startups and global
               brands.
             </p>
@@ -210,18 +212,28 @@ export default function Home() {
               <div className="space-y-8 text-body1 leading-relaxed text-foreground">
                 <p>
                   I’m originally from Chicago, where I studied graphic design at
-                  UIC—a program rooted in Swiss and international design
-                  principles.
+                  UIC—a program rooted in Swiss and International design
+                  principles. That foundation shaped my early work in marketing
+                  and communications, where I developed a strong sense of visual
+                  design and story telling. I’ve always been drawn to
+                  typography, simple communication, and design that’s useful.
                 </p>
 
                 <p>
                   After relocating to Seattle, I moved into UX, drawn to digital
-                  design and the need for better product experiences.
+                  design and the need for better product experiences. Over the
+                  years, I’ve worked across corporations, agencies, and
+                  startups—advocating for user‑centered design. I'm recently
+                  exploring how AI is reshaping creative work through
+                  automation, prototyping, and collaboration.
                 </p>
 
                 <p>
                   Currently based in Miami, I’m a cyclist and outdoors
-                  enthusiast who finds peace on the trail.
+                  enthusiast who finds peace on the trail. Time outside helps
+                  reset and balance my life. Whether riding through city streets
+                  or remote gravel paths, I’m always looking for great scenic
+                  routes to the next bike camping destination.
                 </p>
               </div>
             </div>
@@ -231,7 +243,7 @@ export default function Home() {
                 src="/images/thumb-large-profile.png"
                 alt="Mike profile"
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover"
                 priority
               />
             </div>

@@ -15,7 +15,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const content = (
     <div className="flex flex-col gap-4">
-      <div className="overflow-hidden rounded-lg">
+      <div className="overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -25,9 +25,9 @@ export default function ProjectCard({
         />
       </div>
 
-      <h3 className="text-h3 font-light text-foreground">{title}</h3>
+      <h4 className="text-h4 font-light text-foreground">{title}</h4>
 
-      <p className="text-body1 text-muted-foreground">{description}</p>
+      <p className="text-body1 text-foreground">{description}</p>
     </div>
   );
 
