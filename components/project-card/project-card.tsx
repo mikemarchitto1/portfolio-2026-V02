@@ -14,7 +14,7 @@ export default function ProjectCard({
   href,
 }: ProjectCardProps) {
   const content = (
-    <div className="flex flex-col gap-4">
+    <div className="p-[64px] flex flex-col gap-4 bg-sky-100 m-0">
       <div className="overflow-hidden">
         <Image
           src={image}
@@ -35,12 +35,12 @@ export default function ProjectCard({
     return (
       <a
         href={href}
-        className="block no-underline text-foreground hover:opacity-90 transition-opacity"
+        className="block m-0 no-underline text-foreground hover:opacity-90 transition-opacity"
       >
         {content}
       </a>
     );
   }
 
-  return <div>{content}</div>;
+  return <div className="m-0">{content}</div>;
 }

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
+import { PanelLeft, MessageCircle } from "lucide-react";
 import ProjectCard from "@/components/project-card/project-card";
 
 /* ---------------------------------------------
@@ -11,8 +11,8 @@ import ProjectCard from "@/components/project-card/project-card";
 ---------------------------------------------- */
 function Header() {
   return (
-    <header className="w-full" style={{ backgroundColor: "white" }}>
-      <div className="max-w-[1200px] mx-auto px-4 py-4 flex items-center justify-start gap-3">
+    <header className="w-full m-0 p-[64px] bg-slate-100">
+      <div className="max-w-[1200px] mx-auto flex items-center justify-start gap-3">
         <Button
           variant="outline"
           size="icon"
@@ -24,9 +24,9 @@ function Header() {
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full h-12 w-12 border border-border"
+          className="rounded-full h-12 w-12 border border-border font-semibold text-foreground"
         >
-          <Calendar className="h-5 w-5" />
+          E
         </Button>
 
         <Button
@@ -46,8 +46,8 @@ function Header() {
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="w-full mt-32" style={{ backgroundColor: "white" }}>
-      <div className="max-w-[1200px] mx-auto px-4 py-16 text-left">
+    <footer className="w-full m-0 p-[64px] bg-cyan-100">
+      <div className="max-w-[1200px] mx-auto text-left">
         <h1 className="text-h1 font-light mb-6">Let’s Connect</h1>
 
         <h4 className="text-h4 max-w-2xl mb-12 font-light">
@@ -87,7 +87,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Connect on Linkedin
+              Connect on LinkedIn
             </a>
           </Button>
         </div>
@@ -113,39 +113,42 @@ const projects = [
   {
     title: "Nutrilucent",
     description:
-      "Created an internal research repository by leading end-to-end UX work.",
+      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
     image: "/images/thumb-small-nutrilucent.png",
     href: "/nutrilucent",
   },
   {
     title: "GloriFi",
     description:
-      "Redesigned website with custom iconography and product-focused visuals.",
+      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
     image: "/images/thumb-small-glorifi.png",
     href: "/glorifi",
   },
   {
     title: "National Restaurant Association",
     description:
-      "Created an internal research repository for enterprise teams.",
+      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
     image: "/images/thumb-small-nationalrestaurantassociation.png",
     href: "/nra",
   },
   {
     title: "Microsoft Admin Software",
-    description: "Redesigned admin tools for clarity and usability.",
+    description:
+      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
     image: "/images/thumb-small-microsoftadmin.png",
     href: "/microsoft-admin",
   },
   {
     title: "Microsoft Hits Software",
-    description: "Improved product visuals and shopping experience.",
+    description:
+      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
     image: "/images/thumb-small-microsofthits.png",
     href: "/microsoft-hits",
   },
   {
     title: "Eddie Bauer",
-    description: "Led UX research and UI design for internal tools.",
+    description:
+      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
     image: "/images/thumb-small-eddiebauer.png",
     href: "/eddiebauer",
   },
@@ -159,12 +162,9 @@ export default function Home() {
     <>
       <Header />
 
-      <main className="min-h-screen">
+      <main className="min-h-screen m-0">
         {/* HERO HEADLINE */}
-        <section
-          className="py-24 md:py-32 px-4"
-          style={{ backgroundColor: "white" }}
-        >
+        <section className="w-full m-0 p-[64px] bg-white">
           <div className="max-w-[1200px] mx-auto">
             <h1 className="text-h1 font-light mb-6">Hi, I’m Mike</h1>
             <p className="text-h4 font-light max-w-3xl">
@@ -175,20 +175,20 @@ export default function Home() {
         </section>
 
         {/* HERO BODY */}
-        <section className="py-12 px-4" style={{ backgroundColor: "white" }}>
+        <section className="w-full m-0 p-[64px] bg-gray-100">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <div className="max-w-xl">
               <h2 className="text-h2 font-light mb-12">About me</h2>
 
               <div className="space-y-8 text-body1 leading-relaxed">
                 <p>
-                  I’m originally from Chicago, where I studied graphic design at
-                  UIC.
+                  I’m originally from Chicago, where I studied graphic design at UIC—a program rooted in Swiss and International design principles. That foundation shaped my early work in marketing and communications, where I developed a strong sense of visual design and story telling. I’ve always been drawn to typography, simple communication, and design that’s useful.
                 </p>
-                <p>After relocating to Seattle, I moved into UX.</p>
                 <p>
-                  Currently based in Miami, I’m a cyclist and outdoors
-                  enthusiast.
+                  Currently based in Miami, I’m a cyclist and outdoors enthusiast who finds peace on the trail. Time outside helps reset and balance my life. Whether riding through city streets or remote gravel paths, I’m always looking for great scenic routes to the next bike camping destination.
+                </p>
+                <p>
+                  Currently based in Miami, I’m a cyclist and outdoors enthusiast who finds peace on the trail. Time outside helps reset and balance my life. Whether riding through city streets or remote gravel paths, I’m always looking for great scenic routes to the next bike camping destination.
                 </p>
               </div>
             </div>
@@ -205,174 +205,174 @@ export default function Home() {
           </div>
         </section>
 
-        {/* EXPERIENCE + TECH STACK */}
-        <section
-          className="py-24 px-4"
-          style={{
-            backgroundColor: "red",
-            minHeight: "500px",
-            border: "4px solid black",
-          }}
-        >
+        {/* EXPERIENCE + TECH STACK — Title (own component with 64px padding) */}
+        <section className="w-full m-0 p-[64px] bg-amber-100">
           <div className="max-w-[1200px] mx-auto">
-            {/* TITLE BLOCK */}
-            <div
-              style={{
-                backgroundColor: "blue",
-                padding: "20px",
-                border: "3px solid black",
-                marginBottom: "48px",
-              }}
-            >
-              <h2 className="text-h2 font-light">Experience and Tech Stack</h2>
-            </div>
+            <h2 className="text-h2 font-light">
+              Experience and Tech Stack
+            </h2>
+          </div>
+        </section>
 
-            {/* GRID */}
-            <div className="grid grid-cols-12 gap-x-12 gap-y-16">
-              {/* META */}
-              <div
-                className="col-span-12 md:col-span-6"
-                style={{
-                  backgroundColor: "green",
-                  padding: "20px",
-                  border: "3px solid black",
-                }}
-              >
-                <div className="grid grid-cols-2 gap-x-12 gap-y-[48px]">
-                  {metrics.map((metric, i) => (
-                    <div
-                      key={i}
-                      style={{ border: "2px dashed black", padding: "10px" }}
-                    >
-                      <h1 className="text-h1 font-light mb-2">
-                        {metric.value}
-                      </h1>
-                      <h4 className="text-h4 font-normal">{metric.label}</h4>
+        {/* EXPERIENCE + TECH STACK — Content (metrics + logos) */}
+        <section className="w-full m-0 p-[64px] bg-orange-100">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="grid grid-cols-12 gap-x-12 items-start">
+              {/* METADATA — col-span-6, internal grid-cols-6, each metric col-span-3 */}
+              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-12 min-w-0">
+                {metrics.map((metric, i) => (
+                  <div key={i} className="col-span-3">
+                    <div className="text-h1 font-light mb-2">
+                      {metric.value}
                     </div>
-                  ))}
-                </div>
+                    <div className="text-h4 font-normal text-foreground">
+                      {metric.label}
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              {/* LOGOS */}
-              <div
-                className="col-span-12 md:col-span-6"
-                style={{
-                  backgroundColor: "yellow",
-                  padding: "20px",
-                  border: "3px solid black",
-                }}
-              >
-                <div className="grid grid-cols-3 gap-x-12 gap-y-[48px] items-start">
-                  <Image
+              {/* LOGOS — col-span-6, 5 rows: 3+3+3+3 then 6, fixed widths (from public/images) */}
+              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-10 min-w-0 items-center">
+                {/* Row 1: Figma, n8n, Tailwind */}
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
-                    width={97}
-                    height={40}
+                    className="w-[117px] h-auto object-contain object-left"
                   />
-                  <Image
+                </div>
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
-                    width={103}
-                    height={40}
+                    className="w-[122px] h-auto object-contain object-left"
                   />
-                  <Image
+                </div>
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-tailwindcss.svg"
-                    alt="TailwindCSS"
-                    width={146}
-                    height={40}
+                    alt="Tailwind CSS"
+                    className="w-[154px] h-auto object-contain object-left"
                   />
-
-                  <Image
+                </div>
+                {/* Row 2: Cursor, GitHub, Shopify */}
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
-                    width={109}
-                    height={40}
+                    className="w-[132px] h-auto object-contain object-left"
                   />
-                  <Image
+                </div>
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
-                    width={101}
-                    height={40}
+                    className="w-[125px] h-auto object-contain object-left"
                   />
-                  <Image
+                </div>
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
-                    width={107}
-                    height={40}
+                    className="w-[144px] h-auto object-contain object-left"
                   />
-
-                  <Image
+                </div>
+                {/* Row 3: Webflow, Vercel, Hugging Face */}
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
-                    width={119}
-                    height={40}
+                    className="w-[144px] h-auto object-contain object-left"
                   />
-                  <Image
+                </div>
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
-                    width={100}
-                    height={40}
+                    className="w-[119px] h-auto object-contain object-left"
                   />
-                  <Image
+                </div>
+                <div className="col-span-2">
+                  <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
-                    width={100}
-                    height={40}
+                    className="w-[151px] h-auto object-contain object-left"
                   />
-
-                  <div className="flex gap-x-4">
-                    <Image
-                      src="/images/logo-react.svg"
-                      alt="React"
-                      width={36}
-                      height={40}
-                    />
-                    <Image
-                      src="/images/logo-typescript.svg"
-                      alt="TypeScript"
-                      width={29}
-                      height={40}
-                    />
-                  </div>
-
-                  <div className="flex gap-x-4">
-                    <Image
-                      src="/images/logo-shadcn.svg"
-                      alt="shadcn"
-                      width={22}
-                      height={40}
-                    />
-                    <Image
-                      src="/images/logo-ollama.svg"
-                      alt="Ollama"
-                      width={22}
-                      height={40}
-                    />
-                  </div>
-
-                  <div className="flex gap-x-4">
-                    <Image
-                      src="/images/logo-material.svg"
-                      alt="Material"
-                      width={32}
-                      height={40}
-                    />
-                    <Image
-                      src="/images/logo-fluent.svg"
-                      alt="Fluent"
-                      width={18}
-                      height={40}
-                    />
-                  </div>
+                </div>
+                {/* Row 4: Next.js, Claude, OpenAI */}
+                <div className="col-span-2">
+                  <img
+                    src="/images/logo-next.svg"
+                    alt="Next.js"
+                    className="w-[114px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <img
+                    src="/images/logo-claude.svg"
+                    alt="Claude"
+                    className="w-[129px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-2">
+                  <img
+                    src="/images/logo-openai.svg"
+                    alt="OpenAI"
+                    className="w-[112px] h-auto object-contain object-left"
+                  />
+                </div>
+                {/* Row 5: React, TypeScript, Shadcn, Ollama, Material, Fluent — 6 small logos */}
+                <div className="col-span-1">
+                  <img
+                    src="/images/logo-react.svg"
+                    alt="React"
+                    className="w-[46px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-1">
+                  <img
+                    src="/images/logo-typescript.svg"
+                    alt="TypeScript"
+                    className="w-[37px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-1">
+                  <img
+                    src="/images/logo-shadcn.svg"
+                    alt="Shadcn UI"
+                    className="w-[32px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-1">
+                  <img
+                    src="/images/logo-ollama.svg"
+                    alt="Ollama"
+                    className="w-[32px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-1">
+                  <img
+                    src="/images/logo-material.svg"
+                    alt="Material UI"
+                    className="w-[40px] h-auto object-contain object-left"
+                  />
+                </div>
+                <div className="col-span-1">
+                  <img
+                    src="/images/logo-fluent.svg"
+                    alt="Fluent UI"
+                    className="w-[23px] h-auto object-contain object-left"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* PROJECT CARDS */}
-        <section className="py-24 px-4" style={{ backgroundColor: "white" }}>
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* PROJECT CARDS — wrapper has no padding/margin; spacing from 64px inside each card */}
+        <section className="w-full m-0 bg-lime-100">
+          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3">
             {projects.map((project, i) => (
               <ProjectCard
                 key={i}
