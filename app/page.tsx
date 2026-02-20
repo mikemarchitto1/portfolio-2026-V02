@@ -170,9 +170,9 @@ export default function Home() {
         <section className="w-full m-0 p-[64px] bg-gray-100">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <div className="max-w-xl">
-              <h2 className="text-h2 font-light mb-12">About me</h2>
+              <h2 className="text-h2 font-light mb-4">About me</h2>
 
-              <div className="space-y-8 text-body1 leading-relaxed">
+              <div className="space-y-4 text-body1">
                 <p>
                   I’m originally from Chicago, where I studied graphic design at UIC—a program rooted in Swiss and International design principles. That foundation shaped my early work in marketing and communications, where I developed a strong sense of visual design and story telling. I’ve always been drawn to typography, simple communication, and design that’s useful.
                 </p>
@@ -185,7 +185,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-[500px] w-full">
+            <div className="relative h-[504px] w-full">
               <Image
                 src="/images/thumb-large-profile.png"
                 alt="Mike profile"

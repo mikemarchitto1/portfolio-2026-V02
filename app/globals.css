@@ -5,6 +5,13 @@
 @custom-variant dark (&:is(.dark *));
 
 /* -------------------------------------------------------
+   GLOBAL 4px BASELINE GRID
+   All vertical spacing, line-heights, margins, padding, and
+   grid gaps use multiples of 4px (4, 8, 12, 16, 20, 24, …).
+   Add class="baseline-grid" to <body> to show the overlay.
+------------------------------------------------------- */
+
+/* -------------------------------------------------------
    THEME TOKEN MAPPING
 ------------------------------------------------------- */
 @theme inline {
@@ -145,57 +152,57 @@
   --sidebar-border: oklch(92% 0 0);
   --sidebar-ring: oklch(70% 0 0);
 
-  /* TYPOGRAPHY (unchanged) */
+  /* TYPOGRAPHY — font-size unchanged; line-heights are 4px baseline multiples */
   --text-h1: 88px;
-  --text-h1-line: 104px;
+  --text-h1-line: 104px;   /* 4px baseline */
   --text-h1-weight: 300;
 
   --text-h2: 60px;
-  --text-h2-line: 76px;
+  --text-h2-line: 76px;    /* 4px baseline */
   --text-h2-weight: 300;
 
   --text-h3: 48px;
-  --text-h3-line: 56px;
+  --text-h3-line: 56px;    /* 4px baseline */
   --text-h3-weight: 400;
 
   --text-h4: 34px;
-  --text-h4-line: 44px;
+  --text-h4-line: 44px;    /* 4px baseline */
   --text-h4-weight: 400;
 
   --text-h5: 24px;
-  --text-h5-line: 36px;
+  --text-h5-line: 36px;    /* 4px baseline */
   --text-h5-weight: 400;
 
   --text-h6: 20px;
-  --text-h6-line: 28px;
+  --text-h6-line: 28px;    /* 4px baseline */
   --text-h6-weight: 500;
 
   --text-subtitle1: 16px;
-  --text-subtitle1-line: 24px;
+  --text-subtitle1-line: 24px;   /* 4px baseline */
   --text-subtitle1-weight: 400;
 
   --text-subtitle2: 14px;
-  --text-subtitle2-line: 20px;
+  --text-subtitle2-line: 20px;   /* 4px baseline */
   --text-subtitle2-weight: 500;
 
   --text-body1: 16px;
-  --text-body1-line: 24px;
+  --text-body1-line: 24px;       /* 4px baseline */
   --text-body1-weight: 400;
 
   --text-body2: 14px;
-  --text-body2-line: 20px;
+  --text-body2-line: 20px;      /* 4px baseline */
   --text-body2-weight: 400;
 
   --text-button: 14px;
-  --text-button-line: 20px;
+  --text-button-line: 20px;      /* 4px baseline */
   --text-button-weight: 500;
 
   --text-caption: 12px;
-  --text-caption-line: 16px;
+  --text-caption-line: 16px;    /* 4px baseline */
   --text-caption-weight: 400;
 
   --text-overline: 10px;
-  --text-overline-line: 12px;
+  --text-overline-line: 12px;   /* 4px baseline */
   --text-overline-weight: 400;
 }
 
@@ -227,6 +234,29 @@
   --border: oklch(100% 0 0 / 10%);
   --input: oklch(100% 0 0 / 15%);
   --ring: oklch(55.6% 0 0);
+}
+
+/* -------------------------------------------------------
+   4px BASELINE GRID — Debug overlay
+   To show: add class "baseline-grid" to <body> in app/layout.tsx
+------------------------------------------------------- */
+.baseline-grid {
+  position: relative;
+}
+.baseline-grid::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(255 0 0 / 0.08) 3px,
+    rgba(255 0 0 / 0.08) 4px
+  );
+  background-size: 100% 4px;
 }
 
 /* -------------------------------------------------------
