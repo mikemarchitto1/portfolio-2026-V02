@@ -1,9 +1,7 @@
-import React from "react";
-
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
 export default function Layout({ children }: LayoutProps) {
-  return <div className="mx-16 max-w-[1200px]">{children}</div>;
+  return (
+    <div className="w-full max-w-[1328px] mx-auto">
+      {children}
+    </div>
+  );
 }

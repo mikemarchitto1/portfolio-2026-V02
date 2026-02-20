@@ -370,9 +370,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROJECT CARDS — wrapper has no padding/margin; spacing from 64px inside each card */}
+        {/* PROJECT CARDS — full-width wrapper, no padding/margin; spacing from 64px inside each card */}
         <section className="w-full m-0 bg-lime-100">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3">
+          <div className="w-full grid grid-cols-1 md:grid-cols-3">
             {projects.map((project, i) => (
               <ProjectCard
                 key={i}
