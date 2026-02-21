@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Carl Walker Portfolio",
-  description: "Portfolio website for Carl Walker",
+  title: "Michael Marchitto Portfolio",
+  description: "Portfolio website for Michael Marchitto",
+  openGraph: {
+    title: "Michael Marchitto Portfolio",
+    description: "Portfolio website for Michael Marchitto",
+  },
 };
 
 export default function RootLayout({
