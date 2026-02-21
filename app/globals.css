@@ -108,6 +108,7 @@
 ------------------------------------------------------- */
 :root {
   --radius: 0.625rem;
+  --baseline: 4px;
 
   /* SURFACES */
   --background: oklch(100% 0 0);
@@ -253,8 +254,8 @@
     to bottom,
     transparent 0,
     transparent 3px,
-    rgba(255 0 0 / 0.08) 3px,
-    rgba(255 0 0 / 0.08) 4px
+    rgba(0 0 0 / 0.12) 3px,
+    rgba(0 0 0 / 0.12) 4px
   );
   background-size: 100% 4px;
 }
@@ -268,6 +269,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    line-height: 24px; /* 6 × 4px baseline — default text snaps to grid */
   }
 }
 

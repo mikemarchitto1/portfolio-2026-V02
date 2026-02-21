@@ -1,66 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
 import ProjectCard from "@/components/project-card/project-card";
 import HeroHeadline from "@/components/hero-headline/hero-headline";
-
-/* ---------------------------------------------
-   HEADER
----------------------------------------------- */
-function Header() {
-  return (
-    <header className="w-full m-0 p-[64px] bg-slate-100">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-start gap-3">
-        <Button
-          variant="outline"
-          size="icon"
-          className="rounded-full h-12 w-12 border border-border"
-        >
-          <PanelLeft className="h-5 w-5" />
-        </Button>
-
-        <Button
-          variant="outline"
-          size="icon"
-          className="rounded-full h-12 w-12 border border-border"
-        >
-          <Calendar className="h-5 w-5" />
-        </Button>
-
-        <Button
-          variant="outline"
-          className="rounded-full h-12 px-5 flex items-center gap-2 border border-border"
-        >
-          <MessageCircle className="h-5 w-5" />
-          <span className="text-body1 font-normal">Let’s Chat</span>
-        </Button>
-      </div>
-    </header>
-  );
-}
 
 /* ---------------------------------------------
    FOOTER
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="w-full m-0 p-[64px] bg-cyan-100">
-      <div className="max-w-[1200px] mx-auto text-left">
+    <footer className="w-full m-0 p-[16px] md:p-[32px] lg:p-[64px]">
+      <div className="w-full max-w-[1200px] mx-auto text-left">
         <h1 className="text-h1 font-light mb-6">Let’s Connect</h1>
 
-        <h4 className="text-h4 max-w-2xl mb-12 font-light">
+        <h4 className="text-h4 max-w-[66.666%] mb-16 font-light">
           I like teams that build meaningful things. If you’re exploring a new
           idea, I’m open to contract work and creative partnerships.
         </h4>
 
-        <div className="flex flex-col sm:flex-row justify-start gap-4">
+        <div className="flex flex-col sm:flex-row justify-start gap-3">
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full h-12 px-6 border border-border"
+            className="rounded-full border border-border"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -69,7 +32,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full h-12 px-6 border border-border"
+            className="rounded-full border border-border"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -80,7 +43,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full h-12 px-6 border border-border"
+            className="rounded-full border border-border"
             asChild
           >
             <a
@@ -103,7 +66,7 @@ function Footer() {
 const metrics = [
   { value: "10", label: "Years Working" },
   { value: "4", label: "Launches" },
-  { value: "8,000", label: "Hours Designing" },
+  { value: "350", label: "Testing Hours" },
   { value: "3", label: "AI Experiments" },
 ];
 
@@ -161,18 +124,16 @@ const projects = [
 export default function Home() {
   return (
     <>
-      <Header />
-
       <main className="min-h-screen m-0">
         <HeroHeadline />
 
         {/* HERO BODY */}
-        <section className="w-full m-0 p-[64px] bg-gray-100">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <section className="w-full m-0 p-[16px] md:p-[32px] lg:p-[64px]">
+          <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-start">
             <div className="max-w-xl">
-              <h2 className="text-h2 font-light mb-4">About me</h2>
+              <h2 className="text-h2 font-light mb-5">About me</h2>
 
-              <div className="space-y-4 text-body1">
+              <div className="space-y-5 text-body1">
                 <p>
                   I’m originally from Chicago, where I studied graphic design at UIC—a program rooted in Swiss and International design principles. That foundation shaped my early work in marketing and communications, where I developed a strong sense of visual design and story telling. I’ve always been drawn to typography, simple communication, and design that’s useful.
                 </p>
@@ -185,29 +146,30 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative h-[504px] w-full">
+            <div className="relative w-full aspect-square overflow-hidden">
               <Image
                 src="/images/thumb-large-profile.png"
                 alt="Mike profile"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
         </section>
 
         {/* EXPERIENCE + TECH STACK — title, metadata, and logos in one component */}
-        <section className="w-full m-0 p-[64px] bg-orange-100">
-          <div className="max-w-[1200px] mx-auto">
-            <h2 className="text-h2 font-light mb-12">
+        <section className="w-full m-0 p-[16px] md:p-[32px] lg:p-[64px]">
+          <div className="w-full max-w-[1200px] mx-auto">
+            <h2 className="text-h2 font-light mb-6">
               Experience and Tech Stack
             </h2>
-            <div className="grid grid-cols-12 gap-x-12 items-start">
-              {/* METADATA — col-span-6, internal grid-cols-6, each metric col-span-3 */}
-              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-6 min-w-0">
+            <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-8 lg:gap-x-12 items-start">
+              {/* METADATA — responsive cols and gutters */}
+              <div className="col-span-4 md:col-span-4 lg:col-span-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-4 md:gap-y-6 lg:gap-y-6 min-w-0">
                 {metrics.map((metric, i) => (
-                  <div key={i} className="col-span-3">
+                  <div key={i} className="col-span-1 md:col-span-2 lg:col-span-3">
                     <div className="text-h1 font-light mb-2">
                       {metric.value}
                     </div>
@@ -218,24 +180,24 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* LOGOS — col-span-6, row spacing so last row aligns with bottom of metadata */}
-              <div className="col-span-12 md:col-span-6 grid grid-cols-6 gap-x-12 gap-y-8 min-w-0 items-start pt-6">
+              {/* LOGOS — responsive cols and gutters */}
+              <div className="col-span-4 md:col-span-4 lg:col-span-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-4 md:gap-y-8 lg:gap-y-8 min-w-0 items-center pt-6">
                 {/* Row 1: Figma, n8n, Tailwind */}
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
                     className="w-[117px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
                     className="w-[122px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-tailwindcss.svg"
                     alt="Tailwind CSS"
@@ -243,21 +205,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 2: Cursor, GitHub, Shopify */}
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
                     className="w-[132px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
                     className="w-[125px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
@@ -265,21 +227,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 3: Webflow, Vercel, Hugging Face */}
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
                     className="w-[144px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
                     className="w-[119px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
@@ -287,21 +249,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 4: Next.js, Claude, OpenAI */}
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-next.svg"
                     alt="Next.js"
                     className="w-[114px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-claude.svg"
                     alt="Claude"
                     className="w-[129px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
                     src="/images/logo-openai.svg"
                     alt="OpenAI"
@@ -309,7 +271,7 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 5: 3 columns, each with a pair — Column 1: React+TS, Column 2: shadcn+Ollama, Column 3: Material+Fluent */}
-                <div className="col-span-2 flex items-center gap-x-[28px]">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2 flex items-center gap-x-[28px]">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
@@ -321,7 +283,7 @@ export default function Home() {
                     className="w-[37px] h-auto object-contain object-left"
                   />
                 </div>
-                <div className="col-span-2 flex items-center gap-x-[28px]">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2 flex items-center gap-x-[28px]">
                   <img
                     src="/images/logo-shadcn.svg"
                     alt="Shadcn UI"
@@ -332,8 +294,13 @@ export default function Home() {
                     alt="Ollama"
                     className="w-[32px] h-auto object-contain object-left"
                   />
+                  <img
+                    src="/images/logo-openrouter.svg"
+                    alt="OpenRouter"
+                    className="w-[32px] h-auto object-contain object-left"
+                  />
                 </div>
-                <div className="col-span-2 flex items-center gap-x-[28px]">
+                <div className="col-span-1 md:col-span-2 lg:col-span-2 flex items-center gap-x-[28px]">
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
@@ -350,8 +317,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROJECT CARDS — full-width wrapper, no padding/margin; spacing from 64px inside each card */}
-        <section className="w-full m-0 bg-lime-100">
+        {/* PROJECT CARDS — wrapper: no padding; grid: full width, gap only; cards: internal padding only */}
+        <section className="w-full max-w-[1328px] mx-auto m-0 p-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-3">
             {projects.map((project, i) => (
               <ProjectCard
