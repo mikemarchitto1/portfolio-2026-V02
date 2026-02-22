@@ -12,7 +12,7 @@ function Footer() {
   return (
     <footer className="m-0 p-[16px] md:p-[32px] lg:p-[64px] text-black">
       <div className="w-full max-w-[1200px] mx-auto text-left">
-        <h1 className="text-h1 font-light mb-0 text-black">Let’s Connect</h1>
+        <h1 className="text-h1 font-light mb-1 text-black">Let’s Connect</h1>
 
         <h4 className="text-h4 max-w-[50%] mb-16 font-light text-black">
           I like teams that build meaningful things. If you’re exploring a new
@@ -132,7 +132,7 @@ export default function Home() {
           <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-start">
             <div className="max-w-xl">
               <div>
-                <h2 className="text-h2 font-light mb-5">About me</h2>
+                <h2 className="text-h2 font-light mb-4">About me</h2>
               </div>
 
               <div className="space-y-5 text-body1">
@@ -172,7 +172,7 @@ export default function Home() {
         {/* EXPERIENCE */}
         <section className="m-0 p-[16px] md:p-[32px] lg:p-[64px]">
           <div className="w-full max-w-[1200px] mx-auto">
-            <div className="mb-6">
+            <div className="mb-4">
               <h2 className="text-h2 font-light m-0">
                 Experience
               </h2>
@@ -183,7 +183,7 @@ export default function Home() {
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-3 md:gap-y-5 lg:gap-y-5 min-w-0">
                   {metrics.map((metric, i) => (
                     <div key={i} className="col-span-1 md:col-span-2 lg:col-span-3">
-                      <div className="text-h1 font-light mb-0">
+                      <div className="text-h1 font-light mb-1">
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
                         ) : (

@@ -16,7 +16,7 @@ export default function ProjectCard({
   const content = (
     <div className="relative overflow-hidden p-[16px] md:p-[32px] lg:p-[64px] flex flex-col gap-4 m-0">
       <div
-        className="absolute inset-[-24px] z-20 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+        className="absolute -inset-[8px] md:inset-[8px] lg:inset-[40px] z-20 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
         aria-hidden
       />
       <div className="overflow-hidden relative z-10">

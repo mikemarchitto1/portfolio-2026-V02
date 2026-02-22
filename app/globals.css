@@ -115,14 +115,14 @@
   --card: oklch(100% 0 0);
   --popover: oklch(100% 0 0);
 
-  /* PURE BLACK TEXT */
-  --foreground: oklch(0% 0 0);
-  --card-foreground: oklch(0% 0 0);
-  --popover-foreground: oklch(0% 0 0);
-  --secondary-foreground: oklch(0% 0 0);
-  --muted-foreground: oklch(0% 0 0);
-  --accent-foreground: oklch(0% 0 0);
-  --sidebar-foreground: oklch(0% 0 0);
+  /* PURE BLACK TEXT — 100% black for all type scale / foreground */
+  --foreground: #000000;
+  --card-foreground: #000000;
+  --popover-foreground: #000000;
+  --secondary-foreground: #000000;
+  --muted-foreground: #000000;
+  --accent-foreground: #000000;
+  --sidebar-foreground: #000000;
 
   /* ACCENTS (unchanged) */
   --primary: oklch(20% 0 0);
@@ -270,6 +270,13 @@
   body {
     @apply bg-background text-foreground;
     line-height: 24px; /* 6 × 4px baseline — default text snaps to grid */
+  }
+  /* Button text: typography scale (500 medium) applied globally to all buttons */
+  button,
+  [role="button"] {
+    font-size: var(--font-size-button);
+    line-height: var(--line-height-button);
+    font-weight: var(--font-weight-button);
   }
 }
 

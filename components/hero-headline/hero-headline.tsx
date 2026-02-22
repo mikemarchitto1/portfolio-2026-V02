@@ -26,17 +26,17 @@ export default function HeroHeadline() {
             className="rounded-full flex items-center gap-2 border border-black text-black hover:bg-black/10 hover:text-black"
           >
             <BrainCircuit className="h-5 w-5 shrink-0" />
-            <span className="text-body1 font-normal">AI Exploration</span>
+            <span className="text-body1 font-medium">AI Exploration</span>
           </Button>
           <Button
             variant="outline"
             className="rounded-full flex items-center gap-2 border border-black text-black hover:bg-black/10 hover:text-black"
           >
             <MessageCircle className="h-5 w-5" />
-            <span className="text-body1 font-normal">Let’s Chat</span>
+            <span className="text-body1 font-medium">Let’s Chat</span>
           </Button>
         </div>
-        <h1 className="text-h1 font-light mb-0 text-black">Hi, I’m Mike</h1>
+        <h1 className="text-h1 font-light mb-1 text-black">Hi, I’m Mike</h1>
         <p className="text-h4 font-light max-w-[50%] text-black">
           I design insightful digital experiences for startups and global
           brands.
