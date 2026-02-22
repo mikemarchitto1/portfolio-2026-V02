@@ -6,23 +6,31 @@ import ProjectCard from "@/components/project-card/project-card";
 import HeroHeadline from "@/components/hero-headline/hero-headline";
 
 /* ---------------------------------------------
+   BACKGROUND COLORS TOGGLE
+   Set to true to show design/debug background colors on containers.
+   Prompt "turn background colors on" → true, "turn background colors off" → false.
+---------------------------------------------- */
+const SHOW_BACKGROUND_COLORS = false;
+const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
+
+/* ---------------------------------------------
    FOOTER
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="p-4 md:p-8 lg:p-16 text-black bg-[#f5f0f4]">
+    <footer className={`p-4 md:p-8 lg:p-16 text-black ${bg("#f5f0f4")}`}>
       <div className="w-full max-w-[1200px] mx-auto text-left flex flex-col">
-        <div className="bg-[#e0f2f7]">
+        <div className={bg("#e0f2f7")}>
           <h1 className="text-h1 font-light text-black">Let’s Connect</h1>
         </div>
 
-        <div className="bg-[#fef9c3]">
-          <h4 className="text-h4 max-w-[50%] font-light text-black">
+        <div className={bg("#fef9c3")}>
+          <h4 className="text-h4 max-w-[720px] font-light text-black">
           I'm interested in creative partnerships that are grounded in meaningful work.
           </h4>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-start gap-3 bg-[#f9e2f9] mt-16">
+        <div className={`flex flex-col sm:flex-row justify-start gap-3 ${bg("#f9e2f9")} mt-16`}>
           <Button
             variant="outline"
             size="lg"
@@ -145,7 +153,7 @@ function ProjectsGrid({
           description={project.description}
           image={project.image}
           href={project.href}
-          className={["bg-[#e0f2f7]", "bg-[#f9e2f9]", "bg-[#fef9c3]", "bg-[#d1fae5]", "bg-[#fce7f3]", "bg-[#e0e7ff]"][i]}
+          className={SHOW_BACKGROUND_COLORS ? ["bg-[#e0f2f7]", "bg-[#faf5ff]", "bg-[#fef9c3]", "bg-[#d1fae5]", "bg-[#fce7f3]", "bg-[#e0e7ff]"][i] : ""}
         />
       ))}
     </div>
@@ -159,29 +167,29 @@ export default function Home() {
   return (
     <>
       <main className="min-h-screen">
-        <HeroHeadline />
+        <HeroHeadline showBackgroundColors={SHOW_BACKGROUND_COLORS} />
 
         {/* HERO BODY — full bleed: no horizontal padding so both columns touch viewport edges */}
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 p-16 bg-[#f0fdf4]">
-              <div className="bg-[#e0f2f7]">
+            <div className={`w-full min-w-0 p-16 ${bg("#f0fdf4")}`}>
+              <div className={`${bg("#e0f2f7")} mb-[40px]`}>
                 <h2 className="text-h2 font-light">About Me</h2>
               </div>
-              <div className="text-body1">
-                <p className="bg-[#fef9c3]">
+              <div className="text-body1 space-y-4">
+                <p className={bg("#fef9c3")}>
                   I’m originally from Chicago, where I studied graphic design at UIC—a program rooted in Swiss and International design principles. That foundation shaped my early work in marketing and communications, where I developed a strong sense of visual design and story telling.
                 </p>
-                <p className="bg-[#f9e2f9]">
+                <p className={bg("#f9e2f9")}>
                   After relocating to Seattle, I moved into UX, drawn to digital design and the need for better product experiences. Over the years, I’ve worked across corporations, agencies, and startups—advocating for user‑centered design.
                 </p>
-                <p className="bg-[#e0e7ff]">
+                <p className={bg("#e0e7ff")}>
                   Currently based in Miami, I’m a cyclist and outdoors enthusiast. Time outside helps reset and balance my life. Whether riding through city streets or remote gravel paths, I’m always looking for great scenic routes to the next bike camping destination.
                 </p>
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 bg-[#f9e2f9]">
+            <div className={`w-full min-w-0 p-16 ${bg("#f9e2f9")}`}>
               <div className="relative w-full aspect-square overflow-hidden pt-16">
                 <Image
                   src="/images/profile-king-1.png"
@@ -200,8 +208,8 @@ export default function Home() {
         <section className="pb-4 md:pb-8 lg:pb-16 pt-0 px-0">
           <div className="w-full grid grid-cols-2 gap-0">
             {/* Experience module */}
-            <div className="p-16 bg-[#faf5ff]">
-              <div className="bg-[#e0f2f7]">
+            <div className={`p-16 ${bg("#faf5ff")}`}>
+              <div className={`${bg("#e0f2f7")} mb-[28px]`}>
                 <h2 className="text-h2 font-light text-left">
                   Experience
                 </h2>
@@ -209,15 +217,15 @@ export default function Home() {
               <div className="numbers-anchor">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-0 min-w-0">
                   {metrics.map((metric, i) => (
-                    <div key={i} className="col-span-1 md:col-span-2 lg:col-span-3">
-                      <div className="text-h1 font-light -mb-1 bg-[#d1fae5] py-0">
+                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 ${i < 2 ? "mb-6" : ""}`}>
+                      <div className={`text-h1 font-light -mb-1 ${bg("#d1fae5")} py-0`}>
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
                         ) : (
                           metric.value
                         )}
                       </div>
-                      <div className="text-h4 font-normal text-foreground bg-[#fce7f3]">
+                      <div className={`text-h4 font-normal text-foreground ${bg("#fce7f3")}`}>
                         {metric.label}
                       </div>
                     </div>
@@ -227,27 +235,29 @@ export default function Home() {
             </div>
 
             {/* Tools module */}
-            <div className="p-16 bg-[#e0e7ff]">
-              <h2 className="text-h2 font-light text-left pb-8">
-                Tools
-              </h2>
-              <div className="pt-5 grid grid-cols-3 gap-x-12 gap-y-0 min-w-0 content-start items-center">
+            <div className={`p-16 ${bg("#e0e7ff")}`}>
+              <div className={`${bg("#fef9c3")} py-0 mb-7`}>
+                <h2 className="text-h2 font-light text-left py-0">
+                  Tools
+                </h2>
+              </div>
+              <div className="pt-5 grid grid-cols-3 gap-x-12 gap-y-12 min-w-0 content-start items-center">
                 {/* Row 1: Figma, Cursor, OpenAI */}
-                <div className="min-w-0 flex items-center justify-start bg-[#e0f2f7]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#e0f2f7")}`}>
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#fef9c3]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#fef9c3")}`}>
                   <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#f9e2f9]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#f9e2f9")}`}>
                   <img
                     src="/images/logo-openai.svg"
                     alt="OpenAI"
@@ -255,21 +265,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 2: Webflow, Next.js, Claude */}
-                <div className="min-w-0 flex items-center justify-start bg-[#d1fae5]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#d1fae5")}`}>
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#fce7f3]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#fce7f3")}`}>
                   <img
                     src="/images/logo-next.svg"
                     alt="Next.js"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#fef9c3]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#fef9c3")}`}>
                   <img
                     src="/images/logo-claude.svg"
                     alt="Claude"
@@ -277,21 +287,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 3: Shopify, TailwindCSS, Hugging Face */}
-                <div className="min-w-0 flex items-center justify-start bg-[#f0fdf4]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#f0fdf4")}`}>
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#f5f0f4]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#f5f0f4")}`}>
                   <img
                     src="/images/logo-tailwindcss.svg"
                     alt="Tailwind CSS"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#faf5ff]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#faf5ff")}`}>
                   <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
@@ -299,21 +309,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 4: n8n, Github, Vercel */}
-                <div className="min-w-0 flex items-center justify-start bg-[#e0f2f7]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#e0f2f7")}`}>
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#fef9c3]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#fef9c3")}`}>
                   <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start bg-[#f9e2f9]">
+                <div className={`min-w-0 flex items-center justify-start ${bg("#f9e2f9")}`}>
                   <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
@@ -321,7 +331,7 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 5: Material+Fluent, React+TS+shadcn, Ollama+OpenRouter */}
-                <div className="min-w-0 flex items-center justify-start gap-x-4 bg-[#d1fae5]">
+                <div className={`min-w-0 flex items-center justify-start gap-x-4 ${bg("#d1fae5")}`}>
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
@@ -333,7 +343,7 @@ export default function Home() {
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start gap-x-4 bg-[#fce7f3]">
+                <div className={`min-w-0 flex items-center justify-start gap-x-4 ${bg("#fce7f3")}`}>
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
@@ -350,7 +360,7 @@ export default function Home() {
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start gap-x-4 bg-[#fef9c3]">
+                <div className={`min-w-0 flex items-center justify-start gap-x-4 ${bg("#fef9c3")}`}>
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
@@ -359,7 +369,7 @@ export default function Home() {
                   <img
                     src="/images/logo-openrouter.svg"
                     alt="OpenRouter"
-                    className="max-w-full h-auto object-contain object-left scale-105"
+                    className="max-w-full h-auto object-contain object-left scale-[1.2]"
                   />
                 </div>
               </div>
@@ -368,10 +378,12 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — no top padding so flush with Experience/Tools above */}
-        <section className="pt-0 p-0 flex flex-col bg-[#f5f0f4]">
+        <section className={`pt-0 p-0 flex flex-col ${bg("#f5f0f4")}`}>
           <div className="w-full max-w-[1200px] mx-auto flex-1 min-h-0 flex flex-col w-full">
-            <h2 className="text-h2 font-light text-left pb-4">Projects</h2>
-            <div className="flex-1 min-h-0 -mx-4 md:-mx-8 lg:-mx-16 w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] bg-[#e8e4e8]">
+            <div className={`${bg("#f9e2f9")} py-0`}>
+              <h2 className="text-h2 font-light text-left py-0">Projects</h2>
+            </div>
+            <div className={`flex-1 min-h-0 -mx-4 md:-mx-8 lg:-mx-16 w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] ${bg("#e8e4e8")}`}>
               <ProjectsGrid projects={projects} />
             </div>
           </div>

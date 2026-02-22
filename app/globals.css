@@ -381,3 +381,13 @@
     font-weight: var(--font-weight-overline);
   }
 }
+
+/* -------------------------------------------------------
+   BACKGROUND COLORS TOGGLE (must be last to override Tailwind)
+   When data-background-colors="off", hide all container bg colors.
+   Toggle via SHOW_BACKGROUND_COLORS in app/page.tsx.
+------------------------------------------------------- */
+[data-background-colors="off"] [class*="bg-"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
