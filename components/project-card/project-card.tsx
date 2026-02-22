@@ -18,11 +18,11 @@ export default function ProjectCard({
       className="overflow-hidden flex flex-col w-full h-full min-h-0 p-4 md:p-8 lg:p-16 gap-4"
       data-project-card-content
     >
-      {/* Content box: overlay is positioned relative to this (excludes card padding) */}
-      <div className="relative flex flex-col gap-4 flex-1 min-h-0">
-        {/* Hover overlay: covers content box only, expands 24px beyond; fade only */}
+      {/* Content box: overlay + group hover trigger (hover only when mouse is on content) */}
+      <div className="group relative flex flex-col gap-4 flex-1 min-h-0">
+        {/* Hover overlay: starts flush (inset-0), expands 24px on hover; inset + opacity only */}
         <div
-          className="absolute -top-[24px] -left-[24px] -right-[24px] -bottom-[24px] z-20 bg-black/15 opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none"
+          className="absolute inset-0 z-20 bg-black/5 opacity-0 transition-all duration-200 ease-out pointer-events-none group-hover:opacity-100 group-hover:-top-[24px] group-hover:-left-[24px] group-hover:-right-[24px] group-hover:-bottom-[24px]"
           aria-hidden
         />
         <div className="overflow-hidden relative z-10">
@@ -31,7 +31,7 @@ export default function ProjectCard({
             alt={title}
             width={1200}
             height={800}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover transition-transform duration-200 ease-out group-hover:scale-[1.02]"
           />
         </div>
 
@@ -46,7 +46,7 @@ export default function ProjectCard({
     return (
       <a
         href={href}
-        className="group block w-full h-full min-h-0 no-underline text-foreground flex flex-col items-stretch"
+        className="block w-full h-full min-h-0 no-underline text-foreground flex flex-col items-stretch"
       >
         {content}
       </a>
@@ -54,7 +54,7 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="group block w-full h-full min-h-0 flex flex-col items-stretch">
+    <div className="block w-full h-full min-h-0 flex flex-col items-stretch">
       {content}
     </div>
   );
