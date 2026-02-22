@@ -75,7 +75,7 @@ function Footer() {
    METRICS
 ---------------------------------------------- */
 const metrics = [
-  { value: "10", label: "Years Worked" },
+  { value: "10", label: "Years Work" },
   { value: "4", label: "Launches" },
   { value: "350", label: "Test Hours" },
   { value: "3", label: "AI Studies" },
@@ -369,7 +369,7 @@ export default function Home() {
                   <img
                     src="/images/logo-openrouter.svg"
                     alt="OpenRouter"
-                    className="max-w-full h-auto object-contain object-left scale-[1.2]"
+                    className="max-w-full h-auto object-contain object-left scale-[1.25]"
                   />
                 </div>
               </div>
