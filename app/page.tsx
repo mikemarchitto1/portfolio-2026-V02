@@ -15,7 +15,7 @@ function Footer() {
         <h1 className="text-h1 font-light text-black">Let’s Connect</h1>
 
         <h4 className="text-h4 max-w-[50%] font-light text-black pt-3 pb-16">
-          If you like building meaningful things, I'm open to creative partnerships.
+          I'm interested in creative partnerships grounded in meaningful work.
         </h4>
 
         <div className="flex flex-col sm:flex-row justify-start gap-3">
@@ -187,12 +187,6 @@ export default function Home() {
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
-              <div className="pt-6">
-                <blockquote className="text-foreground text-center font-normal">
-                  <p className="italic text-body2">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                  <cite className="not-italic pt-2 block text-body2">&mdash; Ralph Waldo Emerson</cite>
-                </blockquote>
               </div>
             </div>
           </div>
