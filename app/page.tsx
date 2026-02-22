@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card/project-card";
@@ -10,13 +11,12 @@ import HeroHeadline from "@/components/hero-headline/hero-headline";
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="m-0 p-[16px] md:p-[32px] lg:p-[64px] text-black">
-      <div className="w-full max-w-[1200px] mx-auto text-left">
-        <h1 className="text-h1 font-light mb-1 text-black">Let’s Connect</h1>
+    <footer className="p-4 md:p-8 lg:p-16 bg-violet-50 text-black">
+      <div className="w-full max-w-[1200px] mx-auto text-left flex flex-col">
+        <h1 className="text-h1 font-light text-black">Let’s Connect</h1>
 
-        <h4 className="text-h4 max-w-[50%] mb-16 font-light text-black">
-          I like teams that build meaningful things. If you’re exploring a new
-          idea, I’m open to contract work and creative partnerships.
+        <h4 className="text-h4 max-w-[50%] font-light text-black pt-3 pb-16">
+          If you like building meaningful things, I'm open to creative partnerships.
         </h4>
 
         <div className="flex flex-col sm:flex-row justify-start gap-3">
@@ -119,20 +119,78 @@ const projects = [
 ];
 
 /* ---------------------------------------------
+   PROJECTS GRID — sets --project-card-min-height from tallest card so all hover overlays match
+---------------------------------------------- */
+function ProjectsGrid({
+  projects,
+}: {
+  projects: Array<{
+    title: string;
+    description: string;
+    image: string;
+    href?: string;
+  }>;
+}) {
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const setMinHeight = () => {
+      const contents = grid.querySelectorAll<HTMLElement>("[data-project-card-content]");
+      if (contents.length === 0) return;
+      let max = 0;
+      contents.forEach((el) => {
+        const h = el.getBoundingClientRect().height;
+        if (h > max) max = h;
+      });
+      grid.style.setProperty("--project-card-min-height", `${max}px`);
+    };
+
+    const raf = requestAnimationFrame(() => setMinHeight());
+    const ro = new ResizeObserver(() => setMinHeight());
+    ro.observe(grid);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
+  }, [projects]);
+
+  return (
+    <div
+      ref={gridRef}
+      className="w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] grid grid-cols-1 md:grid-cols-3 -ml-4 md:-ml-8 lg:-ml-16"
+    >
+      {projects.map((project, i) => (
+        <ProjectCard
+          key={i}
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          href={project.href}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ---------------------------------------------
    PAGE
 ---------------------------------------------- */
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen m-0">
+      <main className="min-h-screen">
         <HeroHeadline />
 
         {/* HERO BODY */}
-        <section className="m-0 p-[16px] md:p-[32px] lg:p-[64px]">
+        <section className="p-4 md:p-8 lg:p-16 bg-yellow-50">
           <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-start">
             <div className="max-w-xl">
               <div>
-                <h2 className="text-h2 font-light mb-4">About me</h2>
+                <h2 className="text-h2 font-light pb-5">About me</h2>
               </div>
 
               <div className="space-y-5 text-body1">
@@ -151,7 +209,7 @@ export default function Home() {
             <div className="w-full">
               <div className="relative w-full aspect-square overflow-hidden">
                 <Image
-                  src="/images/profile_king.png"
+                  src="/images/profile-king-1.png"
                   alt="Mike profile"
                   fill
                   className="object-cover object-center"
@@ -159,10 +217,10 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="mt-6">
-                <blockquote className="mt-0 text-foreground text-center font-normal">
-                  <p className="m-0 italic text-body2">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                  <cite className="not-italic mt-2 block text-body2">&mdash; Ralph Waldo Emerson</cite>
+              <div className="pt-6">
+                <blockquote className="text-foreground text-center font-normal">
+                  <p className="italic text-body2">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
+                  <cite className="not-italic pt-2 block text-body2">&mdash; Ralph Waldo Emerson</cite>
                 </blockquote>
               </div>
             </div>
@@ -170,12 +228,20 @@ export default function Home() {
         </section>
 
         {/* EXPERIENCE */}
-        <section className="m-0 p-[16px] md:p-[32px] lg:p-[64px]">
+        <section className="p-4 md:p-8 lg:p-16 bg-pink-50">
           <div className="w-full max-w-[1200px] mx-auto">
-            <div className="mb-4">
-              <h2 className="text-h2 font-light m-0">
+            <div className="pb-8">
+              <h2 className="text-h2 font-light">
                 Experience
               </h2>
+            </div>
+            {/* Column subtitles — body2 all caps; column spans match content below for flush alignment */}
+            <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-8 lg:gap-x-12 pb-4 text-body2 !font-medium uppercase text-foreground">
+              <span className="col-span-1 md:col-span-2 lg:col-span-3">TENURE</span>
+              <span className="col-span-1 md:col-span-2 lg:col-span-3">OUTPUT</span>
+              <span className="col-span-1 md:col-span-2 lg:col-span-2">DESIGN</span>
+              <span className="col-span-1 md:col-span-1 lg:col-span-2">DEVELOPMENT</span>
+              <span className="col-span-1 md:col-span-1 lg:col-span-2">INFRASTRUCTURE</span>
             </div>
             <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-6 items-stretch">
               {/* NUMERIC ROWS — vertical alignment anchor for logos */}
@@ -183,7 +249,7 @@ export default function Home() {
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-3 md:gap-y-5 lg:gap-y-5 min-w-0">
                   {metrics.map((metric, i) => (
                     <div key={i} className="col-span-1 md:col-span-2 lg:col-span-3">
-                      <div className="text-h1 font-light mb-1">
+                      <div className="text-h1 font-light -mb-1">
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
                         ) : (
@@ -199,7 +265,7 @@ export default function Home() {
               </div>
 
               {/* LOGOS — top aligns with .numbers-anchor; h-full matches left column height; offset down 64px */}
-              <div className="col-span-4 md:col-span-4 lg:col-span-6 h-full mt-[24px] grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-7 md:gap-y-9 lg:gap-y-9 min-w-0 content-start items-center">
+              <div className="col-span-4 md:col-span-4 lg:col-span-6 h-full pt-6 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-[26px] md:gap-y-[34px] lg:gap-y-[34px] min-w-0 content-start items-center">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="col-span-1 md:col-span-2 lg:col-span-2">
                   <img
@@ -335,20 +401,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROJECT CARDS — no section padding so card content aligns flush with content above/below */}
-        <section className="m-0 p-0">
+        {/* PROJECT CARDS */}
+        <section className="p-4 md:p-8 lg:p-16 bg-blue-50">
           <div className="w-full max-w-[1200px] mx-auto overflow-visible">
-            <div className="w-[calc(100%+32px)] md:w-[calc(100%+64px)] lg:w-[calc(100%+128px)] grid grid-cols-1 md:grid-cols-3 -ml-[16px] md:-ml-[32px] lg:-ml-[64px]">
-              {projects.map((project, i) => (
-                <ProjectCard
-                  key={i}
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  href={project.href}
-                />
-              ))}
-            </div>
+            <h2 className="text-body2 !font-medium uppercase text-foreground -ml-4 md:-ml-8 lg:-ml-16 pl-4 md:pl-8 lg:pl-16 pb-0 -mb-6">
+              PROJECTS
+            </h2>
+            <ProjectsGrid projects={projects} />
           </div>
         </section>
       </main>

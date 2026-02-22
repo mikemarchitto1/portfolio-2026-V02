@@ -4,9 +4,9 @@ import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
 
 export default function HeroHeadline() {
   return (
-    <section className="m-0 py-[16px] md:py-[32px] lg:py-[64px] text-white">
+    <section className="p-4 md:p-8 lg:p-16 bg-violet-50 text-white">
       <div className="w-full max-w-[1200px] mx-auto">
-        <div className="flex items-center justify-start gap-3 mb-16">
+        <div className="flex items-center justify-start gap-3 pb-16">
           <Button
             variant="outline"
             size="icon"
@@ -36,8 +36,8 @@ export default function HeroHeadline() {
             <span className="text-body1 font-medium">Let’s Chat</span>
           </Button>
         </div>
-        <h1 className="text-h1 font-light mb-1 text-black">Hi, I’m Mike</h1>
-        <p className="text-h4 font-light max-w-[50%] text-black">
+        <h1 className="text-h1 font-light text-black">Hi, I’m Mike</h1>
+        <p className="text-h4 font-light max-w-[50%] text-black pt-3">
           I design insightful digital experiences for startups and global
           brands.
         </p>
