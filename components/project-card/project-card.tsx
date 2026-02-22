@@ -5,6 +5,7 @@ export interface ProjectCardProps {
   description: string;
   image: string;
   href?: string;
+  className?: string;
 }
 
 export default function ProjectCard({
@@ -12,10 +13,11 @@ export default function ProjectCard({
   description,
   image,
   href,
+  className,
 }: ProjectCardProps) {
   const content = (
     <div
-      className="overflow-hidden flex flex-col w-full h-full min-h-0 p-4 md:p-8 lg:p-16 gap-4"
+      className={`overflow-hidden flex flex-col w-full h-full min-h-0 p-4 md:p-8 lg:p-16 gap-4 ${className ?? "bg-white"}`}
       data-project-card-content
     >
       {/* Content box: overlay + group hover trigger (hover only when mouse is on content) */}

@@ -17,7 +17,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-roboto);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -258,6 +258,34 @@
     rgba(0 0 0 / 0.7) 4px
   );
   background-size: 100% 4px;
+}
+
+/* -------------------------------------------------------
+   12-COLUMN GRID — Debug overlay (Summary Table of Grid)
+   Canvas 1328px, Content 1200px (grid = 1104px: 12×48px + 11×48px gutters), margins 64px L/R
+   Grid is 1104px wide, centered in 1200px content (48px inset each side).
+-------------------------------------------------------- */
+.column-grid {
+  position: relative;
+}
+.column-grid::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  /* Align with main content edges: 64px margins, max 1200px */
+  left: 64px;
+  width: min(1200px, calc(100vw - 128px));
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2147483647;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.4) 0px,
+    rgba(255, 0, 0, 0.4) 2px,
+    transparent 2px,
+    transparent 48px
+  );
+  background-size: 48px 100%;
 }
 
 /* -------------------------------------------------------
