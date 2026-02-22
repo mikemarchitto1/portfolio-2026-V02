@@ -16,32 +16,35 @@ export default function Header({
   onOpenChat,
 }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-40 bg-background border-b border-border">
+    <header className="sticky top-0 z-40 border-b border-black/20 text-black [&_*]:text-black [&_*]:hover:text-black">
       <div className="h-16 flex items-center justify-start gap-2 px-4 md:px-16 max-w-[1200px] mx-auto">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onOpenLeftSidebar}
-          aria-label="Open sidebar"
-        >
-          <PanelLeft className="h-6 w-6" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onOpenCalendar}
-          aria-label="Open calendar"
-        >
-          <Calendar className="h-6 w-6" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onOpenChat}
-          aria-label="Open chat"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onOpenLeftSidebar}
+            aria-label="Open sidebar"
+            className="text-black hover:bg-black/10 hover:text-black [&_svg]:text-black"
+          >
+            <PanelLeft className="h-6 w-6" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onOpenCalendar}
+            aria-label="Open calendar"
+            className="text-black hover:bg-black/10 hover:text-black [&_svg]:text-black"
+          >
+            <Calendar className="h-6 w-6" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onOpenChat}
+            aria-label="Open chat"
+            className="text-black hover:bg-black/10 hover:text-black [&_svg]:text-black"
+          >
+            <MessageCircle className="h-6 w-6" />
+          </Button>
       </div>
     </header>
   );
