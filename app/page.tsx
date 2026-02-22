@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card/project-card";
@@ -119,7 +118,7 @@ const projects = [
 ];
 
 /* ---------------------------------------------
-   PROJECTS GRID — sets --project-card-min-height from tallest card so all hover overlays match
+   PROJECTS GRID — responsive grid; cards use natural height, no stretch
 ---------------------------------------------- */
 function ProjectsGrid({
   projects,
@@ -131,37 +130,9 @@ function ProjectsGrid({
     href?: string;
   }>;
 }) {
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-
-    const setMinHeight = () => {
-      const contents = grid.querySelectorAll<HTMLElement>("[data-project-card-content]");
-      if (contents.length === 0) return;
-      let max = 0;
-      contents.forEach((el) => {
-        const h = el.getBoundingClientRect().height;
-        if (h > max) max = h;
-      });
-      grid.style.setProperty("--project-card-min-height", `${max}px`);
-    };
-
-    const raf = requestAnimationFrame(() => setMinHeight());
-    const ro = new ResizeObserver(() => setMinHeight());
-    ro.observe(grid);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      ro.disconnect();
-    };
-  }, [projects]);
-
   return (
     <div
-      ref={gridRef}
-      className="w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] grid grid-cols-1 md:grid-cols-3 -ml-4 md:-ml-8 lg:-ml-16"
+      className="w-full h-full min-h-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 m-0 p-0 items-stretch auto-rows-fr"
     >
       {projects.map((project, i) => (
         <ProjectCard
@@ -401,12 +372,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROJECT CARDS */}
-        <section className="p-4 md:p-8 lg:p-16 bg-blue-50">
-          <div className="w-full max-w-[1200px] mx-auto overflow-visible">
-            <h2 className="text-body2 !font-medium uppercase text-foreground -ml-4 md:-ml-8 lg:-ml-16 pl-4 md:pl-8 lg:pl-16 pb-0 -mb-6">
-              PROJECTS
-            </h2>
+        {/* PROJECT CARDS — section fills viewport height; cards stretch to fill */}
+        <section className="bg-[#B0A3FF] m-0 p-0 min-h-screen flex flex-col">
+          <h2 className="text-body2 !font-medium uppercase text-foreground pl-4 md:pl-8 lg:pl-16 pr-4 md:pr-8 lg:pr-16 pt-0 pb-0 -mb-6 flex-none">
+            PROJECTS
+          </h2>
+          <div className="w-full m-0 p-0 flex-1 min-h-0">
             <ProjectsGrid projects={projects} />
           </div>
         </section>
