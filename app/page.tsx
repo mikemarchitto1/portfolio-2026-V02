@@ -10,7 +10,7 @@ import HeroHeadline from "@/components/hero-headline/hero-headline";
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="p-4 md:p-8 lg:p-16 bg-violet-50 text-black">
+    <footer className="p-4 md:p-8 lg:p-16 text-black">
       <div className="w-full max-w-[1200px] mx-auto text-left flex flex-col">
         <h1 className="text-h1 font-light text-black">Let’s Connect</h1>
 
@@ -157,7 +157,7 @@ export default function Home() {
         <HeroHeadline />
 
         {/* HERO BODY */}
-        <section className="p-4 md:p-8 lg:p-16 bg-yellow-50">
+        <section className="p-4 md:p-8 lg:p-16">
           <div className="w-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-start">
             <div className="max-w-xl">
               <div>
@@ -199,20 +199,12 @@ export default function Home() {
         </section>
 
         {/* EXPERIENCE */}
-        <section className="p-4 md:p-8 lg:p-16 bg-pink-50">
+        <section className="p-4 md:p-8 lg:p-16">
           <div className="w-full max-w-[1200px] mx-auto">
             <div className="pb-8">
               <h2 className="text-h2 font-light">
                 Experience
               </h2>
-            </div>
-            {/* Column subtitles — body2 all caps; column spans match content below for flush alignment */}
-            <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-8 lg:gap-x-12 pb-4 text-body2 !font-medium uppercase text-foreground">
-              <span className="col-span-1 md:col-span-2 lg:col-span-3">TENURE</span>
-              <span className="col-span-1 md:col-span-2 lg:col-span-3">OUTPUT</span>
-              <span className="col-span-1 md:col-span-2 lg:col-span-2">DESIGN</span>
-              <span className="col-span-1 md:col-span-1 lg:col-span-2">DEVELOPMENT</span>
-              <span className="col-span-1 md:col-span-1 lg:col-span-2">INFRASTRUCTURE</span>
             </div>
             <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-4 md:gap-x-8 lg:gap-x-12 gap-y-6 items-stretch">
               {/* NUMERIC ROWS — vertical alignment anchor for logos */}
@@ -373,10 +365,7 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — section fills viewport height; cards stretch to fill */}
-        <section className="bg-[#B0A3FF] m-0 p-0 min-h-screen flex flex-col">
-          <h2 className="text-body2 !font-medium uppercase text-foreground pl-4 md:pl-8 lg:pl-16 pr-4 md:pr-8 lg:pr-16 pt-0 pb-0 -mb-6 flex-none">
-            PROJECTS
-          </h2>
+        <section className="m-0 p-0 min-h-screen flex flex-col">
           <div className="w-full m-0 p-0 flex-1 min-h-0">
             <ProjectsGrid projects={projects} />
           </div>

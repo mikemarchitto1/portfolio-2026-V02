@@ -4,7 +4,7 @@ import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
 
 export default function HeroHeadline() {
   return (
-    <section className="p-4 md:p-8 lg:p-16 bg-violet-50 text-white">
+    <section className="p-4 md:p-8 lg:p-16 text-white">
       <div className="w-full max-w-[1200px] mx-auto">
         <div className="flex items-center justify-start gap-3 pb-16">
           <Button
