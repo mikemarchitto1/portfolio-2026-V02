@@ -26,7 +26,7 @@ function Footer() {
 
         <div className={bg("#fef9c3")}>
           <h4 className="text-h4 max-w-[720px] font-light text-black">
-          I'm interested in creative partnerships that are grounded in meaningful work.
+          I'm interested in creative partnerships shaped by purposeful work.
           </h4>
         </div>
 
