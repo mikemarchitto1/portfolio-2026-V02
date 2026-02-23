@@ -23,7 +23,7 @@ export default function Header({
             size="icon"
             onClick={onOpenLeftSidebar}
             aria-label="Open sidebar"
-            className="text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <PanelLeft className="h-6 w-6" />
           </Button>
@@ -32,7 +32,7 @@ export default function Header({
             size="icon"
             onClick={onOpenCalendar}
             aria-label="Open calendar"
-            className="text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <Calendar className="h-6 w-6" />
           </Button>
@@ -41,7 +41,7 @@ export default function Header({
             size="icon"
             onClick={onOpenChat}
             aria-label="Open chat"
-            className="text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <MessageCircle className="h-6 w-6" />
           </Button>

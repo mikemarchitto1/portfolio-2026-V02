@@ -16,27 +16,27 @@ export default function HeroHeadline({
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full border border-black text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <PanelLeft className="h-5 w-5" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full border border-black text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <Calendar className="h-5 w-5" />
           </Button>
           <Button
             variant="outline"
-            className="rounded-full flex items-center gap-2 border border-black text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="rounded-full flex items-center gap-2 border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <BrainCircuit className="h-5 w-5 shrink-0" />
             <span className="text-body1 font-medium">AI Exploration</span>
           </Button>
           <Button
             variant="outline"
-            className="rounded-full flex items-center gap-2 border border-black text-black hover:bg-black/5 hover:text-black [&_svg]:text-black"
+            className="rounded-full flex items-center gap-2 border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
           >
             <MessageCircle className="h-5 w-5" />
             <span className="text-body1 font-medium">Let's Chat</span>

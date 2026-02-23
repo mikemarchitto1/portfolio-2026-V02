@@ -34,7 +34,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-black text-black hover:bg-black/5 hover:text-black"
+            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -43,7 +43,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-black text-black hover:bg-black/5 hover:text-black"
+            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -54,7 +54,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-black text-black hover:bg-black/5 hover:text-black"
+            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black"
             asChild
           >
             <a
@@ -179,7 +179,7 @@ export default function Home() {
         {/* HERO BODY — full bleed: no horizontal padding so both columns touch viewport edges */}
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 p-16 bg-[#f0f0f0] text-black">
+            <div className="w-full min-w-0 p-16 bg-[#f6f6f6] text-black">
               <div className={`${bg("#e0f2f7")} mb-[40px]`}>
                 <h2 className="text-h2 font-light text-black">About Me</h2>
               </div>
@@ -196,7 +196,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 bg-[#f0f0f0]">
+            <div className="w-full min-w-0 p-16 bg-[#f6f6f6]">
               <div className="relative w-full aspect-square overflow-hidden pt-16">
                 <Image
                   src="/images/profile-king-1.png"
@@ -392,7 +392,7 @@ export default function Home() {
         {/* PROJECT CARDS — no top padding so flush with Experience/Tools above */}
         <section className={`pt-0 p-0 flex flex-col ${bg("#f5f0f4")}`}>
           <div className="w-full max-w-[1200px] mx-auto flex-1 min-h-0 flex flex-col w-full">
-            <div className="flex-1 min-h-0 -mx-4 md:-mx-8 lg:-mx-16 w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] bg-[#f0f0f0]">
+            <div className="flex-1 min-h-0 -mx-4 md:-mx-8 lg:-mx-16 w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] bg-[#f6f6f6]">
               <h2 className="text-h2 font-light text-left py-0 pt-4 md:pt-8 lg:pt-16 px-4 md:px-8 lg:px-16 text-black">Projects</h2>
               <ProjectsGrid projects={projects} />
             </div>
