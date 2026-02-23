@@ -17,7 +17,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const content = (
     <div
-      className={`overflow-hidden flex flex-col w-full h-full min-h-0 p-4 md:p-8 lg:p-16 gap-4 ${className ?? "bg-white"}`}
+      className={`overflow-hidden flex flex-col w-full h-full min-h-0 p-4 md:p-8 lg:p-16 gap-4 ${className ?? "bg-transparent"}`}
       data-project-card-content
     >
       {/* Content box: overlay + group hover trigger (hover only when mouse is on content) */}
