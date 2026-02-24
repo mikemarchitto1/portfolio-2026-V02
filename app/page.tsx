@@ -189,7 +189,7 @@ export default function Home() {
             </div>
 
             <div className="w-full min-w-0 p-16">
-              <div className="relative w-full aspect-square overflow-hidden pt-16">
+              <div className="relative w-full aspect-square overflow-hidden rounded-lg pt-16">
                 <Image
                   src="/images/profile-king-1.png"
                   alt="Mike profile"
@@ -210,18 +210,18 @@ export default function Home() {
         {/* EXPERIENCE — full width, 50/50 grid so Tools aligns flush with hero image left edge; no top/bottom padding so flush with hero and Projects */}
         <section className="pb-0 pt-0 px-0">
           <div className="w-full grid grid-cols-2 gap-0">
-            {/* Experience module */}
-            <div className="p-16 bg-[oklch(0%_0_0)] text-[oklch(100%_0_0)]">
+            {/* Experience module — column stretches to match Tech Stack; metadata box fills and adds space at bottom */}
+            <div className="p-16 text-black flex flex-col min-h-0">
               <div className="mb-[28px]">
                 <h2 className="text-h2 font-light text-left text-inherit">
-                  Experience
+                  Impact Metrics
                 </h2>
               </div>
-              <div className="numbers-anchor">
+              <div className="numbers-anchor bg-black text-white pt-[28px] px-[48px] pb-[48px] rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-0 min-w-0">
                   {metrics.map((metric, i) => (
-                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 ${i < 2 ? "mb-6" : ""}`}>
-                      <div className="text-h1 font-light -mb-1 py-0 text-inherit">
+                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 ${i < 2 ? "mb-8" : ""}`}>
+                      <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
                         ) : (
@@ -238,29 +238,30 @@ export default function Home() {
             </div>
 
             {/* Tools module */}
-            <div className="p-16 bg-[oklch(92%_0_0)] text-foreground">
+            <div className="p-16 text-foreground flex flex-col min-h-0">
               <div className={`${bg("#fef9c3")} py-0 mb-7`}>
                 <h2 className="text-h2 font-light text-left py-0 text-foreground">
-                  Tools
+                  Tech Stack
                 </h2>
               </div>
-              <div className="pt-5 grid grid-cols-3 gap-x-12 gap-y-12 min-w-0 content-start items-center [&>*:nth-child(3n+2)]:-ml-2 [&>*:nth-child(3n)]:ml-2">
+              <div className="bg-[oklch(93%_0_0)] pt-[48px] px-[48px] pb-[48px] rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
+                <div className="grid grid-cols-3 gap-x-[48px] gap-y-[32px] min-w-0 content-start items-center">
                 {/* Row 1: Figma, Cursor, OpenAI */}
-                <div className={`min-w-0 flex items-center justify-start ${bg("#e0f2f7")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#fef9c3")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#f9e2f9")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-openai.svg"
                     alt="OpenAI"
@@ -268,21 +269,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 2: Webflow, Next.js, Claude */}
-                <div className={`min-w-0 flex items-center justify-start ${bg("#d1fae5")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#fce7f3")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-next.svg"
                     alt="Next.js"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#fef9c3")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-claude.svg"
                     alt="Claude"
@@ -290,21 +291,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 3: Shopify, TailwindCSS, Hugging Face */}
-                <div className={`min-w-0 flex items-center justify-start ${bg("#f0fdf4")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#f5f0f4")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-tailwindcss.svg"
                     alt="Tailwind CSS"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#faf5ff")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
@@ -312,21 +313,21 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 4: n8n, Github, Vercel */}
-                <div className={`min-w-0 flex items-center justify-start ${bg("#e0f2f7")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#fef9c3")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start ${bg("#f9e2f9")}`}>
+                <div className="min-w-0 flex items-center justify-start">
                   <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
@@ -334,7 +335,7 @@ export default function Home() {
                   />
                 </div>
                 {/* Row 5: Material+Fluent, React+TS+shadcn, Ollama+OpenRouter */}
-                <div className={`min-w-0 flex items-center justify-start gap-x-4 ${bg("#d1fae5")}`}>
+                <div className="min-w-0 flex items-center justify-start gap-x-4">
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
@@ -346,7 +347,7 @@ export default function Home() {
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start gap-x-4 ${bg("#fce7f3")}`}>
+                <div className="min-w-0 flex items-center justify-start gap-x-4">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
@@ -363,7 +364,7 @@ export default function Home() {
                     className="max-w-full h-auto object-contain object-left"
                   />
                 </div>
-                <div className={`min-w-0 flex items-center justify-start gap-x-[16px] ${bg("#fef9c3")}`}>
+                <div className="min-w-0 flex items-center justify-start gap-x-[16px]">
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
@@ -374,6 +375,7 @@ export default function Home() {
                     alt="OpenRouter"
                     className="max-w-full h-auto object-contain object-left scale-[1.35]"
                   />
+                </div>
                 </div>
               </div>
             </div>
