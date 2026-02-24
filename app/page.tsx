@@ -34,7 +34,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -43,7 +43,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -54,7 +54,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a
@@ -189,7 +189,7 @@ export default function Home() {
             </div>
 
             <div className="w-full min-w-0 p-16">
-              <div className="relative w-full aspect-square overflow-hidden rounded-lg pt-16">
+              <div className="relative w-full aspect-square overflow-hidden pt-16">
                 <Image
                   src="/images/profile-king-1.png"
                   alt="Mike profile"
@@ -217,10 +217,12 @@ export default function Home() {
                   Impact Metrics
                 </h2>
               </div>
-              <div className="numbers-anchor bg-black text-white pt-[28px] px-[48px] pb-[48px] rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-0 min-w-0 justify-items-center items-start">
-                  {metrics.map((metric, i) => (
-                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 text-center ${i < 2 ? "mb-8" : ""}`}>
+              <div className="numbers-anchor bg-black text-white p-0 w-full mt-5 flex flex-col shrink-0">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 min-w-0 items-stretch">
+                  {metrics.map((metric, i) => {
+                    const blockBg = ["bg-[#2E597B]", "bg-[#983218]", "bg-[#977400]", "bg-[#156025]"][i] ?? "bg-[#2E597B]";
+                    return (
+                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
                       <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
@@ -232,7 +234,7 @@ export default function Home() {
                         {metric.label}
                       </div>
                     </div>
-                  ))}
+                  );})}
                 </div>
               </div>
             </div>
@@ -244,8 +246,8 @@ export default function Home() {
                   Tech Stack
                 </h2>
               </div>
-              <div className="bg-white p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
-                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[40px] grid-auto-rows-[80px] items-stretch content-start">
+              <div className="bg-white p-4 md:p-8 lg:p-12 pt-6 md:pt-10 lg:pt-14 w-full mt-5 flex-1 min-h-0 flex flex-col">
+                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[48px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
