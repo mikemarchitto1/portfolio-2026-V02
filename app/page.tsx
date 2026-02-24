@@ -244,136 +244,146 @@ export default function Home() {
                   Tech Stack
                 </h2>
               </div>
-              <div className="bg-[oklch(93%_0_0)] pt-[48px] px-[48px] pb-[48px] rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
-                <div className="grid grid-cols-3 gap-x-[48px] gap-y-[32px] min-w-0 content-start items-center">
+              <div className="bg-[oklch(93%_0_0)] p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
+                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-8 items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[92px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[94px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-openai.svg"
                     alt="OpenAI"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[88px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 {/* Row 2: Webflow, Next.js, Claude */}
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[116px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-next.svg"
                     alt="Next.js"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[80px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-claude.svg"
                     alt="Claude"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[96px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                {/* Row 3: Shopify, TailwindCSS, Hugging Face */}
-                <div className="min-w-0 flex items-center justify-start">
+                {/* Row 3: Shopify, Framer, Adobe */}
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[88px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
-                    src="/images/logo-tailwindcss.svg"
-                    alt="Tailwind CSS"
-                    className="max-w-full h-auto object-contain object-left"
+                    src="/images/logo-framer.svg"
+                    alt="Framer"
+                    className="w-[88px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
-                    src="/images/logo-huggingface.svg"
-                    alt="Hugging Face"
-                    className="max-w-full h-auto object-contain object-left"
+                    src="/images/logo-adobe.svg"
+                    alt="Adobe"
+                    className="w-[64px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 {/* Row 4: n8n, Github, Vercel */}
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[80px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[86px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[82px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                {/* Row 5: Material+Fluent, React+TS+shadcn, Ollama+OpenRouter */}
-                <div className="min-w-0 flex items-center justify-start gap-x-4">
+                {/* Last row: col 1 = Material+Fluent+Tailwind, col 2 = React+TS+shadcn, col 3 = Ollama+OpenRouter+Hugging Face */}
+                <div className="flex h-full w-full items-center justify-center gap-x-4">
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[24px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-fluent.svg"
                     alt="Fluent UI"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[14px] h-auto object-contain object-center shrink-0"
+                  />
+                  <img
+                    src="/images/logo-tailwindcss.svg"
+                    alt="Tailwind CSS"
+                    className="w-[24px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start gap-x-4">
+                <div className="flex h-full w-full items-center justify-center gap-x-4">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[28px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-typescript.svg"
                     alt="TypeScript"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[24px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-shadcn.svg"
                     alt="Shadcn UI"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[22px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="min-w-0 flex items-center justify-start gap-x-[16px]">
+                <div className="flex h-full w-full items-center justify-center gap-x-4">
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
-                    className="max-w-full h-auto object-contain object-left"
+                    className="w-[18px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-openrouter.svg"
                     alt="OpenRouter"
-                    className="max-w-full h-auto object-contain object-left scale-[1.35]"
+                    className="w-[20px] h-auto object-contain object-center shrink-0"
+                  />
+                  <img
+                    src="/images/logo-huggingface.svg"
+                    alt="Hugging Face"
+                    className="w-[28px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 </div>

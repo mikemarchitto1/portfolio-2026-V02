@@ -18,6 +18,30 @@ const LOGO_MAP: Record<string, string> = {
   "Hugging Face": "/images/logo-huggingface.svg",
   Vercel: "/images/logo-vercel.svg",
   TypeScript: "/images/logo-typescript.svg",
+  Framer: "/images/logo-framer.svg",
+  "Cat Tool": "/images/logo-cat.svg",
+};
+
+const SIZE_MAP: Record<string, number> = {
+  Figma: 96,
+  Webflow: 96,
+  Shopify: 72,
+  n8n: 80,
+  "Llama Tool": 80,
+
+  CURSOR: 96,
+  "NEXT.JS": 96,
+  tailwindcss: 120,
+  GitHub: 96,
+  Framer: 96,
+
+  OpenAI: 96,
+  Claude: 110,
+  "Hugging Face": 120,
+  Vercel: 96,
+  TypeScript: 32,
+
+  "Cat Tool": 32,
 };
 
 export function TechStack() {
@@ -66,26 +90,30 @@ export function TechStack() {
 
 function TechItem({ name }: { name: string }) {
   const logo = LOGO_MAP[name];
-  const isLarger = name === "tailwindcss" || name === "Hugging Face";
-  const isMedium = name === "Claude";
-  const size = isLarger ? 88 : isMedium ? 56 : 32;
+  const size = SIZE_MAP[name] ?? 48;
+
+  if (!logo) {
+    return (
+      <div className="flex items-center gap-3 leading-none">
+        <span className="text-sm text-neutral-900 leading-none">{name}</span>
+      </div>
+    );
+  }
 
   return (
-    <div className="grid grid-cols-[auto_1fr] items-center gap-0 leading-none">
+    <div className="flex items-center gap-3 leading-none">
       <div
-        className="inline-flex shrink-0 items-center justify-center rounded bg-pink-200 overflow-hidden p-0"
-        style={{ width: size, height: size }}
+        className="shrink-0"
+        style={{ width: `${size}px`, height: "auto" }}
       >
-        {logo ? (
-          <Image
-            src={logo}
-            alt=""
-            width={size}
-            height={size}
-            className="object-contain block"
-            style={{ width: size, height: size }}
-          />
-        ) : null}
+        <Image
+          src={logo}
+          alt={name}
+          // intrinsic size just needs to be > 0; layout is controlled by style
+          width={size}
+          height={size}
+          className="w-full h-auto"
+        />
       </div>
       <span className="text-sm text-neutral-900 leading-none">{name}</span>
     </div>
