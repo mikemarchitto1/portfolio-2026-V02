@@ -172,7 +172,7 @@ export default function Home() {
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 p-16 text-foreground">
-              <div className={`${bg("#e0f2f7")} mb-[40px]`}>
+              <div className="mb-[40px]">
                 <h2 className="text-h2 font-light text-foreground">About Me</h2>
               </div>
               <div className="text-body1 space-y-4 text-foreground">
@@ -244,7 +244,7 @@ export default function Home() {
                   Tech Stack
                 </h2>
               </div>
-              <div className="bg-white p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
+              <div className="bg-white p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
                 <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-[40px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
