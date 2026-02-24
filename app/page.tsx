@@ -172,7 +172,7 @@ export default function Home() {
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 p-16 text-foreground">
-              <div className="mb-[40px]">
+              <div className="mb-[32px]">
                 <h2 className="text-h2 font-light text-foreground">About Me</h2>
               </div>
               <div className="text-body1 space-y-4 text-foreground">
@@ -220,7 +220,7 @@ export default function Home() {
               <div className="numbers-anchor bg-black text-white p-0 w-full mt-5 flex flex-col shrink-0">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 min-w-0 items-stretch">
                   {metrics.map((metric, i) => {
-                    const blockBg = ["bg-[#2E597B]", "bg-[#983218]", "bg-[#977400]", "bg-[#156025]"][i] ?? "bg-[#2E597B]";
+                    const blockBg = ["bg-[#132d47]", "bg-[#163556]", "bg-[#1a3d5c]", "bg-[#1e4265]"][i] ?? "bg-[#132d47]";
                     return (
                     <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
                       <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
@@ -397,7 +397,7 @@ export default function Home() {
         {/* PROJECT CARDS — lightened grey */}
         <section className="flex flex-col pt-[64px]">
           <div className="w-full flex flex-col min-w-0">
-            <h2 className="text-h2 font-light text-left text-foreground px-[64px]">Projects</h2>
+            <h2 className="text-h2 font-light text-left text-foreground px-[64px] -mb-4">Projects</h2>
             <ProjectsGrid projects={projects} />
           </div>
         </section>
