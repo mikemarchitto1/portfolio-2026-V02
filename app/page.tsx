@@ -18,23 +18,23 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="p-4 md:p-8 lg:p-16 text-black bg-[#e6e6e6]">
+    <footer className="p-4 md:p-8 lg:p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
       <div className="w-full max-w-[1200px] mx-auto text-left flex flex-col">
         <div className={bg("#e0f2f7")}>
-          <h1 className="text-h1 font-light text-black">Let’s Connect</h1>
+          <h1 className="text-h1 font-light text-foreground">Let’s Connect</h1>
         </div>
 
         <div className={bg("#fef9c3")}>
-          <h4 className="text-h4 max-w-[720px] font-light text-black">
+          <h5 className="text-h5 max-w-[528px] font-light text-foreground">
           I'm interested in creative partnerships shaped by purposeful work.
-          </h4>
+          </h5>
         </div>
 
         <div className={`flex flex-col sm:flex-row justify-start gap-3 ${bg("#f9e2f9")} mt-16`}>
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -43,7 +43,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -54,7 +54,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a
@@ -75,7 +75,7 @@ function Footer() {
    METRICS
 ---------------------------------------------- */
 const metrics = [
-  { value: "10", label: "Working Years" },
+  { value: "10", label: "Years Working" },
   { value: "4", label: "Product Builds" },
   { value: "350", label: "Testing Hours" },
   { value: "3", label: "AI Explorations" },
@@ -144,7 +144,7 @@ function ProjectsGrid({
 }) {
   return (
     <div
-      className="w-full h-full min-h-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 m-0 p-0 items-stretch auto-rows-fr"
+      className="w-full min-w-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 items-stretch"
     >
       {projects.map((project, i) => (
         <ProjectCard
@@ -153,7 +153,6 @@ function ProjectsGrid({
           description={project.description}
           image={project.image}
           href={project.href}
-          className={SHOW_BACKGROUND_COLORS ? ["bg-[#e0f2f7]", "bg-[#faf5ff]", "bg-[#fef9c3]", "bg-[#d1fae5]", "bg-[#fce7f3]", "bg-[#e0e7ff]"][i] : ""}
         />
       ))}
     </div>
@@ -169,21 +168,14 @@ export default function Home() {
       <main className="min-h-screen">
         <HeroHeadline showBackgroundColors={SHOW_BACKGROUND_COLORS} />
 
-        {/* HERO BODY + EXPERIENCE + TOOLS — gradient profile → Tools → Experience (light to dark) */}
-        <div
-          className="min-h-screen"
-          style={{
-            background: "linear-gradient(to bottom left, #FBF6F3 0%, #F2F2F0 35%, #E8E6E4 100%)",
-          }}
-        >
         {/* HERO BODY — full bleed: no horizontal padding so both columns touch viewport edges */}
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 p-16 bg-[#f6f6f6] text-black">
+            <div className="w-full min-w-0 p-16 text-foreground">
               <div className={`${bg("#e0f2f7")} mb-[40px]`}>
-                <h2 className="text-h2 font-light text-black">About Me</h2>
+                <h2 className="text-h2 font-light text-foreground">About Me</h2>
               </div>
-              <div className="text-body1 space-y-4 text-black">
+              <div className="text-body1 space-y-4 text-foreground">
                 <p className={bg("#fef9c3")}>
                   I’m originally from Chicago, where I studied graphic design at UIC—a program rooted in Swiss and International design principles. That foundation shaped my early work in marketing and communications, where I developed a strong sense of visual design and story telling. I've always been drawn to typography, simple communication, and design that's useful.
                 </p>
@@ -196,7 +188,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 bg-[#f6f6f6]">
+            <div className="w-full min-w-0 p-16">
               <div className="relative w-full aspect-square overflow-hidden pt-16">
                 <Image
                   src="/images/profile-king-1.png"
@@ -207,9 +199,9 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <blockquote className="mt-6 text-body2 text-black font-light text-center">
+              <blockquote className="mt-6 text-body2 text-foreground font-light text-center">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                <cite className="not-italic mt-2 block text-black/80">— Ralph Waldo Emerson</cite>
+                <cite className="not-italic mt-2 block text-foreground/80">— Ralph Waldo Emerson</cite>
               </blockquote>
             </div>
           </div>
@@ -219,9 +211,9 @@ export default function Home() {
         <section className="pb-0 pt-0 px-0">
           <div className="w-full grid grid-cols-2 gap-0">
             {/* Experience module */}
-            <div className="p-16 bg-black text-white">
+            <div className="p-16 bg-[oklch(0%_0_0)] text-[oklch(100%_0_0)]">
               <div className="mb-[28px]">
-                <h2 className="text-h2 font-light text-left text-white">
+                <h2 className="text-h2 font-light text-left text-inherit">
                   Experience
                 </h2>
               </div>
@@ -229,14 +221,14 @@ export default function Home() {
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-0 min-w-0">
                   {metrics.map((metric, i) => (
                     <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 ${i < 2 ? "mb-6" : ""}`}>
-                      <div className="text-h1 font-light -mb-1 py-0 text-white">
+                      <div className="text-h1 font-light -mb-1 py-0 text-inherit">
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
                         ) : (
                           metric.value
                         )}
                       </div>
-                      <div className="text-h4 font-normal text-white">
+                      <div className="text-h5 font-normal text-inherit">
                         {metric.label}
                       </div>
                     </div>
@@ -246,9 +238,9 @@ export default function Home() {
             </div>
 
             {/* Tools module */}
-            <div className="p-16 bg-[#e6e6e6] text-black">
+            <div className="p-16 bg-[oklch(92%_0_0)] text-foreground">
               <div className={`${bg("#fef9c3")} py-0 mb-7`}>
-                <h2 className="text-h2 font-light text-left py-0 text-black">
+                <h2 className="text-h2 font-light text-left py-0 text-foreground">
                   Tools
                 </h2>
               </div>
@@ -387,15 +379,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-        </div>
 
-        {/* PROJECT CARDS — no top padding so flush with Experience/Tools above */}
-        <section className={`pt-0 p-0 flex flex-col ${bg("#f5f0f4")}`}>
-          <div className="w-full max-w-[1200px] mx-auto flex-1 min-h-0 flex flex-col w-full">
-            <div className="flex-1 min-h-0 -mx-4 md:-mx-8 lg:-mx-16 w-[calc(100%+2rem)] md:w-[calc(100%+4rem)] lg:w-[calc(100%+8rem)] bg-[#f6f6f6]">
-              <h2 className="text-h2 font-light text-left py-0 pt-4 md:pt-8 lg:pt-16 px-4 md:px-8 lg:px-16 text-black">Projects</h2>
-              <ProjectsGrid projects={projects} />
-            </div>
+        {/* PROJECT CARDS — lightened grey */}
+        <section className="flex flex-col pt-[64px]">
+          <div className="w-full flex flex-col min-w-0">
+            <h2 className="text-h2 font-light text-left text-foreground px-[64px]">Projects</h2>
+            <ProjectsGrid projects={projects} />
           </div>
         </section>
       </main>

@@ -115,14 +115,14 @@
   --card: oklch(100% 0 0);
   --popover: oklch(100% 0 0);
 
-  /* PURE BLACK TEXT — 100% black for all type scale / foreground */
-  --foreground: #000000;
-  --card-foreground: #000000;
-  --popover-foreground: #000000;
-  --secondary-foreground: #000000;
-  --muted-foreground: #000000;
-  --accent-foreground: #000000;
-  --sidebar-foreground: #000000;
+  /* PURE BLACK TEXT — OKLCH black for all type scale / foreground */
+  --foreground: oklch(0% 0 0);
+  --card-foreground: oklch(0% 0 0);
+  --popover-foreground: oklch(0% 0 0);
+  --secondary-foreground: oklch(0% 0 0);
+  --muted-foreground: oklch(0% 0 0);
+  --accent-foreground: oklch(0% 0 0);
+  --sidebar-foreground: oklch(0% 0 0);
 
   /* ACCENTS (unchanged) */
   --primary: oklch(20% 0 0);
@@ -171,7 +171,7 @@
   --text-h4-weight: 400;
 
   --text-h5: 24px;
-  --text-h5-line: 36px;    /* 4px baseline */
+  --text-h5-line: 32px;    /* 4px baseline */
   --text-h5-weight: 400;
 
   --text-h6: 20px;
@@ -254,8 +254,8 @@
     to bottom,
     transparent 0,
     transparent 3px,
-    rgba(0 0 0 / 0.7) 3px,
-    rgba(0 0 0 / 0.7) 4px
+    oklch(0% 0 0 / 0.7) 3px,
+    oklch(0% 0 0 / 0.7) 4px
   );
   background-size: 100% 4px;
 }
@@ -280,8 +280,8 @@
   z-index: 2147483647;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(255, 0, 0, 0.4) 0px,
-    rgba(255, 0, 0, 0.4) 2px,
+    oklch(62.8% 0.258 29.234 / 0.4) 0px,
+    oklch(62.8% 0.258 29.234 / 0.4) 2px,
     transparent 2px,
     transparent 48px
   );

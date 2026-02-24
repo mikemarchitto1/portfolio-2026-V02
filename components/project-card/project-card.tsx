@@ -6,6 +6,8 @@ export interface ProjectCardProps {
   image: string;
   href?: string;
   className?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 export default function ProjectCard({
@@ -14,17 +16,18 @@ export default function ProjectCard({
   image,
   href,
   className,
+  titleClassName,
+  descriptionClassName,
 }: ProjectCardProps) {
   const content = (
     <div
-      className={`overflow-hidden flex flex-col w-full h-full min-h-0 p-4 md:p-8 lg:p-16 gap-4 ${className ?? "bg-transparent"}`}
+      className={`overflow-hidden flex flex-col flex-1 min-h-0 w-full p-[64px] ${className ?? "bg-transparent"}`}
       data-project-card-content
     >
-      {/* Content box: overlay + group hover trigger (hover only when mouse is on content) */}
-      <div className="group relative flex flex-col gap-4 flex-1 min-h-0">
-        {/* Hover overlay: starts flush (inset-0), expands 24px on hover; inset + opacity only */}
+      {/* Inner white wrapper: 24px frame around content */}
+      <div className="inner-card group relative flex flex-col gap-0 flex-1 min-h-0 p-[24px] bg-[oklch(100%_0_0)] [box-shadow:0_0_8px_oklch(0%_0_0/0.05)]">
         <div
-          className="absolute inset-0 z-20 bg-black/5 opacity-0 transition-all duration-200 ease-out pointer-events-none group-hover:opacity-100 group-hover:-top-[24px] group-hover:-left-[24px] group-hover:-right-[24px] group-hover:-bottom-[24px]"
+          className="absolute inset-0 z-20 bg-foreground/5 opacity-0 transition-opacity duration-200 ease-out pointer-events-none group-hover:opacity-100"
           aria-hidden
         />
         <div className="overflow-hidden relative z-10">
@@ -37,9 +40,9 @@ export default function ProjectCard({
           />
         </div>
 
-        <h4 className="text-h4 font-light text-foreground relative z-10">{title}</h4>
+        <h5 className={`text-h5 font-medium text-foreground relative z-10 mt-[16px] ${titleClassName ?? ""}`}>{title}</h5>
 
-        <p className="text-body1 text-foreground relative z-10">{description}</p>
+        <p className={`text-body1 text-foreground relative z-10 mt-[8px] ${descriptionClassName ?? ""}`}>{description}</p>
       </div>
     </div>
   );
@@ -48,7 +51,7 @@ export default function ProjectCard({
     return (
       <a
         href={href}
-        className="block w-full h-full min-h-0 no-underline text-foreground flex flex-col items-stretch"
+        className="block w-full min-w-0 h-full min-h-0 no-underline text-foreground flex flex-col items-stretch"
       >
         {content}
       </a>
@@ -56,7 +59,7 @@ export default function ProjectCard({
   }
 
   return (
-    <div className="block w-full h-full min-h-0 flex flex-col items-stretch">
+    <div className="block w-full min-w-0 h-full min-h-0 flex flex-col items-stretch">
       {content}
     </div>
   );

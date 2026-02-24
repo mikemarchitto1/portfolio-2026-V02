@@ -16,14 +16,14 @@ export default function Header({
   onOpenChat,
 }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-black/20 text-black bg-[#e6e6e6] [&_*]:text-black [&_*]:hover:text-black">
+    <header className="sticky top-0 z-40 border-b border-foreground/20 text-foreground [&_*]:text-foreground [&_*]:hover:text-foreground">
       <div className="min-h-16 flex items-center justify-start gap-2 p-4 md:p-8 lg:p-16 max-w-[1200px] mx-auto">
           <Button
             variant="ghost"
             size="icon"
             onClick={onOpenLeftSidebar}
             aria-label="Open sidebar"
-            className="text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
+            className="text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
           >
             <PanelLeft className="h-6 w-6" />
           </Button>
@@ -32,7 +32,7 @@ export default function Header({
             size="icon"
             onClick={onOpenCalendar}
             aria-label="Open calendar"
-            className="text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
+            className="text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
           >
             <Calendar className="h-6 w-6" />
           </Button>
@@ -41,7 +41,7 @@ export default function Header({
             size="icon"
             onClick={onOpenChat}
             aria-label="Open chat"
-            className="text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
+            className="text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
           >
             <MessageCircle className="h-6 w-6" />
           </Button>

@@ -10,20 +10,20 @@ export default function HeroHeadline({
   showBackgroundColors?: boolean;
 }) {
   return (
-    <section className={`p-16 text-black bg-[#e6e6e6] ${bg(showBackgroundColors, "#fef9c3")}`}>
+    <section className={`p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] ${bg(showBackgroundColors, "#fef9c3")}`}>
       <div className="w-full max-w-[1200px] mx-auto">
         <div className={`flex items-center justify-start gap-4 flex-wrap ${showBackgroundColors ? "bg-white" : ""}`}>
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
           >
             <PanelLeft className="h-5 w-5" />
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className="rounded-full border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
           >
             <Calendar className="h-5 w-5" />
           </Button>
@@ -44,10 +44,10 @@ export default function HeroHeadline({
         </div>
         <div className="mt-16">
           <div className={bg(showBackgroundColors, "#f9e2f9")}>
-            <h1 className="text-h1 font-light text-black">Hi, I'm Mike</h1>
+            <h1 className="text-h1 font-light text-foreground">Hi, I'm Mike</h1>
           </div>
           <div className={bg(showBackgroundColors, "#e0f2f7")}>
-            <h4 className="text-h4 font-light text-black max-w-[720px]">I design meaningful digital experiences for startups and global brands.</h4>
+            <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design meaningful digital experiences for startups and global brands.</h5>
           </div>
         </div>
       </div>
