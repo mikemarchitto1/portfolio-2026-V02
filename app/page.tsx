@@ -245,27 +245,27 @@ export default function Home() {
                 </h2>
               </div>
               <div className="bg-white p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
-                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-[40px] grid-auto-rows-[80px] items-stretch content-start">
+                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[40px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
-                    className="w-[86px] h-auto object-contain object-center shrink-0"
+                    className="w-[89px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
-                    className="w-[94px] h-auto object-contain object-center shrink-0"
+                    className="w-[96px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-openai.svg"
                     alt="OpenAI"
-                    className="w-[88px] h-auto object-contain object-center shrink-0"
+                    className="w-[91px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
                   />
                 </div>
                 {/* Row 2: Webflow, Next.js, Claude */}
@@ -273,7 +273,7 @@ export default function Home() {
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
-                    className="w-[112px] h-auto object-contain object-center shrink-0"
+                    className="w-[111px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
@@ -287,29 +287,29 @@ export default function Home() {
                   <img
                     src="/images/logo-claude.svg"
                     alt="Claude"
-                    className="w-[94px] h-auto object-contain object-center shrink-0"
+                    className="w-[96px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 {/* Row 3: Shopify, Framer, Adobe — extra 2px above for spacing */}
-                <div className="flex h-full w-full items-center justify-center mt-0.5">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
-                    className="w-[90px] h-auto object-contain object-center shrink-0 -translate-y-[4px]"
+                    className="w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[4px]"
                   />
                 </div>
-                <div className="flex h-full w-full items-center justify-center mt-0.5">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-framer.svg"
                     alt="Framer"
-                    className="w-[88px] h-auto object-contain object-center shrink-0 -translate-y-[2px]"
+                    className="w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[1px]"
                   />
                 </div>
-                <div className="flex h-full w-full items-center justify-center mt-0.5">
+                <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-adobe.svg"
                     alt="Adobe"
-                    className="w-[62px] h-auto object-contain object-center shrink-0"
+                    className="w-[62px] h-auto object-contain object-center shrink-0 -translate-y-[3px]"
                   />
                 </div>
                 {/* Row 4: n8n, Github, Vercel */}
@@ -317,21 +317,21 @@ export default function Home() {
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
-                    className="w-[82px] h-auto object-contain object-center shrink-0"
+                    className="w-[91px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
-                    className="w-[86px] h-auto object-contain object-center shrink-0"
+                    className="w-[90px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
-                    className="w-[82px] h-auto object-contain object-center shrink-0"
+                    className="w-[86px] h-auto object-contain object-center shrink-0 translate-y-[1px]"
                   />
                 </div>
                 {/* Last row: col 1 = Material+Fluent+Tailwind, col 2 = React+TS+shadcn, col 3 = Ollama+OpenRouter+Hugging Face */}
@@ -339,51 +339,51 @@ export default function Home() {
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
-                    className="w-[24px] h-auto object-contain object-center shrink-0"
+                    className="w-[27px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-fluent.svg"
                     alt="Fluent UI"
-                    className="w-[14px] h-auto object-contain object-center shrink-0"
+                    className="w-[17px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-tailwindcss.svg"
                     alt="Tailwind CSS"
-                    className="w-[26px] h-auto object-contain object-center shrink-0"
+                    className="w-[29px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
-                    className="w-[28px] h-auto object-contain object-center shrink-0"
+                    className="w-[30px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-typescript.svg"
                     alt="TypeScript"
-                    className="w-[24px] h-auto object-contain object-center shrink-0"
+                    className="w-[26px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-shadcn.svg"
                     alt="Shadcn UI"
-                    className="w-[22px] h-auto object-contain object-center shrink-0"
+                    className="w-[23px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
-                    className="w-[18px] h-auto object-contain object-center shrink-0"
-                  />
-                  <img
-                    src="/images/logo-openrouter.svg"
-                    alt="OpenRouter"
-                    className="w-[20px] h-auto object-contain object-center shrink-0"
+                    className="m-0 block w-[19px] h-auto object-contain object-center shrink-0 p-0"
                   />
                   <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
-                    className="w-[32px] h-auto object-contain object-center shrink-0"
+                    className="m-0 block w-[25px] h-auto object-contain object-center shrink-0 p-0"
+                  />
+                  <img
+                    src="/images/logo-openrouter.svg"
+                    alt="OpenRouter"
+                    className="m-0 block w-[21px] h-auto object-contain object-center shrink-0 p-0"
                   />
                 </div>
                 </div>
