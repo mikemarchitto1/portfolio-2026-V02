@@ -218,9 +218,9 @@ export default function Home() {
                 </h2>
               </div>
               <div className="numbers-anchor bg-black text-white pt-[28px] px-[48px] pb-[48px] rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-0 min-w-0">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-0 min-w-0 justify-items-center items-start">
                   {metrics.map((metric, i) => (
-                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 ${i < 2 ? "mb-8" : ""}`}>
+                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 text-center ${i < 2 ? "mb-8" : ""}`}>
                       <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
                         {metric.value === "10" ? (
                           <span className="tracking-[-0.04em]">10</span>
@@ -244,14 +244,14 @@ export default function Home() {
                   Tech Stack
                 </h2>
               </div>
-              <div className="bg-[oklch(93%_0_0)] p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col">
-                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-8 items-stretch content-start">
+              <div className="bg-white p-4 md:p-8 lg:p-12 rounded-lg w-full mt-5 flex-1 min-h-0 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.06)]">
+                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[40px] gap-y-[40px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
-                    className="w-[92px] h-auto object-contain object-center shrink-0"
+                    className="w-[86px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
@@ -273,7 +273,7 @@ export default function Home() {
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
-                    className="w-[116px] h-auto object-contain object-center shrink-0"
+                    className="w-[112px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
@@ -287,29 +287,29 @@ export default function Home() {
                   <img
                     src="/images/logo-claude.svg"
                     alt="Claude"
-                    className="w-[96px] h-auto object-contain object-center shrink-0"
+                    className="w-[94px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                {/* Row 3: Shopify, Framer, Adobe */}
-                <div className="flex h-full w-full items-center justify-center">
+                {/* Row 3: Shopify, Framer, Adobe — extra 2px above for spacing */}
+                <div className="flex h-full w-full items-center justify-center mt-0.5">
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
-                    className="w-[88px] h-auto object-contain object-center shrink-0"
+                    className="w-[90px] h-auto object-contain object-center shrink-0 -translate-y-[4px]"
                   />
                 </div>
-                <div className="flex h-full w-full items-center justify-center">
+                <div className="flex h-full w-full items-center justify-center mt-0.5">
                   <img
                     src="/images/logo-framer.svg"
                     alt="Framer"
-                    className="w-[88px] h-auto object-contain object-center shrink-0"
+                    className="w-[88px] h-auto object-contain object-center shrink-0 -translate-y-[2px]"
                   />
                 </div>
-                <div className="flex h-full w-full items-center justify-center">
+                <div className="flex h-full w-full items-center justify-center mt-0.5">
                   <img
                     src="/images/logo-adobe.svg"
                     alt="Adobe"
-                    className="w-[64px] h-auto object-contain object-center shrink-0"
+                    className="w-[62px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 {/* Row 4: n8n, Github, Vercel */}
@@ -317,7 +317,7 @@ export default function Home() {
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
-                    className="w-[80px] h-auto object-contain object-center shrink-0"
+                    className="w-[82px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
@@ -335,7 +335,7 @@ export default function Home() {
                   />
                 </div>
                 {/* Last row: col 1 = Material+Fluent+Tailwind, col 2 = React+TS+shadcn, col 3 = Ollama+OpenRouter+Hugging Face */}
-                <div className="flex h-full w-full items-center justify-center gap-x-4">
+                <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
@@ -349,10 +349,10 @@ export default function Home() {
                   <img
                     src="/images/logo-tailwindcss.svg"
                     alt="Tailwind CSS"
-                    className="w-[24px] h-auto object-contain object-center shrink-0"
+                    className="w-[26px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="flex h-full w-full items-center justify-center gap-x-4">
+                <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
@@ -369,7 +369,7 @@ export default function Home() {
                     className="w-[22px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                <div className="flex h-full w-full items-center justify-center gap-x-4">
+                <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
@@ -383,7 +383,7 @@ export default function Home() {
                   <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
-                    className="w-[28px] h-auto object-contain object-center shrink-0"
+                    className="w-[32px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 </div>
