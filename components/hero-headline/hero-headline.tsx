@@ -10,7 +10,7 @@ export default function HeroHeadline({
   showBackgroundColors?: boolean;
 }) {
   return (
-    <section className={`p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] ${bg(showBackgroundColors, "#fef9c3")}`}>
+    <section className={`p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-yellow ${bg(showBackgroundColors, "#fef9c3")}`}>
       <div className="w-full max-w-[1200px] mx-auto">
         <div className={`flex items-center justify-start gap-4 flex-wrap ${showBackgroundColors ? "bg-white" : ""}`}>
           <Button
@@ -41,14 +41,6 @@ export default function HeroHeadline({
             <MessageCircle className="h-5 w-5" />
             <span className="text-body1 font-medium">Let's Chat</span>
           </Button>
-        </div>
-        <div className="mt-16">
-          <div className={bg(showBackgroundColors, "#f9e2f9")}>
-            <h1 className="text-h1 font-light text-foreground">Hi, I'm Mike</h1>
-          </div>
-          <div className={bg(showBackgroundColors, "#e0f2f7")}>
-            <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design and develop refined digital experiences for startups and global brands.</h5>
-          </div>
         </div>
       </div>
     </section>

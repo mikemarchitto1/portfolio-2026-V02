@@ -16,7 +16,7 @@ export default function Header({
   onOpenChat,
 }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-foreground/20 text-foreground [&_*]:text-foreground [&_*]:hover:text-foreground">
+    <header className="sticky top-0 z-40 border-b border-foreground/20 bg-palette-yellow text-foreground [&_*]:text-foreground [&_*]:hover:text-foreground">
       <div className="min-h-16 flex items-center justify-start gap-2 p-4 md:p-8 lg:p-16 max-w-[1200px] mx-auto">
           <Button
             variant="ghost"

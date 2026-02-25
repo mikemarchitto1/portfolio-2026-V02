@@ -89,48 +89,48 @@ const projects = [
     title: "Nutrilucent",
     description:
       "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-small-nutrilucent.png",
+    image: "/images/thumb-large-nutrilucent.png",
     href: "/nutrilucent",
   },
   {
     title: "GloriFi",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-small-glorifi.png",
+    image: "/images/thumb-large-glorifi.png",
     href: "/glorifi",
   },
   {
     title: "National Restaurant Association",
     description:
       "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-small-nationalrestaurantassociation.png",
+    image: "/images/thumb-large-nationalrestaurantassociation.png",
     href: "/nra",
   },
   {
     title: "Microsoft Admin Software",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-small-microsoftadmin.png",
+    image: "/images/thumb-large-microsoftadmin.png",
     href: "/microsoft-admin",
   },
   {
     title: "Microsoft Hits Software",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-small-microsofthits.png",
+    image: "/images/thumb-large-microsofthits.png",
     href: "/microsoft-hits",
   },
   {
     title: "Eddie Bauer",
     description:
       "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-small-eddiebauer.png",
+    image: "/images/thumb-large-eddiebauer.png",
     href: "/eddiebauer",
   },
 ];
 
 /* ---------------------------------------------
-   PROJECTS GRID — responsive grid; cards use natural height, no stretch
+   PROJECTS GRID — responsive grid; cards use natural height, no stretch (hidden)
 ---------------------------------------------- */
 function ProjectsGrid({
   projects,
@@ -160,6 +160,68 @@ function ProjectsGrid({
 }
 
 /* ---------------------------------------------
+   PROJECT CARD 50/50 — image left, text + CTA right (screenshot layout)
+---------------------------------------------- */
+function ProjectCardFiftyFifty({
+  title,
+  description,
+  image,
+  href,
+}: {
+  title: string;
+  description: string;
+  image: string;
+  href?: string;
+}) {
+  const content = (
+    <div className="w-full p-[64px]">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[448px]">
+        {/* Left: product image — 50% */}
+        <div className="relative w-full h-full min-h-[320px] overflow-hidden bg-muted">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+        {/* Right: white panel — 50%, 64px internal padding */}
+        <div className="flex flex-col justify-center bg-white p-[64px] text-left">
+          <h3 className="text-h5 font-medium text-foreground m-0 mb-3">{title}</h3>
+          <p className="text-body1 text-foreground m-0 mb-6">{description}</p>
+          {href ? (
+            <span
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background"
+              aria-hidden
+            >
+              See Case Study
+            </span>
+          ) : (
+            <Button
+              asChild
+              variant="default"
+              size="lg"
+              className="w-fit rounded-full bg-foreground text-background hover:bg-foreground/90"
+            >
+              <a href="#">See Case Study</a>
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+  if (href) {
+    return (
+      <a href={href} className="block w-full no-underline text-foreground">
+        {content}
+      </a>
+    );
+  }
+  return <div className="w-full">{content}</div>;
+}
+
+/* ---------------------------------------------
    PAGE
 ---------------------------------------------- */
 export default function Home() {
@@ -168,42 +230,40 @@ export default function Home() {
       <main className="min-h-screen">
         <HeroHeadline showBackgroundColors={SHOW_BACKGROUND_COLORS} />
 
-        {/* HERO BODY — full bleed: no horizontal padding so both columns touch viewport edges */}
-        <section className="px-0">
+        {/* HERO BODY — full-bleed grey bg; content aligned to grid (pr-16 aligns blue box right edge with project card inner grid) */}
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-off-white">
+          <div className="w-full max-w-[1328px] mx-auto px-16">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 p-16 text-foreground">
-              <div className="mb-12">
-                <h2 className="text-h2 font-light text-foreground">About Me</h2>
-              </div>
-              <div className="text-body1 space-y-4 text-foreground">
-                <p className={bg("#fef9c3")}>
-                  I’m originally from Chicago, where I studied graphic design at UIC—a program rooted in Swiss and International design principles. That foundation shaped my early work in marketing and communications, where I developed a strong sense of visual design and story telling. I've always been drawn to typography, simple communication, and design that's useful.
-                </p>
-                <p className={bg("#f9e2f9")}>
-                  After relocating to Seattle, I moved into UX, drawn to digital design and the need for better product experiences. Over the years, I’ve worked across corporations, agencies, and startups—advocating for user‑centered design. I'm recently exploring how AI is reshaping creative work through automation, prototyping, and collaboration.
-                </p>
-                <p className={bg("#e0e7ff")}>
-                  Currently based in Miami, I’m a cyclist and outdoors enthusiast who finds peace on the trail. Time outside helps reset and balance my life. Whether riding through city streets or remote gravel paths, I’m always looking for great scenic routes to the next bike camping destination.
+            <div className="w-full min-w-0 p-16 -ml-16 text-foreground">
+              <h1 className="text-h1 font-light text-foreground whitespace-nowrap tracking-[-0.015em]">Hi, I'm Mike</h1>
+              <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
+              <div className="text-body1 space-y-4 text-foreground mt-8">
+                <p>
+                  I'm originally from Chicago, where I studied graphic design at UIC—a foundation rooted in Swiss and International principles that shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX, working across corporations, agencies, and startups to create user‑centered digital experiences. Now based in Miami, I balance my work with cycling and time outdoors, often exploring new routes and bike‑camping destinations.
                 </p>
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16">
-              <div className="relative w-full aspect-square overflow-hidden pt-16">
-                <Image
-                  src="/images/profile-king-1.png"
-                  alt="Mike profile"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-[var(--palette-blue)]">
+              {/* Image area: flex-1 so it shrinks; small top offset so image top aligns with "Hi, I'm Mike" cap height; quote baseline stays aligned */}
+              <div className="flex-1 min-h-0 flex items-start justify-center pt-[22px]">
+                <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden">
+                  <Image
+                    src="/images/profile-king-1.png"
+                    alt="Mike profile"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
-              <blockquote className="mt-6 text-body2 text-foreground font-light text-center">
+              <blockquote className="shrink-0 mt-6 text-body2 text-white font-light text-center">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                <cite className="not-italic mt-2 block text-foreground/80">— Ralph Waldo Emerson</cite>
+                <cite className="not-italic mt-2 block text-white/80">— Ralph Waldo Emerson</cite>
               </blockquote>
             </div>
+          </div>
           </div>
         </section>
 
@@ -242,11 +302,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* IMPACT METRICS AND TECH STACK — combined module, title full width, then 50/50 grid */}
-        <section className="p-16 min-h-[520px]">
+        {/* IMPACT METRICS AND TECH STACK — full-bleed red bg; content aligned to grid */}
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-red">
+          <div className="w-full max-w-[1328px] mx-auto p-16 pb-[128px] min-h-[520px]">
           <div className="w-full flex flex-col">
             <div className="w-full mb-[72px]">
-              <h2 className="text-h2 font-light text-left text-foreground">
+              <h2 className="text-h2 font-light text-left text-white">
                 Impact and Tech Stack
               </h2>
             </div>
@@ -256,9 +317,10 @@ export default function Home() {
                 <div className="numbers-anchor bg-black text-white p-0 w-full flex-1 flex flex-col min-h-0">
                   <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-0 min-w-0 items-stretch flex-1 min-h-0">
                     {metrics.map((metric, i) => {
-                      const blockBg = ["bg-[#105a10]", "bg-[#126812]", "bg-[#146e14]", "bg-[#1c851c]"][i] ?? "bg-[#105a10]";
+                      const blockBg = ["bg-[var(--palette-blue)]", "bg-palette-red", "bg-palette-yellow", "bg-palette-black"][i] ?? "bg-[var(--palette-blue)]";
+                      const textInherit = ["text-white", "text-white", "text-palette-black", "text-white"][i] ?? "text-white";
                       return (
-                      <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
+                      <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg} ${textInherit}`}>
                         <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
                           {metric.value === "10" ? (
                             <span className="tracking-[-0.04em]">10</span>
@@ -424,10 +486,31 @@ export default function Home() {
             </div>
           </div>
         </div>
+          </div>
         </section>
 
-        {/* PROJECT CARDS — lightened grey */}
-        <section className="flex flex-col pt-16">
+        {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-gray flex flex-col pt-16 pb-16">
+          <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
+            <div className="w-full px-[64px] py-2 mb-0">
+              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
+            </div>
+            <div className="w-full flex flex-col">
+              {projects.map((project, i) => (
+                <ProjectCardFiftyFifty
+                  key={i}
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  href={project.href}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* PROJECT CARDS GRID (original) — hidden */}
+        <section className="hidden flex flex-col pt-16">
           <div className="w-full flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
