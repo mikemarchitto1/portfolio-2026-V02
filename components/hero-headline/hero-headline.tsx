@@ -47,7 +47,7 @@ export default function HeroHeadline({
             <h1 className="text-h1 font-light text-foreground">Hi, I'm Mike</h1>
           </div>
           <div className={bg(showBackgroundColors, "#e0f2f7")}>
-            <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design and develop meaningful digital experiences for startups and global brands.</h5>
+            <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design and develop refined digital experiences for startups and global brands.</h5>
           </div>
         </div>
       </div>

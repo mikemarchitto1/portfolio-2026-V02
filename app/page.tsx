@@ -26,7 +26,7 @@ function Footer() {
 
         <div className={bg("#fef9c3")}>
           <h5 className="text-h5 max-w-[528px] font-light text-foreground">
-          I'm interested in creative partnerships shaped by purposeful work.
+          I'm interested in creative partnerships shaped by meaningful work.
           </h5>
         </div>
 
@@ -220,7 +220,7 @@ export default function Home() {
               <div className="numbers-anchor bg-black text-white p-0 w-full mt-5 flex flex-col shrink-0">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 min-w-0 items-stretch">
                   {metrics.map((metric, i) => {
-                    const blockBg = ["bg-[#132d47]", "bg-[#163556]", "bg-[#1a3d5c]", "bg-[#1e4265]"][i] ?? "bg-[#132d47]";
+                    const blockBg = ["bg-[#4a1515]", "bg-[#5c1a1a]", "bg-[#6b2222]", "bg-[#752828]"][i] ?? "bg-[#4a1515]";
                     return (
                     <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
                       <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
