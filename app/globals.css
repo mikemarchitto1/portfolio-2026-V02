@@ -21,6 +21,7 @@
   --color-palette-red: var(--palette-red);
   --color-palette-blue: var(--palette-blue);
   --color-palette-gray: var(--palette-gray);
+  --color-palette-gray-light: var(--palette-gray-light);
   --color-palette-black: var(--palette-black);
 
   --color-background: var(--background);
@@ -125,6 +126,7 @@
   --palette-red: #C93936;     /* crown coral / blood red */
   --palette-blue: #4A8BB8;   /* crown blue darkened for accessible contrast */
   --palette-gray: #9CA3AF;    /* neutral gray */
+  --palette-gray-light: #B8BDC4;  /* lighter gray (a bit darker) */
   --palette-black: #1F2937;   /* dark neutral */
 
   /* SURFACES */

@@ -18,19 +18,23 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="p-4 md:p-8 lg:p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-      <div className="w-full max-w-[1200px] mx-auto text-left flex flex-col">
-        <div className={bg("#e0f2f7")}>
-          <h1 className="text-h1 font-light text-foreground">Let’s Connect</h1>
+    <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
+      <div className="w-full bg-white">
+        <div className="w-full max-w-[1328px] mx-auto text-left flex flex-col px-16 py-4 md:py-8 lg:py-16">
+          <div>
+            <h1 className="text-h1 font-light text-foreground">Let’s Connect</h1>
         </div>
 
-        <div className={bg("#fef9c3")}>
+        <div>
           <h5 className="text-h5 max-w-[528px] font-light text-foreground">
           I'm interested in creative partnerships shaped by meaningful work.
           </h5>
+          </div>
         </div>
+      </div>
 
-        <div className={`flex flex-col sm:flex-row justify-start gap-3 ${bg("#f9e2f9")} mt-20`}>
+      <div className="w-full bg-palette-yellow">
+        <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-start gap-3">
           <Button
             variant="outline"
             size="lg"
@@ -317,8 +321,8 @@ export default function Home() {
                 <div className="numbers-anchor bg-black text-white p-0 w-full flex-1 flex flex-col min-h-0">
                   <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-0 min-w-0 items-stretch flex-1 min-h-0">
                     {metrics.map((metric, i) => {
-                      const blockBg = ["bg-[var(--palette-blue)]", "bg-palette-red", "bg-palette-yellow", "bg-palette-black"][i] ?? "bg-[var(--palette-blue)]";
-                      const textInherit = ["text-white", "text-white", "text-palette-black", "text-white"][i] ?? "text-white";
+                      const blockBg = ["bg-[var(--palette-blue)]", "bg-palette-gray-light", "bg-palette-yellow", "bg-palette-black"][i] ?? "bg-[var(--palette-blue)]";
+                      const textInherit = ["text-white", "text-palette-black", "text-palette-black", "text-white"][i] ?? "text-white";
                       return (
                       <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg} ${textInherit}`}>
                         <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
@@ -490,7 +494,7 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-gray flex flex-col pt-16 pb-16">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-gray-light flex flex-col pt-16 pb-16">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
