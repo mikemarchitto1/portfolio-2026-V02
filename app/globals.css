@@ -335,6 +335,7 @@
     font-size: var(--font-size-h1);
     line-height: var(--line-height-h1);
     font-weight: var(--font-weight-h1);
+    letter-spacing: -0.015em; /* -1.5% like Hero H1 */
   }
   .text-h2 {
     font-size: var(--font-size-h2);

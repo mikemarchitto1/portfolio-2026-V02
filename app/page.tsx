@@ -18,27 +18,29 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-      <div className="w-full bg-white">
-        <div className="w-full max-w-[1328px] mx-auto text-left flex flex-col px-16 py-4 md:py-8 lg:py-16">
-          <div>
-            <h1 className="text-h1 font-light text-foreground">Let’s Connect</h1>
-        </div>
-
-        <div>
-          <h5 className="text-h5 max-w-[528px] font-light text-foreground">
-          I'm interested in creative partnerships shaped by meaningful work.
-          </h5>
+    <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white">
+      <div className="w-full max-w-[1328px] mx-auto px-16">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
+          <div className="w-full min-w-0 p-16 -ml-16 bg-white text-left flex flex-col">
+            <div>
+              <h1 className="text-h1 font-light text-foreground">Let’s Talk</h1>
+            </div>
+            <div>
+              <h5 className="text-h5 max-w-[528px] font-light text-foreground">
+                I'm interested in creative partnerships shaped by meaningful work.
+              </h5>
+            </div>
           </div>
+          <div className="w-full min-w-0 bg-[var(--palette-blue)] min-h-[200px] md:min-h-0" aria-hidden />
         </div>
       </div>
 
       <div className="w-full bg-palette-yellow">
-        <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-start gap-3">
+        <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-start gap-4">
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -47,7 +49,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -58,7 +60,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a
@@ -196,7 +198,7 @@ function ProjectCardFiftyFifty({
           <p className="text-body1 text-foreground m-0 mb-6">{description}</p>
           {href ? (
             <span
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background"
               aria-hidden
             >
               See Case Study
@@ -206,7 +208,7 @@ function ProjectCardFiftyFifty({
               asChild
               variant="default"
               size="lg"
-              className="w-fit rounded-full bg-foreground text-background hover:bg-foreground/90"
+              className="w-fit bg-foreground text-background hover:bg-foreground/90"
             >
               <a href="#">See Case Study</a>
             </Button>
@@ -239,7 +241,7 @@ export default function Home() {
           <div className="w-full max-w-[1328px] mx-auto px-16">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 p-16 -ml-16 text-foreground">
-              <h1 className="text-h1 font-light text-foreground whitespace-nowrap tracking-[-0.015em]">Hi, I'm Mike</h1>
+              <h1 className="text-h1 font-light text-foreground whitespace-nowrap">Hi, I'm Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
