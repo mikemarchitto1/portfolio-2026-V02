@@ -213,7 +213,7 @@ export default function Home() {
             <div className="w-fit mb-10">
               <h2 className="text-h2 font-light text-left text-foreground p-0 m-0">Featured Work</h2>
             </div>
-            <div className="bg-white overflow-hidden flex flex-col group">
+            <div className="overflow-hidden flex flex-col group">
               <div className="w-full relative overflow-hidden">
                 <div
                   className="absolute inset-0 z-20 bg-foreground/5 opacity-0 transition-opacity duration-200 ease-out pointer-events-none group-hover:opacity-100"
@@ -228,12 +228,12 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 1200px"
                 />
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-8 py-8 items-start bg-[#1F3B73]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 py-4 items-start">
                 <div className="w-fit p-0 m-0">
-                  <h3 className="text-h5 font-medium text-white text-left p-0 m-0">GloriFi</h3>
+                  <h3 className="text-h5 font-medium text-foreground text-left p-0 m-0">GloriFi</h3>
                 </div>
                 <div className="p-0 m-0">
-                  <p className="text-body1 text-white text-left p-0 m-0">
+                  <p className="text-body1 text-foreground text-left p-0 m-0">
                     Led end-to-end UX for FinTech products, from wireframes and prototypes to hi-fidelity screens and a unified design system.
                   </p>
                 </div>
@@ -246,7 +246,7 @@ export default function Home() {
         <section className="pb-0 pt-0 px-0">
           <div className="w-full grid grid-cols-2 gap-0">
             {/* Experience module — column stretches to match Tech Stack; metadata box fills and adds space at bottom */}
-            <div className="p-16 text-black flex flex-col min-h-0">
+            <div className="p-0 text-black flex flex-col min-h-0">
               <div className="mb-10">
                 <h2 className="text-h2 font-light text-left text-inherit">
                   Impact Metrics
@@ -275,7 +275,7 @@ export default function Home() {
             </div>
 
             {/* Tools module */}
-            <div className="p-16 text-foreground flex flex-col min-h-0">
+            <div className="p-0 text-foreground flex flex-col min-h-0">
               <div className={`${bg("#fef9c3")} py-0 mb-10`}>
                 <h2 className="text-h2 font-light text-left py-0 text-foreground">
                   Tech Stack
