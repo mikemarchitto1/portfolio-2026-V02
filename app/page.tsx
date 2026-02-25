@@ -30,7 +30,7 @@ function Footer() {
           </h5>
         </div>
 
-        <div className={`flex flex-col sm:flex-row justify-start gap-3 ${bg("#f9e2f9")} mt-16`}>
+        <div className={`flex flex-col sm:flex-row justify-start gap-3 ${bg("#f9e2f9")} mt-20`}>
           <Button
             variant="outline"
             size="lg"
@@ -172,7 +172,7 @@ export default function Home() {
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 p-16 text-foreground">
-              <div className="mb-10">
+              <div className="mb-12">
                 <h2 className="text-h2 font-light text-foreground">About Me</h2>
               </div>
               <div className="text-body1 space-y-4 text-foreground">
@@ -208,7 +208,7 @@ export default function Home() {
         </section>
 
         {/* FEATURED WORK — single project entry in white block */}
-        <section className="px-4 md:px-8 lg:px-16 pt-0 pb-16">
+        <section className="hidden px-4 md:px-8 lg:px-16 pt-0 pb-16">
           <div className="w-full max-w-[1200px] mx-auto pt-16">
             <div className="w-fit mb-10">
               <h2 className="text-h2 font-light text-left text-foreground p-0 m-0">Featured Work</h2>
@@ -242,47 +242,43 @@ export default function Home() {
           </div>
         </section>
 
-        {/* EXPERIENCE — full width, 50/50 grid so Tools aligns flush with hero image left edge; no top/bottom padding so flush with hero and Projects */}
-        <section className="pb-0 pt-0 px-0">
-          <div className="w-full grid grid-cols-2 gap-0">
-            {/* Experience module — column stretches to match Tech Stack; metadata box fills and adds space at bottom */}
-            <div className="p-0 text-black flex flex-col min-h-0">
-              <div className="mb-10">
-                <h2 className="text-h2 font-light text-left text-inherit">
-                  Impact Metrics
-                </h2>
-              </div>
-              <div className="numbers-anchor bg-black text-white p-0 w-full flex flex-col shrink-0">
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 min-w-0 items-stretch">
-                  {metrics.map((metric, i) => {
-                    const blockBg = ["bg-[#105a10]", "bg-[#126812]", "bg-[#146e14]", "bg-[#1c851c]"][i] ?? "bg-[#105a10]";
-                    return (
-                    <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
-                      <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
-                        {metric.value === "10" ? (
-                          <span className="tracking-[-0.04em]">10</span>
-                        ) : (
-                          metric.value
-                        )}
+        {/* IMPACT METRICS AND TECH STACK — combined module, title full width, then 50/50 grid */}
+        <section className="p-16 min-h-[520px]">
+          <div className="w-full flex flex-col">
+            <div className="w-full mb-[72px]">
+              <h2 className="text-h2 font-light text-left text-foreground">
+                Impact and Tech Stack
+              </h2>
+            </div>
+            <div className="w-full grid grid-cols-2 gap-0">
+              {/* Impact Metrics */}
+              <div className="p-0 text-black flex flex-col min-h-0">
+                <div className="numbers-anchor bg-black text-white p-0 w-full flex-1 flex flex-col min-h-0">
+                  <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-0 min-w-0 items-stretch flex-1 min-h-0">
+                    {metrics.map((metric, i) => {
+                      const blockBg = ["bg-[#105a10]", "bg-[#126812]", "bg-[#146e14]", "bg-[#1c851c]"][i] ?? "bg-[#105a10]";
+                      return (
+                      <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
+                        <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
+                          {metric.value === "10" ? (
+                            <span className="tracking-[-0.04em]">10</span>
+                          ) : (
+                            metric.value
+                          )}
+                        </div>
+                        <div className="text-h5 font-normal text-inherit">
+                          {metric.label}
+                        </div>
                       </div>
-                      <div className="text-h5 font-normal text-inherit">
-                        {metric.label}
-                      </div>
-                    </div>
-                  );})}
+                    );})}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Tools module */}
-            <div className="p-0 text-foreground flex flex-col min-h-0">
-              <div className={`${bg("#fef9c3")} py-0 mb-10`}>
-                <h2 className="text-h2 font-light text-left py-0 text-foreground">
-                  Tech Stack
-                </h2>
-              </div>
-              <div className="bg-white p-4 md:p-8 lg:p-12 pt-6 md:pt-10 lg:pt-14 w-full flex-1 min-h-0 flex flex-col">
-                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[48px] grid-auto-rows-[80px] items-stretch content-start">
+              {/* Tech Stack */}
+              <div className="p-0 text-foreground flex flex-col min-h-0">
+                <div className="bg-white p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full flex-1 min-h-0 flex flex-col">
+                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
@@ -427,12 +423,15 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
         </section>
 
         {/* PROJECT CARDS — lightened grey */}
-        <section className="flex flex-col pt-[64px]">
+        <section className="flex flex-col pt-16">
           <div className="w-full flex flex-col min-w-0">
-            <h2 className="text-h2 font-light text-left text-foreground px-[64px] mb-10">Projects</h2>
+            <div className="w-full px-[64px] py-2 mb-0">
+              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
+            </div>
             <ProjectsGrid projects={projects} />
           </div>
         </section>
