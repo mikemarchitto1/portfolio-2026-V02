@@ -20,12 +20,12 @@ function Footer() {
   return (
     <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
       <div className="w-full max-w-[1328px] mx-auto px-16">
-        <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 p-16 text-left flex flex-col gap-4">
-            <div className="w-fit">
-              <h1 className="text-h1 font-light text-foreground">Let’s Talk</h1>
+        <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 p-16 text-left flex flex-col">
+            <div className="w-fit p-0 m-0">
+              <h1 className="text-h1 font-light text-foreground p-0 m-0">Let’s Talk</h1>
             </div>
-            <div className="max-w-[528px]">
-              <h5 className="text-h5 max-w-[528px] font-light text-foreground">
+            <div className="max-w-[528px] p-0 m-0">
+              <h5 className="text-h5 max-w-[528px] font-light text-foreground p-0 m-0">
                 I'm interested in creative partnerships built through meaningful work.
               </h5>
             </div>
@@ -191,8 +191,8 @@ function ProjectCardFiftyFifty({
         </div>
         {/* Right: white panel — 50%, 64px internal padding */}
         <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-[64px] text-left">
-          <h3 className="text-h5 font-medium text-foreground m-0 mb-3">{title}</h3>
-          <p className="text-body1 text-foreground m-0 mb-6">{description}</p>
+          <h3 className="text-h5 font-medium text-foreground m-0 mb-2">{title}</h3>
+          <p className="text-body1 text-foreground m-0 mb-8">{description}</p>
           {href ? (
             <span
               className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background transition-colors duration-200 hover:bg-gray-800"
