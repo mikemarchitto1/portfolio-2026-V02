@@ -18,29 +18,26 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
 ---------------------------------------------- */
 function Footer() {
   return (
-    <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-white">
+    <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
       <div className="w-full max-w-[1328px] mx-auto px-16">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-          <div className="w-full min-w-0 p-16 -ml-16 bg-white text-left flex flex-col">
-            <div>
+        <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 p-16 text-left flex flex-col gap-4">
+            <div className="w-fit">
               <h1 className="text-h1 font-light text-foreground">Let’s Talk</h1>
             </div>
-            <div>
+            <div className="max-w-[528px]">
               <h5 className="text-h5 max-w-[528px] font-light text-foreground">
                 I'm interested in creative partnerships shaped by meaningful work.
               </h5>
             </div>
-          </div>
-          <div className="w-full min-w-0 bg-[var(--palette-blue)] min-h-[200px] md:min-h-0" aria-hidden />
         </div>
       </div>
 
-      <div className="w-full bg-palette-yellow">
+      <div className="w-full">
         <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-start gap-4">
           <Button
             variant="outline"
             size="lg"
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -49,7 +46,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -60,7 +57,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a
@@ -181,9 +178,9 @@ function ProjectCardFiftyFifty({
 }) {
   const content = (
     <div className="w-full p-[64px]">
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[448px]">
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[448px] rounded-2xl overflow-hidden shadow-elevation">
         {/* Left: product image — 50% */}
-        <div className="relative w-full h-full min-h-[320px] overflow-hidden bg-muted">
+        <div className="relative w-full h-full min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-muted">
           <Image
             src={image}
             alt={title}
@@ -193,12 +190,12 @@ function ProjectCardFiftyFifty({
           />
         </div>
         {/* Right: white panel — 50%, 64px internal padding */}
-        <div className="flex flex-col justify-center bg-white p-[64px] text-left">
+        <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-[64px] text-left">
           <h3 className="text-h5 font-medium text-foreground m-0 mb-3">{title}</h3>
           <p className="text-body1 text-foreground m-0 mb-6">{description}</p>
           {href ? (
             <span
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background"
               aria-hidden
             >
               See Case Study
@@ -236,24 +233,24 @@ export default function Home() {
       <main className="min-h-screen">
         <HeroHeadline showBackgroundColors={SHOW_BACKGROUND_COLORS} />
 
-        {/* HERO BODY — full-bleed grey bg; content aligned to grid (pr-16 aligns blue box right edge with project card inner grid) */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-off-white">
-          <div className="w-full max-w-[1328px] mx-auto px-16">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 p-16 -ml-16 text-foreground">
+        {/* HERO BODY — content aligned to grid (pr-16 aligns blue box right edge with Impact/logos section) */}
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
+          <div className="w-full max-w-[1328px] mx-auto pr-16">
+          <div className="w-full grid grid-cols-1 md:grid-cols-[664px_1fr] gap-0 items-stretch">
+            <div className="w-full min-w-0 p-16 text-foreground">
               <h1 className="text-h1 font-light text-foreground whitespace-nowrap">Hi, I'm Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I'm originally from Chicago, where I studied graphic design at UIC—a foundation rooted in Swiss and International principles that shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX, working across corporations, agencies, and startups to create user‑centered digital experiences. Now based in Miami, I balance my work with cycling and time outdoors, often exploring new routes and bike‑camping destinations.
+                  I'm originally from Chicago, where I studied graphic design at UIC—a school rooted in Swiss and International design principles. This shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX, working across corporations, agencies, and startups to create user‑centered digital experiences. Now based in Miami, I balance my work with cycling and time outdoors, often exploring new routes and bike‑camping destinations.
                 </p>
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-[var(--palette-blue)]">
+            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-palette-yellow rounded-2xl shadow-elevation">
               {/* Image area: flex-1 so it shrinks; small top offset so image top aligns with "Hi, I'm Mike" cap height; quote baseline stays aligned */}
               <div className="flex-1 min-h-0 flex items-start justify-center pt-[22px]">
-                <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden">
+                <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full">
                   <Image
                     src="/images/profile-king-1.png"
                     alt="Mike profile"
@@ -264,9 +261,9 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <blockquote className="shrink-0 mt-6 text-body2 text-white font-light text-center">
+              <blockquote className="shrink-0 mt-6 text-body2 text-foreground font-light text-center">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                <cite className="not-italic mt-2 block text-white/80">— Ralph Waldo Emerson</cite>
+                <cite className="not-italic mt-2 block text-foreground/80">— Ralph Waldo Emerson</cite>
               </blockquote>
             </div>
           </div>
@@ -308,25 +305,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* IMPACT METRICS AND TECH STACK — full-bleed red bg; content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-red">
-          <div className="w-full max-w-[1328px] mx-auto p-16 pb-[128px] min-h-[520px]">
+        {/* IMPACT METRICS AND TECH STACK — content aligned to grid */}
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
+          <div className="w-full max-w-[1328px] mx-auto p-16 pb-16 min-h-[520px]">
           <div className="w-full flex flex-col">
             <div className="w-full mb-[72px]">
-              <h2 className="text-h2 font-light text-left text-white">
+              <h2 className="text-h2 font-light text-left text-foreground">
                 Impact and Tech Stack
               </h2>
             </div>
-            <div className="w-full grid grid-cols-2 gap-0">
+            <div className="w-full grid grid-cols-2 gap-4">
               {/* Impact Metrics */}
               <div className="p-0 text-black flex flex-col min-h-0">
-                <div className="numbers-anchor bg-black text-white p-0 w-full flex-1 flex flex-col min-h-0">
-                  <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-0 min-w-0 items-stretch flex-1 min-h-0">
+                <div className="numbers-anchor p-0 w-full flex-1 flex flex-col min-h-0">
+                  <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-4 min-w-0 items-stretch flex-1 min-h-0">
                     {metrics.map((metric, i) => {
-                      const blockBg = ["bg-[var(--palette-blue)]", "bg-palette-gray-light", "bg-palette-yellow", "bg-palette-black"][i] ?? "bg-[var(--palette-blue)]";
-                      const textInherit = ["text-white", "text-palette-black", "text-palette-black", "text-white"][i] ?? "text-white";
+                      const blockBg = "bg-white";
+                      const textInherit = "text-foreground";
                       return (
-                      <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg} ${textInherit}`}>
+                      <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] rounded-2xl shadow-elevation ${blockBg} ${textInherit}`}>
                         <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
                           {metric.value === "10" ? (
                             <span className="tracking-[-0.04em]">10</span>
@@ -345,7 +342,7 @@ export default function Home() {
 
               {/* Tech Stack */}
               <div className="p-0 text-foreground flex flex-col min-h-0">
-                <div className="bg-white p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full flex-1 min-h-0 flex flex-col">
+                <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full flex-1 min-h-0 flex flex-col">
                 <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
@@ -496,7 +493,7 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-gray-light flex flex-col pt-16 pb-16">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>

@@ -121,7 +121,7 @@
 
   /* MONDRIAN PALETTE — based on profile crown blue (#81B6E2) */
   --palette-white: #FFFFFF;
-  --palette-off-white: #F8F8F8;
+  --palette-off-white: #F5F5F7;
   --palette-yellow: #FFE500;   /* crown band */
   --palette-red: #C93936;     /* crown coral / blood red */
   --palette-blue: #4A8BB8;   /* crown blue darkened for accessible contrast */
@@ -400,6 +400,16 @@
     line-height: var(--line-height-overline);
     font-weight: var(--font-weight-overline);
   }
+}
+
+/* -------------------------------------------------------
+   ELEVATION SHADOW — soft, diffused (Apple-style card elevation)
+------------------------------------------------------- */
+.shadow-elevation {
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.07),
+    0 2px 4px -2px rgb(0 0 0 / 0.05),
+    0 10px 25px -5px rgb(0 0 0 / 0.08);
 }
 
 /* -------------------------------------------------------

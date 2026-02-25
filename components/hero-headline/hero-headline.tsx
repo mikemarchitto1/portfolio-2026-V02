@@ -10,7 +10,7 @@ export default function HeroHeadline({
   showBackgroundColors?: boolean;
 }) {
   return (
-    <section className={`p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] bg-palette-yellow ${bg(showBackgroundColors, "#fef9c3")}`}>
+    <section className={`p-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] ${bg(showBackgroundColors, "#fef9c3")}`}>
       <div className="w-full max-w-[1200px] mx-auto">
         <div className={`flex items-center justify-start gap-4 flex-wrap ${showBackgroundColors ? "bg-white" : ""}`}>
           <Button
