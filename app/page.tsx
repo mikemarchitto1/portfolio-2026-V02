@@ -34,7 +34,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -43,7 +43,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a href="/resume.pdf" download>
@@ -54,7 +54,7 @@ function Footer() {
           <Button
             variant="outline"
             size="lg"
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
             asChild
           >
             <a
@@ -172,7 +172,7 @@ export default function Home() {
         <section className="px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 p-16 text-foreground">
-              <div className="mb-[32px]">
+              <div className="mb-10">
                 <h2 className="text-h2 font-light text-foreground">About Me</h2>
               </div>
               <div className="text-body1 space-y-4 text-foreground">
@@ -207,20 +207,55 @@ export default function Home() {
           </div>
         </section>
 
+        {/* FEATURED WORK — single project entry in white block */}
+        <section className="px-4 md:px-8 lg:px-16 pt-0 pb-16">
+          <div className="w-full max-w-[1200px] mx-auto pt-16">
+            <div className="w-fit mb-10">
+              <h2 className="text-h2 font-light text-left text-foreground p-0 m-0">Featured Work</h2>
+            </div>
+            <div className="bg-white overflow-hidden flex flex-col group">
+              <div className="w-full relative overflow-hidden">
+                <div
+                  className="absolute inset-0 z-20 bg-foreground/5 opacity-0 transition-opacity duration-200 ease-out pointer-events-none group-hover:opacity-100"
+                  aria-hidden
+                />
+                <Image
+                  src="/images/hero-glorifi.png"
+                  alt="GloriFi banking app"
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto object-contain block transition-transform duration-200 ease-out group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 1200px"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-8 py-8 items-start bg-[#1F3B73]">
+                <div className="w-fit p-0 m-0">
+                  <h3 className="text-h5 font-medium text-white text-left p-0 m-0">GloriFi</h3>
+                </div>
+                <div className="p-0 m-0">
+                  <p className="text-body1 text-white text-left p-0 m-0">
+                    Led end-to-end UX for FinTech products, from wireframes and prototypes to hi-fidelity screens and a unified design system.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* EXPERIENCE — full width, 50/50 grid so Tools aligns flush with hero image left edge; no top/bottom padding so flush with hero and Projects */}
         <section className="pb-0 pt-0 px-0">
           <div className="w-full grid grid-cols-2 gap-0">
             {/* Experience module — column stretches to match Tech Stack; metadata box fills and adds space at bottom */}
             <div className="p-16 text-black flex flex-col min-h-0">
-              <div className="mb-[28px]">
+              <div className="mb-10">
                 <h2 className="text-h2 font-light text-left text-inherit">
                   Impact Metrics
                 </h2>
               </div>
-              <div className="numbers-anchor bg-black text-white p-0 w-full mt-5 flex flex-col shrink-0">
+              <div className="numbers-anchor bg-black text-white p-0 w-full flex flex-col shrink-0">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 min-w-0 items-stretch">
                   {metrics.map((metric, i) => {
-                    const blockBg = ["bg-[#4a1515]", "bg-[#5c1a1a]", "bg-[#6b2222]", "bg-[#752828]"][i] ?? "bg-[#4a1515]";
+                    const blockBg = ["bg-[#105a10]", "bg-[#126812]", "bg-[#146e14]", "bg-[#1c851c]"][i] ?? "bg-[#105a10]";
                     return (
                     <div key={i} className={`col-span-1 md:col-span-2 lg:col-span-3 w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] ${blockBg}`}>
                       <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
@@ -241,12 +276,12 @@ export default function Home() {
 
             {/* Tools module */}
             <div className="p-16 text-foreground flex flex-col min-h-0">
-              <div className={`${bg("#fef9c3")} py-0 mb-7`}>
+              <div className={`${bg("#fef9c3")} py-0 mb-10`}>
                 <h2 className="text-h2 font-light text-left py-0 text-foreground">
                   Tech Stack
                 </h2>
               </div>
-              <div className="bg-white p-4 md:p-8 lg:p-12 pt-6 md:pt-10 lg:pt-14 w-full mt-5 flex-1 min-h-0 flex flex-col">
+              <div className="bg-white p-4 md:p-8 lg:p-12 pt-6 md:pt-10 lg:pt-14 w-full flex-1 min-h-0 flex flex-col">
                 <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[48px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
@@ -397,7 +432,7 @@ export default function Home() {
         {/* PROJECT CARDS — lightened grey */}
         <section className="flex flex-col pt-[64px]">
           <div className="w-full flex flex-col min-w-0">
-            <h2 className="text-h2 font-light text-left text-foreground px-[64px] -mb-4">Projects</h2>
+            <h2 className="text-h2 font-light text-left text-foreground px-[64px] mb-10">Projects</h2>
             <ProjectsGrid projects={projects} />
           </div>
         </section>
