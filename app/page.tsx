@@ -26,7 +26,7 @@ function Footer() {
             </div>
             <div className="max-w-[528px]">
               <h5 className="text-h5 max-w-[528px] font-light text-foreground">
-                I'm interested in creative partnerships shaped by meaningful work.
+                I'm interested in creative partnerships built through meaningful work.
               </h5>
             </div>
         </div>
@@ -195,7 +195,7 @@ function ProjectCardFiftyFifty({
           <p className="text-body1 text-foreground m-0 mb-6">{description}</p>
           {href ? (
             <span
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background transition-colors duration-200 hover:bg-gray-800"
               aria-hidden
             >
               See Case Study
@@ -205,7 +205,7 @@ function ProjectCardFiftyFifty({
               asChild
               variant="default"
               size="lg"
-              className="w-fit bg-foreground text-background hover:bg-foreground/90"
+              className="w-fit bg-foreground text-background hover:bg-gray-800 transition-colors duration-200"
             >
               <a href="#">See Case Study</a>
             </Button>
@@ -242,7 +242,7 @@ export default function Home() {
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I'm originally from Chicago, where I studied graphic design at UIC—a school rooted in Swiss and International design principles. This shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX, working across corporations, agencies, and startups to create user‑centered digital experiences. Now based in Miami, I balance my work with cycling and time outdoors, often exploring new routes and bike‑camping destinations.
+                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. This shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX, working across corporations, agencies, and startups to create user‑centered digital experiences. Now based in Miami, I balance my work with cycling and time outdoors, often exploring new routes and bike‑camping destinations.
                 </p>
               </div>
             </div>
@@ -306,7 +306,7 @@ export default function Home() {
         </section>
 
         {/* IMPACT METRICS AND TECH STACK — content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] mt-28 mb-12">
           <div className="w-full max-w-[1328px] mx-auto p-16 pb-16 min-h-[520px]">
           <div className="w-full flex flex-col">
             <div className="w-full mb-[72px]">
@@ -493,12 +493,12 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-12">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
             </div>
-            <div className="w-full flex flex-col">
+            <div className="w-full flex flex-col gap-16">
               {projects.map((project, i) => (
                 <ProjectCardFiftyFifty
                   key={i}

@@ -50,7 +50,7 @@ export default function ProjectCard({
           asChild
           variant="default"
           size="lg"
-          className="mt-6 w-fit shrink-0 bg-foreground text-background hover:bg-foreground/90"
+          className="mt-6 w-fit shrink-0 bg-foreground text-background hover:bg-gray-800 transition-colors duration-200"
         >
           <span>See Case Study</span>
         </Button>
