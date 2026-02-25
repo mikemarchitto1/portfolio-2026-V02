@@ -22,7 +22,7 @@ function Footer() {
       <div className="w-full max-w-[1328px] mx-auto px-16">
         <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 p-16 text-left flex flex-col">
             <div className="w-fit p-0 m-0">
-              <h1 className="text-h1 font-light text-foreground p-0 m-0">Let’s Talk</h1>
+              <h1 className="text-h1 font-light text-foreground p-0 m-0" style={{ letterSpacing: 0 }}>Let’s Talk</h1>
             </div>
             <div className="max-w-[528px] p-0 m-0">
               <h5 className="text-h5 max-w-[528px] font-light text-foreground p-0 m-0">
@@ -238,7 +238,7 @@ export default function Home() {
           <div className="w-full max-w-[1328px] mx-auto pr-16">
           <div className="w-full grid grid-cols-1 md:grid-cols-[664px_1fr] gap-0 items-stretch">
             <div className="w-full min-w-0 p-16 text-foreground">
-              <h1 className="text-h1 font-light text-foreground whitespace-nowrap">Hi, I'm Mike</h1>
+              <h1 className="text-h1 font-light text-foreground whitespace-nowrap" style={{ letterSpacing: 0 }}>Hi, I'm Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
@@ -247,7 +247,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-palette-yellow rounded-2xl shadow-elevation">
+            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-palette-yellow/80 rounded-2xl shadow-elevation">
               {/* Image area: flex-1 so it shrinks; small top offset so image top aligns with "Hi, I'm Mike" cap height; quote baseline stays aligned */}
               <div className="flex-1 min-h-0 flex items-start justify-center pt-[22px]">
                 <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full">

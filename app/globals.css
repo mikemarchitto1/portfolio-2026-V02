@@ -335,7 +335,7 @@
     font-size: var(--font-size-h1);
     line-height: var(--line-height-h1);
     font-weight: var(--font-weight-h1);
-    letter-spacing: -0.015em; /* -1.5% like Hero H1 */
+    letter-spacing: 0; /* 0% */
   }
   .text-h2 {
     font-size: var(--font-size-h2);
@@ -417,4 +417,9 @@
 [data-background-colors="off"] [class*="bg-"] {
   background-color: transparent !important;
   background-image: none !important;
+}
+
+/* Ensure H1 letter-spacing applies (comes after utilities so it wins) */
+.text-h1 {
+  letter-spacing: 0;
 }
