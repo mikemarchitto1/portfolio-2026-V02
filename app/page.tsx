@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card/project-card";
 import HeroHeadline from "@/components/hero-headline/hero-headline";
+import { StatCounter } from "@/components/stat-counter/stat-counter";
+import { useScrollTriggerOnce } from "@/components/stat-counter/use-scroll-trigger-once";
 
 /* ---------------------------------------------
    BACKGROUND COLORS TOGGLE
@@ -235,6 +237,9 @@ function ProjectCardFiftyFifty({
    PAGE
 ---------------------------------------------- */
 export default function Home() {
+  const { ref: statsTriggerRef, triggered: statsTriggered } =
+    useScrollTriggerOnce();
+
   return (
     <>
       <main className="min-h-screen">
@@ -324,25 +329,19 @@ export default function Home() {
             <div className="w-full grid grid-cols-2 gap-4">
               {/* Impact Metrics */}
               <div className="p-0 text-black flex flex-col min-h-0">
-                <div className="numbers-anchor p-0 w-full flex-1 flex flex-col min-h-0">
+                <div
+                  ref={statsTriggerRef}
+                  className="numbers-anchor p-0 w-full flex-1 flex flex-col min-h-0"
+                >
                   <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-4 min-w-0 items-stretch flex-1 min-h-0">
-                    {metrics.map((metric, i) => {
-                      const blockBg = "bg-white";
-                      const textInherit = "text-foreground";
-                      return (
-                      <div key={i} className={`w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] rounded-2xl shadow-elevation ${blockBg} ${textInherit}`}>
-                        <div className="text-h1 font-light -mb-1 !py-0 text-inherit">
-                          {metric.value === "10" ? (
-                            <span className="tracking-[-0.04em]">10</span>
-                          ) : (
-                            metric.value
-                          )}
-                        </div>
-                        <div className="text-h5 font-normal text-inherit">
-                          {metric.label}
-                        </div>
-                      </div>
-                    );})}
+                    {metrics.map((metric, i) => (
+                      <StatCounter
+                        key={i}
+                        value={Number(metric.value)}
+                        label={metric.label}
+                        startAnimation={statsTriggered}
+                      />
+                    ))}
                   </div>
                 </div>
               </div>

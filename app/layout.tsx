@@ -28,11 +28,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeScript = `
+(function() {
+  var key = 'theme';
+  var stored = localStorage.getItem(key);
+  var theme = stored === 'dark' || stored === 'color' || stored === 'light' ? stored : 'light';
+  var html = document.documentElement;
+  html.classList.remove('light', 'dark', 'color');
+  html.classList.add(theme);
+})();
+`;
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased bg-background`}
       >
+        <script
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
         <Layout>{children}</Layout>
       </body>
     </html>
