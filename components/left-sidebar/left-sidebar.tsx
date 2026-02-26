@@ -35,9 +35,9 @@ export default function LeftSidebar({
           {/* Top row: mark left, close button right */}
           <div className="flex items-start justify-between shrink-0 pt-0 pb-6">
             <img
-              src="/images/mark-mm.svg"
+              src="/images/monogram_mm.svg"
               alt="MM"
-              className="h-12 w-auto object-contain object-left"
+              className="h-10 w-auto object-contain object-left"
             />
             <Button
               variant="ghost"
@@ -51,7 +51,7 @@ export default function LeftSidebar({
           </div>
 
           {/* Icon menu - sun, moon, palette in a row, 16px apart */}
-          <nav className="flex flex-row gap-4 shrink-0 pb-8" aria-label="Theme and preferences">
+          <nav className="flex flex-row gap-5 shrink-0 pb-8" aria-label="Theme and preferences">
             <Button
               variant="ghost"
               size="icon"
