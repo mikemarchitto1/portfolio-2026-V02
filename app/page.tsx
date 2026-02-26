@@ -33,41 +33,48 @@ function Footer() {
       </div>
 
       <div className="w-full">
-        <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-start gap-4">
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
-            asChild
-          >
-            <a href="mailto:hello@carlwalker.com">Email Mike</a>
-          </Button>
-
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
-            asChild
-          >
-            <a href="/resume.pdf" download>
-              Download Resume
-            </a>
-          </Button>
-
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
-            asChild
-          >
-            <a
-              href="https://linkedin.com/in/carlwalker"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-between items-end gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+              asChild
             >
-              Connect on LinkedIn
-            </a>
-          </Button>
+              <a href="mailto:hello@carlwalker.com">Email Mike</a>
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+              asChild
+            >
+              <a href="/resume.pdf" download>
+                Download Resume
+              </a>
+            </Button>
+
+            <Button
+              variant="outline"
+              size="lg"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+              asChild
+            >
+              <a
+                href="https://linkedin.com/in/carlwalker"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Connect on LinkedIn
+              </a>
+            </Button>
+          </div>
+          <img
+            src="/images/logo-mmpd-1.svg"
+            alt="Michael Marchitto Product Design"
+            className="h-[44px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
+          />
         </div>
       </div>
     </footer>
