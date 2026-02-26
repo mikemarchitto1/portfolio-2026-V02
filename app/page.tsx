@@ -249,7 +249,7 @@ export default function Home() {
 
             <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-palette-yellow/80 rounded-2xl shadow-elevation">
               {/* Image area: circle centered in remaining space above quote */}
-              <div className="flex-1 min-h-0 flex items-center justify-center mb-8">
+              <div className="flex-1 min-h-0 flex items-center justify-center mb-10">
                 <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full mt-[28px]">
                   <Image
                     src="/images/profile-king-1.png"
