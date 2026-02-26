@@ -318,12 +318,21 @@
     @apply bg-background text-foreground;
     line-height: 24px; /* 6 × 4px baseline — default text snaps to grid */
   }
-  /* Button text: typography scale (500 medium) applied globally to all buttons */
+  /* Button text: typography scale (14px, 500 medium) applied globally to all buttons */
   button,
-  [role="button"] {
-    font-size: var(--font-size-button);
-    line-height: var(--line-height-button);
-    font-weight: var(--font-weight-button);
+  [role="button"],
+  [data-slot="button"],
+  .text-button {
+    font-size: var(--font-size-button) !important;
+    line-height: var(--line-height-button) !important;
+    font-weight: var(--font-weight-button) !important;
+  }
+  /* Header nav: ensure icon buttons use button typography (overrides header context) */
+  header button,
+  header [data-slot="button"] {
+    font-size: var(--font-size-button) !important;
+    line-height: var(--line-height-button) !important;
+    font-weight: var(--font-weight-button) !important;
   }
 }
 
