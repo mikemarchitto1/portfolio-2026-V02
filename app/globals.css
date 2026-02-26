@@ -130,7 +130,7 @@
   --palette-black: #1F2937;   /* dark neutral */
 
   /* SURFACES */
-  --background: #F5F5F7;
+  --background: #F8F8F9;
   --card: oklch(100% 0 0);
   --popover: oklch(100% 0 0);
 
