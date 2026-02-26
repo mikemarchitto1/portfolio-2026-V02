@@ -20,7 +20,7 @@ function Footer() {
   return (
     <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
       <div className="w-full max-w-[1328px] mx-auto px-16">
-        <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 p-16 text-left flex flex-col">
+        <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 px-16 py-0 text-left flex flex-col">
             <div className="w-fit p-0 m-0">
               <h1 className="text-h1 font-light text-foreground p-0 m-0" style={{ letterSpacing: 0 }}>Let’s Talk</h1>
             </div>
@@ -306,7 +306,7 @@ export default function Home() {
         </section>
 
         {/* IMPACT METRICS AND TECH STACK — content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] mt-28 mb-12">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] mt-24 mb-6">
           <div className="w-full max-w-[1328px] mx-auto p-16 pb-16 min-h-[520px]">
           <div className="w-full flex flex-col">
             <div className="w-full mb-[72px]">
@@ -343,7 +343,7 @@ export default function Home() {
               {/* Tech Stack */}
               <div className="p-0 text-foreground flex flex-col min-h-0">
                 <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full flex-1 min-h-0 flex flex-col">
-                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[48px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
+                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
@@ -388,7 +388,7 @@ export default function Home() {
                     className="w-[96px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
-                {/* Row 3: Shopify, Framer, Adobe — extra 2px above for spacing */}
+                {/* Row 3: Shopify, Framer, Adobe */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-shopify.svg"
@@ -493,7 +493,7 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-12">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-[92px]">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
