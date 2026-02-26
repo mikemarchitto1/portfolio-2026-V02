@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
 
@@ -18,6 +19,13 @@ export default function Header({
   return (
     <header className="sticky top-0 z-40 border-b border-foreground/20 bg-transparent text-foreground">
       <div className="min-h-16 flex items-center justify-start gap-2 p-4 md:p-8 lg:p-16 max-w-[1200px] mx-auto">
+          <Image
+            src="/images/logo_mmpd.svg"
+            alt="MMPD"
+            width={32}
+            height={32}
+            className="h-8 w-auto shrink-0"
+          />
           <Button
             variant="ghost"
             size="icon"

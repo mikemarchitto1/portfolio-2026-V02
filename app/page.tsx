@@ -110,14 +110,14 @@ const projects = [
     href: "/nra",
   },
   {
-    title: "Microsoft Admin Software",
+    title: "Microsoft Admin",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
     image: "/images/thumb-large-microsoftadmin.png",
     href: "/microsoft-admin",
   },
   {
-    title: "Microsoft Hits Software",
+    title: "Microsoft Hits",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
     image: "/images/thumb-large-microsofthits.png",
