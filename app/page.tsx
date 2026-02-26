@@ -248,9 +248,9 @@ export default function Home() {
             </div>
 
             <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-palette-yellow/80 rounded-2xl shadow-elevation">
-              {/* Image area: flex-1 so it shrinks; small top offset so image top aligns with "Hi, I'm Mike" cap height; quote baseline stays aligned */}
-              <div className="flex-1 min-h-0 flex items-start justify-center pt-[22px]">
-                <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full">
+              {/* Image area: circle centered in remaining space above quote */}
+              <div className="flex-1 min-h-0 flex items-center justify-center mb-8">
+                <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full mt-[28px]">
                   <Image
                     src="/images/profile-king-1.png"
                     alt="Mike profile"
@@ -261,9 +261,9 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <blockquote className="shrink-0 mt-6 text-body2 text-foreground font-light text-center">
+              <blockquote className="profile-quote shrink-0 text-body2 text-foreground font-light text-center">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                <cite className="not-italic mt-2 block text-foreground/80">— Ralph Waldo Emerson</cite>
+                <cite className="not-italic block text-foreground/80">— Ralph Waldo Emerson</cite>
               </blockquote>
             </div>
           </div>
