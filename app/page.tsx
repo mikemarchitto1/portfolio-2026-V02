@@ -498,7 +498,7 @@ export default function Home() {
             <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
             </div>
-            <div className="w-full flex flex-col gap-16">
+            <div className="w-full flex flex-col gap-12">
               {projects.map((project, i) => (
                 <ProjectCardFiftyFifty
                   key={i}
