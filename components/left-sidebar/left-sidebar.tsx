@@ -33,7 +33,7 @@ export default function LeftSidebar({
     >
       <div className="flex h-full w-[var(--sidebar-width)] min-w-[var(--sidebar-width)] flex-col p-4">
           {/* Top row: mark left, close button right */}
-          <div className="flex items-start justify-between shrink-0 pt-0 pb-6">
+          <div className="flex items-start justify-between shrink-0 pt-0 pb-4">
             <img
               src="/images/monogram_mm.svg"
               alt="MM"
