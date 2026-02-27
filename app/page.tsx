@@ -73,7 +73,7 @@ function Footer() {
             </Button>
           </div>
           <img
-            src="/images/crown.svg"
+            src="/images/royal.svg"
             alt="Michael Marchitto Product Design"
             className="h-[40px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
           />

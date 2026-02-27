@@ -5,7 +5,7 @@ import { BrainCircuit } from "@/components/icons/brain-circuit";
 import { Calendar, MessageCircle } from "lucide-react";
 import { useSidebar } from "@/components/ui/sidebar";
 import { ChatPanel } from "@/components/chat-panel/chat-panel";
-import { CalendarSheet } from "@/components/calendar-sheet/calendar-sheet";
+import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 
 const bg = (show: boolean, hex: string) => (show ? `bg-[${hex}]` : "");
 
@@ -27,7 +27,7 @@ export default function HeroHeadline({
           >
             <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
           </Button>
-          <CalendarSheet
+          <SchedulingDialog
             trigger={
               <Button
                 variant="outline"

@@ -20,15 +20,15 @@ export function CalendarSheet({ trigger }: CalendarSheetProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>{trigger}</SheetTrigger>
-      <SheetContent side="right" className="flex w-full flex-col sm:max-w-md">
+      <SheetContent side="right" className="flex w-full flex-col border-0 bg-gray-200 sm:max-w-md">
         <SheetHeader>
           <SheetTitle>Calendar</SheetTitle>
           <SheetDescription>
-            Pick a date. This panel slides in from the right.
+            Pick a date so we can schedule a time to meet.
           </SheetDescription>
         </SheetHeader>
-        <div className="flex-1 min-w-0 overflow-x-hidden overflow-y-auto pt-6 pb-4 px-4">
-          <div className="min-w-0 overflow-hidden">
+        <div className="flex-1 min-w-0 overflow-x-hidden overflow-y-auto rounded-lg border-0 pt-6 pb-4 px-4">
+          <div className="min-w-0 overflow-hidden rounded-lg border-0">
             <CalendarPanel
               selected={date}
               onSelect={setDate}
@@ -36,7 +36,7 @@ export function CalendarSheet({ trigger }: CalendarSheetProps) {
               captionLayout="dropdown"
               className="w-full max-w-full min-w-0 rounded-lg border-0 bg-transparent p-0 shadow-none"
               calendarProps={{
-                className: "w-full max-w-full min-w-0 rounded-lg bg-white pt-4",
+                className: "w-full max-w-full min-w-0 rounded-lg bg-white pt-4 px-4 pb-4 shadow-elevation",
                 classNames: { nav: "top-4" },
               }}
             />

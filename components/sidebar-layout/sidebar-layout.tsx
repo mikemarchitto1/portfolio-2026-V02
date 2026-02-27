@@ -33,7 +33,7 @@ function SidebarHeaderContent() {
   return (
     <div className="flex items-start justify-between shrink-0 pt-0 pb-4">
       <img
-        src="/images/crown.svg"
+        src="/images/royal.svg"
         alt="Crown"
         className="h-[40px] w-auto object-contain object-left"
       />
