@@ -256,7 +256,7 @@ export default function Home() {
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. This shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX, working across corporations, agencies, and startups to create user‑centered digital experiences. Now based in Miami, I balance my work with cycling and time outdoors, often exploring new routes and bike‑camping destinations.
+                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. This shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX design, working across corporations, agencies, and startups. Now in Miami, I balance work, exploring AI‑driven design, and spending time outdoors cycling.
                 </p>
               </div>
             </div>

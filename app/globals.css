@@ -618,3 +618,24 @@ html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hov
   background-color: #0E1A3A !important;
   color: white !important;
 }
+
+/* Chat input: force same light-mode look in all themes (no dark/color overrides) */
+.chat-input-outer {
+  border-color: #000 !important;
+  background-color: #fff !important;
+}
+.chat-input-unified .chat-input-inner,
+.chat-input-unified input.chat-input-inner {
+  border-color: #000 !important;
+  background-color: #fff !important;
+  color: #000 !important;
+}
+.chat-input-unified .chat-input-inner::placeholder,
+.chat-input-unified input.chat-input-inner::placeholder {
+  color: #6b7280 !important;
+}
+.chat-input-unified .chat-input-inner:focus-visible,
+.chat-input-unified input.chat-input-inner:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #000 !important;
+}
