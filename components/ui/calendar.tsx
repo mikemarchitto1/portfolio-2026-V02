@@ -53,7 +53,8 @@ function Calendar({
         month: cn("flex flex-col w-full gap-4", defaultClassNames.month),
         nav: cn(
           "flex items-center gap-1 w-full absolute top-0 inset-x-0 justify-between",
-          defaultClassNames.nav
+          defaultClassNames.nav,
+          classNames?.nav
         ),
         button_previous: cn(
           buttonVariants({ variant: buttonVariant }),
@@ -117,7 +118,7 @@ function Calendar({
         range_middle: cn("rounded-none", defaultClassNames.range_middle),
         range_end: cn("rounded-r-md bg-accent", defaultClassNames.range_end),
         today: cn(
-          "bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none",
+          "bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none has-[[data-selected-single=true]]:bg-transparent has-[[data-selected-single=true]]:text-foreground",
           defaultClassNames.today
         ),
         outside: cn(
@@ -129,7 +130,11 @@ function Calendar({
           defaultClassNames.disabled
         ),
         hidden: cn("invisible", defaultClassNames.hidden),
-        ...classNames,
+        ...(classNames &&
+          (() => {
+            const { nav: _nav, ...rest } = classNames
+            return rest
+          })()),
       }}
       components={{
         Root: ({ className, rootRef, ...props }) => {

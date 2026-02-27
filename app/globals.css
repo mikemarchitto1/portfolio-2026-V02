@@ -266,41 +266,41 @@
 }
 
 /* -------------------------------------------------------
-   COLOR MODE — #C2DCFF
+   COLOR MODE — lighter blue (#C2DCFF base)
 ------------------------------------------------------- */
 .color {
-  --background: #C2DCFF;
+  --background: #E8F2FF;
   --foreground: oklch(25% 0.05 253);
-  --card: oklch(98% 0.02 253);
+  --card: oklch(99% 0.015 253);
   --card-foreground: oklch(25% 0.05 253);
-  --popover: oklch(98% 0.02 253);
+  --popover: oklch(99% 0.015 253);
   --popover-foreground: oklch(25% 0.05 253);
 
   --primary: oklch(45% 0.12 253);
   --primary-foreground: oklch(98% 0 0);
 
-  --secondary: oklch(92% 0.05 253);
+  --secondary: oklch(94% 0.04 253);
   --secondary-foreground: oklch(25% 0.05 253);
 
-  --muted: oklch(90% 0.04 253);
+  --muted: oklch(93% 0.03 253);
   --muted-foreground: oklch(45% 0.04 253);
 
-  --accent: oklch(88% 0.06 253);
+  --accent: oklch(91% 0.05 253);
   --accent-foreground: oklch(25% 0.05 253);
 
   --destructive: oklch(57% 0.245 27.325);
 
-  --border: oklch(85% 0.05 253);
-  --input: oklch(88% 0.05 253);
+  --border: oklch(90% 0.04 253);
+  --input: oklch(92% 0.04 253);
   --ring: oklch(45% 0.12 253);
 
-  --sidebar: #C2DCFF;
+  --sidebar: #E8F2FF;
   --sidebar-foreground: oklch(25% 0.05 253);
   --sidebar-primary: oklch(45% 0.12 253);
   --sidebar-primary-foreground: oklch(98% 0 0);
-  --sidebar-accent: oklch(88% 0.05 253);
+  --sidebar-accent: oklch(91% 0.04 253);
   --sidebar-accent-foreground: oklch(25% 0.05 253);
-  --sidebar-border: oklch(85% 0.05 253);
+  --sidebar-border: oklch(90% 0.04 253);
   --sidebar-ring: oklch(45% 0.12 253);
 }
 
@@ -378,6 +378,12 @@
   /* Header nav: ensure icon buttons use button typography (overrides header context) */
   header button,
   header [data-slot="button"] {
+    font-size: var(--font-size-button) !important;
+    line-height: var(--line-height-button) !important;
+    font-weight: var(--font-weight-button) !important;
+  }
+  /* Sidebar menu items: same as button font */
+  [data-sidebar="menu-button"] {
     font-size: var(--font-size-button) !important;
     line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;

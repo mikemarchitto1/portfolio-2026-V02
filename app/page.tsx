@@ -73,9 +73,9 @@ function Footer() {
             </Button>
           </div>
           <img
-            src="/images/logo-mmpd-1.svg"
+            src="/images/crown.svg"
             alt="Michael Marchitto Product Design"
-            className="h-[44px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
+            className="h-[40px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
           />
         </div>
       </div>

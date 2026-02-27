@@ -56,8 +56,11 @@ export function CalendarPanel({
         disabled={disabled}
         fromDate={fromDate}
         toDate={toDate}
-        className="rounded-lg border-0 bg-transparent p-0 [--cell-size:--spacing(8)]"
         {...calendarProps}
+        className={cn(
+          "rounded-lg border-0 bg-transparent p-0 [--cell-size:--spacing(8)]",
+          calendarProps?.className
+        )}
       />
     </div>
   );

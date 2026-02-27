@@ -27,14 +27,20 @@ export function CalendarSheet({ trigger }: CalendarSheetProps) {
             Pick a date. This panel slides in from the right.
           </SheetDescription>
         </SheetHeader>
-        <div className="flex-1 overflow-auto py-4">
-          <CalendarPanel
-            selected={date}
-            onSelect={setDate}
-            defaultMonth={date}
-            captionLayout="dropdown"
-            className="border-0 p-0 shadow-none"
-          />
+        <div className="flex-1 min-w-0 overflow-x-hidden overflow-y-auto pt-6 pb-4 px-4">
+          <div className="min-w-0 overflow-hidden">
+            <CalendarPanel
+              selected={date}
+              onSelect={setDate}
+              defaultMonth={date}
+              captionLayout="dropdown"
+              className="w-full max-w-full min-w-0 rounded-lg border-0 bg-transparent p-0 shadow-none"
+              calendarProps={{
+                className: "w-full max-w-full min-w-0 rounded-lg bg-white pt-4",
+                classNames: { nav: "top-4" },
+              }}
+            />
+          </div>
         </div>
       </SheetContent>
     </Sheet>

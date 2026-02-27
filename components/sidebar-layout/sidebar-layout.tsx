@@ -33,9 +33,9 @@ function SidebarHeaderContent() {
   return (
     <div className="flex items-start justify-between shrink-0 pt-0 pb-4">
       <img
-        src="/images/monogram_mm.svg"
-        alt="MM"
-        className="h-10 w-auto object-contain object-left"
+        src="/images/crown.svg"
+        alt="Crown"
+        className="h-[40px] w-auto object-contain object-left"
       />
       <Button
         variant="ghost"
@@ -56,7 +56,7 @@ function SidebarContentArea() {
   return (
     <>
       <nav
-        className="flex flex-row gap-5 shrink-0 pb-8"
+        className="flex flex-row gap-4 shrink-0 pb-8"
         aria-label="Theme and preferences"
       >
         <Button
@@ -88,7 +88,7 @@ function SidebarContentArea() {
         </Button>
       </nav>
 
-      <SidebarGroup className="mt-14">
+      <SidebarGroup className="mt-6">
         <SidebarGroupLabel>Projects</SidebarGroupLabel>
         <SidebarMenu>
           {PROJECTS.map(({ label, href }) => (
