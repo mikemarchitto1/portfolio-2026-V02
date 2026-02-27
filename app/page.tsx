@@ -245,6 +245,7 @@ function ProjectCardFiftyFifty({
 export default function Home() {
   const { ref: statsTriggerRef, triggered: statsTriggered } =
     useScrollTriggerOnce();
+  const { theme } = useTheme();
 
   return (
     <>
@@ -270,7 +271,11 @@ export default function Home() {
               <div className="flex-1 min-h-0 flex items-center justify-center mb-10">
                 <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full mt-[28px]">
                   <Image
-                    src="/images/profile-king-1.png"
+                    src={
+                      theme === "color"
+                        ? "/images/profile-king-i.png"
+                        : "/images/profile-king-p.png"
+                    }
                     alt="Mike profile"
                     fill
                     className="object-cover object-center"
