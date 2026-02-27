@@ -14,8 +14,8 @@ type CalendarPanelProps = {
   defaultMonth?: Date;
   /** Use month/year dropdowns instead of arrows */
   captionLayout?: "label" | "dropdown" | "dropdown-months" | "dropdown-years";
-  /** Pass through to Calendar */
-  mode?: "single" | "multiple" | "range";
+  /** Calendar mode (single only supported for type safety with DayPicker) */
+  mode?: "single";
   /** Disable specific dates */
   disabled?: React.ComponentProps<typeof Calendar>["disabled"];
   /** Min/max date */
@@ -34,7 +34,6 @@ export function CalendarPanel({
   onSelect,
   defaultMonth,
   captionLayout = "label",
-  mode = "single",
   disabled,
   fromDate,
   toDate,
@@ -48,9 +47,9 @@ export function CalendarPanel({
       )}
     >
       <Calendar
-        mode={mode}
+        mode="single"
         selected={selected}
-        onSelect={onSelect as (date: Date | Date[] | undefined) => void}
+        onSelect={onSelect}
         defaultMonth={defaultMonth}
         captionLayout={captionLayout}
         disabled={disabled}
