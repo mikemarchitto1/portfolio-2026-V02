@@ -81,7 +81,7 @@ function Footer() {
                 : "/images/crown works-up-w.svg"
             }
             alt="Crown Works"
-            className="h-[76px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
+            className="hidden h-[76px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
           />
         </div>
       </div>

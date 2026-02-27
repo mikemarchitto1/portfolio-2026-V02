@@ -31,11 +31,13 @@ const PROJECTS = [
 function SidebarHeaderContent() {
   const { setOpen } = useSidebar();
   const { theme } = useTheme();
+  const logoSrc =
+    theme === "light" ? "/images/crown-draw-b.svg" : "/images/crown-draw-w.svg";
   return (
     <div className="flex items-start justify-between shrink-0 pt-0 pb-4">
       <img
-        src={theme === "light" ? "/images/crown works.svg" : "/images/crown works-w.svg"}
-        alt="Crown Works"
+        src={logoSrc}
+        alt="Crown"
         className="h-[40px] w-auto object-contain object-left"
       />
       <Button

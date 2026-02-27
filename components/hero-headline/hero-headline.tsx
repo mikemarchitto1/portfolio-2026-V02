@@ -6,8 +6,6 @@ import { Calendar, MessageCircle } from "lucide-react";
 import { useSidebar } from "@/components/ui/sidebar";
 import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
-import { useTheme } from "@/hooks/use-theme";
-
 const bg = (show: boolean, hex: string) => (show ? `bg-[${hex}]` : "");
 
 export default function HeroHeadline({
@@ -16,7 +14,6 @@ export default function HeroHeadline({
   showBackgroundColors?: boolean;
 }) {
   const { toggle } = useSidebar();
-  const { theme } = useTheme();
   return (
     <section className={`pt-4 pr-16 pb-16 pl-16 text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] ${bg(showBackgroundColors, "#fef9c3")}`}>
       <div className={`w-full max-w-[1200px] mx-auto flex items-center justify-between gap-4 flex-wrap ${showBackgroundColors ? "bg-white" : ""}`}>
@@ -61,11 +58,6 @@ export default function HeroHeadline({
             }
           />
           </div>
-          <img
-            src={theme === "light" ? "/images/crown works-h-b.svg" : "/images/crown works-h-w.svg"}
-            alt="Crown Works"
-            className="h-[40px] w-auto shrink-0 object-contain object-right"
-          />
       </div>
     </section>
   );

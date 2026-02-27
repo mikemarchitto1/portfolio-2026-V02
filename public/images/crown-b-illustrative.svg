@@ -1,0 +1,58 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">\
+  <defs>\
+    <!-- Gold gradient -->\
+    <linearGradient id="crownGold" x1="0" y1="0" x2="18" y2="18" gradientUnits="userSpaceOnUse">\
+      <stop offset="0" stop-color="#F9D976"/>\
+      <stop offset="0.5" stop-color="#F39C12"/>\
+      <stop offset="1" stop-color="#C87E1F"/>\
+    </linearGradient>\
+\
+    <!-- Highlight gradient -->\
+    <linearGradient id="crownHighlight" x1="9" y1="2" x2="9" y2="11" gradientUnits="userSpaceOnUse">\
+      <stop offset="0" stop-color="white" stop-opacity="0.7"/>\
+      <stop offset="1" stop-color="white" stop-opacity="0"/>\
+    </linearGradient>\
+\
+    <!-- Soft shadow -->\
+    <filter id="crownShadow" x="-10%" y="-10%" width="120%" height="140%">\
+      <feOffset dy="0.6" in="SourceAlpha" result="offset"/>\
+      <feGaussianBlur stdDeviation="0.6" in="offset" result="blur"/>\
+      <feColorMatrix\
+        in="blur"\
+        type="matrix"\
+        values="0 0 0 0 0\
+                0 0 0 0 0\
+                0 0 0 0 0\
+                0 0 0 0.35 0"\
+        result="shadow"/>\
+      <feBlend in="shadow" in2="SourceGraphic" mode="normal"/>\
+    </filter>\
+  </defs>\
+\
+  <!-- Base crown with gradient and stroke -->\
+  <g filter="url(#crownShadow)">\
+    <path\
+      d="M9.91992 2.09277L12.0068 6.86133L13.9814 2.99707L15.4082 0.202148L15.8613 3.30762L17.8164 16.7129L18.0039 18L16.7119 17.8506C10.6702 17.1536 7.3019 17.1539 1.29297 17.8506L0 18L0.188477 16.7129L2.14551 3.30762L2.59863 0.203125L4.02539 2.99707L5.99902 6.8623L8.08789 2.09277L9.00391 0L9.91992 2.09277ZM6.98535 9.59766L6.13867 11.5322L5.17871 9.65137L3.6709 6.7002L2.35352 15.7207C7.32944 15.1968 10.6493 15.1974 15.6494 15.7217L14.334 6.70117L12.8281 9.65137L11.8682 11.5322L11.0215 9.59766L9.00293 4.9873L6.98535 9.59766Z"\
+      fill="url(#crownGold)"\
+      stroke="#5A3A12"\
+      stroke-width="0.4"\
+      stroke-linejoin="round"\
+    />\
+    <!-- Top highlight -->\
+    <path\
+      d="M3 7C5.2 5.2 7.4 4.4 9 4.4C10.6 4.4 12.8 5.2 15 7"\
+      fill="none"\
+      stroke="url(#crownHighlight)"\
+      stroke-width="0.5"\
+      stroke-linecap="round"\
+    />\
+  </g>\
+</svg>\
+}

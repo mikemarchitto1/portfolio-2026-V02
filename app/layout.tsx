@@ -17,10 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mike Marchitto Portfolio",
+  title: "Mike Marchitto Design",
   description: "Portfolio website for Mike Marchitto",
   openGraph: {
-    title: "Mike Marchitto Portfolio",
+    title: "Mike Marchitto Design",
     description: "Portfolio website for Mike Marchitto",
   },
 };
