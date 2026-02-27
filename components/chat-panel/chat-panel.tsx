@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { ChatBubble, ChatBubbleMessage } from "@/components/ui/chat-bubble";
-import { Input } from "@/components/ui/input";
 import { MessageCircle } from "lucide-react";
 
 type ChatPanelProps = {
@@ -37,7 +36,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
       <SheetTrigger asChild>{trigger}</SheetTrigger>
       <SheetContent
         side="right"
-        className="chat-sheet flex w-full flex-col sm:max-w-md border-0 text-black dark:text-white color:text-white"
+        className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-background dark:bg-sidebar text-black dark:text-white color:text-white"
         closeButtonClassName="color:text-white color:hover:text-[#1E5882] color:[&_svg]:text-white color:hover:[&_svg]:text-[#1E5882]"
       >
         <SheetHeader>
@@ -58,15 +57,13 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             </div>
           )}
         </div>
-        {/* Chat input: unified style for light, dark, and color mode — forced via .chat-input-unified */}
-        <div className="chat-input-unified shrink-0 px-4 pb-4">
-          <div className="chat-input-outer rounded-md border border-black bg-white p-px">
-            <Input
-              placeholder="Type a message…"
-              className="chat-input-inner h-9 w-full rounded-[calc(0.375rem-1px)] border border-black bg-white px-3 py-2 text-base text-black shadow-none transition-none placeholder:text-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-0 md:text-sm"
-              aria-label="Chat message"
-            />
-          </div>
+        <div className="shrink-0 px-4 pb-4">
+          <input
+            type="text"
+            placeholder="Type a message…"
+            aria-label="Chat message"
+            className="chat-input-unified-field w-full rounded-md border border-black bg-white px-4 py-3 text-sm text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
+          />
         </div>
         <SheetFooter>
           <SheetClose asChild>

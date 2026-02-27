@@ -297,7 +297,7 @@ html.color,
   --input: #08122E;
   --ring: #1E5280;
 
-  --sidebar: #0E1A3A;        /* one shade lighter than background */
+  --sidebar: #08122E;        /* same as chat sheet / page background */
   --sidebar-foreground: oklch(96% 0.01 240);
   --sidebar-primary: #1E5280;
   --sidebar-primary-foreground: oklch(98% 0 0);
@@ -523,7 +523,7 @@ html.color,
 /* Color theme — force night sky blue palette everywhere */
 html.color {
   --background: #08122E !important;
-  --sidebar: #0E1A3A !important;  /* one shade lighter than page */
+  --sidebar: #08122E !important;  /* same as chat sheet */
   --card: #08122E !important;
   --popover: #08122E !important;
   --primary: #1E5280 !important;
@@ -556,7 +556,7 @@ html.color .bg-sidebar,
 html.color [data-sidebar="header"],
 html.color [data-sidebar="content"],
 html.color [data-sidebar="footer"] {
-  background-color: #0E1A3A !important;
+  background-color: #08122E !important;
 }
 /* Color mode: all buttons lighter shade of #1E5280 on hover (high specificity to override utilities) */
 html.color [data-slot="button"]:hover,
@@ -619,23 +619,7 @@ html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hov
   color: white !important;
 }
 
-/* Chat input: force same light-mode look in all themes (no dark/color overrides) */
-.chat-input-outer {
-  border-color: #000 !important;
-  background-color: #fff !important;
-}
-.chat-input-unified .chat-input-inner,
-.chat-input-unified input.chat-input-inner {
-  border-color: #000 !important;
-  background-color: #fff !important;
-  color: #000 !important;
-}
-.chat-input-unified .chat-input-inner::placeholder,
-.chat-input-unified input.chat-input-inner::placeholder {
-  color: #6b7280 !important;
-}
-.chat-input-unified .chat-input-inner:focus-visible,
-.chat-input-unified input.chat-input-inner:focus-visible {
-  outline: none !important;
-  box-shadow: 0 0 0 2px #000 !important;
+/* Chat input: placeholder (cannot set via inline style); same in all modes */
+.chat-input-unified-field::placeholder {
+  color: #6b6b6b !important;
 }
