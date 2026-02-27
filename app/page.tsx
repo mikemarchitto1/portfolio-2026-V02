@@ -6,6 +6,7 @@ import ProjectCard from "@/components/project-card/project-card";
 import HeroHeadline from "@/components/hero-headline/hero-headline";
 import { StatCounter } from "@/components/stat-counter/stat-counter";
 import { useScrollTriggerOnce } from "@/components/stat-counter/use-scroll-trigger-once";
+import { useTheme } from "@/hooks/use-theme";
 
 /* ---------------------------------------------
    BACKGROUND COLORS TOGGLE
@@ -19,6 +20,7 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
    FOOTER
 ---------------------------------------------- */
 function Footer() {
+  const { theme } = useTheme();
   return (
     <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
       <div className="w-full max-w-[1328px] mx-auto px-16">
@@ -28,7 +30,7 @@ function Footer() {
             </div>
             <div className="max-w-[528px] p-0 m-0">
               <h5 className="text-h5 max-w-[528px] font-light text-foreground p-0 m-0">
-                I'm interested in creative partnerships built through meaningful work.
+                I'm interested in creative partnerships built with meaningful work.
               </h5>
             </div>
         </div>
@@ -40,7 +42,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-[#5417B6] color:bg-[#5417B6] color:text-white color:hover:bg-[#5417B6]/90"
               asChild
             >
               <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -49,7 +51,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-[#5417B6] color:bg-[#5417B6] color:text-white color:hover:bg-[#5417B6]/90"
               asChild
             >
               <a href="/resume.pdf" download>
@@ -60,7 +62,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-[#5417B6] color:bg-[#5417B6] color:text-white color:hover:bg-[#5417B6]/90"
               asChild
             >
               <a
@@ -73,9 +75,13 @@ function Footer() {
             </Button>
           </div>
           <img
-            src="/images/royal.svg"
-            alt="Michael Marchitto Product Design"
-            className="h-[40px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
+            src={
+              theme === "light"
+                ? "/images/crown works-up-b.svg"
+                : "/images/crown works-up-w.svg"
+            }
+            alt="Crown Works"
+            className="h-[76px] w-auto shrink-0 object-contain object-right translate-y-[6px]"
           />
         </div>
       </div>
@@ -200,11 +206,11 @@ function ProjectCardFiftyFifty({
         </div>
         {/* Right: white panel — 50%, 64px internal padding */}
         <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-[64px] text-left">
-          <h3 className="text-h5 font-medium text-foreground m-0 mb-2">{title}</h3>
-          <p className="text-body1 text-foreground m-0 mb-8">{description}</p>
+          <h3 className="text-h5 font-medium text-foreground dark:text-black color:text-black m-0 mb-2">{title}</h3>
+          <p className="text-body1 text-foreground dark:text-black color:text-black m-0 mb-8">{description}</p>
           {href ? (
             <span
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background transition-colors duration-200 hover:bg-gray-800"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background transition-colors duration-200 hover:bg-gray-800 dark:bg-black dark:text-white dark:hover:bg-gray-800 color:bg-[#4A1F7A] color:text-white color:hover:bg-[#4A1F7A]/90"
               aria-hidden
             >
               See Case Study
@@ -214,7 +220,7 @@ function ProjectCardFiftyFifty({
               asChild
               variant="default"
               size="lg"
-              className="w-fit bg-foreground text-background hover:bg-gray-800 transition-colors duration-200"
+              className="w-fit bg-foreground text-background hover:bg-gray-800 transition-colors duration-200 dark:bg-black dark:text-white dark:hover:bg-gray-800 color:bg-[#4A1F7A] color:text-white color:hover:bg-[#4A1F7A]/90"
             >
               <a href="#">See Case Study</a>
             </Button>
@@ -225,7 +231,7 @@ function ProjectCardFiftyFifty({
   );
   if (href) {
     return (
-      <a href={href} className="block w-full no-underline text-foreground">
+      <a href={href} className="block w-full no-underline text-foreground dark:text-black color:text-black">
         {content}
       </a>
     );
@@ -259,7 +265,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-palette-yellow/80 rounded-2xl shadow-elevation">
+            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-black dark:bg-white color:bg-[#FFE501] rounded-2xl shadow-elevation">
               {/* Image area: circle centered in remaining space above quote */}
               <div className="flex-1 min-h-0 flex items-center justify-center mb-10">
                 <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full mt-[28px]">
@@ -273,9 +279,9 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <blockquote className="profile-quote shrink-0 text-body2 text-foreground font-light text-center">
+              <blockquote className="profile-quote shrink-0 text-body2 text-white font-light text-center dark:text-black color:text-black">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                <cite className="not-italic block text-foreground/80">— Ralph Waldo Emerson</cite>
+                <cite className="not-italic block text-white/80 dark:text-black/80 color:text-black/80">— Ralph Waldo Emerson</cite>
               </blockquote>
             </div>
           </div>
@@ -502,7 +508,7 @@ export default function Home() {
         <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-[92px]">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
-              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
+              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <div className="w-full flex flex-col gap-12">
               {projects.map((project, i) => (
@@ -522,7 +528,7 @@ export default function Home() {
         <section className="hidden flex flex-col pt-16">
           <div className="w-full flex flex-col min-w-0">
             <div className="w-full px-[64px] py-2 mb-0">
-              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Projects</h2>
+              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <ProjectsGrid projects={projects} />
           </div>

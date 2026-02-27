@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/hooks/use-theme";
 import Layout from "@/components/layout/layout";
 
 const dmSans = DM_Sans({
@@ -16,11 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Michael Marchitto Portfolio",
-  description: "Portfolio website for Michael Marchitto",
+  title: "Mike Marchitto Portfolio",
+  description: "Portfolio website for Mike Marchitto",
   openGraph: {
-    title: "Michael Marchitto Portfolio",
-    description: "Portfolio website for Michael Marchitto",
+    title: "Mike Marchitto Portfolio",
+    description: "Portfolio website for Mike Marchitto",
   },
 };
 
@@ -48,7 +49,9 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
-        <Layout>{children}</Layout>
+        <ThemeProvider>
+          <Layout>{children}</Layout>
+        </ThemeProvider>
       </body>
     </html>
   );

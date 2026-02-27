@@ -150,7 +150,7 @@
 
   --secondary: oklch(97% 0 0);
   --muted: oklch(97% 0 0);
-  --accent: oklch(97% 0 0);
+  --accent: oklch(48% 0 0);
 
   --destructive: oklch(57% 0.245 27.325);
 
@@ -168,7 +168,7 @@
   --sidebar: oklch(98.5% 0 0);
   --sidebar-primary: oklch(20% 0 0);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
-  --sidebar-accent: oklch(97% 0 0);
+  --sidebar-accent: oklch(48% 0 0);
   --sidebar-accent-foreground: oklch(20% 0 0);
   --sidebar-border: oklch(92% 0 0);
   --sidebar-ring: oklch(70% 0 0);
@@ -247,7 +247,7 @@
   --muted: oklch(26.9% 0 0);
   --muted-foreground: oklch(70.8% 0 0);
 
-  --accent: oklch(26.9% 0 0);
+  --accent: oklch(58% 0 0);
   --accent-foreground: oklch(98.5% 0 0);
 
   --destructive: oklch(70.4% 0.191 22.216);
@@ -259,49 +259,51 @@
   --sidebar-foreground: hsl(240 4.8% 95.9%);
   --sidebar-primary: hsl(224.3 76.3% 48%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent: hsl(240 3.7% 46%);
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 /* -------------------------------------------------------
-   COLOR MODE — lighter blue (#C2DCFF base)
+   COLOR MODE — Palette: #1A1A1A #5C2A2E #2F0F5C #5417B6 #C49F3A
 ------------------------------------------------------- */
+html.color,
 .color {
-  --background: #E8F2FF;
-  --foreground: oklch(25% 0.05 253);
-  --card: oklch(99% 0.015 253);
-  --card-foreground: oklch(25% 0.05 253);
-  --popover: oklch(99% 0.015 253);
-  --popover-foreground: oklch(25% 0.05 253);
+  --background: #2F0F5C;
+  --foreground: oklch(96% 0.01 80);
 
-  --primary: oklch(45% 0.12 253);
+  --card: #2F0F5C;
+  --card-foreground: oklch(96% 0.01 80);
+  --popover: #2F0F5C;
+  --popover-foreground: oklch(96% 0.01 80);
+
+  --primary: #5417B6;
   --primary-foreground: oklch(98% 0 0);
 
-  --secondary: oklch(94% 0.04 253);
-  --secondary-foreground: oklch(25% 0.05 253);
+  --secondary: #5C2A2E;
+  --secondary-foreground: oklch(96% 0.01 80);
 
-  --muted: oklch(93% 0.03 253);
-  --muted-foreground: oklch(45% 0.04 253);
+  --muted: #5C2A2E;
+  --muted-foreground: oklch(75% 0.02 80);
 
-  --accent: oklch(91% 0.05 253);
-  --accent-foreground: oklch(25% 0.05 253);
+  --accent: #7C3AED;
+  --accent-foreground: oklch(98% 0 0);
 
   --destructive: oklch(57% 0.245 27.325);
 
-  --border: oklch(90% 0.04 253);
-  --input: oklch(92% 0.04 253);
-  --ring: oklch(45% 0.12 253);
+  --border: #5C2A2E;
+  --input: #2F0F5C;
+  --ring: #5417B6;
 
-  --sidebar: #E8F2FF;
-  --sidebar-foreground: oklch(25% 0.05 253);
-  --sidebar-primary: oklch(45% 0.12 253);
+  --sidebar: #341866;
+  --sidebar-foreground: oklch(96% 0.01 80);
+  --sidebar-primary: #5417B6;
   --sidebar-primary-foreground: oklch(98% 0 0);
-  --sidebar-accent: oklch(91% 0.04 253);
-  --sidebar-accent-foreground: oklch(25% 0.05 253);
-  --sidebar-border: oklch(90% 0.04 253);
-  --sidebar-ring: oklch(45% 0.12 253);
+  --sidebar-accent: #7C3AED;
+  --sidebar-accent-foreground: oklch(98% 0 0);
+  --sidebar-border: #341866;
+  --sidebar-ring: #5417B6;
 }
 
 /* -------------------------------------------------------
@@ -508,4 +510,23 @@
 /* Force cite to match (override any browser/default larger size) */
 .profile-quote cite {
   font-size: 14px !important;
+}
+
+/* Color theme — force palette to win */
+html.color {
+  --background: #2F0F5C !important;
+  --sidebar: #341866 !important;
+  --card: #2F0F5C !important;
+  --primary: #5417B6 !important;
+  --primary-foreground: oklch(98% 0 0) !important;
+  --accent: #C49F3A !important;
+  --ring: #5417B6 !important;
+  --sidebar-primary: #5417B6 !important;
+  --sidebar-primary-foreground: oklch(98% 0 0) !important;
+  --sidebar-accent: #C49F3A !important;
+  --sidebar-ring: #5417B6 !important;
+}
+html.color,
+html.color body {
+  background-color: #2F0F5C !important;
 }

@@ -175,7 +175,7 @@ const SidebarMenuButton = React.forwardRef<
       ref={ref as React.Ref<HTMLButtonElement>}
       data-sidebar="menu-button"
       className={cn(
-        "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button text-foreground no-underline transition-colors hover:bg-accent hover:text-gray-500 [&_svg]:size-5",
+        "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button text-foreground no-underline transition-colors hover:bg-transparent hover:text-accent [&_svg]:size-5 color:hover:text-[#7C3AED]",
         className
       )}
       {...props}

@@ -29,7 +29,7 @@ export default function ProjectCard({
         <div className="flex flex-col flex-1 min-h-0 items-center text-center w-full">
           <div className="relative overflow-hidden shrink-0 w-full">
             <div
-              className="absolute inset-0 z-20 bg-foreground/5 opacity-0 transition-opacity duration-200 ease-out pointer-events-none group-hover:opacity-100"
+              className="absolute inset-0 z-20 bg-foreground/5 opacity-0 transition-opacity duration-200 ease-out pointer-events-none group-hover:opacity-100 dark:bg-black/5 color:bg-black/5"
               aria-hidden
             />
             <Image
@@ -41,16 +41,16 @@ export default function ProjectCard({
             />
           </div>
 
-          <h5 className={`text-h5 font-medium text-foreground mt-[16px] shrink-0 ${titleClassName ?? ""}`}>{title}</h5>
+          <h5 className={`text-h5 font-medium text-foreground dark:text-black color:text-black mt-[16px] shrink-0 ${titleClassName ?? ""}`}>{title}</h5>
 
-          <p className={`text-body1 text-foreground mt-[8px] flex-1 min-h-0 ${descriptionClassName ?? ""}`}>{description}</p>
+          <p className={`text-body1 text-foreground dark:text-black color:text-black mt-[8px] flex-1 min-h-0 ${descriptionClassName ?? ""}`}>{description}</p>
         </div>
 
         <Button
           asChild
           variant="default"
           size="lg"
-          className="mt-6 w-fit shrink-0 bg-foreground text-background hover:bg-gray-800 transition-colors duration-200"
+          className="mt-6 w-fit shrink-0 bg-foreground text-background hover:bg-gray-800 transition-colors duration-200 dark:bg-black dark:text-white dark:hover:bg-gray-800 color:bg-[#4A1F7A] color:text-white color:hover:bg-[#4A1F7A]/90"
         >
           <span>See Case Study</span>
         </Button>
@@ -62,7 +62,7 @@ export default function ProjectCard({
     return (
       <a
         href={href}
-        className="block w-full min-w-0 h-full min-h-0 no-underline text-foreground flex flex-col items-stretch"
+        className="block w-full min-w-0 h-full min-h-0 no-underline text-foreground dark:text-black color:text-black flex flex-col items-stretch"
       >
         {content}
       </a>
