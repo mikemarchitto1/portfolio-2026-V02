@@ -42,7 +42,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
               asChild
             >
               <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -51,7 +51,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
               asChild
             >
               <a href="/resume.pdf" download>
@@ -62,7 +62,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
               asChild
             >
               <a
@@ -208,23 +208,18 @@ function ProjectCardFiftyFifty({
         <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-[64px] text-left">
           <h3 className="text-h5 font-medium text-foreground dark:text-black color:text-black m-0 mb-2">{title}</h3>
           <p className="text-body1 text-foreground dark:text-black color:text-black m-0 mb-8">{description}</p>
-          {href ? (
-            <span
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-button h-[48px] min-h-[48px] px-[24px] py-[12px] w-fit bg-foreground text-background transition-colors duration-200 hover:bg-gray-800 dark:bg-black dark:text-white dark:hover:bg-gray-800 color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90"
-              aria-hidden
-            >
-              See Case Study
-            </span>
-          ) : (
-            <Button
-              asChild
-              variant="default"
-              size="lg"
-              className="w-fit bg-foreground text-background hover:bg-gray-800 transition-colors duration-200 dark:bg-black dark:text-white dark:hover:bg-gray-800 color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90"
-            >
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-fit rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
+            asChild
+          >
+            {href ? (
+              <span>See Case Study</span>
+            ) : (
               <a href="#">See Case Study</a>
-            </Button>
-          )}
+            )}
+          </Button>
         </div>
       </div>
     </div>

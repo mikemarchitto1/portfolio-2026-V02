@@ -47,10 +47,10 @@ export default function ProjectCard({
         </div>
 
         <Button
-          asChild
-          variant="default"
+          variant="outline"
           size="lg"
-          className="mt-6 w-fit shrink-0 bg-foreground text-background hover:bg-gray-800 transition-colors duration-200 dark:bg-black dark:text-white dark:hover:bg-gray-800 color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90"
+          className="mt-6 w-fit shrink-0 rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
+          asChild
         >
           <span>See Case Study</span>
         </Button>

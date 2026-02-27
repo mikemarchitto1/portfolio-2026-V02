@@ -22,7 +22,7 @@ export default function HeroHeadline({
             variant="outline"
             size="icon"
             onClick={toggle}
-            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white dark:[&_img]:invert color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90 color:[&_svg]:text-white color:[&_img]:invert"
+            className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white dark:[&_img]:invert color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white color:[&_svg]:text-white color:[&_img]:invert"
             aria-label="Toggle sidebar"
           >
             <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
@@ -32,7 +32,7 @@ export default function HeroHeadline({
               <Button
                 variant="outline"
                 size="icon"
-                className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90 color:[&_svg]:text-white"
+                className="border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white color:[&_svg]:text-white"
                 aria-label="Open calendar"
               >
                 <Calendar className="h-5 w-5" />
@@ -41,7 +41,7 @@ export default function HeroHeadline({
           />
           <Button
             variant="outline"
-            className="flex items-center gap-2 border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90 color:[&_svg]:text-white"
+            className="flex items-center gap-2 border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white color:[&_svg]:text-white"
           >
             <BrainCircuit className="h-5 w-5 shrink-0" />
             <span className="text-button">AI Exploration</span>
@@ -50,7 +50,7 @@ export default function HeroHeadline({
             trigger={
               <Button
                 variant="outline"
-                className="flex items-center gap-2 border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-[#1E5280] color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5280]/90 color:[&_svg]:text-white"
+                className="flex items-center gap-2 border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white color:[&_svg]:text-white"
               >
                 <MessageCircle className="h-5 w-5" />
                 <span className="text-button">Let&apos;s Chat</span>

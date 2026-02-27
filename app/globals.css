@@ -558,3 +558,63 @@ html.color [data-sidebar="content"],
 html.color [data-sidebar="footer"] {
   background-color: #0E1A3A !important;
 }
+/* Color mode: all buttons lighter shade of #1E5280 on hover (high specificity to override utilities) */
+html.color [data-slot="button"]:hover,
+html.color button:hover,
+html.color body [data-slot="button"]:hover,
+html.color body button:hover,
+html.color main [data-slot="button"]:hover,
+html.color main button:hover,
+html.color footer [data-slot="button"]:hover,
+html.color footer button:hover,
+html.color header [data-slot="button"]:hover,
+html.color header button:hover,
+html.color [data-sidebar] [data-slot="button"]:hover,
+html.color [data-sidebar] button:hover {
+  background-color: #1E5882 !important;
+  color: white !important;
+}
+/* Chat sheet (color mode): bottom Close button fill = sheet background, keep white border; hover = lighter shade */
+html.color .chat-sheet [data-slot="sheet-footer"] button,
+html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"] {
+  background-color: #08122E !important;
+  transition: background-color 0.2s ease;
+}
+html.color .chat-sheet [data-slot="sheet-footer"] button:hover,
+html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"]:hover {
+  background-color: #0E1A3A !important;
+}
+
+/* Chat sheet (color mode): X close button and icon white, no background fill; hover matches sidebar (#1E5882) */
+html.color .chat-sheet > button.absolute {
+  color: white !important;
+  background-color: transparent !important;
+  transition: color 0.2s ease;
+}
+html.color .chat-sheet > button.absolute:hover {
+  background-color: transparent !important;
+  color: #1E5882 !important;
+}
+html.color .chat-sheet > button.absolute svg {
+  color: inherit !important;
+  transition: color 0.2s ease;
+}
+html.color .chat-sheet > button.absolute:hover svg {
+  color: #1E5882 !important;
+}
+
+/* Sidebar: no background fill on icon/close buttons (transparent on hover, keep icon tint) */
+html.color [data-sidebar="header"] [data-slot="button"]:hover,
+html.color [data-sidebar="header"] button:hover,
+html.color [data-sidebar="content"] nav [data-slot="button"]:hover,
+html.color [data-sidebar="content"] nav button:hover {
+  background-color: transparent !important;
+  color: #1E5882 !important;
+}
+
+/* Chat sheet (color mode): bottom Close button hover must override global button hover */
+html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"]:hover,
+html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hover {
+  background-color: #0E1A3A !important;
+  color: white !important;
+}
