@@ -255,13 +255,13 @@
   --border: oklch(100% 0 0 / 10%);
   --input: oklch(100% 0 0 / 15%);
   --ring: oklch(55.6% 0 0);
-  --sidebar: hsl(240 5.9% 10%);
+  --sidebar: hsl(240 5.9% 10%);  /* match page background */
   --sidebar-foreground: hsl(240 4.8% 95.9%);
   --sidebar-primary: hsl(224.3 76.3% 48%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
   --sidebar-accent: hsl(240 3.7% 46%);
   --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-border: hsl(240 5.9% 10%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
@@ -271,15 +271,15 @@
 ------------------------------------------------------- */
 html.color,
 .color {
-  --background: #050B1A;   /* Deep Navy (darker, closer to sky) */
+  --background: #08122E;   /* Deep Navy */
   --foreground: oklch(96% 0.01 240);
 
-  --card: #050B1A;
+  --card: #08122E;
   --card-foreground: oklch(96% 0.01 240);
-  --popover: #050B1A;
+  --popover: #08122E;
   --popover-foreground: oklch(96% 0.01 240);
 
-  --primary: #2E5090;      /* Twilight Blue */
+  --primary: #1E5280;      /* Button fill blue */
   --primary-foreground: oklch(98% 0 0);
 
   --secondary: #1E3A5F;    /* Night Blue */
@@ -294,17 +294,17 @@ html.color,
   --destructive: oklch(57% 0.245 27.325);
 
   --border: #1E3A5F;
-  --input: #050B1A;
-  --ring: #2E5090;
+  --input: #08122E;
+  --ring: #1E5280;
 
-  --sidebar: #0C1730;      /* Midnight Blue */
+  --sidebar: #0E1A3A;        /* one shade lighter than background */
   --sidebar-foreground: oklch(96% 0.01 240);
-  --sidebar-primary: #2E5090;
+  --sidebar-primary: #1E5280;
   --sidebar-primary-foreground: oklch(98% 0 0);
   --sidebar-accent: #7B9FCC;
   --sidebar-accent-foreground: oklch(18% 0.02 240);
-  --sidebar-border: #0C1730;
-  --sidebar-ring: #2E5090;
+  --sidebar-border: #08122E;
+  --sidebar-ring: #1E5280;
 }
 
 /* -------------------------------------------------------
@@ -391,6 +391,13 @@ html.color,
     line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
   }
+}
+
+/* Sidebar: single color throughout (header, content, footer use same bg as sidebar) */
+[data-sidebar="header"],
+[data-sidebar="content"],
+[data-sidebar="footer"] {
+  background-color: var(--sidebar);
 }
 
 /* -------------------------------------------------------
@@ -515,35 +522,39 @@ html.color,
 
 /* Color theme — force night sky blue palette everywhere */
 html.color {
-  --background: #050B1A !important;
-  --sidebar: #0C1730 !important;
-  --card: #050B1A !important;
-  --popover: #050B1A !important;
-  --primary: #2E5090 !important;
+  --background: #08122E !important;
+  --sidebar: #0E1A3A !important;  /* one shade lighter than page */
+  --card: #08122E !important;
+  --popover: #08122E !important;
+  --primary: #1E5280 !important;
   --primary-foreground: oklch(98% 0 0) !important;
   --accent: #7B9FCC !important;
-  --ring: #2E5090 !important;
-  --sidebar-primary: #2E5090 !important;
+  --ring: #1E5280 !important;
+  --sidebar-primary: #1E5280 !important;
   --sidebar-primary-foreground: oklch(98% 0 0) !important;
   --sidebar-accent: #7B9FCC !important;
-  --sidebar-ring: #2E5090 !important;
+  --sidebar-ring: #1E5280 !important;
   --border: #1E3A5F !important;
-  --input: #050B1A !important;
+  --input: #08122E !important;
 }
 /* Force blue backgrounds on page, main, sidebar, dialogs, and panels */
 html.color,
 html.color body {
-  background-color: #050B1A !important;
+  background-color: #08122E !important;
 }
 html.color main {
-  background-color: #050B1A !important;
-}
-html.color [data-sidebar="content"] {
-  background-color: #132238 !important;
+  background-color: #08122E !important;
 }
 html.color [data-slot="dialog-content"] {
-  background-color: #050B1A !important;
+  background-color: #08122E !important;
 }
 html.color [data-slot="sheet-content"] {
-  background-color: #050B1A !important;
+  background-color: #08122E !important;
+}
+/* Sidebar: one shade lighter than calendar/sheet in color mode */
+html.color .bg-sidebar,
+html.color [data-sidebar="header"],
+html.color [data-sidebar="content"],
+html.color [data-sidebar="footer"] {
+  background-color: #0E1A3A !important;
 }

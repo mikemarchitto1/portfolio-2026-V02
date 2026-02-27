@@ -31,7 +31,7 @@ export default function Header({
             size="icon"
             onClick={onOpenLeftSidebar}
             aria-label="Open sidebar"
-            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
+            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground color:text-[#1E5280] color:[&_svg]:text-[#1E5280] color:hover:bg-[#1E5280]/20 color:hover:text-[#1E5280]"
           >
             <PanelLeft className="h-6 w-6" />
           </Button>
@@ -40,7 +40,7 @@ export default function Header({
             size="icon"
             onClick={onOpenCalendar}
             aria-label="Open calendar"
-            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
+            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground color:text-[#1E5280] color:[&_svg]:text-[#1E5280] color:hover:bg-[#1E5280]/20 color:hover:text-[#1E5280]"
           >
             <Calendar className="h-6 w-6" />
           </Button>
@@ -49,7 +49,7 @@ export default function Header({
             size="icon"
             onClick={onOpenChat}
             aria-label="Open chat"
-            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground"
+            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground color:text-[#1E5280] color:[&_svg]:text-[#1E5280] color:hover:bg-[#1E5280]/20 color:hover:text-[#1E5280]"
           >
             <MessageCircle className="h-6 w-6" />
           </Button>
