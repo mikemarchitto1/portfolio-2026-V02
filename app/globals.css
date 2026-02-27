@@ -266,44 +266,45 @@
 }
 
 /* -------------------------------------------------------
-   COLOR MODE — Palette: #1A1A1A #5C2A2E #2F0F5C #5417B6 #C49F3A
+   COLOR MODE — Night sky blue palette
+   Deep Navy → Midnight → Night → Twilight → Starlit → Soft Starlit → Pale Night
 ------------------------------------------------------- */
 html.color,
 .color {
-  --background: #2F0F5C;
-  --foreground: oklch(96% 0.01 80);
+  --background: #050B1A;   /* Deep Navy (darker, closer to sky) */
+  --foreground: oklch(96% 0.01 240);
 
-  --card: #2F0F5C;
-  --card-foreground: oklch(96% 0.01 80);
-  --popover: #2F0F5C;
-  --popover-foreground: oklch(96% 0.01 80);
+  --card: #050B1A;
+  --card-foreground: oklch(96% 0.01 240);
+  --popover: #050B1A;
+  --popover-foreground: oklch(96% 0.01 240);
 
-  --primary: #5417B6;
+  --primary: #2E5090;      /* Twilight Blue */
   --primary-foreground: oklch(98% 0 0);
 
-  --secondary: #5C2A2E;
-  --secondary-foreground: oklch(96% 0.01 80);
+  --secondary: #1E3A5F;    /* Night Blue */
+  --secondary-foreground: oklch(96% 0.01 240);
 
-  --muted: #5C2A2E;
-  --muted-foreground: oklch(75% 0.02 80);
+  --muted: #1E3A5F;
+  --muted-foreground: oklch(80% 0.02 240);
 
-  --accent: #7C3AED;
-  --accent-foreground: oklch(98% 0 0);
+  --accent: #7B9FCC;       /* Soft Starlit */
+  --accent-foreground: oklch(18% 0.02 240);
 
   --destructive: oklch(57% 0.245 27.325);
 
-  --border: #5C2A2E;
-  --input: #2F0F5C;
-  --ring: #5417B6;
+  --border: #1E3A5F;
+  --input: #050B1A;
+  --ring: #2E5090;
 
-  --sidebar: #341866;
-  --sidebar-foreground: oklch(96% 0.01 80);
-  --sidebar-primary: #5417B6;
+  --sidebar: #0C1730;      /* Midnight Blue */
+  --sidebar-foreground: oklch(96% 0.01 240);
+  --sidebar-primary: #2E5090;
   --sidebar-primary-foreground: oklch(98% 0 0);
-  --sidebar-accent: #7C3AED;
-  --sidebar-accent-foreground: oklch(98% 0 0);
-  --sidebar-border: #341866;
-  --sidebar-ring: #5417B6;
+  --sidebar-accent: #7B9FCC;
+  --sidebar-accent-foreground: oklch(18% 0.02 240);
+  --sidebar-border: #0C1730;
+  --sidebar-ring: #2E5090;
 }
 
 /* -------------------------------------------------------
@@ -512,21 +513,37 @@ html.color,
   font-size: 14px !important;
 }
 
-/* Color theme — force palette to win */
+/* Color theme — force night sky blue palette everywhere */
 html.color {
-  --background: #2F0F5C !important;
-  --sidebar: #341866 !important;
-  --card: #2F0F5C !important;
-  --primary: #5417B6 !important;
+  --background: #050B1A !important;
+  --sidebar: #0C1730 !important;
+  --card: #050B1A !important;
+  --popover: #050B1A !important;
+  --primary: #2E5090 !important;
   --primary-foreground: oklch(98% 0 0) !important;
-  --accent: #C49F3A !important;
-  --ring: #5417B6 !important;
-  --sidebar-primary: #5417B6 !important;
+  --accent: #7B9FCC !important;
+  --ring: #2E5090 !important;
+  --sidebar-primary: #2E5090 !important;
   --sidebar-primary-foreground: oklch(98% 0 0) !important;
-  --sidebar-accent: #C49F3A !important;
-  --sidebar-ring: #5417B6 !important;
+  --sidebar-accent: #7B9FCC !important;
+  --sidebar-ring: #2E5090 !important;
+  --border: #1E3A5F !important;
+  --input: #050B1A !important;
 }
+/* Force blue backgrounds on page, main, sidebar, dialogs, and panels */
 html.color,
 html.color body {
-  background-color: #2F0F5C !important;
+  background-color: #050B1A !important;
+}
+html.color main {
+  background-color: #050B1A !important;
+}
+html.color [data-sidebar="content"] {
+  background-color: #132238 !important;
+}
+html.color [data-slot="dialog-content"] {
+  background-color: #050B1A !important;
+}
+html.color [data-slot="sheet-content"] {
+  background-color: #050B1A !important;
 }

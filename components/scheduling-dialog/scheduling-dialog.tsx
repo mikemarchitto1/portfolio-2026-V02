@@ -11,6 +11,7 @@ import {
   Dialog,
   DialogTrigger,
   DialogContent,
+  DialogTitle,
 } from "@/components/ui/dialog";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -63,6 +64,9 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
         showCloseButton={true}
         className="max-w-[900px] w-[95vw] p-0 gap-0 overflow-hidden rounded-xl"
       >
+        <DialogTitle className="sr-only">
+          Schedule a meeting
+        </DialogTitle>
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 min-h-[420px]">
           {/* Left: Scheduling content panel */}
           <Card className="rounded-none border-0 border-r border-border shadow-none bg-card px-5 py-5 gap-4">
