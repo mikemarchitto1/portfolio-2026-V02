@@ -1,58 +1,62 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { PanelLeft, Calendar, MessageCircle } from "lucide-react";
+import { BrainCircuit } from "@/components/icons/brain-circuit";
+import { Calendar, MessageCircle } from "lucide-react";
+import { useSidebar } from "@/components/ui/sidebar";
+import { ChatPanel } from "@/components/chat-panel/chat-panel";
+import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 
-interface HeaderProps {
-  onOpenLeftSidebar?: () => void;
-  onOpenCalendar?: () => void;
-  onOpenChat?: () => void;
-}
+const navButtonClass =
+  "border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white color:[&_svg]:text-white";
 
-export default function Header({
-  onOpenLeftSidebar,
-  onOpenCalendar,
-  onOpenChat,
-}: HeaderProps) {
+export default function Header() {
+  const { toggle } = useSidebar();
   return (
-    <header className="sticky top-0 z-40 border-b border-foreground/20 bg-transparent text-foreground">
-      <div className="min-h-16 flex items-center justify-start gap-2 p-4 md:p-8 lg:p-16 max-w-[1200px] mx-auto">
-          <Image
-            src="/images/logo_mmpd.svg"
-            alt="MMPD"
-            width={32}
-            height={32}
-            className="h-8 w-auto shrink-0"
+    <header className="sticky top-0 z-40 border-b border-foreground/20 bg-red-500 text-foreground">
+      <div className="min-h-16 flex items-center justify-start gap-2 py-4 max-w-[1200px] mx-auto">
+        <div className="flex items-center gap-4 flex-wrap">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={toggle}
+            className={`${navButtonClass} dark:[&_img]:invert color:[&_img]:invert`}
+            aria-label="Toggle sidebar"
+          >
+            <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
+          </Button>
+          <SchedulingDialog
+            trigger={
+              <Button
+                variant="outline"
+                size="icon"
+                className={navButtonClass}
+                aria-label="Open calendar"
+              >
+                <Calendar className="h-5 w-5" />
+              </Button>
+            }
           />
           <Button
-            variant="ghost"
-            size="icon"
-            onClick={onOpenLeftSidebar}
-            aria-label="Open sidebar"
-            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground color:text-[#1E5280] color:[&_svg]:text-[#1E5280] color:hover:bg-[#1E5280]/20 color:hover:text-[#1E5280]"
+            variant="outline"
+            className={`flex items-center gap-2 ${navButtonClass}`}
           >
-            <PanelLeft className="h-6 w-6" />
+            <BrainCircuit className="h-5 w-5 shrink-0" />
+            <span className="text-button">AI Exploration</span>
           </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onOpenCalendar}
-            aria-label="Open calendar"
-            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground color:text-[#1E5280] color:[&_svg]:text-[#1E5280] color:hover:bg-[#1E5280]/20 color:hover:text-[#1E5280]"
-          >
-            <Calendar className="h-6 w-6" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onOpenChat}
-            aria-label="Open chat"
-            className="rounded-full text-button text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground color:text-[#1E5280] color:[&_svg]:text-[#1E5280] color:hover:bg-[#1E5280]/20 color:hover:text-[#1E5280]"
-          >
-            <MessageCircle className="h-6 w-6" />
-          </Button>
+          <ChatPanel
+            trigger={
+              <Button
+                variant="outline"
+                className={`flex items-center gap-2 ${navButtonClass}`}
+              >
+                <MessageCircle className="h-5 w-5" />
+                <span className="text-button">Let&apos;s Chat</span>
+              </Button>
+            }
+          />
+        </div>
       </div>
     </header>
   );

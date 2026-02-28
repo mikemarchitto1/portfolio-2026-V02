@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card/project-card";
-import HeroHeadline from "@/components/hero-headline/hero-headline";
+import Header from "@/components/header/header";
 import { StatCounter } from "@/components/stat-counter/stat-counter";
 import { useScrollTriggerOnce } from "@/components/stat-counter/use-scroll-trigger-once";
 import { useTheme } from "@/hooks/use-theme";
@@ -245,13 +245,13 @@ export default function Home() {
   return (
     <>
       <main className="min-h-screen">
-        <HeroHeadline showBackgroundColors={SHOW_BACKGROUND_COLORS} />
+        <Header />
 
-        {/* HERO BODY — content aligned to grid (pr-16 aligns blue box right edge with Impact/logos section) */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
-          <div className="w-full max-w-[1328px] mx-auto pr-16">
-          <div className="w-full grid grid-cols-1 md:grid-cols-[664px_1fr] gap-0 items-stretch">
-            <div className="w-full min-w-0 p-16 text-foreground">
+        {/* HERO BODY — content aligned to grid; profile left edge at center of container */}
+        <section className="w-full max-w-[1328px] mx-auto bg-yellow-200">
+          <div className="w-full max-w-[1328px] mx-auto pt-16 px-16 pb-16">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
+            <div className="w-full min-w-0 py-16 pr-16 text-foreground bg-blue-200">
               <h1 className="text-h1 font-light text-foreground whitespace-nowrap" style={{ letterSpacing: 0 }}>Hi, I'm Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
@@ -261,18 +261,18 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 flex flex-col h-full gap-0">
-              <div className="w-full flex-1 min-h-0 bg-[#FFE501] rounded-2xl shadow-elevation overflow-hidden relative mb-8">
+            <div className="w-full min-w-0 flex flex-col h-full gap-0 bg-pink-200">
+              <div className="w-full flex-1 min-h-0 rounded-2xl shadow-elevation overflow-hidden relative mb-6">
                 <Image
                   src="/images/knight-wide.png"
                   alt="Mike profile"
                   fill
-                  className="object-contain object-center"
+                  className="object-cover object-center"
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <blockquote className="profile-quote shrink-0 text-body2 text-black font-light text-center px-6 mb-8">
+              <blockquote className="profile-quote shrink-0 text-black font-light text-center px-6 mb-8 bg-slate-100">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
                 <cite className="not-italic block text-black/80">— Ralph Waldo Emerson</cite>
               </blockquote>
@@ -317,10 +317,10 @@ export default function Home() {
         </section>
 
         {/* IMPACT METRICS AND TECH STACK — content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] mt-24 mb-6">
-          <div className="w-full max-w-[1328px] mx-auto p-16 pb-16 min-h-[520px]">
+        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] min-h-[520px]">
+          <div className="w-full max-w-[1328px] mx-auto min-h-[520px] bg-purple-200 p-16">
           <div className="w-full flex flex-col">
-            <div className="w-full mb-[72px]">
+            <div className="w-full bg-green-300 mb-16">
               <h2 className="text-h2 font-light text-left text-foreground">
                 Impact and Tech Stack
               </h2>
@@ -499,8 +499,8 @@ export default function Home() {
 
         {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
         <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-[92px]">
-          <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
-            <div className="w-full px-[64px] py-2 mb-0">
+          <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0 bg-orange-100">
+            <div className="w-full px-[64px] py-2 mb-0 bg-green-200">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <div className="w-full flex flex-col gap-12">
