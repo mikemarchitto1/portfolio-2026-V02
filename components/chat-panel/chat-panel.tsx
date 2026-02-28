@@ -50,7 +50,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-200 dark:bg-muted color:bg-[#0E1A3A]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-white/20"
+                className="bg-gray-100 dark:bg-muted color:bg-[#0E1A3A]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-white/20"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
