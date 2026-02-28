@@ -8,6 +8,7 @@ import {
   SheetHeader,
   SheetFooter,
   SheetClose,
+  SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { ChatBubble, ChatBubbleMessage } from "@/components/ui/chat-bubble";
@@ -37,6 +38,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
         className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
         closeButtonClassName="color:text-white color:hover:text-[#1E5882] color:[&_svg]:text-white color:hover:[&_svg]:text-[#1E5882]"
       >
+        <SheetTitle className="sr-only">Chat</SheetTitle>
         <SheetHeader>
           <p className="text-body2 text-black dark:text-white color:text-white">
             Hello!

@@ -370,13 +370,20 @@ html.color,
     line-height: 24px; /* 6 × 4px baseline — default text snaps to grid */
   }
   /* Button text: typography scale (14px, 500 medium) applied globally to all buttons */
-  button,
-  [role="button"],
-  [data-slot="button"],
-  .text-button {
+  /* Calendar day numbers use regular weight, so exclude .rdp-day-button from font-weight */
+  button:not(.rdp-day-button),
+  [role="button"]:not(.rdp-day-button),
+  [data-slot="button"]:not(.rdp-day-button),
+  .text-button:not(.rdp-day-button) {
     font-size: var(--font-size-button) !important;
     line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
+  }
+  button.rdp-day-button,
+  .rdp-day-button[data-slot="button"] {
+    font-size: var(--font-size-caption) !important;
+    line-height: var(--line-height-caption) !important;
+    font-weight: 400 !important;
   }
   /* Header nav: ensure icon buttons use button typography (overrides header context) */
   header button,
@@ -622,4 +629,14 @@ html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hov
 /* Chat input: placeholder (cannot set via inline style); same in all modes */
 .chat-input-unified-field::placeholder {
   color: #6b6b6b !important;
+}
+
+/* Calendar: force weekday labels to match small date size (unlayered to override all) */
+[data-slot="calendar"] .rdp-weekday,
+[data-slot="calendar"] .calendar-weekday,
+[data-slot="calendar"] .calendar-weekday *,
+[data-slot="calendar"] [class*="weekday"] {
+  font-size: 10px !important;
+  line-height: 1.25 !important;
+  font-weight: 400 !important;
 }
