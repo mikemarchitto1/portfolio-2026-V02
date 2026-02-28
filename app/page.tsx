@@ -261,21 +261,18 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 p-16 flex flex-col h-full min-h-0 bg-[#FFE501] rounded-2xl shadow-elevation">
-              {/* Image area: circle centered in remaining space above quote */}
-              <div className="flex-1 min-h-0 flex items-center justify-center mb-10">
-                <div className="relative h-full max-h-full max-w-full aspect-square overflow-hidden rounded-full mt-[28px]">
-                  <Image
-                    src="/images/knight%20battle.png"
-                    alt="Mike profile"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
+            <div className="w-full min-w-0 flex flex-col h-full gap-0">
+              <div className="w-full flex-1 min-h-0 bg-[#FFE501] rounded-2xl shadow-elevation overflow-hidden relative mb-8">
+                <Image
+                  src="/images/knight-wide.png"
+                  alt="Mike profile"
+                  fill
+                  className="object-contain object-center"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
-              <blockquote className="profile-quote shrink-0 text-body2 text-black font-light text-center">
+              <blockquote className="profile-quote shrink-0 text-body2 text-black font-light text-center px-6 mb-8">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
                 <cite className="not-italic block text-black/80">— Ralph Waldo Emerson</cite>
               </blockquote>
