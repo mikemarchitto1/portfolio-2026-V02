@@ -36,13 +36,13 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
       <SheetTrigger asChild>{trigger}</SheetTrigger>
       <SheetContent
         side="right"
-        className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-background dark:bg-sidebar text-black dark:text-white color:text-white"
+        className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
         closeButtonClassName="color:text-white color:hover:text-[#1E5882] color:[&_svg]:text-white color:hover:[&_svg]:text-[#1E5882]"
       >
         <SheetHeader>
           <SheetTitle className="text-black dark:text-white color:text-white">Hello!</SheetTitle>
           <SheetDescription className="text-black dark:text-white color:text-white">
-            Whenever you're ready, go ahead and start the conversation. I'm here and excited to chat with you.
+            Whenever you're ready, go ahead and start the conversation.
           </SheetDescription>
         </SheetHeader>
         <div className="flex-1 overflow-auto px-4 py-4">
@@ -50,7 +50,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-200 dark:bg-muted color:bg-[#0E1A3A]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-gray-700 color:border-white/20"
+                className="bg-gray-200 dark:bg-muted color:bg-[#0E1A3A]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-white/20"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
