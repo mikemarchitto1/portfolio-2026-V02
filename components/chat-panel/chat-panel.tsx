@@ -22,7 +22,7 @@ type ChatPanelProps = {
 const defaultTrigger = (
   <Button
     variant="outline"
-    className="flex items-center gap-2 border border-black text-black hover:bg-black/[0.02] hover:text-black [&_svg]:text-black"
+    className="flex items-center gap-2 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:[&_svg]:text-white"
   >
     <MessageCircle className="h-5 w-5" />
     <span className="text-button">Let&apos;s Chat</span>
@@ -36,7 +36,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
       <SheetContent
         side="right"
         className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
-        closeButtonClassName="color:text-white color:hover:text-[#1E5882] color:[&_svg]:text-white color:hover:[&_svg]:text-[#1E5882]"
+        closeButtonClassName="color:text-white color:hover:text-[#2d5a45] color:[&_svg]:text-white color:hover:[&_svg]:text-[#2d5a45]"
       >
         <SheetTitle className="sr-only">Chat</SheetTitle>
         <SheetHeader>
@@ -52,7 +52,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-100 dark:bg-muted color:bg-[#14224C]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-[#164670]"
+                className="bg-gray-100 dark:bg-muted color:bg-[#153020]/90 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-[#1e3d2e]"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
@@ -69,7 +69,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button variant="outline" className="border-black dark:border-white bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[#2E6A9E] color:bg-[#0C1738] color:hover:bg-[#0E1A3A] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
+            <Button variant="outline" className="border-black dark:border-white bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[#1e3d2e] color:bg-[#0f261c] color:hover:bg-[#1a3d2e] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

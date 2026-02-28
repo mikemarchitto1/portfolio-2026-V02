@@ -266,45 +266,46 @@
 }
 
 /* -------------------------------------------------------
-   COLOR MODE — Night sky blue palette
-   Deep Navy → Midnight → Night → Twilight → Starlit → Soft Starlit → Pale Night
+   COLOR MODE — Dark forest green palette
 ------------------------------------------------------- */
 html.color,
 .color {
-  --background: #08122E;   /* Deep Navy */
-  --foreground: oklch(96% 0.01 240);
+  --background: #0a1d14;   /* Dark forest green */
+  --foreground: oklch(96% 0.01 140);
 
-  --card: #08122E;
-  --card-foreground: oklch(96% 0.01 240);
-  --popover: #08122E;
-  --popover-foreground: oklch(96% 0.01 240);
+  --card: #0a1d14;
+  --card-foreground: oklch(96% 0.01 140);
+  --popover: #0a1d14;
+  --popover-foreground: oklch(96% 0.01 140);
 
-  --primary: #1E5280;      /* Button fill blue */
+  --primary: #1e3d2e;      /* Forest green — button fill */
   --primary-foreground: oklch(98% 0 0);
 
-  --secondary: #1E3A5F;    /* Night Blue */
-  --secondary-foreground: oklch(96% 0.01 240);
+  --secondary: #1a3d2e;
+  --secondary-foreground: oklch(96% 0.01 140);
 
-  --muted: #1E3A5F;
-  --muted-foreground: oklch(80% 0.02 240);
+  --muted: #1a3d2e;
+  --muted-foreground: oklch(80% 0.02 140);
 
-  --accent: #7B9FCC;       /* Soft Starlit */
-  --accent-foreground: oklch(18% 0.02 240);
+  --accent: #5a9a7a;       /* Lighter forest green */
+  --accent-foreground: oklch(18% 0.02 140);
 
   --destructive: oklch(57% 0.245 27.325);
 
-  --border: #1E3A5F;
-  --input: #08122E;
-  --ring: #1E5280;
+  --border: #1a3d2e;
+  --input: #0a1d14;
+  --ring: #1e3d2e;
 
-  --sidebar: #08122E;        /* same as chat sheet / page background */
-  --sidebar-foreground: oklch(96% 0.01 240);
-  --sidebar-primary: #1E5280;
+  --sidebar: #0a1d14;        /* same as chat sheet / page background */
+  --sidebar-foreground: oklch(96% 0.01 140);
+  --sidebar-primary: #1e3d2e;
   --sidebar-primary-foreground: oklch(98% 0 0);
-  --sidebar-accent: #7B9FCC;
-  --sidebar-accent-foreground: oklch(18% 0.02 240);
-  --sidebar-border: #08122E;
-  --sidebar-ring: #1E5280;
+  --sidebar-accent: #5a9a7a;
+  --sidebar-accent-foreground: oklch(18% 0.02 140);
+  --sidebar-border: #0a1d14;
+  --sidebar-ring: #1e3d2e;
+  --sidebar-hover: #2d5a45; /* Same green for all sidebar hover (list items, icons, X) */
+  --color-button-hover: #1a3528; /* Nav/footer: hover 1 shade lighter than previous */
 }
 
 /* -------------------------------------------------------
@@ -483,10 +484,10 @@ html.color,
 }
 
 /* -------------------------------------------------------
-   ELEVATION SHADOW — Apple-style card (subtle lift, soft blur)
+   ELEVATION SHADOW — Global for cards and images (visible lift)
 ------------------------------------------------------- */
 .shadow-elevation {
-  box-shadow: 0 4px 14px rgb(0 0 0 / 0.08);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12), 0 2px 8px rgb(0 0 0 / 0.08);
 }
 
 /* -------------------------------------------------------
@@ -523,72 +524,78 @@ html.color,
   font-size: 14px !important;
 }
 
+/* Color mode: profile pull quote text white */
+html.color .profile-quote,
+html.color .profile-quote p,
+html.color .profile-quote cite,
+html.color main .profile-quote,
+html.color main .profile-quote p,
+html.color main .profile-quote cite {
+  color: white !important;
+}
+
 /* Color theme — force night sky blue palette everywhere */
 html.color {
-  --background: #08122E !important;
-  --sidebar: #08122E !important;  /* same as chat sheet */
-  --card: #08122E !important;
-  --popover: #08122E !important;
-  --primary: #1E5280 !important;
+  --background: #0a1d14 !important;
+  --sidebar: #0a1d14 !important;  /* same as chat sheet */
+  --card: #0a1d14 !important;
+  --popover: #0a1d14 !important;
+  --primary: #1e3d2e !important;
   --primary-foreground: oklch(98% 0 0) !important;
-  --accent: #7B9FCC !important;
-  --ring: #1E5280 !important;
-  --sidebar-primary: #1E5280 !important;
+  --accent: #5a9a7a !important;
+  --ring: #1e3d2e !important;
+  --sidebar-primary: #1e3d2e !important;
   --sidebar-primary-foreground: oklch(98% 0 0) !important;
-  --sidebar-accent: #7B9FCC !important;
-  --sidebar-ring: #1E5280 !important;
-  --border: #1E3A5F !important;
-  --input: #08122E !important;
+  --sidebar-accent: #5a9a7a !important;
+  --sidebar-ring: #1e3d2e !important;
+  --sidebar-hover: #2d5a45 !important;
+  --color-button-hover: #1a3528 !important;
+  --border: #1a3d2e !important;
+  --input: #0a1d14 !important;
 }
 /* Force blue backgrounds on page, main, sidebar, dialogs, and panels */
 html.color,
 html.color body {
-  background-color: #08122E !important;
+  background-color: #0a1d14 !important;
 }
 html.color main {
-  background-color: #08122E !important;
+  background-color: #0a1d14 !important;
 }
 html.color [data-slot="dialog-content"] {
-  background-color: #08122E !important;
+  background-color: #0a1d14 !important;
 }
 html.color [data-slot="sheet-content"] {
-  background-color: #0C1738 !important;
+  background-color: #0f261c !important;
 }
-/* Sidebar: one shade lighter than calendar/sheet in color mode */
+/* Sidebar: one shade lighter than page in color mode */
 html.color .bg-sidebar,
 html.color [data-sidebar="header"],
 html.color [data-sidebar="content"],
 html.color [data-sidebar="footer"] {
-  background-color: #0C1738 !important;
+  background-color: #0f261c !important;
 }
-/* Color mode: all buttons lighter shade of #1E5280 on hover (high specificity to override utilities) */
-html.color [data-slot="button"]:hover,
-html.color button:hover,
-html.color body [data-slot="button"]:hover,
-html.color body button:hover,
+/* Color mode: nav and footer buttons — hover 1 shade darker than resting */
+html.color header [data-slot="button"]:hover,
+html.color header button:hover,
 html.color main [data-slot="button"]:hover,
 html.color main button:hover,
 html.color footer [data-slot="button"]:hover,
-html.color footer button:hover,
-html.color header [data-slot="button"]:hover,
-html.color header button:hover,
-html.color [data-sidebar] [data-slot="button"]:hover,
-html.color [data-sidebar] button:hover {
-  background-color: #1E5882 !important;
+html.color footer button:hover {
+  background-color: #1a3528 !important;
   color: white !important;
 }
 /* Chat sheet (color mode): bottom Close button fill = sheet background, keep white border; hover = lighter shade */
 html.color .chat-sheet [data-slot="sheet-footer"] button,
 html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"] {
-  background-color: #0C1738 !important;
+  background-color: #0f261c !important;
   transition: background-color 0.2s ease;
 }
 html.color .chat-sheet [data-slot="sheet-footer"] button:hover,
 html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"]:hover {
-  background-color: #0E1A3A !important;
+  background-color: #1a3d2e !important;
 }
 
-/* Chat sheet (color mode): X close button and icon white, no background fill; hover matches sidebar (#1E5882) */
+/* Chat sheet (color mode): X close button and icon white, no background fill; hover = forest green */
 html.color .chat-sheet > button.absolute {
   color: white !important;
   background-color: transparent !important;
@@ -596,29 +603,47 @@ html.color .chat-sheet > button.absolute {
 }
 html.color .chat-sheet > button.absolute:hover {
   background-color: transparent !important;
-  color: #1E5882 !important;
+  color: #2d5a45 !important;
 }
 html.color .chat-sheet > button.absolute svg {
   color: inherit !important;
   transition: color 0.2s ease;
 }
 html.color .chat-sheet > button.absolute:hover svg {
-  color: #1E5882 !important;
+  color: #2d5a45 !important;
 }
 
-/* Sidebar: no background fill on icon/close buttons (transparent on hover, keep icon tint) */
+/* Sidebar: all hover elements use same green as list items (--sidebar-hover) */
+html.color [data-sidebar="menu-button"]:hover {
+  color: var(--sidebar-hover) !important;
+}
+
 html.color [data-sidebar="header"] [data-slot="button"]:hover,
 html.color [data-sidebar="header"] button:hover,
 html.color [data-sidebar="content"] nav [data-slot="button"]:hover,
 html.color [data-sidebar="content"] nav button:hover {
   background-color: transparent !important;
-  color: #1E5882 !important;
+  color: var(--sidebar-hover) !important;
+}
+html.color [data-sidebar="header"] [data-slot="button"] svg,
+html.color [data-sidebar="header"] button svg,
+html.color [data-sidebar="content"] nav [data-slot="button"] svg,
+html.color [data-sidebar="content"] nav button svg {
+  fill: none !important;
+}
+html.color [data-sidebar="header"] [data-slot="button"]:hover svg,
+html.color [data-sidebar="header"] button:hover svg,
+html.color [data-sidebar="content"] nav [data-slot="button"]:hover svg,
+html.color [data-sidebar="content"] nav button:hover svg {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
+  fill: none !important;
 }
 
 /* Chat sheet (color mode): bottom Close button hover must override global button hover */
 html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"]:hover,
 html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hover {
-  background-color: #0E1A3A !important;
+  background-color: #1a3d2e !important;
   color: white !important;
 }
 

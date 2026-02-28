@@ -42,7 +42,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white"
               asChild
             >
               <a href="mailto:hello@carlwalker.com">Email Mike</a>
@@ -51,7 +51,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white"
               asChild
             >
               <a href="/resume.pdf" download>
@@ -62,7 +62,7 @@ function Footer() {
             <Button
               variant="outline"
               size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
+              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white"
               asChild
             >
               <a
@@ -211,7 +211,7 @@ function ProjectCardFiftyFifty({
           <Button
             variant="outline"
             size="lg"
-            className="w-fit rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white"
+            className="w-fit rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white"
             asChild
           >
             {href ? (
@@ -248,33 +248,35 @@ export default function Home() {
         <Header />
 
         {/* HERO BODY — content aligned to grid; profile left edge at center of container */}
-        <section className="w-full max-w-[1328px] mx-auto bg-yellow-200">
+        <section className="w-full max-w-[1328px] mx-auto">
           <div className="w-full max-w-[1328px] mx-auto pt-16 px-16 pb-16">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 py-16 pr-16 text-foreground bg-blue-200">
+            <div className="w-full min-w-0 pb-24 pr-16 text-foreground">
               <h1 className="text-h1 font-light text-foreground whitespace-nowrap" style={{ letterSpacing: 0 }}>Hi, I'm Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles that shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
+                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
                 </p>
               </div>
             </div>
 
-            <div className="w-full min-w-0 flex flex-col h-full gap-0 bg-pink-200">
-              <div className="w-full flex-1 min-h-0 rounded-2xl shadow-elevation overflow-hidden relative mb-6">
-                <Image
-                  src="/images/knight-wide.png"
-                  alt="Mike profile"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+            <div className="w-full min-w-0 flex flex-col h-full gap-0">
+              <div className="w-full flex-1 min-h-0 rounded-2xl shadow-elevation mb-6">
+                <div className="w-full h-full min-h-[280px] rounded-2xl overflow-hidden relative">
+                  <Image
+                    src="/images/knight-wide.png"
+                    alt="Mike profile"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
-              <blockquote className="profile-quote shrink-0 text-black font-light text-center px-6 mb-8 bg-slate-100">
+              <blockquote className="profile-quote shrink-0 text-foreground font-light text-center px-6 mb-8">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
-                <cite className="not-italic block text-black/80">— Ralph Waldo Emerson</cite>
+                <cite className="not-italic block opacity-80">— Ralph Waldo Emerson</cite>
               </blockquote>
             </div>
           </div>
@@ -318,9 +320,9 @@ export default function Home() {
 
         {/* IMPACT METRICS AND TECH STACK — content aligned to grid */}
         <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] min-h-[520px]">
-          <div className="w-full max-w-[1328px] mx-auto min-h-[520px] bg-purple-200 p-16">
+          <div className="w-full max-w-[1328px] mx-auto min-h-[520px] p-16">
           <div className="w-full flex flex-col">
-            <div className="w-full bg-green-300 mb-16">
+            <div className="w-full mb-16">
               <h2 className="text-h2 font-light text-left text-foreground">
                 Impact and Tech Stack
               </h2>
@@ -499,8 +501,8 @@ export default function Home() {
 
         {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
         <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-[92px]">
-          <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0 bg-orange-100">
-            <div className="w-full px-[64px] py-2 mb-0 bg-green-200">
+          <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
+            <div className="w-full px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <div className="w-full flex flex-col gap-12">

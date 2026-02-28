@@ -9,12 +9,12 @@ import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 
 const navButtonClass =
-  "border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground [&_svg]:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-transparent color:bg-[#1E5280] color:text-white color:hover:bg-[#1E5882] color:hover:text-white color:[&_svg]:text-white";
+  "bg-background border border-foreground text-foreground hover:bg-foreground/[0.06] hover:text-foreground [&_svg]:text-foreground dark:bg-background dark:border-white dark:text-white dark:hover:bg-white/10 dark:[&_svg]:text-white color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white color:[&_svg]:text-white";
 
 export default function Header() {
   const { toggle } = useSidebar();
   return (
-    <header className="sticky top-0 z-40 border-b border-foreground/20 bg-red-500 text-foreground">
+    <header className="sticky top-0 z-50 bg-transparent text-foreground">
       <div className="min-h-16 flex items-center justify-start gap-2 py-4 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-4 flex-wrap">
           <Button

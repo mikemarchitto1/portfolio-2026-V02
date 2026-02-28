@@ -48,7 +48,7 @@ const Sidebar = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("fixed left-0 top-0 z-50 h-full transition-[transform] duration-300 ease-in-out", className)}
+      className={cn("fixed left-0 top-0 z-[60] h-full transition-[transform] duration-300 ease-in-out", className)}
       style={{
         width: width,
         transform: open ? "translateX(0)" : "translateX(-100%)",
@@ -175,7 +175,7 @@ const SidebarMenuButton = React.forwardRef<
       ref={ref as React.Ref<HTMLButtonElement>}
       data-sidebar="menu-button"
       className={cn(
-        "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button text-foreground no-underline transition-colors hover:bg-transparent hover:text-accent [&_svg]:size-5 color:hover:text-[#1E5882]",
+        "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button text-foreground no-underline transition-colors hover:bg-transparent hover:text-accent [&_svg]:size-5 color:hover:text-[#2d5a45]",
         className
       )}
       {...props}
