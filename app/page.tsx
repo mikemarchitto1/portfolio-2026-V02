@@ -30,7 +30,7 @@ function Footer() {
             </div>
             <div className="max-w-[528px] p-0 m-0">
               <h5 className="text-h5 max-w-[528px] font-light text-foreground p-0 m-0">
-                I'm interested in creative partnerships that grow from meaningful work.
+                I{"\u2019"}m interested in creative partnerships that grow from meaningful work.
               </h5>
             </div>
         </div>
@@ -248,15 +248,15 @@ export default function Home() {
         <Header />
 
         {/* HERO BODY — content aligned to grid; profile left edge at center of container */}
-        <section className="w-full max-w-[1328px] mx-auto">
+        <section className="hero w-full max-w-[1328px] mx-auto">
           <div className="w-full max-w-[1328px] mx-auto pt-16 px-16 pb-16">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 pb-24 pr-16 text-foreground">
-              <h1 className="text-h1 font-light text-foreground whitespace-nowrap" style={{ letterSpacing: 0 }}>Hi, I'm Mike</h1>
+              <h1 className="hero-h1 text-h1 font-light text-foreground whitespace-nowrap" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
+                  I{"\u2019"}m originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
                 </p>
               </div>
             </div>

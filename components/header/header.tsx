@@ -52,7 +52,7 @@ export default function Header() {
                 className={`flex items-center gap-2 ${navButtonClass}`}
               >
                 <MessageCircle className="h-5 w-5" />
-                <span className="text-button">Let&apos;s Chat</span>
+                <span className="text-button">Let{"\u2019"}s Chat</span>
               </Button>
             }
           />

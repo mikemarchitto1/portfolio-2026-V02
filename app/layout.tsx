@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/hooks/use-theme";
 import Layout from "@/components/layout/layout";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
@@ -42,10 +42,8 @@ export default function RootLayout({
 `;
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${dmSans.variable} ${geistMono.variable} font-sans antialiased bg-background`}
-      >
+    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistMono.variable}`}>
+      <body className={`${plusJakartaSans.className} font-sans antialiased bg-background`}>
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />

@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Load Plus Jakarta Sans so "Plus Jakarta Sans" is available for font-family rules */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
 @custom-variant dark (&:is(.dark *));
 @custom-variant color (&:is(.color *));
 
@@ -27,7 +30,7 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-dm-sans);
+  --font-sans: var(--font-plus-jakarta-sans);
   --font-mono: var(--font-geist-mono);
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -368,20 +371,23 @@ html.color,
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     line-height: 24px; /* 6 × 4px baseline — default text snaps to grid */
   }
-  /* Button text: typography scale (14px, 500 medium) applied globally to all buttons */
+  /* Button text: typography scale (14px, 500 medium) — force Plus Jakarta Sans by name */
   /* Calendar day numbers use regular weight, so exclude .rdp-day-button from font-weight */
   button:not(.rdp-day-button),
   [role="button"]:not(.rdp-day-button),
   [data-slot="button"]:not(.rdp-day-button),
   .text-button:not(.rdp-day-button) {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
     font-size: var(--font-size-button) !important;
     line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
   }
   button.rdp-day-button,
   .rdp-day-button[data-slot="button"] {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
     font-size: var(--font-size-caption) !important;
     line-height: var(--line-height-caption) !important;
     font-weight: 400 !important;
@@ -389,15 +395,23 @@ html.color,
   /* Header nav: ensure icon buttons use button typography (overrides header context) */
   header button,
   header [data-slot="button"] {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
     font-size: var(--font-size-button) !important;
     line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
   }
   /* Sidebar menu items: same as button font */
   [data-sidebar="menu-button"] {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
     font-size: var(--font-size-button) !important;
     line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
+  }
+  /* Inputs and form fields use theme sans */
+  input,
+  textarea,
+  select {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   }
 }
 
@@ -413,70 +427,83 @@ html.color,
 ------------------------------------------------------- */
 @layer utilities {
   .text-h1 {
+    font-family: var(--font-plus-jakarta-sans), var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
     font-size: var(--font-size-h1);
     line-height: var(--line-height-h1);
     font-weight: var(--font-weight-h1);
     letter-spacing: 0; /* 0% */
   }
   .text-h2 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-h2);
     line-height: var(--line-height-h2);
     font-weight: var(--font-weight-h2);
   }
   .text-h3 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-h3);
     line-height: var(--line-height-h3);
     font-weight: var(--font-weight-h3);
   }
   .text-h4 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-h4);
     line-height: var(--line-height-h4);
     font-weight: var(--font-weight-h4);
   }
   .text-h5 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-h5);
     line-height: var(--line-height-h5);
     font-weight: var(--font-weight-h5);
   }
   .text-h6 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-h6);
     line-height: var(--line-height-h6);
     font-weight: var(--font-weight-h6);
   }
 
   .text-subtitle1 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-subtitle1);
     line-height: var(--line-height-subtitle1);
     font-weight: var(--font-weight-subtitle1);
   }
   .text-subtitle2 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-subtitle2);
     line-height: var(--line-height-subtitle2);
     font-weight: var(--font-weight-subtitle2);
   }
 
   .text-body1 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-body1);
     line-height: var(--line-height-body1);
     font-weight: var(--font-weight-body1);
   }
   .text-body2 {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-body2);
     line-height: var(--line-height-body2);
     font-weight: var(--font-weight-body2);
   }
 
   .text-button {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-button);
     line-height: var(--line-height-button);
     font-weight: var(--font-weight-button);
   }
   .text-caption {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-caption);
     line-height: var(--line-height-caption);
     font-weight: var(--font-weight-caption);
   }
   .text-overline {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: var(--font-size-overline);
     line-height: var(--line-height-overline);
     font-weight: var(--font-weight-overline);
@@ -500,13 +527,23 @@ html.color,
   background-image: none !important;
 }
 
-/* Ensure H1 letter-spacing applies (comes after utilities so it wins) */
-.text-h1 {
+/* Ensure H1 letter-spacing and font apply (comes after utilities so it wins) */
+h1.text-h1,
+.text-h1,
+h1 {
+  font-family: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif !important;
   letter-spacing: 0;
+}
+
+/* Hero H1: force Plus Jakarta Sans by name (overrides any variable/cascade) */
+.hero-h1,
+section.hero h1 {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
 }
 
 /* Profile quote: 24px line-height, not tied to baseline grid or body2 utility */
 .profile-quote {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   font-size: 14px !important;
   line-height: 24px !important;
   margin: 0 !important;
@@ -514,6 +551,7 @@ html.color,
 }
 .profile-quote p,
 .profile-quote cite {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   font-size: 14px !important;
   line-height: 24px !important;
   margin: 0 !important;

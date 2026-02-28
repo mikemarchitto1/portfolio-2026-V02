@@ -25,7 +25,7 @@ const defaultTrigger = (
     className="flex items-center gap-2 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:[&_svg]:text-white"
   >
     <MessageCircle className="h-5 w-5" />
-    <span className="text-button">Let&apos;s Chat</span>
+    <span className="text-button">Let{"\u2019"}s Chat</span>
   </Button>
 );
 
@@ -44,7 +44,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             Hello!
             <br />
             <br />
-            Whenever you&apos;re ready, go ahead and start the conversation.
+            Whenever you{"\u2019"}re ready, go ahead and start the conversation.
           </p>
         </SheetHeader>
         <div className="flex-1 overflow-auto px-4 py-4">
