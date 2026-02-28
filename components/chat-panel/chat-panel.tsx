@@ -7,8 +7,6 @@ import {
   SheetContent,
   SheetHeader,
   SheetFooter,
-  SheetTitle,
-  SheetDescription,
   SheetClose,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
@@ -40,17 +38,19 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
         closeButtonClassName="color:text-white color:hover:text-[#1E5882] color:[&_svg]:text-white color:hover:[&_svg]:text-[#1E5882]"
       >
         <SheetHeader>
-          <SheetTitle className="text-black dark:text-white color:text-white">Hello!</SheetTitle>
-          <SheetDescription className="text-black dark:text-white color:text-white">
-            Whenever you're ready, go ahead and start the conversation.
-          </SheetDescription>
+          <p className="text-body2 text-black dark:text-white color:text-white">
+            Hello!
+            <br />
+            <br />
+            Whenever you&apos;re ready, go ahead and start the conversation.
+          </p>
         </SheetHeader>
         <div className="flex-1 overflow-auto px-4 py-4">
           {children ?? (
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-100 dark:bg-muted color:bg-[#0E1A3A]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-white/20"
+                className="bg-gray-100 dark:bg-muted color:bg-[#14224C]/80 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-[#164670]"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
@@ -62,12 +62,12 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             type="text"
             placeholder="Type a message…"
             aria-label="Chat message"
-            className="chat-input-unified-field w-full rounded-md border border-black bg-white px-4 py-3 text-sm text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
+            className="chat-input-unified-field w-full rounded-md border border-black bg-white px-4 py-3 text-body2 text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
           />
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button variant="outline" className="border-black dark:border-white color:border-white color:bg-[#08122E] color:hover:bg-[#0E1A3A] text-black dark:text-white color:text-white color:hover:text-white hover:bg-foreground/[0.02] hover:text-foreground">Close</Button>
+            <Button variant="outline" className="border-black dark:border-white bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[#2E6A9E] color:bg-[#0C1738] color:hover:bg-[#0E1A3A] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

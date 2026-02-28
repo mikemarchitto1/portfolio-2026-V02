@@ -17,7 +17,7 @@ function ChatBubble({
       data-slot="chat-bubble"
       data-variant={variant}
       className={cn(
-        "relative max-w-[85%] rounded-2xl px-4 py-3 text-sm",
+        "relative max-w-[85%] rounded-2xl px-4 py-3 text-body2",
         variant === "received" &&
           "rounded-bl-md bg-muted text-muted-foreground",
         variant === "sent" &&
@@ -37,7 +37,7 @@ function ChatBubbleMessage({
   return (
     <p
       data-slot="chat-bubble-message"
-      className={cn("text-sm leading-relaxed", className)}
+      className={cn("text-body2", className)}
       {...props}
     />
   );

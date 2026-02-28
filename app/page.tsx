@@ -30,7 +30,7 @@ function Footer() {
             </div>
             <div className="max-w-[528px] p-0 m-0">
               <h5 className="text-h5 max-w-[528px] font-light text-foreground p-0 m-0">
-                I'm interested in creative partnerships built with meaningful work.
+                I'm interested in creative partnerships that grow from meaningful work.
               </h5>
             </div>
         </div>
@@ -256,7 +256,7 @@ export default function Home() {
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. This shaped my early work in visual storytelling. After moving to Seattle, I shifted into UX design, working across corporations, agencies, and startups. Now in Miami, I balance work, exploring AI‑driven design, and spending time outdoors cycling.
+                  I'm originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles that shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
                 </p>
               </div>
             </div>

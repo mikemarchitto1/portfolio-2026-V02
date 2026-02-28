@@ -73,34 +73,34 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
             <CardHeader className="space-y-3 pb-2 px-0">
               <div className="flex items-center gap-3">
                 <Avatar className="h-12 w-12 rounded-full bg-pink-200">
-                  <AvatarFallback className="bg-pink-200 text-pink-800 text-lg font-medium">
+                  <AvatarFallback className="bg-pink-200 text-pink-800 text-subtitle1 font-medium">
                     M
                   </AvatarFallback>
                 </Avatar>
-                <span className="font-medium text-foreground">Michael Marchitto</span>
+                <span className="text-body1 font-medium text-foreground">Michael Marchitto</span>
               </div>
-              <CardTitle className="text-lg font-semibold leading-tight">
+              <CardTitle className="text-h6 leading-tight">
                 Introduction Call
               </CardTitle>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-body2 text-muted-foreground">
                 A 30-minute video introduction to discuss potential opportunities.
               </p>
             </CardHeader>
             <CardContent className="flex flex-col gap-3 pt-0 px-0">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-body2 text-muted-foreground">
                 <Clock className="h-4 w-4 shrink-0" />
                 <span>30m</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-body2 text-muted-foreground">
                 <Video className="h-4 w-4 shrink-0" />
                 <span>Cal Video</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-body2 text-muted-foreground">
                 <Globe className="h-4 w-4 shrink-0" />
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-auto py-1 px-2 -ml-2 gap-1 font-normal text-muted-foreground hover:text-foreground"
+                  className="h-auto py-1 px-2 -ml-2 gap-1 text-body2 font-normal text-muted-foreground hover:text-foreground"
                 >
                   America/New York
                   <ChevronDown className="h-3.5 w-3.5" />
@@ -127,16 +127,16 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
           {/* Right: Time slots */}
           <div className="flex flex-col min-w-0 bg-background p-4">
             <div className="flex items-center justify-between gap-2 mb-3">
-              <span className="font-medium text-foreground">{selectedLabel}</span>
+              <span className="text-body1 font-medium text-foreground">{selectedLabel}</span>
               <Tabs
                 value={timeFormat}
                 onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}
               >
                 <TabsList className="h-8 p-0.5">
-                  <TabsTrigger value="12h" className="text-xs px-2.5 py-1">
+                  <TabsTrigger value="12h" className="text-caption px-2.5 py-1">
                     12h
                   </TabsTrigger>
-                  <TabsTrigger value="24h" className="text-xs px-2.5 py-1">
+                  <TabsTrigger value="24h" className="text-caption px-2.5 py-1">
                     24h
                   </TabsTrigger>
                 </TabsList>
@@ -148,7 +148,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                   key={slot}
                   variant="outline"
                   className={cn(
-                    "w-full justify-center rounded-lg font-normal h-9 text-sm"
+                    "w-full justify-center rounded-lg h-9 text-button font-normal"
                   )}
                 >
                   {slot}
