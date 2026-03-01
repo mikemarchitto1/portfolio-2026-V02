@@ -596,7 +596,7 @@ html.color body {
 html.color main {
   background-color: #0a1d14 !important;
 }
-html.color [data-slot="dialog-content"] {
+html.color [data-slot="dialog-content"]:not([data-transparent-backdrop]) {
   background-color: #0a1d14 !important;
 }
 html.color [data-slot="sheet-content"] {
@@ -682,9 +682,222 @@ html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hov
   color: white !important;
 }
 
+/* Scheduling dialog: force overlay and backdrop transparent */
+[data-slot="dialog-overlay"][data-transparent] {
+  background-color: transparent !important;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+/* Dialog content with transparent backdrop (scheduling dialog) — override any theme background */
+[data-slot="dialog-content"][data-transparent-backdrop],
+html.color [data-slot="dialog-content"][data-transparent-backdrop],
+html.dark [data-slot="dialog-content"][data-transparent-backdrop] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Scheduling dialog: center the panel in the viewport (override base dialog positioning) */
+[data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  max-width: none !important;
+  transform: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+/* Scheduling dialog: in color mode the dialog-content is forced to green — override so overlay is see-through */
+html.color [data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Scheduling panel: color mode — green wrapper, all text black */
+html.color [data-slot="scheduling-panel"] {
+  background-color: #0f261c !important;
+}
+html.color [data-slot="scheduling-panel"],
+html.color [data-slot="scheduling-panel"] *,
+html.color [data-slot="scheduling-panel"] .rdp-caption_label,
+html.color [data-slot="scheduling-panel"] .calendar-weekday,
+html.color [data-slot="scheduling-panel"] .rdp-day-button:not([data-outside="true"]),
+html.color [data-slot="scheduling-panel"] .rdp-button_previous,
+html.color [data-slot="scheduling-panel"] .rdp-button_next,
+html.color [data-slot="scheduling-panel"] button,
+html.color [data-slot="scheduling-panel"] span,
+html.color [data-slot="scheduling-panel"] p {
+  color: #000 !important;
+}
+html.color [data-slot="scheduling-panel"] .rdp-button_previous svg,
+html.color [data-slot="scheduling-panel"] .rdp-button_next svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
 /* Chat input: placeholder (cannot set via inline style); same in all modes */
 .chat-input-unified-field::placeholder {
   color: #6b6b6b !important;
+}
+
+/* Scheduling panel: white text in left panel, calendar header, and right header */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] *:not([class*="AvatarFallback"]) {
+  color: white !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] .rounded-full + span {
+  margin-top: 16px !important;
+  padding-top: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] {
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] svg {
+  color: white !important;
+  stroke: white !important;
+}
+/* Calendar header row: dark bar with month/year left, arrows right in same row */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
+  color: white !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption {
+  background-color: transparent !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+/* Nav: pin to right so arrows don’t overlap caption; keep visible */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
+  left: auto !important;
+  right: 0 !important;
+  width: auto !important;
+  min-width: 5rem !important;
+  background-color: transparent !important;
+  z-index: 2 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: inline-flex !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous svg,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next svg {
+  color: white !important;
+  stroke: white !important;
+}
+/* March 2026 caption: same style as Sun 1 (body1, semibold) */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label {
+  font-size: var(--font-size-body1) !important;
+  line-height: var(--line-height-body1) !important;
+  font-weight: 600 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
+  color: white !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] * {
+  color: white !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] * {
+  color: white !important;
+}
+/* Toggle: active tab (12h or 24h) — black text on white thumb */
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [data-state="active"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [data-state="active"] {
+  color: #000 !important;
+}
+
+/* Scheduling panel: days of week and time slot buttons = global button text style */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
+  font-size: var(--font-size-button) !important;
+  line-height: var(--line-height-button) !important;
+  font-weight: var(--font-weight-button) !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] + div [data-slot="button"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
+  font-size: var(--font-size-button) !important;
+  line-height: var(--line-height-button) !important;
+  font-weight: var(--font-weight-button) !important;
+}
+/* Scheduling panel: calendar date numbers = global button text style (override base .rdp-day-button caption size) */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button *,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button [class],
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button * {
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Scheduling panel calendar: no rounded corners on header/weekdays, rounded date boxes */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday {
+  border-radius: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button {
+  border-radius: 0.375rem !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] {
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+/* Selected date cell (e.g. "1"): shade of page green, white number */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
+  background-color: #1e3d2e !important;
+  background: #1e3d2e !important;
+  color: white !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
+  background-color: #2d5a45 !important;
+  background: #2d5a45 !important;
+}
+/* Outside-month dates (e.g. bottom row 1,2,3,4): white text */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
+  color: white !important;
 }
 
 /* Calendar: force weekday labels to match small date size (unlayered to override all) */

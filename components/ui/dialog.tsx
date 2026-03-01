@@ -43,15 +43,26 @@ function DialogPortal({
 
 function DialogOverlay({
   className,
+  style,
+  noDefaultBg = false,
+  transparent = false,
   ...props
-}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+}: React.ComponentProps<typeof DialogPrimitive.Overlay> & {
+  /** When true, skip default bg-black/50 (use custom overlayClassName or transparent) */
+  noDefaultBg?: boolean;
+  /** When true, overlay is fully see-through (data-transparent for CSS) */
+  transparent?: boolean;
+}) {
   return (
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
+      data-transparent={transparent ? "" : undefined}
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50",
+        !noDefaultBg && "bg-black/50",
         className
       )}
+      style={transparent ? style : undefined}
       {...props}
     />
   );
@@ -61,19 +72,45 @@ function DialogContent({
   className,
   children,
   showCloseButton = true,
+  centerInViewport = false,
+  overlayClassName,
+  transparentOverlay = false,
+  style: propsStyle,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean;
+  /** When true, dialog fills viewport with no transform so content can be centered (e.g. scheduling dialog) */
+  centerInViewport?: boolean;
+  /** Optional class for the overlay (e.g. bg-transparent for see-through) */
+  overlayClassName?: string;
+  /** When true, overlay has no dim (fully see-through) */
+  transparentOverlay?: boolean;
 }) {
+  const hasCustomOverlay = !!overlayClassName;
+  const contentTransparentBackdrop = transparentOverlay || hasCustomOverlay;
   return (
     <DialogPortal>
-      <DialogOverlay />
+      <DialogOverlay
+        noDefaultBg={transparentOverlay || hasCustomOverlay}
+        transparent={transparentOverlay}
+        className={overlayClassName}
+        style={transparentOverlay ? { backgroundColor: "transparent", opacity: 1 } : undefined}
+      />
       <DialogPrimitive.Content
         data-slot="dialog-content"
+        data-center-in-viewport={centerInViewport ? "" : undefined}
+        data-transparent-backdrop={contentTransparentBackdrop ? "" : undefined}
         className={cn(
-          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed left-[50%] top-[50%] z-50 flex flex-col w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 shadow-lg duration-200 sm:rounded-lg",
+          centerInViewport
+            ? "fixed inset-0 z-50 flex w-screen max-w-none flex-col items-center justify-center gap-4 border-0 bg-transparent p-0 shadow-none"
+            : "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed left-[50%] top-[50%] z-50 flex flex-col w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 shadow-lg duration-200 sm:rounded-lg",
           className
         )}
+        style={
+          contentTransparentBackdrop
+            ? { ...propsStyle, backgroundColor: "transparent" }
+            : propsStyle
+        }
         {...props}
       >
         {children}
