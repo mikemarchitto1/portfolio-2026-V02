@@ -784,9 +784,9 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   background: transparent !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: #F2F4F6 !important;
-  background: #F2F4F6 !important;
-  border: 1px solid #E5E7EB !important;
+  background-color: #E5E7EB !important;
+  background: #E5E7EB !important;
+  border: 1px solid #D1D5DB !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
   color: #1F2937 !important;
@@ -911,8 +911,9 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border: 1px solid #E5E7EB !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: #F2F4F6 !important;
-  background: #F2F4F6 !important;
+  background-color: #E5E7EB !important;
+  background: #E5E7EB !important;
+  border: 1px solid #D1D5DB !important;
 }
 
 /* ========== DARK MODE SCHEDULING (dark greys, light text) ========== */
@@ -980,8 +981,8 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   border: 1px solid #E5E7EB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: hsl(240 5.9% 13%) !important;
-  background: hsl(240 5.9% 13%) !important;
+  background-color: hsl(240 5.9% 18%) !important;
+  background: hsl(240 5.9% 18%) !important;
   border: 1px solid #E5E7EB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
@@ -1024,8 +1025,8 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
   border: 1px solid #E5E7EB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: hsl(240 5.9% 13%) !important;
-  background: hsl(240 5.9% 13%) !important;
+  background-color: hsl(240 5.9% 18%) !important;
+  background: hsl(240 5.9% 18%) !important;
   border: 1px solid #E5E7EB !important;
 }
 
