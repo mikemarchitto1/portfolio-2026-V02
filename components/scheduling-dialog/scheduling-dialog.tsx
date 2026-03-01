@@ -168,7 +168,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
             </div>
 
             {/* Center column: fixed width; borders flush top/bottom; 32px top padding on content only */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] w-[480px] shrink-0 flex-col border-l border-r border-[#1a3d2e] bg-transparent px-6 overflow-hidden">
+            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] w-[480px] shrink-0 flex-col border-l border-r border-[#E5E7EB] bg-transparent px-6 overflow-hidden">
               <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-6">
                 <Calendar
                   mode="single"
@@ -185,8 +185,8 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               </div>
             </div>
 
-            {/* Right column: same width as left, 32px top padding inside */}
-            <div className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col pt-6">
+            {/* Right column: 24px top padding; 24px bottom so time-slot scroll area ends 24px from main container bottom (buttons clip at that line) */}
+            <div className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col pt-6 pb-6">
               <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 text-white">
                 <span className="text-subtitle1 text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
@@ -222,19 +222,21 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                   </div>
                 </Tabs>
               </div>
-              <div className="flex flex-col gap-2 overflow-y-auto" data-slot="scheduling-time-slots">
-                {slots.map((slot) => (
-                  <Button
-                    key={slot}
-                    variant="ghost"
-                    data-slot="scheduling-time-slot-btn"
-                    className={cn(
-                      "w-full justify-center rounded-full h-12 text-button bg-gray-100 border text-foreground hover:bg-gray-200"
-                    )}
-                  >
-                    {slot}
-                  </Button>
-                ))}
+              <div className="flex flex-col overflow-y-auto" data-slot="scheduling-time-slots">
+                <div className="flex flex-col gap-2 p-6">
+                  {slots.map((slot) => (
+                    <Button
+                      key={slot}
+                      variant="ghost"
+                      data-slot="scheduling-time-slot-btn"
+                      className={cn(
+                        "w-full justify-center rounded-full h-12 text-button bg-gray-100 border text-foreground hover:bg-gray-200"
+                      )}
+                    >
+                      {slot}
+                    </Button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
