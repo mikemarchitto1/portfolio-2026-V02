@@ -51,7 +51,7 @@ function SchedulingCalendarDayButton({
       data-range-middle={modifiers.range_middle}
       style={dayButtonTextStyle}
       className={cn(
-        "rdp-day-button inline-flex items-center justify-center gap-2 rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button bg-gray-100 text-foreground hover:bg-gray-200 data-[outside=true]:bg-transparent data-[outside=true]:text-muted-foreground data-[outside=true]:hover:bg-transparent data-[selected-single=true]:bg-[#1e3d2e] data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-[#2d5a45] data-[range-middle=true]:bg-gray-100 data-[range-middle=true]:text-foreground data-[range-start=true]:bg-[#1e3d2e] data-[range-start=true]:text-white data-[range-end=true]:bg-[#1e3d2e] data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md px-0 py-0",
+        "rdp-day-button inline-flex items-center justify-center gap-2 rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button bg-gray-100 text-foreground data-[outside=true]:bg-transparent data-[outside=true]:text-muted-foreground data-[outside=true]:hover:bg-transparent data-[selected-single=true]:bg-[#1e3d2e] data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-[#2d5a45] data-[range-middle=true]:bg-gray-100 data-[range-middle=true]:text-foreground data-[range-start=true]:bg-[#1e3d2e] data-[range-start=true]:text-white data-[range-end=true]:bg-[#1e3d2e] data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md px-0 py-0",
         defaultClassNames.day,
         className
       )}
@@ -131,22 +131,22 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
           <div className="flex h-full flex-row items-stretch gap-6 px-6 py-0">
             {/* Left column: same width as right, 32px top padding inside */}
             <div data-slot="scheduling-left-panel" className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col">
-              <Card className="flex flex-1 flex-col border-0 bg-transparent pt-6 shadow-none text-white">
-                <CardHeader className="gap-0 space-y-0 pb-2 px-0 pt-0">
+              <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-6 shadow-none text-white">
+                <CardHeader className="mb-6 gap-4 space-y-0 pb-0 px-0 pt-0">
                   <Avatar className="mb-0 h-8 w-8 rounded-full bg-[#1e3d2e]">
                     <AvatarFallback className="bg-[#1e3d2e] text-white text-caption font-medium">
                       M
                     </AvatarFallback>
                   </Avatar>
                   <span className="mt-4 block text-body2 text-white/90">Michael Marchitto</span>
-                  <CardTitle className="mt-3 text-h6 font-semibold leading-tight text-white">
+                  <CardTitle className="mt-4 text-h6 font-semibold leading-tight text-white">
                     Introduction Call
                   </CardTitle>
-                  <p className="mt-3 text-body2 text-white/80">
+                  <p className="mt-4 mb-0 text-body2 text-white/80">
                     A 30-minute video introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
-                <CardContent className="flex flex-col gap-3 pt-0 px-0">
+                <CardContent className="flex flex-col gap-4 pt-0 px-0">
                   <div className="flex items-center gap-2 text-body2 text-white/80">
                     <Clock className="h-4 w-4 shrink-0" />
                     <span>30m</span>
@@ -204,7 +204,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                     key={slot}
                     variant="outline"
                     className={cn(
-                      "w-full justify-center rounded-md h-12 text-button bg-gray-100 border-0 hover:bg-gray-200 text-foreground"
+                      "w-full justify-center rounded-md h-12 text-button bg-gray-100 border-0 text-foreground"
                     )}
                   >
                     {slot}

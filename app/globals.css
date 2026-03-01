@@ -817,6 +817,10 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
 [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] * {
   color: white !important;
 }
+/* Sun 1 (selected date) label: body1 + semibold */
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
+  font-weight: 600 !important;
+}
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] * {
   color: white !important;
@@ -840,6 +844,11 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   font-size: var(--font-size-button) !important;
   line-height: var(--line-height-button) !important;
   font-weight: var(--font-weight-button) !important;
+}
+/* Time slot buttons: light green hover */
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
+  background-color: #b8d4c4 !important;
+  background: #b8d4c4 !important;
 }
 /* Scheduling panel: calendar date numbers = global button text style (override base .rdp-day-button caption size) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button,
@@ -868,6 +877,11 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+}
+/* Calendar: light green hover for in-month, unselected date cells */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]):hover {
+  background-color: #b8d4c4 !important;
+  background: #b8d4c4 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] {
   border: none !important;
