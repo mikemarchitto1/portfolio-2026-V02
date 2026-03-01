@@ -17,6 +17,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/hooks/use-theme";
 
 /** Day button for scheduling calendar: same text style/size as time slot buttons (14px, 500) */
 const dayButtonTextStyle = { fontSize: "14px", lineHeight: "20px", fontWeight: 500 as const };
@@ -60,10 +61,10 @@ function SchedulingCalendarDayButton({
       <span
         style={{
           ...dayButtonTextStyle,
-          /* outside date color is controlled by CSS per mode (light=black, dark=white) */
-          color: modifiers.selected ? "#fff" : undefined,
+          /* selected and outside date colors are controlled by CSS per mode */
+          color: undefined,
         }}
-        className={cn("block text-center", modifiers.selected && "!text-white")}
+        className="block text-center"
       >
         {children}
       </span>
@@ -92,7 +93,14 @@ type SchedulingDialogProps = {
   trigger: React.ReactNode;
 };
 
+const TOGGLE_TRACK_BG = {
+  light: "#000",
+  dark: "#fff",   /* dark mode: track white, switch (active pill) black via CSS */
+  color: "#1e3d2e",
+} as const;
+
 export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
+  const { theme } = useTheme();
   const [date, setDate] = React.useState<Date | undefined>(new Date());
   const [timeFormat, setTimeFormat] = React.useState<"12h" | "24h">("12h");
   const slots = React.useMemo(
@@ -126,6 +134,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
         {/* Main wrapper: overflow-hidden so center borders stay flush with edges */}
         <div
           data-slot="scheduling-panel"
+          data-theme={theme}
           className="relative flex h-[514px] min-w-[1136px] flex-col overflow-hidden rounded-lg bg-white p-0 shadow-lg text-black"
         >
           {/* Three-column row: no top padding so center borders start at top; padding is inside each panel */}
@@ -136,7 +145,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                 <CardHeader className="mb-6 gap-4 space-y-0 pb-0 px-0 pt-0">
                   <Avatar className="mb-0 h-8 w-8 rounded-full scheduling-left-avatar">
                     <AvatarFallback className="scheduling-left-avatar text-caption font-medium">
-                      <span className="text-white" data-avatar-initial>M</span>
+                      <span data-avatar-initial>M</span>
                     </AvatarFallback>
                   </Avatar>
                   <span className="mt-4 block text-subtitle2 text-white/90">Michael Marchitto</span>
@@ -187,20 +196,36 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 text-white">
                 <span className="text-subtitle1 text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
-                  <TabsList data-slot="scheduling-toggle" className="h-8 p-0.5 bg-[#1e3d2e] rounded-lg">
-                    <TabsTrigger
+                  <style
+                    dangerouslySetInnerHTML={{
+                      __html: `[data-slot="scheduling-toggle-wrap"]{background-color:${TOGGLE_TRACK_BG[theme]} !important;}[data-slot="scheduling-toggle-wrap"] [role="tablist"]{background-color:${TOGGLE_TRACK_BG[theme]} !important;background:${TOGGLE_TRACK_BG[theme]} !important;}`,
+                    }}
+                  />
+                  <div
+                    className="rounded-lg p-0.5 h-8 overflow-hidden box-border"
+                    style={{ backgroundColor: TOGGLE_TRACK_BG[theme] }}
+                    data-slot="scheduling-toggle-wrap"
+                  >
+                    <TabsList
+                      noBg
+                      data-slot="scheduling-toggle"
+                      className="scheduling-toggle-track h-full p-0 rounded-lg border-0 shadow-none min-w-0"
+                      style={{ backgroundColor: TOGGLE_TRACK_BG[theme] }}
+                    >
+                      <TabsTrigger
                       value="12h"
-                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm rounded-md"
+                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-md"
                     >
                       12h
                     </TabsTrigger>
                     <TabsTrigger
                       value="24h"
-                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm rounded-md"
+                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-md"
                     >
                       24h
                     </TabsTrigger>
-                  </TabsList>
+                    </TabsList>
+                  </div>
                 </Tabs>
               </div>
               <div className="flex flex-col gap-1.5 overflow-y-auto" data-slot="scheduling-time-slots">

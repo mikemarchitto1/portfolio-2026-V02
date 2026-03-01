@@ -167,6 +167,7 @@
 
   --sidebar: oklch(98.5% 0 0);
   --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
+  --scheduling-toggle-track-bg: #E5E7EB; /* light: 12h/24h toggle track */
   --sidebar-primary: oklch(20% 0 0);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
   --sidebar-accent: oklch(48% 0 0);
@@ -231,6 +232,10 @@
 /* -------------------------------------------------------
    DARK MODE (unchanged unless you want black text here too)
 ------------------------------------------------------- */
+.dark,
+html.dark {
+  --scheduling-toggle-track-bg: #000; /* 12h/24h toggle track black in dark mode */
+}
 .dark {
   --background: oklch(14.5% 0 0);
   --foreground: oklch(98.5% 0 0);
@@ -300,6 +305,7 @@ html.color,
 
   --sidebar: #0a1d14;        /* same as chat sheet / page background */
   --surface-sidebar-sheet: #0f261c; /* shared: sidebar + chat sheet same bg (one shade lighter than page) */
+  --scheduling-toggle-track-bg: #1e3d2e; /* color mode: 12h/24h toggle track */
   --sidebar-foreground: oklch(96% 0.01 140);
   --sidebar-primary: #1e3d2e;
   --sidebar-primary-foreground: oklch(98% 0 0);
@@ -763,13 +769,15 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 /* Unselected day cells: light grey bg, dark text */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: #E2E6EB !important;
-  background: #E2E6EB !important;
-  color: #1F2937 !important;
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: #9CA3AF !important;
-  background: #9CA3AF !important;
+  background-color: #E5E7EB !important;
+  background: #E5E7EB !important;
+  border: 1px solid #000 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
   color: #1F2937 !important;
@@ -797,11 +805,62 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   color: #000 !important;
 }
 /* 12h/24h toggle: same grey as unselected date boxes, selected = white bg black text */
+/* Scheduling toggle: inactive tab must be transparent so track (black) shows through, not a grey layer */
+[data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+/* Text on black track = white; remove shadow so no grey line between thumb and track */
+[data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]),
+[data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]) * {
+  color: #fff !important; /* light mode: white on black track; dark overrides to black below */
+}
+[data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"] {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+[data-slot="scheduling-toggle-wrap"] button[role="tab"] {
+  border: none !important;
+  outline: none !important;
+}
+/* Toggle track: small inset so white pill isn’t flush to edge; no gap between tabs */
+[data-slot="scheduling-toggle-wrap"] {
+  padding: 2px !important;
+  min-height: 2rem;
+  box-sizing: border-box;
+}
+[data-slot="scheduling-toggle-wrap"] [role="tablist"] {
+  padding: 0 !important;
+  gap: 0 !important;
+  border: none !important;
+  min-height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+/* Light mode scheduling: toggle track black, text on track white, active pill white with black text */
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-toggle-wrap"],
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] [role="tablist"] {
+  background-color: #000 !important;
+  background: #000 !important;
+}
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
+  color: #fff !important;
+}
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
+  color: #000 !important;
+}
+/* Fallback when data-theme not present (legacy light) */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #E5E7EB !important;
+  background-color: #000 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] {
-  color: #000 !important;
+  color: #fff !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
   background-color: white !important;
@@ -837,11 +896,11 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .sc
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-avatar-initial] {
-  background-color: #6B7280 !important; /* same as selected date box */
-  color: #fff !important;
+  background-color: #fff !important;
+  color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"] * {
-  color: #fff !important;
+  color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
@@ -859,23 +918,26 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   border-left-color: #374151 !important;
   border-right-color: #374151 !important;
 }
-/* Dark mode: unselected day cells = white boxes, black numbers */
+/* Dark mode: unselected day cells = panel bg, white stroke, white text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: #fff !important;
-  background: #fff !important;
-  color: #000 !important;
+  background-color: var(--sidebar) !important;
+  background: var(--sidebar) !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: #E5E7EB !important;
-  background: #E5E7EB !important;
+  background-color: var(--sidebar) !important;
+  background: var(--sidebar) !important;
+  border: 1px solid #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
-  color: #000 !important;
+  color: #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
-  background-color: #6B7280 !important; /* same as toggle background */
-  color: #fff !important;
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
@@ -887,38 +949,35 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] >
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
-  background-color: #6B7280 !important; /* one shade darker */
+  background-color: #fff !important;
 }
-/* Dark mode: tab text on grey track = white */
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"],
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] * {
-  color: #fff !important;
+/* Dark mode: track white, text on track black */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
+  color: #000 !important;
 }
-/* Dark mode: active tab (slider pill) = white background, black text */
+/* Dark mode: switch (active pill) = black bg, white text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
-  background-color: #fff !important;
-  color: #000 !important;
+  background-color: #000 !important;
+  color: #fff !important;
 }
-/* Dark mode: time slot buttons = white bg, black text */
+/* Dark mode: time slot buttons = panel bg, white stroke, white text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  background-color: #fff !important;
-  color: #000 !important;
+  background-color: var(--sidebar) !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: #E5E7EB !important;
+  background-color: var(--sidebar) !important;
+  border: 1px solid #fff !important;
 }
 
 /* ========== COLOR MODE SCHEDULING (green theme) ========== */
 html.color [data-slot="scheduling-panel"] {
   background-color: #0f261c !important;
 }
-/* Center/right default text black (excludes left panel, caption, right header — those are white below) */
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]),
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-outside="true"]) *,
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  color: #000 !important;
-}
+/* Center/right default text (unselected date boxes and time slot buttons = white via rules below; other center/right text handled per block) */
 /* Left panel: color mode — transparent bg, white text; avatar no background (no black behind letter) */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
   background-color: transparent !important;
@@ -967,14 +1026,20 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
   background-color: #1e3d2e !important;
 }
-/* Color mode: unselected date cells = white; hover = light green; selected/outside below */
+/* Color mode: unselected date cells = same bg as schedule (#0f261c), white stroke, white text; hover = light green */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) {
-  background-color: #fff !important;
-  background: #fff !important;
+  background-color: #0f261c !important;
+  background: #0f261c !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) * {
+  color: #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]):hover {
   background-color: #b8d4c4 !important;
   background: #b8d4c4 !important;
+  border: 1px solid #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
@@ -986,9 +1051,20 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   background-color: #3d7a5c !important;
   background: #3d7a5c !important;
 }
+/* Color mode: time slot buttons = same bg as schedule (#0f261c), white stroke, white text */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
+  background-color: #0f261c !important;
+  background: #0f261c !important;
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button * {
+  color: #fff !important;
+}
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
   background-color: #b8d4c4 !important;
   background: #b8d4c4 !important;
+  border: 1px solid #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
@@ -1094,10 +1170,20 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border-color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border-color: #000 !important;
+  border-color: #fff !important;
+  border-width: 1px !important;
+  border-style: solid !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border-color: #000 !important;
+  border-color: #fff !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  background-color: #0f261c !important;
+  background: #0f261c !important;
+  color: #fff !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button * {
+  color: #fff !important;
 }
 /* Time slot hover: color mode only (light green) — light/dark use grey hover in their blocks */
 /* Time slot list: hide scrollbar, keep scroll behavior */
@@ -1184,10 +1270,12 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
   color: #000 !important;
 }
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) {
-  color: #000 !important;
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
+  color: #fff !important;
 }
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
   color: #000 !important;
 }
 /* Outside-month dates (bottom row): force black in light mode — must override any utility */
@@ -1196,40 +1284,80 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   color: #000 !important;
 }
 
-/* Time slot buttons: force black stroke (last in file so it wins) */
+/* Time slot buttons: stroke color per mode (light/color = black, dark = white set in dark block) */
 [data-slot="scheduling-time-slot-btn"] {
-  border: 1px solid #000 !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+html:not(.dark):not(.color) [data-slot="scheduling-time-slot-btn"],
+html.color [data-slot="scheduling-time-slot-btn"] {
+  border-color: #000 !important;
+}
+html.dark [data-slot="scheduling-time-slot-btn"] {
+  border-color: #fff !important;
+}
+
+/* Scheduling toggle track: use panel data-theme (set in JS) so correct color always applies */
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"],
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle"],
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] [role="tablist"] {
+  background-color: #fff !important;
+  background: #fff !important;
+}
+/* Dark: track white = black text on track; switch (active pill) black = white text */
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]),
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]) * {
+  color: #000 !important;
+}
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
 /* Dark mode scheduling: toggle — text on grey track = white; active pill keeps black (set above) */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button:not([data-state="active"]),
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button:not([data-state="active"]) * {
+  color: #000 !important;
+}
+
+/* Dark mode scheduling: track white, switch black — last so it wins */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"],
+html.dark [data-slot="scheduling-panel"] .scheduling-toggle-track,
+html.dark .scheduling-toggle-track {
+  background-color: #fff !important;
+  background: #fff !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button:not([data-state="active"]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button:not([data-state="active"]) * {
+  color: #000 !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button[data-state="active"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button[data-state="active"] * {
+  background-color: #000 !important;
   color: #fff !important;
 }
 
-/* Dark mode scheduling: force toggle track background (override component bg class) — last so it wins */
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
-  background-color: #6B7280 !important;
-  background: #6B7280 !important;
-}
-
-/* Dark mode scheduling: force selected calendar date = same grey as toggle (#6B7280), rounded like others */
+/* Dark mode scheduling: selected calendar date = white bg, black text, rounded */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] button.rdp-day-button[data-selected-single="true"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"] {
-  background-color: #6B7280 !important;
-  background: #6B7280 !important;
-  color: #fff !important;
-  border-radius: 0.375rem !important; /* round like unselected date boxes */
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 0.375rem !important;
+  border: 1px solid #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] button.rdp-day-button[data-selected-single="true"] *,
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"] * {
-  color: #fff !important;
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"] *,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] button.rdp-day-button[data-selected-single="true"] span,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"] span {
+  color: #000 !important;
 }
-/* Day cell wrapper: same grey as toggle + rounded corners like unselected dates */
+/* Day cell wrapper: white when selected to match */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [class*="rdp-day"]:has(button.rdp-day-button[data-selected-single="true"]) {
-  background-color: #6B7280 !important;
-  background: #6B7280 !important;
-  border-radius: 0.375rem !important; /* match unselected date boxes */
+  background-color: #fff !important;
+  background: #fff !important;
+  border-radius: 0.375rem !important;
 }
 
 /* Dark mode scheduling: outside-month dates (no container) = white — last so it wins */
@@ -1237,4 +1365,34 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button[data-outside="true"] *,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button[data-outside="true"] span {
   color: #fff !important;
+}
+
+/* Dark mode scheduling: track white + black text; switch black + white text (last so it wins) */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]) *,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]),
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]) * {
+  color: #000 !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"] *,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"],
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"] * {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Dark mode scheduling: avatar = white bg, black text — last so it wins (override bg-muted) */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-avatar,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-avatar-initial],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-avatar-initial] *,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-avatar,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"],
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] [data-avatar-initial],
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] [data-avatar-initial] * {
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #000 !important;
 }

@@ -9,12 +9,16 @@ const Tabs = TabsPrimitive.Root;
 
 const TabsList = React.forwardRef<
   React.ComponentRef<typeof TabsPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> & {
+    /** When true, omit default bg-muted so parent can control background (e.g. scheduling toggle). */
+    noBg?: boolean;
+  }
+>(({ className, noBg, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+      "inline-flex h-9 items-center justify-center rounded-lg p-1 text-muted-foreground",
+      !noBg && "bg-muted",
       className
     )}
     {...props}
