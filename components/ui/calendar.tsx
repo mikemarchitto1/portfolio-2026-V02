@@ -171,6 +171,11 @@ function Calendar({
           )
         },
         DayButton: CalendarDayButton,
+        Weekday: ({ children, className, ...props }) => (
+          <th className={className} {...props}>
+            <span className="calendar-weekday-inner">{children}</span>
+          </th>
+        ),
         WeekNumber: ({ children, ...props }) => {
           return (
             <td {...props}>

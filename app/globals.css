@@ -167,7 +167,7 @@
 
   --sidebar: oklch(98.5% 0 0);
   --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
-  --scheduling-toggle-track-bg: #E5E7EB; /* light: 12h/24h toggle track */
+  --scheduling-toggle-track-bg: #EEF0F2; /* light: 12h/24h toggle track */
   --sidebar-primary: oklch(20% 0 0);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
   --sidebar-accent: oklch(48% 0 0);
@@ -764,20 +764,28 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   stroke: #1F2937 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
-  border-left-color: #E5E7EB !important;
-  border-right-color: #E5E7EB !important;
+  border-left-color: #EEF0F2 !important;
+  border-right-color: #EEF0F2 !important;
 }
 /* Unselected day cells: light grey bg, dark text */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: #fff !important;
-  background: #fff !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
   color: #000 !important;
-  border: 1px solid #000 !important;
+  border: 1px solid #E5E7EB !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] [class*="rdp-day"]:has(.rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"])) {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: #E5E7EB !important;
-  background: #E5E7EB !important;
-  border: 1px solid #000 !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
+  border: 1px solid #E5E7EB !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
   color: #1F2937 !important;
@@ -823,30 +831,47 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 [data-slot="scheduling-toggle-wrap"] button[role="tab"] {
   border: none !important;
   outline: none !important;
+  border-radius: 9999px !important;
 }
-/* Toggle track: small inset so white pill isn’t flush to edge; no gap between tabs */
+/* Toggle track: contain pill and track so they don’t overflow or misalign */
 [data-slot="scheduling-toggle-wrap"] {
   padding: 2px !important;
-  min-height: 2rem;
-  box-sizing: border-box;
+  height: 2rem !important;
+  min-height: 2rem !important;
+  box-sizing: border-box !important;
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  display: flex !important;
 }
 [data-slot="scheduling-toggle-wrap"] [role="tablist"] {
   padding: 0 !important;
   gap: 0 !important;
   border: none !important;
-  min-height: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  min-height: 0 !important;
+  height: 100% !important;
+  flex: 1 !important;
+  box-sizing: border-box !important;
+  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: stretch !important;
 }
-/* Light mode scheduling: toggle track black, text on track white, active pill white with black text */
+[data-slot="scheduling-toggle-wrap"] button[role="tab"] {
+  height: 100% !important;
+  min-height: 0 !important;
+  flex: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+/* Light mode scheduling: toggle track same grey as buttons (#EEF0F2), text on track dark, active pill white with black text */
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-toggle-wrap"],
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #000 !important;
-  background: #000 !important;
+  background-color: #EEF0F2 !important;
+  background: #EEF0F2 !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
-  color: #fff !important;
+  color: #1F2937 !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
   background-color: #fff !important;
@@ -857,7 +882,7 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 /* Fallback when data-theme not present (legacy light) */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #000 !important;
+  background-color: #EEF0F2 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] {
   color: #fff !important;
@@ -868,29 +893,41 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 /* Time slot buttons: light grey, dark text, hover medium grey */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  background-color: #fff !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
   color: #1F2937 !important;
+  border: 1px solid #E5E7EB !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: #F3F4F6 !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
 }
 
 /* ========== DARK MODE SCHEDULING (dark greys, light text) ========== */
 html.dark [data-slot="scheduling-panel"] {
   background-color: var(--sidebar) !important;
-  color: #F9FAFB !important;
+  color: #EEF0F2 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
   background-color: transparent !important;
 }
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-title,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-name,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(1),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(2),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(3) {
+  background-color: transparent !important;
+  background: transparent !important;
+}
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] *:not([data-avatar-initial]),
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] span:not([data-avatar-initial]),
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] p {
-  color: #F9FAFB !important;
+  color: #EEF0F2 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] svg {
-  color: #F9FAFB !important;
-  stroke: #F9FAFB !important;
+  color: #EEF0F2 !important;
+  stroke: #EEF0F2 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-avatar,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
@@ -905,30 +942,38 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [cl
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label,
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous svg,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next svg {
-  color: #F9FAFB !important;
-  stroke: #F9FAFB !important;
+  color: #EEF0F2 !important;
+  stroke: #EEF0F2 !important;
+}
+/* Dark: pastel backgrounds for month/year row and days-of-week row */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
+  background-color: #818cf8 !important;
+  background: #818cf8 !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
+  background-color: #a78bfa !important;
+  background: #a78bfa !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
   border-left-color: #374151 !important;
   border-right-color: #374151 !important;
 }
-/* Dark mode: unselected day cells = panel bg, white stroke, white text */
+/* Dark mode: unselected day cells = slightly lighter than panel, white stroke, white text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: var(--sidebar) !important;
-  background: var(--sidebar) !important;
+  background-color: hsl(240 5.9% 13%) !important;
+  background: hsl(240 5.9% 13%) !important;
   color: #fff !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: var(--sidebar) !important;
-  background: var(--sidebar) !important;
-  border: 1px solid #fff !important;
+  background-color: hsl(240 5.9% 13%) !important;
+  background: hsl(240 5.9% 13%) !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
   color: #fff !important;
@@ -945,7 +990,7 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
-  color: #F9FAFB !important;
+  color: #EEF0F2 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
@@ -964,13 +1009,15 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] b
 }
 /* Dark mode: time slot buttons = panel bg, white stroke, white text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  background-color: var(--sidebar) !important;
+  background-color: hsl(240 5.9% 13%) !important;
+  background: hsl(240 5.9% 13%) !important;
   color: #fff !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: var(--sidebar) !important;
-  border: 1px solid #fff !important;
+  background-color: hsl(240 5.9% 13%) !important;
+  background: hsl(240 5.9% 13%) !important;
+  border: 1px solid #E5E7EB !important;
 }
 
 /* ========== COLOR MODE SCHEDULING (green theme) ========== */
@@ -981,6 +1028,15 @@ html.color [data-slot="scheduling-panel"] {
 /* Left panel: color mode — transparent bg, white text; avatar no background (no black behind letter) */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
   background-color: transparent !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-title,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-name,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(1),
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(2),
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(3) {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] *,
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] span,
@@ -1011,10 +1067,15 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   color: white !important;
   stroke: white !important;
 }
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
-  color: white !important;
+/* Color: pastel green backgrounds for month/year row and days-of-week row */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
+  background-color: #86efac !important;
+  background: #86efac !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
+  background-color: #6ee7b7 !important;
+  background: #6ee7b7 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
@@ -1026,12 +1087,12 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
   background-color: #1e3d2e !important;
 }
-/* Color mode: unselected date cells = same bg as schedule (#0f261c), white stroke, white text; hover = light green */
+/* Color mode: unselected date cells = slightly lighter than schedule bg, white stroke, white text; hover = light green */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) {
-  background-color: #0f261c !important;
-  background: #0f261c !important;
+  background-color: #132a1f !important;
+  background: #132a1f !important;
   color: #fff !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) * {
   color: #fff !important;
@@ -1039,7 +1100,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]):hover {
   background-color: #b8d4c4 !important;
   background: #b8d4c4 !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
@@ -1053,10 +1114,10 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
 }
 /* Color mode: time slot buttons = same bg as schedule (#0f261c), white stroke, white text */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  background-color: #0f261c !important;
-  background: #0f261c !important;
+  background-color: #132a1f !important;
+  background: #132a1f !important;
   color: #fff !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button * {
   color: #fff !important;
@@ -1064,7 +1125,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
   background-color: #b8d4c4 !important;
   background: #b8d4c4 !important;
-  border: 1px solid #fff !important;
+  border: 1px solid #E5E7EB !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
@@ -1076,19 +1137,65 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   color: #6b6b6b !important;
 }
 
-/* Scheduling panel: shared layout only (no color) */
-[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] .rounded-full + span {
+/* Scheduling panel left: align title with month, name with weekdays, paragraph with calendar grid */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-header {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-title {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-name {
   margin-top: 16px !important;
   padding-top: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
+  margin-top: 16px !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] {
   gap: 0 !important;
   row-gap: 0 !important;
 }
 
+/* Left panel text containers: no internal padding, no rounded corners (theme colors in mode blocks below) */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-title {
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-name {
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-content"] {
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
 /* ========== LIGHT MODE SCHEDULING (blacks and greys only) ========== */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
   background-color: transparent !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-title,
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-name,
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc,
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(1),
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(2),
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:nth-child(3) {
+  background-color: transparent !important;
+  background: transparent !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] *:not([data-avatar-initial]),
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] span:not([data-avatar-initial]),
@@ -1114,6 +1221,10 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   background-color: transparent !important;
   position: relative !important;
   z-index: 1 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 /* Nav: pin to right so arrows don’t overlap caption; keep visible */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
@@ -1126,6 +1237,10 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   visibility: visible !important;
   opacity: 1 !important;
   pointer-events: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous,
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next {
@@ -1148,14 +1263,7 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   font-weight: 400 !important;
 }
 
-/* Scheduling panel: days of week = Subtitle 2; time slot buttons = button style below */
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
-  font-size: var(--font-size-subtitle2) !important;
-  line-height: var(--line-height-subtitle2) !important;
-  font-weight: var(--font-weight-subtitle2) !important;
-}
+/* Scheduling panel: time slot buttons = button style below (days-of-week row uses default primitive: text-caption) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] + div [data-slot="button"],
 [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button,
 [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
@@ -1164,22 +1272,25 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   font-weight: var(--font-weight-button) !important;
   border-width: 1px !important;
   border-style: solid !important;
+  box-shadow: none !important;
+  height: 44px !important;
+  min-height: 44px !important;
 }
-/* Time slot border color per mode */
+/* Time slot buttons: same bg and border as unselected date boxes per mode */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border-color: #000 !important;
+  border: 1px solid #E5E7EB !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border-color: #fff !important;
-  border-width: 1px !important;
-  border-style: solid !important;
+  border: 1px solid #E5E7EB !important;
+  background-color: hsl(240 5.9% 13%) !important;
+  background: hsl(240 5.9% 13%) !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border-color: #fff !important;
-  border-width: 1px !important;
-  border-style: solid !important;
-  background-color: #0f261c !important;
-  background: #0f261c !important;
+  border: 1px solid #E5E7EB !important;
+  background-color: #132a1f !important;
+  background: #132a1f !important;
   color: #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button * {
@@ -1201,26 +1312,75 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button,
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button * {
   font-size: 14px !important;
-  line-height: 20px !important;
+  line-height: 1 !important;
   font-weight: 500 !important;
 }
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+/* Month: no gap between caption and weekdays row */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month {
+  gap: 0 !important;
 }
-
+/* Days-of-week row: reset to default primitive (no overrides).
+ * Default from calendar.tsx:
+ *   Row (.rdp-weekdays): "flex" + "rdp-weekdays" → display: flex only.
+ *   Cell (.rdp-weekday): "calendar-weekday text-caption text-muted-foreground font-normal tracking-wide rounded-md flex-1 select-none" + "rdp-weekday".
+ * Library adds only class names (rdp-weekdays, rdp-weekday); no built-in CSS. */
+/* Weekdays row: only horizontal gap; no margin so date row below can't affect Sun alignment */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
+  gap: 8px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* 8px between date rows only (not weekdays); first date row has no top margin so spacing is from weekdays only */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week {
+  gap: 8px !important;
+  margin-top: 8px !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week:first-of-type {
+  margin-top: 0 !important;
+}
 /* Scheduling panel calendar: no rounded corners on header/weekdays, rounded date boxes */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"],
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday {
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
   border-radius: 0 !important;
 }
+/* Day cell (td): flex so button fills height; no top margin/padding so date row doesn't affect Sun column */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] [class*="rdp-day"]:has(.rdp-day-button) {
+  display: flex !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  vertical-align: middle !important;
+}
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button {
-  border-radius: 0.375rem !important;
+  border-radius: 50% !important;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button > span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 1 0 !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+/* Unselected date boxes: rounded corners */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
+  border-radius: 0.375rem !important;
 }
 /* Calendar day hover: color mode only (light green) — light/dark use grey in their blocks */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] {
@@ -1232,6 +1392,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
   background-color: transparent !important;
   background: transparent !important;
+  overflow: hidden !important;
 }
 /* Selected day + outside dates: colors are per-mode (light/dark/color blocks above) */
 
@@ -1244,15 +1405,15 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
   line-height: 1.25 !important;
   font-weight: 400 !important;
 }
-/* Scheduling panel: weekdays = Subtitle 2 (override the 10px rule above) */
+/* Scheduling panel: days of week = Subtitle 2 (must come after 10px rule above) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday *,
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
   font-size: var(--font-size-subtitle2) !important;
   line-height: var(--line-height-subtitle2) !important;
   font-weight: var(--font-weight-subtitle2) !important;
 }
-
 /* Light mode scheduling — final overrides (no green; blacks and greys only; must come last) */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label,
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
@@ -1260,19 +1421,26 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous,
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next,
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous svg,
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next svg,
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next svg {
   color: #1F2937 !important;
   stroke: #1F2937 !important;
+}
+/* Light: pastel backgrounds for month/year row and days-of-week row */
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
+  background-color: #E0E7FF !important;
+  background: #E0E7FF !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
+  background-color: #EDE9FE !important;
+  background: #EDE9FE !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
   color: #000 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
-  color: #fff !important;
+  color: #1F2937 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
@@ -1284,17 +1452,29 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   color: #000 !important;
 }
 
-/* Time slot buttons: stroke color per mode (light/color = black, dark = white set in dark block) */
+/* Time slot buttons: stroke per mode (light = no border; dark/color set in their blocks) */
 [data-slot="scheduling-time-slot-btn"] {
   border-width: 1px !important;
   border-style: solid !important;
+  border-radius: 9999px !important;
+  box-shadow: none !important;
+  height: 44px !important;
+  min-height: 44px !important;
 }
-html:not(.dark):not(.color) [data-slot="scheduling-time-slot-btn"],
-html.color [data-slot="scheduling-time-slot-btn"] {
-  border-color: #000 !important;
+html:not(.dark):not(.color) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
+  border: 1px solid #E5E7EB !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
 }
-html.dark [data-slot="scheduling-time-slot-btn"] {
-  border-color: #fff !important;
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
+  border: 1px solid #E5E7EB !important;
+  background-color: #132a1f !important;
+  background: #132a1f !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
+  border: 1px solid #E5E7EB !important;
+  background-color: hsl(240 5.9% 13%) !important;
+  background: hsl(240 5.9% 13%) !important;
 }
 
 /* Scheduling toggle track: use panel data-theme (set in JS) so correct color always applies */
@@ -1344,7 +1524,7 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   background-color: #fff !important;
   background: #fff !important;
   color: #000 !important;
-  border-radius: 0.375rem !important;
+  border-radius: 50% !important;
   border: 1px solid #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] button.rdp-day-button[data-selected-single="true"] *,
@@ -1357,7 +1537,7 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [class*="rdp-day"]:has(button.rdp-day-button[data-selected-single="true"]) {
   background-color: #fff !important;
   background: #fff !important;
-  border-radius: 0.375rem !important;
+  border-radius: 50% !important;
 }
 
 /* Dark mode scheduling: outside-month dates (no container) = white — last so it wins */

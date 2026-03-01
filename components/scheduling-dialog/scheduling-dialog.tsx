@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { Clock, Video, Globe, XIcon } from "lucide-react";
-import { getDefaultClassNames } from "react-day-picker";
 import type { DayButton } from "react-day-picker";
 import {
   Dialog,
@@ -11,7 +10,6 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -29,7 +27,6 @@ function SchedulingCalendarDayButton({
   children,
   ...props
 }: React.ComponentProps<typeof DayButton>) {
-  const defaultClassNames = getDefaultClassNames();
   const ref = React.useRef<HTMLButtonElement>(null);
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus();
@@ -52,8 +49,8 @@ function SchedulingCalendarDayButton({
       data-range-middle={modifiers.range_middle}
       style={dayButtonTextStyle}
       className={cn(
-        "rdp-day-button inline-flex items-center justify-center gap-2 rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent data-[selected-single=true]:text-white data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md px-0 py-0",
-        defaultClassNames.day,
+        "rdp-day-button inline-flex items-center justify-center rounded-full transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent data-[selected-single=true]:text-white data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
+        /* omit defaultClassNames.day to avoid library default background on unselected cells */
         className
       )}
       {...props}
@@ -64,7 +61,7 @@ function SchedulingCalendarDayButton({
           /* selected and outside date colors are controlled by CSS per mode */
           color: undefined,
         }}
-        className="block text-center"
+        className="flex min-h-0 min-w-0 flex-1 items-center justify-center text-center"
       >
         {children}
       </span>
@@ -94,7 +91,7 @@ type SchedulingDialogProps = {
 };
 
 const TOGGLE_TRACK_BG = {
-  light: "#000",
+  light: "#EEF0F2",  /* same grey as date/time slot button backgrounds */
   dark: "#fff",   /* dark mode: track white, switch (active pill) black via CSS */
   color: "#1e3d2e",
 } as const;
@@ -142,30 +139,27 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
             {/* Left column: same width as right, 32px top padding inside */}
             <div data-slot="scheduling-left-panel" className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col text-white">
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-6 shadow-none text-white">
-                <CardHeader className="mb-6 gap-4 space-y-0 pb-0 px-0 pt-0">
-                  <Avatar className="mb-0 h-8 w-8 rounded-full scheduling-left-avatar">
-                    <AvatarFallback className="scheduling-left-avatar text-caption font-medium">
-                      <span data-avatar-initial>M</span>
-                    </AvatarFallback>
-                  </Avatar>
-                  <span className="mt-4 block text-subtitle2 text-white/90">Michael Marchitto</span>
-                  <CardTitle className="mt-4 text-h6 font-semibold leading-tight text-white">
+                <CardHeader className="scheduling-left-header mb-6 gap-0 space-y-0 pb-0 px-0 pt-0">
+                  <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-subtitle1 font-semibold leading-8 text-white">
                     Introduction Call
                   </CardTitle>
-                  <p className="mt-4 mb-0 text-body2 text-white/80">
+                  <span className="scheduling-left-name block text-subtitle2 text-white/90" style={{ marginTop: 16 }}>
+                    Michael Marchitto
+                  </span>
+                  <p className="scheduling-left-desc mt-4 mb-0 text-body2 text-white/80">
                     A 30-minute video introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
-                <CardContent className="flex flex-col gap-4 pt-0 px-0">
-                  <div className="flex items-center gap-2 text-body2 text-white/80">
+                <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80">
                     <Clock className="h-4 w-4 shrink-0" />
                     <span>30 min</span>
                   </div>
-                  <div className="flex items-center gap-2 text-body2 text-white/80">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80">
                     <Video className="h-4 w-4 shrink-0" />
                     <span>Video Call</span>
                   </div>
-                  <div className="flex items-center gap-2 text-body2 text-white/80">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80">
                     <Globe className="h-4 w-4 shrink-0" />
                     <span>America/New York</span>
                   </div>
@@ -202,25 +196,25 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                     }}
                   />
                   <div
-                    className="rounded-lg p-0.5 h-8 overflow-hidden box-border"
+                    className="rounded-full h-8 overflow-hidden flex box-border w-fit"
                     style={{ backgroundColor: TOGGLE_TRACK_BG[theme] }}
                     data-slot="scheduling-toggle-wrap"
                   >
                     <TabsList
                       noBg
                       data-slot="scheduling-toggle"
-                      className="scheduling-toggle-track h-full p-0 rounded-lg border-0 shadow-none min-w-0"
+                      className="scheduling-toggle-track h-full w-full p-0 rounded-full border-0 shadow-none min-w-0 inline-flex flex-1"
                       style={{ backgroundColor: TOGGLE_TRACK_BG[theme] }}
                     >
                       <TabsTrigger
                       value="12h"
-                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-md"
+                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-full"
                     >
                       12h
                     </TabsTrigger>
                     <TabsTrigger
                       value="24h"
-                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-md"
+                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-full"
                     >
                       24h
                     </TabsTrigger>
@@ -235,7 +229,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                     variant="ghost"
                     data-slot="scheduling-time-slot-btn"
                     className={cn(
-                      "w-full justify-center rounded-md h-12 text-button bg-gray-100 border text-foreground hover:bg-gray-200"
+                      "w-full justify-center rounded-full h-12 text-button bg-gray-100 border text-foreground hover:bg-gray-200"
                     )}
                   >
                     {slot}
