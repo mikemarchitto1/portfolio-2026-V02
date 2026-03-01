@@ -166,6 +166,7 @@
   --chart-5: oklch(76.9% 0.188 70.08);
 
   --sidebar: oklch(98.5% 0 0);
+  --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
   --sidebar-primary: oklch(20% 0 0);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
   --sidebar-accent: oklch(48% 0 0);
@@ -256,6 +257,7 @@
   --input: oklch(100% 0 0 / 15%);
   --ring: oklch(55.6% 0 0);
   --sidebar: hsl(240 5.9% 10%);  /* match page background */
+  --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
   --sidebar-foreground: hsl(240 4.8% 95.9%);
   --sidebar-primary: hsl(224.3 76.3% 48%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
@@ -297,6 +299,7 @@ html.color,
   --ring: #1e3d2e;
 
   --sidebar: #0a1d14;        /* same as chat sheet / page background */
+  --surface-sidebar-sheet: #0f261c; /* shared: sidebar + chat sheet same bg (one shade lighter than page) */
   --sidebar-foreground: oklch(96% 0.01 140);
   --sidebar-primary: #1e3d2e;
   --sidebar-primary-foreground: oklch(98% 0 0);
@@ -412,11 +415,14 @@ html.color,
   }
 }
 
-/* Sidebar: single color throughout (header, content, footer use same bg as sidebar) */
+/* Sidebar + chat sheet: same background (use shared token so they always match) */
 [data-sidebar="header"],
 [data-sidebar="content"],
 [data-sidebar="footer"] {
-  background-color: var(--sidebar);
+  background-color: var(--surface-sidebar-sheet);
+}
+[data-slot="sheet-content"] {
+  background-color: var(--surface-sidebar-sheet);
 }
 
 /* -------------------------------------------------------
@@ -599,15 +605,13 @@ html.color main {
 html.color [data-slot="dialog-content"]:not([data-transparent-backdrop]) {
   background-color: #0a1d14 !important;
 }
-html.color [data-slot="sheet-content"] {
-  background-color: #0f261c !important;
-}
-/* Sidebar: one shade lighter than page in color mode */
+/* Color mode: sidebar and sheet use --surface-sidebar-sheet (#0f261c) set in html.color above */
+html.color [data-slot="sheet-content"],
 html.color .bg-sidebar,
 html.color [data-sidebar="header"],
 html.color [data-sidebar="content"],
 html.color [data-sidebar="footer"] {
-  background-color: #0f261c !important;
+  background-color: var(--surface-sidebar-sheet) !important;
 }
 /* Color mode: nav and footer buttons — hover 1 shade darker than resting */
 html.color header [data-slot="button"]:hover,
@@ -814,7 +818,7 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 
 /* ========== DARK MODE SCHEDULING (dark greys, light text) ========== */
 html.dark [data-slot="scheduling-panel"] {
-  background-color: #1F2937 !important;
+  background-color: var(--sidebar) !important;
   color: #F9FAFB !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
@@ -833,8 +837,11 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .sc
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-avatar-initial] {
-  background-color: #000 !important;
-  color: white !important;
+  background-color: #6B7280 !important; /* same as selected date box */
+  color: #fff !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"] * {
+  color: #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
@@ -852,42 +859,54 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   border-left-color: #374151 !important;
   border-right-color: #374151 !important;
 }
+/* Dark mode: unselected day cells = white boxes, black numbers */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: #4B5563 !important;
-  color: #F9FAFB !important;
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: #6B7280 !important;
+  background-color: #E5E7EB !important;
+  background: #E5E7EB !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
+  color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
-  background-color: #6B7280 !important;
-  color: white !important;
+  background-color: #6B7280 !important; /* same as toggle background */
+  color: #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
-  color: #9CA3AF !important;
+  color: #fff !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
   color: #F9FAFB !important;
 }
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #4B5563 !important;
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
+  background-color: #6B7280 !important; /* one shade darker */
 }
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] {
-  color: #9CA3AF !important;
+/* Dark mode: tab text on grey track = white */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] * {
+  color: #fff !important;
 }
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
-  background-color: #6B7280 !important;
-  color: white !important;
+/* Dark mode: active tab (slider pill) = white background, black text */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
+  background-color: #fff !important;
+  color: #000 !important;
 }
+/* Dark mode: time slot buttons = white bg, black text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  background-color: #374151 !important;
-  color: #F9FAFB !important;
+  background-color: #fff !important;
+  color: #000 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: #4B5563 !important;
+  background-color: #E5E7EB !important;
 }
 
 /* ========== COLOR MODE SCHEDULING (green theme) ========== */
@@ -900,7 +919,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
   color: #000 !important;
 }
-/* Left panel: color mode — transparent bg, white text, grey avatar */
+/* Left panel: color mode — transparent bg, white text; avatar no background (no black behind letter) */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
   background-color: transparent !important;
 }
@@ -916,7 +935,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] sv
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-avatar-initial] {
-  background-color: #000 !important;
+  background-color: #1e3d2e !important;
   color: white !important;
 }
 /* Month/Year caption area: force white in color mode so caption is not inherited black */
@@ -946,12 +965,12 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   color: #000 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #B8BDC4 !important;
+  background-color: #1e3d2e !important;
 }
-/* Color mode: unselected date cells = one shade lighter grey; hover = light green; selected/outside below */
+/* Color mode: unselected date cells = white; hover = light green; selected/outside below */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) {
-  background-color: #B8BDC4 !important;
-  background: #B8BDC4 !important;
+  background-color: #fff !important;
+  background: #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]):hover {
   background-color: #b8d4c4 !important;
@@ -1180,4 +1199,42 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 /* Time slot buttons: force black stroke (last in file so it wins) */
 [data-slot="scheduling-time-slot-btn"] {
   border: 1px solid #000 !important;
+}
+
+/* Dark mode scheduling: toggle — text on grey track = white; active pill keeps black (set above) */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button:not([data-state="active"]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] button:not([data-state="active"]) * {
+  color: #fff !important;
+}
+
+/* Dark mode scheduling: force toggle track background (override component bg class) — last so it wins */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
+  background-color: #6B7280 !important;
+  background: #6B7280 !important;
+}
+
+/* Dark mode scheduling: force selected calendar date = same grey as toggle (#6B7280), rounded like others */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] button.rdp-day-button[data-selected-single="true"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"] {
+  background-color: #6B7280 !important;
+  background: #6B7280 !important;
+  color: #fff !important;
+  border-radius: 0.375rem !important; /* round like unselected date boxes */
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] button.rdp-day-button[data-selected-single="true"] *,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"] * {
+  color: #fff !important;
+}
+/* Day cell wrapper: same grey as toggle + rounded corners like unselected dates */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [class*="rdp-day"]:has(button.rdp-day-button[data-selected-single="true"]) {
+  background-color: #6B7280 !important;
+  background: #6B7280 !important;
+  border-radius: 0.375rem !important; /* match unselected date boxes */
+}
+
+/* Dark mode scheduling: outside-month dates (no container) = white — last so it wins */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button[data-outside="true"],
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button[data-outside="true"] *,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button[data-outside="true"] span {
+  color: #fff !important;
 }

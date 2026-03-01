@@ -60,7 +60,8 @@ function SchedulingCalendarDayButton({
       <span
         style={{
           ...dayButtonTextStyle,
-          color: modifiers.selected ? "#fff" : modifiers.outside ? "#000" : undefined,
+          /* outside date color is controlled by CSS per mode (light=black, dark=white) */
+          color: modifiers.selected ? "#fff" : undefined,
         }}
         className={cn("block text-center", modifiers.selected && "!text-white")}
       >
@@ -186,7 +187,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 text-white">
                 <span className="text-subtitle1 text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
-                  <TabsList className="h-8 p-0.5 bg-[#1e3d2e] rounded-lg">
+                  <TabsList data-slot="scheduling-toggle" className="h-8 p-0.5 bg-[#1e3d2e] rounded-lg">
                     <TabsTrigger
                       value="12h"
                       className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm rounded-md"
