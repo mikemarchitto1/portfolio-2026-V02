@@ -167,7 +167,7 @@
 
   --sidebar: oklch(98.5% 0 0);
   --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
-  --scheduling-toggle-track-bg: #EEF0F2; /* light: 12h/24h toggle track */
+  --scheduling-toggle-track-bg: #F2F4F6; /* light: same grey as time slot & calendar buttons */
   --sidebar-primary: oklch(20% 0 0);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
   --sidebar-accent: oklch(48% 0 0);
@@ -746,6 +746,7 @@ html.color [data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
 
 /* ===== LIGHT MODE SCHEDULING (no .color, no .dark): same bg as sidebar/chat sheet ===== */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] {
+  --scheduling-border: #E5E7EB; /* time slot & calendar button border; toggle uses same */
   background-color: var(--sidebar) !important;
   color: #1F2937 !important;
 }
@@ -842,6 +843,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border-radius: 9999px !important;
   overflow: hidden !important;
   display: flex !important;
+  border: 1px solid #E5E7EB !important;
+  border-color: #E5E7EB !important;
 }
 [data-slot="scheduling-toggle-wrap"] [role="tablist"] {
   padding: 0 !important;
@@ -863,11 +866,15 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   align-items: center !important;
   justify-content: center !important;
 }
-/* Light mode scheduling: toggle track same grey as buttons (#EEF0F2), text on track dark, active pill white with black text */
+/* Light mode scheduling: toggle track same grey as time slot & calendar buttons (#F2F4F6), border visible; text on track dark, active pill white with black text */
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-toggle-wrap"],
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #EEF0F2 !important;
-  background: #EEF0F2 !important;
+  background-color: #F2F4F6 !important;
+  background: #F2F4F6 !important;
+}
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-toggle-wrap"] {
+  border: 1px solid #E5E7EB !important;
+  border-color: #E5E7EB !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
@@ -880,9 +887,14 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
   color: #000 !important;
 }
-/* Fallback when data-theme not present (legacy light) */
+/* Fallback when data-theme not present (legacy light): same grey as time slot & calendar buttons */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"] {
-  background-color: #EEF0F2 !important;
+  background-color: #F2F4F6 !important;
+}
+/* Light: toggle outer border = same as time slot & calendar buttons (var from panel) */
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] {
+  border: 1px solid var(--scheduling-border, #E5E7EB) !important;
+  border-color: var(--scheduling-border, #E5E7EB) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] {
   color: #fff !important;
@@ -949,15 +961,12 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   color: #EEF0F2 !important;
   stroke: #EEF0F2 !important;
 }
-/* Dark: pastel backgrounds for month/year row and days-of-week row */
+/* Dark: no pastel backgrounds on month/year or weekdays */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
-html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
-  background-color: #818cf8 !important;
-  background: #818cf8 !important;
-}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
-  background-color: #a78bfa !important;
-  background: #a78bfa !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
   border-left-color: #374151 !important;
@@ -1067,15 +1076,12 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   color: white !important;
   stroke: white !important;
 }
-/* Color: pastel green backgrounds for month/year row and days-of-week row */
+/* Color: no pastel backgrounds on month/year or weekdays */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
-  background-color: #86efac !important;
-  background: #86efac !important;
-}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav,
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
-  background-color: #6ee7b7 !important;
-  background: #6ee7b7 !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
@@ -1324,21 +1330,39 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
  *   Row (.rdp-weekdays): "flex" + "rdp-weekdays" → display: flex only.
  *   Cell (.rdp-weekday): "calendar-weekday text-caption text-muted-foreground font-normal tracking-wide rounded-md flex-1 select-none" + "rdp-weekday".
  * Library adds only class names (rdp-weekdays, rdp-weekday); no built-in CSS. */
-/* Weekdays row: only horizontal gap; no margin so date row below can't affect Sun alignment */
+/* 16px white space above and below days-of-week (thead padding often ignored in table layout; use table margin + first row cell padding) */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] thead:has(.rdp-weekdays) {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table {
+  margin-top: 16px !important;
+  width: 100% !important;
+}
+/* Weekdays row: full width, 8px gap to match date grid */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
+  width: 100% !important;
   gap: 8px !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
-/* 8px between date rows only (not weekdays); first date row has no top margin so spacing is from weekdays only */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+}
+/* Week rows: full width so date grid fills panel; 8px between rows; first row has 20px margin above */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] tbody {
+  width: 100% !important;
+}
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week {
+  width: 100% !important;
   gap: 8px !important;
   margin-top: 8px !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week:first-of-type {
-  margin-top: 0 !important;
+  margin-top: 20px !important;
 }
 /* Scheduling panel calendar: no rounded corners on header/weekdays, rounded date boxes */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"],
@@ -1346,7 +1370,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
   border-radius: 0 !important;
 }
-/* Day cell (td): flex so button fills height; no top margin/padding so date row doesn't affect Sun column */
+/* Day cell (td): fill row width, stay square via aspect-ratio */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] [class*="rdp-day"]:has(.rdp-day-button) {
   display: flex !important;
   align-items: stretch !important;
@@ -1355,6 +1379,10 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
   margin-top: 0 !important;
   padding-top: 0 !important;
   vertical-align: middle !important;
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  aspect-ratio: 1 !important;
+  box-sizing: border-box !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button {
   border-radius: 50% !important;
@@ -1388,11 +1416,15 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] bu
   outline: none !important;
   background-color: transparent !important;
   background: transparent !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
   background-color: transparent !important;
   background: transparent !important;
   overflow: hidden !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
 }
 /* Selected day + outside dates: colors are per-mode (light/dark/color blocks above) */
 
@@ -1425,15 +1457,12 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   color: #1F2937 !important;
   stroke: #1F2937 !important;
 }
-/* Light: pastel backgrounds for month/year row and days-of-week row */
+/* Light: no pastel backgrounds on month/year or weekdays */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption,
-html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
-  background-color: #E0E7FF !important;
-  background: #E0E7FF !important;
-}
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav,
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
-  background-color: #EDE9FE !important;
-  background: #EDE9FE !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
   color: #000 !important;

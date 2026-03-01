@@ -91,7 +91,7 @@ type SchedulingDialogProps = {
 };
 
 const TOGGLE_TRACK_BG = {
-  light: "#EEF0F2",  /* same grey as date/time slot button backgrounds */
+  light: "#F2F4F6",  /* same grey as time slot & calendar grid buttons */
   dark: "#fff",   /* dark mode: track white, switch (active pill) black via CSS */
   color: "#1e3d2e",
 } as const;
@@ -168,8 +168,8 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
             </div>
 
             {/* Center column: fixed width; borders flush top/bottom; 32px top padding on content only */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-[490px] w-[480px] shrink-0 flex-col border-l border-r border-[#1a3d2e] bg-transparent px-6">
-              <div className="flex flex-1 flex-col pt-6">
+            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] w-[480px] shrink-0 flex-col border-l border-r border-[#1a3d2e] bg-transparent px-6 overflow-hidden">
+              <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-6">
                 <Calendar
                   mode="single"
                   selected={date}
@@ -222,7 +222,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                   </div>
                 </Tabs>
               </div>
-              <div className="flex flex-col gap-1.5 overflow-y-auto" data-slot="scheduling-time-slots">
+              <div className="flex flex-col gap-2 overflow-y-auto" data-slot="scheduling-time-slots">
                 {slots.map((slot) => (
                   <Button
                     key={slot}
