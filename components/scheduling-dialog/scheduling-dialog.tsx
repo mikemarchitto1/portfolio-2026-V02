@@ -51,7 +51,7 @@ function SchedulingCalendarDayButton({
       data-range-middle={modifiers.range_middle}
       style={dayButtonTextStyle}
       className={cn(
-        "rdp-day-button inline-flex items-center justify-center gap-2 rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button bg-gray-100 text-foreground data-[outside=true]:bg-transparent data-[outside=true]:text-muted-foreground data-[outside=true]:hover:bg-transparent data-[selected-single=true]:bg-[#1e3d2e] data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-[#2d5a45] data-[range-middle=true]:bg-gray-100 data-[range-middle=true]:text-foreground data-[range-start=true]:bg-[#1e3d2e] data-[range-start=true]:text-white data-[range-end=true]:bg-[#1e3d2e] data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md px-0 py-0",
+        "rdp-day-button inline-flex items-center justify-center gap-2 rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent data-[selected-single=true]:text-white data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) flex-col gap-1 leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-md data-[range-start=true]:rounded-l-md px-0 py-0",
         defaultClassNames.day,
         className
       )}
@@ -60,7 +60,7 @@ function SchedulingCalendarDayButton({
       <span
         style={{
           ...dayButtonTextStyle,
-          color: modifiers.selected ? "#fff" : undefined,
+          color: modifiers.selected ? "#fff" : modifiers.outside ? "#000" : undefined,
         }}
         className={cn("block text-center", modifiers.selected && "!text-white")}
       >
@@ -116,10 +116,10 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
 
         {/* Close button: fixed top-right of viewport, above overlay */}
         <DialogClose
-          className="fixed right-4 top-4 z-[100] rounded-full border border-white/20 bg-white/90 p-2 text-neutral-800 shadow-lg backdrop-blur-sm opacity-90 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+          className="fixed right-4 top-4 z-[100] flex size-12 min-h-12 min-w-12 items-center justify-center rounded-full border-0 bg-transparent text-white opacity-90 transition-opacity hover:opacity-100 focus:outline-none focus:ring-0 focus:ring-offset-0 ring-0 ring-offset-0 scheduling-dialog-close"
           aria-label="Close"
         >
-          <XIcon className="size-4" />
+          <XIcon className="size-6 shrink-0 text-white" />
         </DialogClose>
 
         {/* Main wrapper: overflow-hidden so center borders stay flush with edges */}
@@ -130,15 +130,15 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
           {/* Three-column row: no top padding so center borders start at top; padding is inside each panel */}
           <div className="flex h-full flex-row items-stretch gap-6 px-6 py-0">
             {/* Left column: same width as right, 32px top padding inside */}
-            <div data-slot="scheduling-left-panel" className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col">
+            <div data-slot="scheduling-left-panel" className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col text-white">
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-6 shadow-none text-white">
                 <CardHeader className="mb-6 gap-4 space-y-0 pb-0 px-0 pt-0">
-                  <Avatar className="mb-0 h-8 w-8 rounded-full bg-[#1e3d2e]">
-                    <AvatarFallback className="bg-[#1e3d2e] text-white text-caption font-medium">
-                      M
+                  <Avatar className="mb-0 h-8 w-8 rounded-full scheduling-left-avatar">
+                    <AvatarFallback className="scheduling-left-avatar text-caption font-medium">
+                      <span className="text-white" data-avatar-initial>M</span>
                     </AvatarFallback>
                   </Avatar>
-                  <span className="mt-4 block text-body2 text-white/90">Michael Marchitto</span>
+                  <span className="mt-4 block text-subtitle2 text-white/90">Michael Marchitto</span>
                   <CardTitle className="mt-4 text-h6 font-semibold leading-tight text-white">
                     Introduction Call
                   </CardTitle>
@@ -149,11 +149,11 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                 <CardContent className="flex flex-col gap-4 pt-0 px-0">
                   <div className="flex items-center gap-2 text-body2 text-white/80">
                     <Clock className="h-4 w-4 shrink-0" />
-                    <span>30m</span>
+                    <span>30 min</span>
                   </div>
                   <div className="flex items-center gap-2 text-body2 text-white/80">
                     <Video className="h-4 w-4 shrink-0" />
-                    <span>Cal Video</span>
+                    <span>Video Call</span>
                   </div>
                   <div className="flex items-center gap-2 text-body2 text-white/80">
                     <Globe className="h-4 w-4 shrink-0" />
@@ -172,6 +172,10 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                   onSelect={setDate}
                   defaultMonth={date}
                   className="rounded-none border-0 p-0"
+                  classNames={{
+                    caption_label:
+                      "select-none text-subtitle1 text-foreground leading-8 h-8 flex items-center",
+                  }}
                   components={{ DayButton: SchedulingCalendarDayButton }}
                 />
               </div>
@@ -180,7 +184,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
             {/* Right column: same width as left, 32px top padding inside */}
             <div className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col pt-6">
               <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 text-white">
-                <span className="text-body1 font-semibold text-white">{selectedLabel}</span>
+                <span className="text-subtitle1 text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                   <TabsList className="h-8 p-0.5 bg-[#1e3d2e] rounded-lg">
                     <TabsTrigger
@@ -198,13 +202,14 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                   </TabsList>
                 </Tabs>
               </div>
-              <div className="flex flex-col gap-1.5 overflow-y-auto">
+              <div className="flex flex-col gap-1.5 overflow-y-auto" data-slot="scheduling-time-slots">
                 {slots.map((slot) => (
                   <Button
                     key={slot}
-                    variant="outline"
+                    variant="ghost"
+                    data-slot="scheduling-time-slot-btn"
                     className={cn(
-                      "w-full justify-center rounded-md h-12 text-button bg-gray-100 border-0 text-foreground"
+                      "w-full justify-center rounded-md h-12 text-button bg-gray-100 border text-foreground hover:bg-gray-200"
                     )}
                   >
                     {slot}
