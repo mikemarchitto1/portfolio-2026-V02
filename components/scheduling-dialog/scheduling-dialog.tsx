@@ -223,7 +223,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                 </Tabs>
               </div>
               <div className="flex flex-col overflow-y-auto" data-slot="scheduling-time-slots">
-                <div className="flex flex-col gap-2 p-6">
+                <div className="flex flex-col gap-2 pt-0 px-6 pb-6">
                   {slots.map((slot) => (
                     <Button
                       key={slot}
