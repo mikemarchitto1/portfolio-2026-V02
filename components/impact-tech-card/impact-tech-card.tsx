@@ -47,7 +47,7 @@ const TECH_ITEMS: { src: string; alt: string }[] = [
 export default function ImpactTechCard() {
   return (
     <section
-      className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] min-h-[520px]"
+      className="w-full min-h-[520px]"
       aria-labelledby="impact-tech-card-heading"
     >
       <div className="w-full max-w-[1328px] mx-auto min-h-[520px] p-16">

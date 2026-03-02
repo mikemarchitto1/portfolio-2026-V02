@@ -22,9 +22,9 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
 function Footer() {
   const { theme } = useTheme();
   return (
-    <footer className="text-foreground w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)]">
+    <footer className="text-foreground w-full">
       <div className="w-full max-w-[1328px] mx-auto px-16">
-        <div className="w-[calc(100%+8rem)] max-w-none -ml-16 -mr-16 px-16 py-0 text-left flex flex-col">
+        <div className="w-full min-w-0 py-0 text-left flex flex-col">
             <div className="w-fit p-0 m-0">
               <h1 className="text-h1 font-light text-foreground p-0 m-0" style={{ letterSpacing: 0 }}>Let’s Talk</h1>
             </div>
@@ -192,8 +192,8 @@ function ProjectCardFiftyFifty({
   href?: string;
 }) {
   const content = (
-    <div className="w-full p-[64px]">
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[448px] rounded-2xl overflow-hidden shadow-elevation">
+    <div className="w-full min-w-0 p-[64px]">
+      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[448px] rounded-2xl overflow-hidden shadow-elevation">
         {/* Left: product image — 50% */}
         <div className="relative w-full h-full min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-muted">
           <Image
@@ -211,7 +211,7 @@ function ProjectCardFiftyFifty({
           <Button
             variant="outline"
             size="lg"
-            className="w-fit rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white"
+            className="project-card-cta w-fit rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:bg-black dark:border-black dark:text-white dark:hover:bg-black/90 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white"
             asChild
           >
             {href ? (
@@ -226,12 +226,12 @@ function ProjectCardFiftyFifty({
   );
   if (href) {
     return (
-      <a href={href} className="block w-full no-underline text-foreground dark:text-black color:text-black">
+      <a href={href} className="block w-full min-w-0 no-underline text-foreground dark:text-black color:text-black">
         {content}
       </a>
     );
   }
-  return <div className="w-full">{content}</div>;
+  return <div className="w-full min-w-0">{content}</div>;
 }
 
 /* ---------------------------------------------
@@ -244,15 +244,16 @@ export default function Home() {
 
   return (
     <>
-      <main className="min-h-screen">
+      <main className="min-h-screen min-w-0">
         <Header />
 
-        {/* HERO BODY — content aligned to grid; profile left edge at center of container */}
-        <section className="hero w-full max-w-[1328px] mx-auto">
-          <div className="w-full max-w-[1328px] mx-auto pt-16 px-16 pb-16">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
+        {/* HERO BODY — full-width wrapper + internal max-width (no max-w + px on same element) */}
+        <section className="hero w-full min-w-0">
+          <div className="w-full px-16">
+            <div className="max-w-[1328px] mx-auto pt-16 pb-16">
+          <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
             <div className="w-full min-w-0 pb-24 pr-16 text-foreground">
-              <h1 className="hero-h1 text-h1 font-light text-foreground whitespace-nowrap" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
+              <h1 className="hero-h1 text-h1 font-light text-foreground" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
@@ -280,6 +281,7 @@ export default function Home() {
               </blockquote>
             </div>
           </div>
+            </div>
           </div>
         </section>
 
@@ -318,10 +320,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* IMPACT METRICS AND TECH STACK — content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] min-h-[520px]">
-          <div className="w-full max-w-[1328px] mx-auto min-h-[520px] p-16">
-          <div className="w-full flex flex-col">
+        {/* IMPACT METRICS AND TECH STACK — full-width wrapper + internal max-width (no max-w + p on same element) */}
+        <section className="w-full min-w-0 min-h-[520px]">
+          <div className="w-full px-16">
+            <div className="max-w-[1328px] mx-auto min-h-[520px] py-16">
+          <div className="w-full min-w-0 flex flex-col">
             <div className="w-full mb-16">
               <h2 className="text-h2 font-light text-left text-foreground">
                 Impact and Tech Stack
@@ -349,8 +352,8 @@ export default function Home() {
 
               {/* Tech Stack */}
               <div className="p-0 text-foreground flex flex-col min-h-0">
-                <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full flex-1 min-h-0 flex flex-col">
-                <div className="grid w-max max-w-full mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
+                <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden">
+                <div className="grid w-full min-w-0 max-w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
@@ -496,16 +499,17 @@ export default function Home() {
             </div>
           </div>
         </div>
+            </div>
           </div>
         </section>
 
-        {/* PROJECT CARDS — full-bleed grey bg; content aligned to grid */}
-        <section className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] flex flex-col pt-16 pb-[92px]">
+        {/* PROJECT CARDS — max-w wrapper with no horizontal padding; padding only on inner so total ≤ 1328px */}
+        <section className="w-full min-w-0 flex flex-col pt-16 pb-[92px]">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
-            <div className="w-full px-[64px] py-2 mb-0">
+            <div className="w-full min-w-0 px-[64px] py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
-            <div className="w-full flex flex-col gap-12">
+            <div className="w-full min-w-0 flex flex-col gap-12">
               {projects.map((project, i) => (
                 <ProjectCardFiftyFifty
                   key={i}

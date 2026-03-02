@@ -117,6 +117,18 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
         centerInViewport
         overlayClassName="bg-[#0a1d14]/50"
         className="gap-0"
+        style={{
+          position: "fixed",
+          inset: 0,
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          margin: 0,
+          padding: 0,
+          transform: "none",
+          width: "100%",
+        }}
       >
         <DialogTitle className="sr-only">Schedule a meeting</DialogTitle>
 
@@ -167,8 +179,8 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               </Card>
             </div>
 
-            {/* Center column: fixed width; borders flush top/bottom; 32px top padding on content only */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] w-[480px] shrink-0 flex-col border-l border-r border-[#E5E7EB] bg-transparent px-6 overflow-hidden">
+            {/* Center column: can shrink below 480px on narrow viewports; borders flush top/bottom */}
+            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] shrink basis-[480px] flex-col border-l border-r border-[#E5E7EB] bg-transparent px-6 overflow-hidden">
               <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-6">
                 <Calendar
                   mode="single"

@@ -5,6 +5,24 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant color (&:is(.color *));
 
+/* Prevent horizontal scroll: lock to vertical scroll only.
+   Use !important so no other rule can re-enable horizontal scroll. */
+html {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  /* Reserve space for scrollbar so 100vw doesn’t change when scrollbar appears/disappears (reduces horizontal shift). */
+  scrollbar-gutter: stable;
+}
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+/* Main content area is the scroll context in sidebar layout; prevent horizontal scroll there too */
+main {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
 /* -------------------------------------------------------
    GLOBAL 4px BASELINE GRID
    All vertical spacing, line-heights, margins, padding, and
@@ -258,8 +276,8 @@ html.dark {
 
   --destructive: oklch(70.4% 0.191 22.216);
 
-  --border: oklch(100% 0 0 / 10%);
-  --input: oklch(100% 0 0 / 15%);
+  --border: #6B7280;
+  --input: #374151;
   --ring: oklch(55.6% 0 0);
   --sidebar: hsl(240 5.9% 10%);  /* match page background */
   --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
@@ -314,7 +332,7 @@ html.color,
   --sidebar-border: #0a1d14;
   --sidebar-ring: #1e3d2e;
   --sidebar-hover: #2d5a45; /* Same green for all sidebar hover (list items, icons, X) */
-  --color-button-hover: #1a3528; /* Nav/footer: hover 1 shade lighter than previous */
+  --color-button-hover: #153020; /* Nav/footer: hover 1 shade lighter than previous */
 }
 
 /* -------------------------------------------------------
@@ -419,6 +437,298 @@ html.color,
   select {
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   }
+}
+
+/* -------------------------------------------------------
+   BUTTON STYLES BY COLOR MODE (single global setting per mode)
+   Use descendant " svg" (space+svg) only — never [&_svg] (invalid in plain CSS).
+   Include dialog-trigger and sheet-trigger: Radix asChild overwrites data-slot so
+   triggers render as [data-slot="dialog-trigger"] / [data-slot="sheet-trigger"].
+------------------------------------------------------- */
+/* Light: filled black bg, white text, no border — one rule for all page buttons */
+html:not(.color):not(.dark) header button[data-slot="button"],
+html:not(.color):not(.dark) header [data-slot="button"],
+html:not(.color):not(.dark) header [data-slot="dialog-trigger"],
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"],
+html:not(.color):not(.dark) main button[data-slot="button"],
+html:not(.color):not(.dark) main [data-slot="button"],
+html:not(.color):not(.dark) main [data-slot="dialog-trigger"],
+html:not(.color):not(.dark) main [data-slot="sheet-trigger"],
+html:not(.color):not(.dark) footer button[data-slot="button"],
+html:not(.color):not(.dark) footer [data-slot="button"],
+html:not(.color):not(.dark) footer [data-slot="dialog-trigger"],
+html:not(.color):not(.dark) footer [data-slot="sheet-trigger"],
+html:not(.color):not(.dark) .chat-sheet button[data-slot="button"],
+html:not(.color):not(.dark) .chat-sheet [data-slot="button"],
+html:not(.color):not(.dark) .chat-sheet [data-slot="dialog-trigger"],
+html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-trigger"] {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+}
+html:not(.color):not(.dark) header button[data-slot="button"]:hover,
+html:not(.color):not(.dark) header [data-slot="button"]:hover,
+html:not(.color):not(.dark) header [data-slot="dialog-trigger"]:hover,
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"]:hover,
+html:not(.color):not(.dark) main button[data-slot="button"]:hover,
+html:not(.color):not(.dark) main [data-slot="button"]:hover,
+html:not(.color):not(.dark) main [data-slot="dialog-trigger"]:hover,
+html:not(.color):not(.dark) main [data-slot="sheet-trigger"]:hover,
+html:not(.color):not(.dark) footer button[data-slot="button"]:hover,
+html:not(.color):not(.dark) footer [data-slot="button"]:hover,
+html:not(.color):not(.dark) footer [data-slot="dialog-trigger"]:hover,
+html:not(.color):not(.dark) footer [data-slot="sheet-trigger"]:hover,
+html:not(.color):not(.dark) .chat-sheet button[data-slot="button"]:hover,
+html:not(.color):not(.dark) .chat-sheet [data-slot="button"]:hover,
+html:not(.color):not(.dark) .chat-sheet [data-slot="dialog-trigger"]:hover,
+html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-trigger"]:hover {
+  background-color: #333333 !important;
+  color: #fff !important;
+}
+html:not(.color):not(.dark) header [data-slot="button"] svg,
+html:not(.color):not(.dark) header [data-slot="dialog-trigger"] svg,
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"] svg,
+html:not(.color):not(.dark) main [data-slot="button"] svg,
+html:not(.color):not(.dark) main [data-slot="dialog-trigger"] svg,
+html:not(.color):not(.dark) main [data-slot="sheet-trigger"] svg,
+html:not(.color):not(.dark) footer [data-slot="button"] svg,
+html:not(.color):not(.dark) footer [data-slot="dialog-trigger"] svg,
+html:not(.color):not(.dark) footer [data-slot="sheet-trigger"] svg {
+  color: #fff !important;
+}
+html:not(.color):not(.dark) header [data-slot="button"] img,
+html:not(.color):not(.dark) header [data-slot="dialog-trigger"] img,
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"] img {
+  filter: brightness(0) invert(1);
+}
+
+/* Light mode sidebar: no black fill — transparent bg, black icon/text (theme toggles + close) */
+html:not(.color):not(.dark) [data-sidebar] button[data-slot="button"],
+html:not(.color):not(.dark) [data-sidebar] [data-slot="button"] {
+  background-color: transparent !important;
+  color: #000 !important;
+  border: none !important;
+}
+html:not(.color):not(.dark) [data-sidebar="header"] button[data-slot="button"]:hover,
+html:not(.color):not(.dark) [data-sidebar="header"] [data-slot="button"]:hover,
+html:not(.color):not(.dark) [data-sidebar="content"] button[data-slot="button"]:hover,
+html:not(.color):not(.dark) [data-sidebar="content"] [data-slot="button"]:hover {
+  background-color: transparent !important;
+  color: #6b7280 !important;
+}
+html:not(.color):not(.dark) [data-sidebar="header"] [data-slot="button"] svg,
+html:not(.color):not(.dark) [data-sidebar="header"] button[data-slot="button"] svg,
+html:not(.color):not(.dark) [data-sidebar="content"] [data-slot="button"] svg,
+html:not(.color):not(.dark) [data-sidebar="content"] button[data-slot="button"] svg {
+  color: #000 !important;
+  stroke: #000 !important;
+  transition: color 0.15s ease, stroke 0.15s ease;
+}
+html:not(.color):not(.dark) [data-sidebar="header"] [data-slot="button"]:hover svg,
+html:not(.color):not(.dark) [data-sidebar="header"] button[data-slot="button"]:hover svg,
+html:not(.color):not(.dark) [data-sidebar="content"] [data-slot="button"]:hover svg,
+html:not(.color):not(.dark) [data-sidebar="content"] button[data-slot="button"]:hover svg {
+  color: #6b7280 !important;
+  stroke: #6b7280 !important;
+}
+
+/* Light mode sidebar icons: hover = same gray as Clients list (#6b7280), [data-sidebar] for specificity */
+html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn {
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn:hover {
+  color: #6b7280 !important;
+}
+html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn:hover svg,
+html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn:hover svg path,
+html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn:hover svg circle,
+html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn:hover svg line {
+  color: #6b7280 !important;
+  stroke: #6b7280 !important;
+}
+
+/* Dark: filled white bg, black text, no border */
+html.dark header [data-slot="button"],
+html.dark header [data-slot="dialog-trigger"],
+html.dark header [data-slot="sheet-trigger"],
+html.dark main [data-slot="button"],
+html.dark main [data-slot="dialog-trigger"],
+html.dark main [data-slot="sheet-trigger"],
+html.dark footer [data-slot="button"],
+html.dark footer [data-slot="dialog-trigger"],
+html.dark footer [data-slot="sheet-trigger"],
+html.dark .chat-sheet [data-slot="button"],
+html.dark .chat-sheet [data-slot="dialog-trigger"],
+html.dark .chat-sheet [data-slot="sheet-trigger"] {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: none !important;
+}
+html.dark header [data-slot="button"]:hover,
+html.dark header [data-slot="dialog-trigger"]:hover,
+html.dark header [data-slot="sheet-trigger"]:hover,
+html.dark main [data-slot="button"]:hover,
+html.dark main [data-slot="dialog-trigger"]:hover,
+html.dark main [data-slot="sheet-trigger"]:hover,
+html.dark footer [data-slot="button"]:hover,
+html.dark footer [data-slot="dialog-trigger"]:hover,
+html.dark footer [data-slot="sheet-trigger"]:hover,
+html.dark .chat-sheet [data-slot="button"]:hover,
+html.dark .chat-sheet [data-slot="dialog-trigger"]:hover,
+html.dark .chat-sheet [data-slot="sheet-trigger"]:hover {
+  background-color: #e5e5e5 !important;
+  color: #000 !important;
+}
+
+/* Dark mode sidebar: no white fill — transparent bg, white icon/text (theme toggles + close) */
+html.dark [data-sidebar] button[data-slot="button"],
+html.dark [data-sidebar] [data-slot="button"] {
+  background-color: transparent !important;
+  color: #fff !important;
+  border: none !important;
+}
+html.dark [data-sidebar] button[data-slot="button"]:hover,
+html.dark [data-sidebar] [data-slot="button"]:hover {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+html.dark [data-sidebar] [data-slot="button"] svg,
+html.dark [data-sidebar] button[data-slot="button"] svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+/* Dark mode sidebar icons: hover = same as Clients list (--accent), higher specificity so it wins */
+html.dark [data-sidebar] .sidebar-icon-btn,
+html.dark [data-sidebar] .sidebar-icon-btn svg {
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+html.dark [data-sidebar] .sidebar-icon-btn:hover {
+  color: var(--accent) !important;
+}
+html.dark [data-sidebar] .sidebar-icon-btn:hover svg,
+html.dark [data-sidebar] .sidebar-icon-btn:hover svg path,
+html.dark [data-sidebar] .sidebar-icon-btn:hover svg circle,
+html.dark [data-sidebar] .sidebar-icon-btn:hover svg line {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.dark [data-sidebar] [data-slot="button"] svg path,
+html.dark [data-sidebar] [data-slot="button"] svg circle,
+html.dark [data-sidebar] [data-slot="button"] svg line,
+html.dark [data-sidebar] button[data-slot="button"] svg path,
+html.dark [data-sidebar] button[data-slot="button"] svg circle,
+html.dark [data-sidebar] button[data-slot="button"] svg line {
+  stroke: #fff !important;
+}
+
+/* Dark mode: project card CTAs — black bg, white text (override main button style) */
+html.dark main [data-slot="button"].project-card-cta,
+html.dark main button.project-card-cta,
+html.dark main a.project-card-cta,
+html.dark main span.project-card-cta {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #000 !important;
+}
+html.dark main [data-slot="button"].project-card-cta:hover,
+html.dark main button.project-card-cta:hover,
+html.dark main a.project-card-cta:hover,
+html.dark main span.project-card-cta:hover {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  color: #fff !important;
+}
+/* Dark mode: force header nav icons black (class on SVG so it always wins) */
+html.dark .nav-icon,
+html.dark .nav-icon path,
+html.dark .nav-icon circle,
+html.dark .nav-icon line {
+  color: #000 !important;
+  stroke: #000 !important;
+}
+/* Dark mode: force button icons black (svg + inner path/circle/line) */
+html.dark header [data-slot="button"] svg,
+html.dark header [data-slot="dialog-trigger"] svg,
+html.dark header [data-slot="sheet-trigger"] svg,
+html.dark main [data-slot="button"] svg,
+html.dark main [data-slot="dialog-trigger"] svg,
+html.dark main [data-slot="sheet-trigger"] svg,
+html.dark footer [data-slot="button"] svg,
+html.dark footer [data-slot="dialog-trigger"] svg,
+html.dark footer [data-slot="sheet-trigger"] svg {
+  color: #000 !important;
+  stroke: #000 !important;
+}
+html.dark header [data-slot="button"] svg path,
+html.dark header [data-slot="button"] svg circle,
+html.dark header [data-slot="button"] svg line,
+html.dark header [data-slot="dialog-trigger"] svg path,
+html.dark header [data-slot="dialog-trigger"] svg circle,
+html.dark header [data-slot="dialog-trigger"] svg line,
+html.dark header [data-slot="sheet-trigger"] svg path,
+html.dark header [data-slot="sheet-trigger"] svg circle,
+html.dark header [data-slot="sheet-trigger"] svg line,
+html.dark main [data-slot="button"] svg path,
+html.dark main [data-slot="button"] svg circle,
+html.dark main [data-slot="button"] svg line,
+html.dark main [data-slot="dialog-trigger"] svg path,
+html.dark main [data-slot="dialog-trigger"] svg circle,
+html.dark main [data-slot="dialog-trigger"] svg line,
+html.dark main [data-slot="sheet-trigger"] svg path,
+html.dark main [data-slot="sheet-trigger"] svg circle,
+html.dark main [data-slot="sheet-trigger"] svg line,
+html.dark footer [data-slot="button"] svg path,
+html.dark footer [data-slot="button"] svg circle,
+html.dark footer [data-slot="button"] svg line,
+html.dark footer [data-slot="dialog-trigger"] svg path,
+html.dark footer [data-slot="dialog-trigger"] svg circle,
+html.dark footer [data-slot="dialog-trigger"] svg line,
+html.dark footer [data-slot="sheet-trigger"] svg path,
+html.dark footer [data-slot="sheet-trigger"] svg circle,
+html.dark footer [data-slot="sheet-trigger"] svg line {
+  stroke: #000 !important;
+}
+
+/* Color: leave fill/text as-is, remove borders only */
+html.color header [data-slot="button"],
+html.color header [data-slot="dialog-trigger"],
+html.color header [data-slot="sheet-trigger"],
+html.color main [data-slot="button"],
+html.color main [data-slot="dialog-trigger"],
+html.color main [data-slot="sheet-trigger"],
+html.color footer [data-slot="button"],
+html.color footer [data-slot="dialog-trigger"],
+html.color footer [data-slot="sheet-trigger"],
+html.color [data-sidebar] [data-slot="button"],
+html.color [data-sidebar] [data-slot="dialog-trigger"],
+html.color [data-sidebar] [data-slot="sheet-trigger"],
+html.color .chat-sheet [data-slot="button"],
+html.color .chat-sheet [data-slot="dialog-trigger"],
+html.color .chat-sheet [data-slot="sheet-trigger"] {
+  border: none !important;
+}
+
+/* Color mode sidebar: white icons (theme toggles + close) on dark green background */
+html.color [data-sidebar] button[data-slot="button"],
+html.color [data-sidebar] [data-slot="button"] {
+  color: #fff !important;
+}
+html.color [data-sidebar] button[data-slot="button"] svg,
+html.color [data-sidebar] [data-slot="button"] svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+/* Force stroke on all SVG children (Lucide uses path, circle, line, polyline, etc.) */
+html.color [data-sidebar] [data-slot="button"] svg path,
+html.color [data-sidebar] [data-slot="button"] svg circle,
+html.color [data-sidebar] [data-slot="button"] svg line,
+html.color [data-sidebar] [data-slot="button"] svg polyline,
+html.color [data-sidebar] [data-slot="button"] svg polygon,
+html.color [data-sidebar] button[data-slot="button"] svg path,
+html.color [data-sidebar] button[data-slot="button"] svg circle,
+html.color [data-sidebar] button[data-slot="button"] svg line,
+html.color [data-sidebar] button[data-slot="button"] svg polyline,
+html.color [data-sidebar] button[data-slot="button"] svg polygon {
+  stroke: #fff !important;
 }
 
 /* Sidebar + chat sheet: same background (use shared token so they always match) */
@@ -596,7 +906,7 @@ html.color {
   --sidebar-accent: #5a9a7a !important;
   --sidebar-ring: #1e3d2e !important;
   --sidebar-hover: #2d5a45 !important;
-  --color-button-hover: #1a3528 !important;
+  --color-button-hover: #153020 !important;
   --border: #1a3d2e !important;
   --input: #0a1d14 !important;
 }
@@ -626,7 +936,7 @@ html.color main [data-slot="button"]:hover,
 html.color main button:hover,
 html.color footer [data-slot="button"]:hover,
 html.color footer button:hover {
-  background-color: #1a3528 !important;
+  background-color: #153020 !important;
   color: white !important;
 }
 /* Chat sheet (color mode): bottom Close button fill = sheet background, keep white border; hover = lighter shade */
@@ -685,6 +995,24 @@ html.color [data-sidebar="content"] nav button:hover svg {
   fill: none !important;
 }
 
+/* Color mode sidebar icons: hover = same as Clients list (--sidebar-hover #2d5a45), .sidebar-icon-btn for specificity */
+html.color [data-sidebar] .sidebar-icon-btn,
+html.color [data-sidebar] .sidebar-icon-btn svg {
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+html.color [data-sidebar] .sidebar-icon-btn:hover {
+  color: var(--sidebar-hover) !important;
+}
+html.color [data-sidebar] .sidebar-icon-btn:hover svg,
+html.color [data-sidebar] .sidebar-icon-btn:hover svg path,
+html.color [data-sidebar] .sidebar-icon-btn:hover svg circle,
+html.color [data-sidebar] .sidebar-icon-btn:hover svg line,
+html.color [data-sidebar] .sidebar-icon-btn:hover svg polyline,
+html.color [data-sidebar] .sidebar-icon-btn:hover svg polygon {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
+}
+
 /* Chat sheet (color mode): bottom Close button hover must override global button hover */
 html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"]:hover,
 html.color .chat-sheet [data-slot="sheet-footer"] button[data-slot="button"]:hover {
@@ -719,19 +1047,59 @@ html.dark [data-slot="dialog-content"][data-transparent-backdrop] {
   --tw-ring-offset-width: 0px !important;
 }
 
-[data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
+/* Radix Portal renders to body as body > div > [Content|Overlay]. Force those wrapper divs to full viewport so scheduling dialog is centered. */
+body > div:has(> [data-slot="dialog-content"]:has([data-slot="scheduling-panel"])) {
+  position: fixed !important;
+  inset: 0 !important;
   left: 0 !important;
   right: 0 !important;
   top: 0 !important;
   bottom: 0 !important;
-  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+body > div:has(> [data-slot="dialog-overlay"]) {
+  position: fixed !important;
+  inset: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+[data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
+  position: fixed !important;
+  inset: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
   max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
   transform: none !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   background-color: transparent !important;
   background: transparent !important;
+}
+/* Overlay: full viewport so scheduling dialog stays centered */
+[data-slot="dialog-portal"]:has([data-slot="dialog-content"]:has([data-slot="scheduling-panel"])) [data-slot="dialog-overlay"] {
+  inset: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  margin: 0 !important;
 }
 /* Scheduling dialog: in color mode the dialog-content is forced to green — override so overlay is see-through */
 html.color [data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
@@ -746,7 +1114,7 @@ html.color [data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
 
 /* ===== LIGHT MODE SCHEDULING (no .color, no .dark): same bg as sidebar/chat sheet ===== */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] {
-  --scheduling-border: #E5E7EB; /* time slot & calendar button border; toggle uses same */
+  --scheduling-border: #9CA3AF; /* time slot & calendar button border; toggle uses same */
   background-color: var(--sidebar) !important;
   color: #1F2937 !important;
 }
@@ -765,15 +1133,15 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   stroke: #1F2937 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
-  border-left-color: #E5E7EB !important;
-  border-right-color: #E5E7EB !important;
+  border-left-color: #9CA3AF !important;
+  border-right-color: #9CA3AF !important;
 }
 /* Unselected day cells: light grey bg, dark text */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
   background-color: #F2F4F6 !important;
   background: #F2F4F6 !important;
   color: #000 !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #9CA3AF !important;
   box-shadow: none !important;
   outline: none !important;
 }
@@ -784,9 +1152,9 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   background: transparent !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: #E5E7EB !important;
-  background: #E5E7EB !important;
-  border: 1px solid #D1D5DB !important;
+  background-color: #F5F6F8 !important;
+  background: #F5F6F8 !important;
+  border: 1px solid #9CA3AF !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
   color: #1F2937 !important;
@@ -843,8 +1211,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border-radius: 9999px !important;
   overflow: hidden !important;
   display: flex !important;
-  border: 1px solid #E5E7EB !important;
-  border-color: #E5E7EB !important;
+  border: 1px solid #9CA3AF !important;
+  border-color: #9CA3AF !important;
 }
 [data-slot="scheduling-toggle-wrap"] [role="tablist"] {
   padding: 0 !important;
@@ -873,8 +1241,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   background: #F2F4F6 !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-toggle-wrap"] {
-  border: 1px solid #E5E7EB !important;
-  border-color: #E5E7EB !important;
+  border: 1px solid #9CA3AF !important;
+  border-color: #9CA3AF !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
@@ -893,8 +1261,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 /* Light: toggle outer border = same as time slot & calendar buttons (var from panel) */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] {
-  border: 1px solid var(--scheduling-border, #E5E7EB) !important;
-  border-color: var(--scheduling-border, #E5E7EB) !important;
+  border: 1px solid var(--scheduling-border, #9CA3AF) !important;
+  border-color: var(--scheduling-border, #9CA3AF) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"] {
   color: #fff !important;
@@ -908,12 +1276,12 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   background-color: #F2F4F6 !important;
   background: #F2F4F6 !important;
   color: #1F2937 !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #9CA3AF !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: #E5E7EB !important;
-  background: #E5E7EB !important;
-  border: 1px solid #D1D5DB !important;
+  background-color: #F5F6F8 !important;
+  background: #F5F6F8 !important;
+  border: 1px solid #9CA3AF !important;
 }
 
 /* ========== DARK MODE SCHEDULING (dark greys, light text) ========== */
@@ -969,21 +1337,28 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   background-color: transparent !important;
   background: transparent !important;
 }
+/* Dark: days of week text white */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday *,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
+  color: #fff !important;
+}
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
-  border-left-color: #E5E7EB !important;
-  border-right-color: #E5E7EB !important;
+  border-left-color: #374151 !important;
+  border-right-color: #374151 !important;
 }
 /* Dark mode: unselected day cells = slightly lighter than panel, white stroke, white text */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
   background-color: hsl(240 5.9% 13%) !important;
   background: hsl(240 5.9% 13%) !important;
   color: #fff !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #374151 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: hsl(240 5.9% 18%) !important;
-  background: hsl(240 5.9% 18%) !important;
-  border: 1px solid #E5E7EB !important;
+  background-color: hsl(240 5.9% 20%) !important;
+  background: hsl(240 5.9% 20%) !important;
+  border: 1px solid #374151 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
   color: #fff !important;
@@ -1006,6 +1381,11 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
   background-color: #fff !important;
 }
+/* Dark mode: toggle wrap border same as time slot buttons (#374151) */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] {
+  border: 1px solid #374151 !important;
+  border-color: #374151 !important;
+}
 /* Dark mode: track white, text on track black */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
@@ -1017,22 +1397,34 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] b
   background-color: #000 !important;
   color: #fff !important;
 }
-/* Dark mode: time slot buttons = panel bg, white stroke, white text */
+/* Dark mode: time slot buttons = panel bg, border same as chat bubble (#374151) */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
   background-color: hsl(240 5.9% 13%) !important;
   background: hsl(240 5.9% 13%) !important;
   color: #fff !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #374151 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: hsl(240 5.9% 18%) !important;
-  background: hsl(240 5.9% 18%) !important;
-  border: 1px solid #E5E7EB !important;
+  background-color: hsl(240 5.9% 20%) !important;
+  background: hsl(240 5.9% 20%) !important;
+  border: 1px solid #374151 !important;
 }
 
-/* ========== COLOR MODE SCHEDULING (green theme) ========== */
+/* ========== COLOR MODE SCHEDULING (green theme) — borders one shade darker #153020 ========== */
 html.color [data-slot="scheduling-panel"] {
   background-color: #0f261c !important;
+  --scheduling-border: #153020;
+}
+/* Center column left/right borders */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
+  border-left-color: #153020 !important;
+  border-right-color: #153020 !important;
+}
+/* Toggle track border */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [data-slot="scheduling-toggle-wrap"] {
+  border: 1px solid #153020 !important;
+  border-color: #153020 !important;
 }
 /* Center/right default text (unselected date boxes and time slot buttons = white via rules below; other center/right text handled per block) */
 /* Left panel: color mode — transparent bg, white text; avatar no background (no black behind letter) */
@@ -1084,6 +1476,13 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   background-color: transparent !important;
   background: transparent !important;
 }
+/* Color mode: days of week text white */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
+  color: #fff !important;
+}
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
   color: white !important;
@@ -1099,15 +1498,15 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   background-color: #132a1f !important;
   background: #132a1f !important;
   color: #fff !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #153020 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) * {
   color: #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]):hover {
-  background-color: #b8d4c4 !important;
-  background: #b8d4c4 !important;
-  border: 1px solid #E5E7EB !important;
+  background-color: #153020 !important;
+  background: #153020 !important;
+  border: 1px solid #153020 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
@@ -1124,15 +1523,15 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   background-color: #132a1f !important;
   background: #132a1f !important;
   color: #fff !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #153020 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button * {
   color: #fff !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: #b8d4c4 !important;
-  background: #b8d4c4 !important;
-  border: 1px solid #E5E7EB !important;
+  background-color: #153020 !important;
+  background: #153020 !important;
+  border: 1px solid #153020 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
@@ -1285,17 +1684,17 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 /* Time slot buttons: same bg and border as unselected date boxes per mode */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #9CA3AF !important;
   background-color: #F2F4F6 !important;
   background: #F2F4F6 !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #374151 !important;
   background-color: hsl(240 5.9% 13%) !important;
   background: hsl(240 5.9% 13%) !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #153020 !important;
   background-color: #132a1f !important;
   background: #132a1f !important;
   color: #fff !important;
@@ -1492,17 +1891,17 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   min-height: 44px !important;
 }
 html:not(.dark):not(.color) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #9CA3AF !important;
   background-color: #F2F4F6 !important;
   background: #F2F4F6 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #153020 !important;
   background-color: #132a1f !important;
   background: #132a1f !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #374151 !important;
   background-color: hsl(240 5.9% 13%) !important;
   background: hsl(240 5.9% 13%) !important;
 }
@@ -1513,6 +1912,10 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] 
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] [role="tablist"] {
   background-color: #fff !important;
   background: #fff !important;
+}
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] {
+  border: 1px solid #374151 !important;
+  border-color: #374151 !important;
 }
 /* Dark: track white = black text on track; switch (active pill) black = white text */
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"]:not([data-state="active"]),

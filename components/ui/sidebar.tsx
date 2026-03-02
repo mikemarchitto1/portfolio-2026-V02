@@ -48,7 +48,7 @@ const Sidebar = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("fixed left-0 top-0 z-[60] h-full transition-[transform] duration-300 ease-in-out", className)}
+      className={cn("fixed left-0 top-0 z-[60] h-full min-w-0 overflow-x-hidden transition-[transform] duration-300 ease-in-out", className)}
       style={{
         width: width,
         transform: open ? "translateX(0)" : "translateX(-100%)",
@@ -58,7 +58,7 @@ const Sidebar = React.forwardRef<
       {...props}
     >
       <aside
-        className="h-full w-full flex flex-col bg-sidebar text-sidebar-foreground overflow-hidden shadow-elevation"
+        className="h-full min-w-0 w-full flex flex-col bg-sidebar text-sidebar-foreground overflow-hidden shadow-elevation"
         style={{ width }}
       >
         {children}

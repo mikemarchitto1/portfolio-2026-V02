@@ -52,7 +52,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-100 dark:bg-muted color:bg-[#153020]/90 text-black dark:text-white color:text-white border border-gray-300 dark:border-neutral-600 color:border-[#1e3d2e]"
+                className="bg-gray-100 dark:bg-muted color:bg-[#153020] text-black dark:text-white color:text-white border border-[#6B7280] dark:border-[#374151] color:border-[#374151]"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
@@ -69,7 +69,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button variant="outline" className="border-black dark:border-white bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[#1e3d2e] color:bg-[#0f261c] color:hover:bg-[#1a3d2e] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
+            <Button variant="outline" className="border-[#6B7280] dark:border-[#374151] bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[#374151] color:bg-[#0f261c] color:hover:bg-[#1a3d2e] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

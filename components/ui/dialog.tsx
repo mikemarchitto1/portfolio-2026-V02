@@ -6,6 +6,9 @@ import { Dialog as DialogPrimitive } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
+/** Body ref for portal container (client-only so scheduling dialog is viewport-centered) */
+const getBody = () => (typeof document !== "undefined" ? document.body : undefined);
+
 function Dialog({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Root>) {
@@ -88,8 +91,9 @@ function DialogContent({
 }) {
   const hasCustomOverlay = !!overlayClassName;
   const contentTransparentBackdrop = transparentOverlay || hasCustomOverlay;
+  const portalContainer = centerInViewport ? getBody() : undefined;
   return (
-    <DialogPortal>
+    <DialogPortal container={portalContainer}>
       <DialogOverlay
         noDefaultBg={transparentOverlay || hasCustomOverlay}
         transparent={transparentOverlay}
