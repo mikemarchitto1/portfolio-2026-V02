@@ -90,12 +90,6 @@ type SchedulingDialogProps = {
   trigger: React.ReactNode;
 };
 
-const TOGGLE_TRACK_BG = {
-  light: "#F2F4F6",  /* same grey as time slot & calendar grid buttons */
-  dark: "#fff",   /* dark mode: track white, switch (active pill) black via CSS */
-  color: "#1e3d2e",
-} as const;
-
 export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
   const { theme } = useTheme();
   const [date, setDate] = React.useState<Date | undefined>(new Date());
@@ -144,7 +138,11 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
         <div
           data-slot="scheduling-panel"
           data-theme={theme}
-          className="relative flex h-[514px] min-w-[1136px] flex-col overflow-hidden rounded-lg bg-white p-0 shadow-lg text-black"
+          className={cn(
+            "relative flex h-[514px] min-w-[1136px] flex-col overflow-hidden rounded-lg bg-white p-0 shadow-lg text-black",
+            theme === "light" && "border border-neutral-700",
+            theme === "color" && "border border-[#1e3d2e]"
+          )}
         >
           {/* Three-column row: no top padding so center borders start at top; padding is inside each panel */}
           <div className="flex h-full flex-row items-stretch gap-6 px-6 py-0">
@@ -152,7 +150,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
             <div data-slot="scheduling-left-panel" className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col text-white">
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-6 shadow-none text-white">
                 <CardHeader className="scheduling-left-header mb-6 gap-0 space-y-0 pb-0 px-0 pt-0">
-                  <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-subtitle1 font-semibold leading-8 text-white">
+                  <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-h5 text-white">
                     Introduction Call
                   </CardTitle>
                   <span className="scheduling-left-name block text-subtitle2 text-white/90" style={{ marginTop: 16 }}>
@@ -179,8 +177,8 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               </Card>
             </div>
 
-            {/* Center column: can shrink below 480px on narrow viewports; borders flush top/bottom */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] shrink basis-[480px] flex-col border-l border-r border-[#E5E7EB] bg-transparent px-6 overflow-hidden">
+            {/* Center column: can shrink below 480px on narrow viewports */}
+            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] shrink basis-[480px] flex-col bg-transparent px-6 overflow-hidden">
               <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-6">
                 <Calendar
                   mode="single"
@@ -199,42 +197,58 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
 
             {/* Right column: 24px top padding; 24px bottom so time-slot scroll area ends 24px from main container bottom (buttons clip at that line) */}
             <div className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col pt-6 pb-6">
-              <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 text-white">
-                <span className="text-subtitle1 text-white">{selectedLabel}</span>
+              <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
+                <span className="text-subtitle1 text-black dark:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
-                  <style
-                    dangerouslySetInnerHTML={{
-                      __html: `[data-slot="scheduling-toggle-wrap"]{background-color:${TOGGLE_TRACK_BG[theme]} !important;}[data-slot="scheduling-toggle-wrap"] [role="tablist"]{background-color:${TOGGLE_TRACK_BG[theme]} !important;background:${TOGGLE_TRACK_BG[theme]} !important;}`,
-                    }}
-                  />
+                  {theme === "dark" && (
+                    <style
+                      dangerouslySetInnerHTML={{
+                        __html: `[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"]{background:#a3a3a3 !important;background-color:#a3a3a3 !important;color:#fff !important;}[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"] *{color:#fff !important;}[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-toggle-wrap"] button[role="tab"][data-state="active"]:hover{background:#d4d4d4 !important;background-color:#d4d4d4 !important;color:#fff !important;}`,
+                      }}
+                    />
+                  )}
                   <div
-                    className="rounded-full h-8 overflow-hidden flex box-border w-fit"
-                    style={{ backgroundColor: TOGGLE_TRACK_BG[theme] }}
+                    className="rounded-full h-8 overflow-hidden flex box-border w-fit bg-transparent"
+                    style={{ backgroundColor: "transparent" }}
                     data-slot="scheduling-toggle-wrap"
                   >
                     <TabsList
                       noBg
                       data-slot="scheduling-toggle"
-                      className="scheduling-toggle-track h-full w-full p-0 rounded-full border-0 shadow-none min-w-0 inline-flex flex-1"
-                      style={{ backgroundColor: TOGGLE_TRACK_BG[theme] }}
+                      className="scheduling-toggle-track h-8 w-full p-0 rounded-full border-0 shadow-none min-w-0 inline-flex flex-1 bg-transparent"
+                      style={{ backgroundColor: "transparent" }}
                     >
                       <TabsTrigger
-                      value="12h"
-                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-full"
-                    >
-                      12h
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="24h"
-                      className="text-button px-2.5 py-1 text-white data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-none rounded-full"
-                    >
-                      24h
-                    </TabsTrigger>
+                        value="12h"
+                        className={cn(
+                          "text-button px-2.5 py-1 rounded-full transition-colors",
+                          theme === "color"
+                            ? "text-white data-[state=active]:bg-[#5a9a7a] data-[state=active]:text-white data-[state=active]:shadow-none rounded-l-full"
+                            : theme === "dark"
+                              ? "bg-neutral-700 text-white hover:bg-neutral-600 data-[state=active]:text-black data-[state=active]:shadow-none rounded-l-full"
+                              : "text-white data-[state=active]:bg-gray-300 data-[state=active]:text-black data-[state=active]:shadow-none rounded-l-full"
+                        )}
+                      >
+                        12h
+                      </TabsTrigger>
+                      <TabsTrigger
+                        value="24h"
+                        className={cn(
+                          "text-button px-2.5 py-1 rounded-full transition-colors -ml-px",
+                          theme === "color"
+                            ? "text-white data-[state=active]:bg-[#5a9a7a] data-[state=active]:text-white data-[state=active]:shadow-none rounded-r-full"
+                            : theme === "dark"
+                              ? "bg-neutral-700 text-white hover:bg-neutral-600 data-[state=active]:text-black data-[state=active]:shadow-none rounded-r-full"
+                              : "text-white data-[state=active]:bg-gray-300 data-[state=active]:text-black data-[state=active]:shadow-none rounded-r-full"
+                        )}
+                      >
+                        24h
+                      </TabsTrigger>
                     </TabsList>
                   </div>
                 </Tabs>
               </div>
-              <div className="flex flex-col overflow-y-auto" data-slot="scheduling-time-slots">
+              <div className="flex flex-col overflow-y-auto mt-2" data-slot="scheduling-time-slots">
                 <div className="flex flex-col gap-2 pt-0 pb-6">
                   {slots.map((slot) => (
                     <Button
@@ -242,7 +256,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                       variant="ghost"
                       data-slot="scheduling-time-slot-btn"
                       className={cn(
-                        "w-full justify-center rounded-full h-12 text-button bg-gray-100 border text-foreground hover:bg-gray-200"
+                        "w-full justify-center rounded-full h-12 text-button"
                       )}
                     >
                       {slot}

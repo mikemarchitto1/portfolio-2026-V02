@@ -9,7 +9,7 @@ import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 /* Light/dark/color button colors come from globals.css */
 const navButtonClass =
-  "dark:!text-black dark:bg-background dark:border-white dark:hover:bg-white/10 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:hover:text-white color:[&_svg]:text-white";
+  "dark:!text-black dark:bg-background dark:border-white dark:hover:bg-white/10 color:border-transparent color:text-white color:[&_svg]:text-white";
 const navIconClass = "h-5 w-5 shrink-0";
 
 export default function Header() {
