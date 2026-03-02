@@ -1410,21 +1410,21 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
   border: 1px solid #374151 !important;
 }
 
-/* ========== COLOR MODE SCHEDULING (green theme) — borders one shade darker #153020 ========== */
+/* ========== COLOR MODE SCHEDULING (green theme) — borders one shade lighter #1a3528 ========== */
 html.color [data-slot="scheduling-panel"] {
   background-color: #0f261c !important;
-  --scheduling-border: #153020;
+  --scheduling-border: #1a3528;
 }
 /* Center column left/right borders */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
-  border-left-color: #153020 !important;
-  border-right-color: #153020 !important;
+  border-left-color: #1a3528 !important;
+  border-right-color: #1a3528 !important;
 }
 /* Toggle track border */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [data-slot="scheduling-toggle-wrap"] {
-  border: 1px solid #153020 !important;
-  border-color: #153020 !important;
+  border: 1px solid #1a3528 !important;
+  border-color: #1a3528 !important;
 }
 /* Center/right default text (unselected date boxes and time slot buttons = white via rules below; other center/right text handled per block) */
 /* Left panel: color mode — transparent bg, white text; avatar no background (no black behind letter) */
@@ -1498,7 +1498,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   background-color: #132a1f !important;
   background: #132a1f !important;
   color: #fff !important;
-  border: 1px solid #153020 !important;
+  border: 1px solid #1a3528 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]) * {
   color: #fff !important;
@@ -1506,7 +1506,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):not([data-selected-single="true"]):hover {
   background-color: #153020 !important;
   background: #153020 !important;
-  border: 1px solid #153020 !important;
+  border: 1px solid #1a3528 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-selected-single="true"]:hover {
@@ -1523,7 +1523,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   background-color: #132a1f !important;
   background: #132a1f !important;
   color: #fff !important;
-  border: 1px solid #153020 !important;
+  border: 1px solid #1a3528 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button * {
   color: #fff !important;
@@ -1531,7 +1531,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
   background-color: #153020 !important;
   background: #153020 !important;
-  border: 1px solid #153020 !important;
+  border: 1px solid #1a3528 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
@@ -1694,7 +1694,7 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] but
   background: hsl(240 5.9% 13%) !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  border: 1px solid #153020 !important;
+  border: 1px solid #1a3528 !important;
   background-color: #132a1f !important;
   background: #132a1f !important;
   color: #fff !important;
@@ -1896,7 +1896,7 @@ html:not(.dark):not(.color) [data-slot="scheduling-panel"] [data-slot="schedulin
   background: #F2F4F6 !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
-  border: 1px solid #153020 !important;
+  border: 1px solid #1a3528 !important;
   background-color: #132a1f !important;
   background: #132a1f !important;
 }
