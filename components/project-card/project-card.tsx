@@ -22,7 +22,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const content = (
     <div
-      className={`overflow-hidden rounded-2xl shadow-elevation flex flex-col flex-1 min-h-0 w-full p-[64px] ${className ?? "bg-white"}`}
+      className={`overflow-hidden rounded-2xl shadow-elevation flex flex-col flex-1 min-h-0 w-full p-4 md:p-8 lg:p-16 ${className ?? "bg-white"}`}
       data-project-card-content
     >
       <div className="inner-card group flex flex-col gap-0 flex-1 min-h-0 items-center text-center">

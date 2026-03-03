@@ -17,7 +17,7 @@ function ChatBubble({
       data-slot="chat-bubble"
       data-variant={variant}
       className={cn(
-        "relative max-w-[85%] rounded-2xl border px-4 py-3 text-body2 border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)]",
+        "relative max-w-[85%] min-w-0 rounded-2xl border px-4 py-3 text-body2 border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)]",
         variant === "received" &&
           "rounded-bl-md bg-muted text-muted-foreground",
         variant === "sent" &&

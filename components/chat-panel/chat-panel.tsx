@@ -47,7 +47,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             Whenever you{"\u2019"}re ready, go ahead and start the conversation.
           </p>
         </SheetHeader>
-        <div className="flex-1 overflow-auto px-4 py-4">
+        <div className="flex-1 overflow-auto px-4 md:px-8 py-4 min-w-0">
           {children ?? (
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble

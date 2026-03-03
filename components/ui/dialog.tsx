@@ -107,7 +107,7 @@ function DialogContent({
         className={cn(
           centerInViewport
             ? "fixed inset-0 z-50 flex w-screen max-w-none flex-col items-center justify-center gap-4 border-0 bg-transparent p-0 shadow-none"
-            : "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed left-[50%] top-[50%] z-50 flex flex-col w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 shadow-lg duration-200 sm:rounded-lg",
+            : "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed inset-0 z-50 flex flex-col w-full h-full max-w-none max-h-none rounded-none gap-4 shadow-lg duration-200 md:left-[50%] md:top-[50%] md:right-auto md:bottom-auto md:translate-x-[-50%] md:translate-y-[-50%] md:h-auto md:max-w-[500px] md:rounded-lg lg:max-w-[600px]",
           className
         )}
         style={

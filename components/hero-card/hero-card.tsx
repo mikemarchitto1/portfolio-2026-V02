@@ -17,16 +17,16 @@ import {
 export default function HeroCard() {
   return (
     <section className="w-full max-w-[1328px] mx-auto" aria-label="Hero introduction">
-      <div className="w-full max-w-[1328px] mx-auto pt-16 px-16 pb-16">
+      <div className="w-full max-w-[1328px] mx-auto py-8 md:py-16 lg:py-24 px-4 md:px-8 lg:px-16">
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
           {/* Left: text block as shadcn Card */}
-          <div className="w-full min-w-0 pb-24 pr-16">
+          <div className="w-full min-w-0 pb-8 md:pb-16 lg:pb-24 pr-0 md:pr-8 lg:pr-16">
             <Card className="rounded-lg border bg-card text-card-foreground shadow-sm h-full">
               <CardHeader className="space-y-2">
-                <CardTitle className="text-h1 font-light text-foreground whitespace-nowrap tracking-normal">
+                <CardTitle className="text-3xl md:text-5xl lg:text-h1 font-light text-foreground whitespace-nowrap tracking-normal">
                   Hi, I{"\u2019"}m Mike
                 </CardTitle>
-                <CardDescription className="text-h5 font-light text-foreground max-w-[528px]">
+                <CardDescription className="text-base md:text-lg lg:text-h5 font-light text-foreground max-w-[528px]">
                   I design digital experiences for startups and global brands.
                 </CardDescription>
               </CardHeader>
@@ -53,7 +53,7 @@ export default function HeroCard() {
                   />
                 </div>
               </CardContent>
-              <CardFooter className="flex flex-col items-center justify-center text-center pt-6 pb-8 px-6 border-t-0">
+              <CardFooter className="flex flex-col items-center justify-center text-center pt-6 pb-8 px-4 md:px-6 border-t-0">
                 <blockquote className="profile-quote text-foreground font-light m-0">
                   <p className="italic text-body2">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
                   <cite className="not-italic block opacity-80 text-body2 mt-1">— Ralph Waldo Emerson</cite>

@@ -47,14 +47,14 @@ const TECH_ITEMS: { src: string; alt: string }[] = [
 export default function ImpactTechCard() {
   return (
     <section
-      className="w-full min-h-[520px]"
+      className="w-full min-h-0 md:min-h-[520px]"
       aria-labelledby="impact-tech-card-heading"
     >
-      <div className="w-full max-w-[1328px] mx-auto min-h-[520px] p-16">
+      <div className="w-full max-w-[1328px] mx-auto min-h-0 md:min-h-[520px] p-4 md:p-8 lg:p-16">
         <div className="w-full flex flex-col">
           <h2
             id="impact-tech-card-heading"
-            className="text-h2 font-light text-left text-foreground w-full mb-16"
+            className="text-2xl md:text-4xl lg:text-h2 font-light text-left text-foreground w-full mb-8 md:mb-16"
           >
             Impact and Tech Stack
           </h2>
@@ -91,7 +91,7 @@ export default function ImpactTechCard() {
                     <img
                       src={item.src}
                       alt={item.alt}
-                      className="w-12 h-auto object-contain shrink-0"
+                      className="w-full max-w-12 h-auto object-contain shrink-0"
                     />
                   </CardContent>
                   <CardFooter className="pt-0 pb-4 justify-center">

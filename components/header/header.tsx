@@ -14,7 +14,7 @@ export default function Header() {
   const { toggle } = useSidebar();
   return (
     <header className="sticky top-0 z-50 w-full min-w-0 bg-transparent text-foreground">
-      <div className="min-h-16 w-full min-w-0 max-w-[1328px] mx-auto flex items-center justify-start gap-2 py-4 px-16">
+      <div className="min-h-16 w-full min-w-0 max-w-[1328px] mx-auto flex items-center justify-start gap-2 py-4 px-4 md:px-8 lg:px-16">
         <div className="flex min-w-0 flex-wrap items-center gap-4">
           {/* Panel icon: black SVG, no invert so it stays black on white nav button */}
           <NavButton

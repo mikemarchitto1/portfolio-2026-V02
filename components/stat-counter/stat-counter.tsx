@@ -49,15 +49,15 @@ export function StatCounter({ value, label, startAnimation }: StatCounterProps) 
   const isTen = value === 10;
 
   return (
-    <div className="w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-[48px] pt-[36px] rounded-2xl shadow-elevation bg-white text-foreground dark:text-black color:text-black">
-      <div className="text-h1 font-light -mb-1 !py-0 text-foreground dark:text-black color:text-black">
+    <div className="w-full h-full min-h-0 flex flex-col items-center justify-center text-center p-4 md:p-8 lg:p-16 rounded-2xl shadow-elevation bg-white text-foreground dark:text-black color:text-black">
+      <div className="text-2xl md:text-h1 font-light -mb-1 !py-0 text-foreground dark:text-black color:text-black">
         {isTen ? (
           <span className="tracking-[-0.04em]">{displayValue}</span>
         ) : (
           displayValue
         )}
       </div>
-      <div className="text-h5 font-normal text-foreground dark:text-black color:text-black">
+      <div className="text-base md:text-h5 font-normal text-foreground dark:text-black color:text-black">
         {label}
       </div>
     </div>

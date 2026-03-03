@@ -149,7 +149,7 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
           data-slot="scheduling-panel"
           data-theme={theme}
           className={cn(
-            "relative flex h-[514px] min-w-[1136px] flex-col overflow-hidden rounded-lg p-0 text-black",
+            "relative flex min-h-screen lg:min-h-[514px] w-full max-w-full md:max-w-[500px] lg:max-w-[600px] flex-col overflow-hidden rounded-none md:rounded-lg p-4 md:p-8 lg:p-16 text-black",
             theme !== "light" && "shadow-lg",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]"
           )}
@@ -159,11 +159,11 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               : { backgroundColor: "var(--background)" }
           }
         >
-          {/* Three-column row: no top padding so center borders start at top; padding is inside each panel */}
-          <div className="flex h-full flex-row items-stretch gap-6 px-6 py-0">
-            {/* Left column: same width as right, 32px top padding inside */}
-            <div data-slot="scheduling-left-panel" className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col text-white">
-              <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-6 shadow-none text-white">
+          {/* Three-column row: stack on mobile, row on desktop; padding follows system */}
+          <div className="flex h-full flex-col lg:flex-row items-stretch gap-4 lg:gap-6">
+            {/* Left column */}
+            <div data-slot="scheduling-left-panel" className="flex h-full min-h-0 min-w-0 flex-1 flex-col text-white">
+              <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-4 md:pt-6 shadow-none text-white">
                 <CardHeader className="scheduling-left-header mb-6 gap-0 space-y-0 pb-0 px-0 pt-0">
                   <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-h5 text-white">
                     Introduction Call
@@ -192,9 +192,9 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               </Card>
             </div>
 
-            {/* Center column: can shrink below 480px on narrow viewports */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-[480px] shrink basis-[480px] flex-col bg-transparent px-6 overflow-hidden">
-              <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-6">
+            {/* Center column: full width on mobile, max 480px on desktop */}
+            <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-full lg:max-w-[480px] flex-1 flex-col bg-transparent overflow-hidden">
+              <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-4 md:pt-6">
                 <Calendar
                   mode="single"
                   selected={date}
@@ -210,9 +210,9 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
               </div>
             </div>
 
-            {/* Right column: 24px top padding; 24px bottom so time-slot scroll area ends 24px from main container bottom (buttons clip at that line) */}
-            <div className="flex h-full min-h-[490px] min-w-[280px] flex-1 flex-col pt-6 pb-6">
-              <div data-slot="scheduling-right-header" className="mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
+            {/* Right column: time format toggle + time slots */}
+            <div className="flex h-full min-h-0 min-w-0 flex-1 flex-col pt-4 md:pt-6 pb-4 md:pb-6">
+              <div data-slot="scheduling-right-header" className="mb-4 md:mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 min-w-0">
                 <span className="text-subtitle1 text-black dark:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                   <div
@@ -242,8 +242,8 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
                   </div>
                 </Tabs>
               </div>
-              <div className="flex flex-col overflow-y-auto" data-slot="scheduling-time-slots">
-                <div className="flex flex-col gap-2 pt-0 pb-6">
+              <div className="flex flex-col overflow-y-auto min-w-0" data-slot="scheduling-time-slots">
+                <div className="flex flex-col flex-wrap gap-2 pt-0 pb-4 md:pb-6">
                   {slots.map((slot) => (
                     <Button
                       key={slot}

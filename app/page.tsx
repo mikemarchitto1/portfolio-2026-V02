@@ -24,7 +24,7 @@ function Footer() {
   const { theme } = useTheme();
   return (
     <footer className="text-foreground w-full">
-      <div className="w-full max-w-[1328px] mx-auto px-16">
+      <div className="w-full max-w-[1328px] mx-auto px-4 md:px-8 lg:px-16">
         <div className="w-full min-w-0 py-0 text-left flex flex-col">
             <div className="w-fit p-0 m-0">
               <h1 className="text-h1 font-light text-foreground p-0 m-0" style={{ letterSpacing: 0 }}>Let’s Talk</h1>
@@ -38,8 +38,8 @@ function Footer() {
       </div>
 
       <div className="w-full">
-        <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-between items-end gap-4">
-          <div className="flex flex-col sm:flex-row gap-4">
+        <div className="max-w-[1328px] mx-auto p-4 md:p-8 lg:p-16 flex flex-col sm:flex-row justify-between items-end gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <NavButton size="lg" asChild>
               <a href="mailto:hello@carlwalker.com">Email Mike</a>
             </NavButton>
@@ -148,7 +148,7 @@ function ProjectsGrid({
 }) {
   return (
     <div
-      className="w-full min-w-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 items-stretch"
+      className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 items-stretch"
     >
       {projects.map((project, i) => (
         <ProjectCard
@@ -178,10 +178,10 @@ function ProjectCardFiftyFifty({
   href?: string;
 }) {
   const content = (
-    <div className="w-full min-w-0 p-[64px]">
-      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-[448px] rounded-2xl overflow-hidden shadow-elevation">
+    <div className="w-full min-w-0 p-4 md:p-8 lg:p-16">
+      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden shadow-elevation">
         {/* Left: product image — 50% */}
-        <div className="relative w-full h-full min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-muted">
+        <div className="relative w-full h-full min-h-[240px] md:min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-muted">
           <Image
             src={image}
             alt={title}
@@ -191,8 +191,8 @@ function ProjectCardFiftyFifty({
           />
         </div>
         {/* Right: white panel — 50%, 64px internal padding */}
-        <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-[64px] text-left">
-          <h3 className="text-h5 font-medium text-foreground dark:text-black color:text-black m-0 mb-2">{title}</h3>
+        <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-4 md:p-8 lg:p-16 text-left">
+          <h3 className="text-lg md:text-h5 font-medium text-foreground dark:text-black color:text-black m-0 mb-2">{title}</h3>
           <p className="text-body1 text-foreground dark:text-black color:text-black m-0 mb-8">{description}</p>
           <Button
             variant="outline"
@@ -235,12 +235,12 @@ export default function Home() {
 
         {/* HERO BODY — full-width wrapper + internal max-width (no max-w + px on same element) */}
         <section className="hero w-full min-w-0">
-          <div className="w-full px-16">
-            <div className="max-w-[1328px] mx-auto pt-16 pb-16">
+          <div className="w-full px-4 md:px-8 lg:px-16">
+            <div className="max-w-[1328px] mx-auto py-8 md:py-16 lg:py-24">
           <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 pb-24 pr-16 text-foreground">
-              <h1 className="hero-h1 text-h1 font-light text-foreground" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
-              <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
+            <div className="w-full min-w-0 pb-8 md:pb-16 lg:pb-24 pr-0 md:pr-8 lg:pr-16 text-foreground">
+              <h1 className="hero-h1 text-3xl md:text-5xl lg:text-h1 font-light text-foreground" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
+              <h5 className="text-base md:text-lg lg:text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
                   I{"\u2019"}m from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
@@ -261,7 +261,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <blockquote className="profile-quote shrink-0 text-foreground font-light text-center px-6 mb-8">
+              <blockquote className="profile-quote shrink-0 text-foreground font-light text-center px-4 md:px-6 mb-8">
                 <p className="italic">&ldquo;A king is a man who turns hope into action.&rdquo;</p>
                 <cite className="not-italic block opacity-80">— Ralph Waldo Emerson</cite>
               </blockquote>
@@ -272,8 +272,8 @@ export default function Home() {
         </section>
 
         {/* FEATURED WORK — single project entry in white block */}
-        <section className="hidden px-4 md:px-8 lg:px-16 pt-0 pb-16">
-          <div className="w-full max-w-[1200px] mx-auto pt-16">
+        <section className="hidden px-4 md:px-8 lg:px-16 pt-0 py-8 md:py-16 lg:py-24">
+          <div className="w-full max-w-[1200px] mx-auto">
             <div className="w-fit mb-10">
               <h2 className="text-h2 font-light text-left text-foreground p-0 m-0">Featured Work</h2>
             </div>
@@ -307,16 +307,16 @@ export default function Home() {
         </section>
 
         {/* IMPACT METRICS AND TECH STACK — full-width wrapper + internal max-width (no max-w + p on same element) */}
-        <section className="w-full min-w-0 min-h-[520px]">
-          <div className="w-full px-16">
-            <div className="max-w-[1328px] mx-auto min-h-[520px] py-16">
+        <section className="w-full min-w-0 min-h-0 md:min-h-[520px]">
+          <div className="w-full px-4 md:px-8 lg:px-16">
+            <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px] py-8 md:py-16 lg:py-24">
           <div className="w-full min-w-0 flex flex-col">
-            <div className="w-full mb-16">
-              <h2 className="text-h2 font-light text-left text-foreground">
+            <div className="w-full mb-8 md:mb-16">
+              <h2 className="text-2xl md:text-4xl lg:text-h2 font-light text-left text-foreground">
                 Impact and Tech Stack
               </h2>
             </div>
-            <div className="w-full grid grid-cols-2 gap-4">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Impact Metrics */}
               <div className="p-0 text-black flex flex-col min-h-0">
                 <div
@@ -338,28 +338,28 @@ export default function Home() {
 
               {/* Tech Stack */}
               <div className="p-0 text-foreground flex flex-col min-h-0">
-                <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-12 pt-7 md:pt-11 lg:pt-15 pb-6 md:pb-10 lg:pb-[56px] w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden">
+                <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-16 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden">
                 <div className="grid w-full min-w-0 max-w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-figma.svg"
                     alt="Figma"
-                    className="w-[89px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[89px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-cursor.svg"
                     alt="Cursor"
-                    className="w-[96px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
+                    className="w-full max-w-[96px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-openai.svg"
                     alt="OpenAI"
-                    className="w-[91px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
+                    className="w-full max-w-[91px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
                   />
                 </div>
                 {/* Row 2: Webflow, Next.js, Claude */}
@@ -367,14 +367,14 @@ export default function Home() {
                   <img
                     src="/images/logo-webflow.svg"
                     alt="Webflow"
-                    className="w-[111px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[111px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-next.svg"
                     alt="Next.js"
-                    className="w-[80px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[80px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
@@ -389,21 +389,21 @@ export default function Home() {
                   <img
                     src="/images/logo-shopify.svg"
                     alt="Shopify"
-                    className="w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[4px]"
+                    className="w-full max-w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[4px]"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-framer.svg"
                     alt="Framer"
-                    className="w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[1px]"
+                    className="w-full max-w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[1px]"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-adobe.svg"
                     alt="Adobe"
-                    className="w-[62px] h-auto object-contain object-center shrink-0 -translate-y-[3px]"
+                    className="w-full max-w-[62px] h-auto object-contain object-center shrink-0 -translate-y-[3px]"
                   />
                 </div>
                 {/* Row 4: n8n, Github, Vercel */}
@@ -411,21 +411,21 @@ export default function Home() {
                   <img
                     src="/images/logo-n8n.svg"
                     alt="n8n"
-                    className="w-[91px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[91px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-github.svg"
                     alt="GitHub"
-                    className="w-[90px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[90px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center">
                   <img
                     src="/images/logo-vercel.svg"
                     alt="Vercel"
-                    className="w-[86px] h-auto object-contain object-center shrink-0 translate-y-[1px]"
+                    className="w-full max-w-[86px] h-auto object-contain object-center shrink-0 translate-y-[1px]"
                   />
                 </div>
                 {/* Last row: col 1 = Material+Fluent+Tailwind, col 2 = React+TS+shadcn, col 3 = Ollama+OpenRouter+Hugging Face */}
@@ -433,51 +433,51 @@ export default function Home() {
                   <img
                     src="/images/logo-material.svg"
                     alt="Material UI"
-                    className="w-[27px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[27px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-fluent.svg"
                     alt="Fluent UI"
-                    className="w-[17px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[17px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-tailwindcss.svg"
                     alt="Tailwind CSS"
-                    className="w-[29px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[29px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-react.svg"
                     alt="React"
-                    className="w-[30px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[30px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-typescript.svg"
                     alt="TypeScript"
-                    className="w-[26px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[26px] h-auto object-contain object-center shrink-0"
                   />
                   <img
                     src="/images/logo-shadcn.svg"
                     alt="Shadcn UI"
-                    className="w-[23px] h-auto object-contain object-center shrink-0"
+                    className="w-full max-w-[23px] h-auto object-contain object-center shrink-0"
                   />
                 </div>
                 <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                   <img
                     src="/images/logo-ollama.svg"
                     alt="Ollama"
-                    className="m-0 block w-[19px] h-auto object-contain object-center shrink-0 p-0"
+                    className="m-0 block w-full max-w-[19px] h-auto object-contain object-center shrink-0 p-0"
                   />
                   <img
                     src="/images/logo-huggingface.svg"
                     alt="Hugging Face"
-                    className="m-0 block w-[25px] h-auto object-contain object-center shrink-0 p-0"
+                    className="m-0 block w-full max-w-[25px] h-auto object-contain object-center shrink-0 p-0"
                   />
                   <img
                     src="/images/logo-openrouter.svg"
                     alt="OpenRouter"
-                    className="m-0 block w-[21px] h-auto object-contain object-center shrink-0 p-0"
+                    className="m-0 block w-full max-w-[21px] h-auto object-contain object-center shrink-0 p-0"
                   />
                 </div>
                 </div>
@@ -490,10 +490,10 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — max-w wrapper with no horizontal padding; padding only on inner so total ≤ 1328px */}
-        <section className="w-full min-w-0 flex flex-col pt-16 pb-[92px]">
+        <section className="w-full min-w-0 flex flex-col pt-8 md:pt-16 lg:pt-24 pb-8 md:pb-16 lg:pb-24">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
-            <div className="w-full min-w-0 px-[64px] py-2 mb-0">
-              <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
+            <div className="w-full min-w-0 px-4 md:px-8 lg:px-16 py-2 mb-0">
+              <h2 className="text-2xl md:text-4xl lg:text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <div className="w-full min-w-0 flex flex-col gap-12">
               {projects.map((project, i) => (
@@ -512,7 +512,7 @@ export default function Home() {
         {/* PROJECT CARDS GRID (original) — hidden */}
         <section className="hidden flex flex-col pt-16">
           <div className="w-full flex flex-col min-w-0">
-            <div className="w-full px-[64px] py-2 mb-0">
+            <div className="w-full px-4 md:px-8 lg:px-16 py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <ProjectsGrid projects={projects} />
