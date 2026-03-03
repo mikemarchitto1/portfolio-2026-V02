@@ -28,9 +28,15 @@ function SchedulingCalendarDayButton({
   ...props
 }: React.ComponentProps<typeof DayButton>) {
   const ref = React.useRef<HTMLButtonElement>(null);
+  const { theme } = useTheme();
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus();
   }, [modifiers.focused]);
+
+  const isOutsideInColorMode = theme === "color" && modifiers.outside;
+  const spanStyle = isOutsideInColorMode
+    ? { ...dayButtonTextStyle, color: "#ffffff" as const }
+    : { ...dayButtonTextStyle, color: undefined };
 
   return (
     <button
@@ -47,20 +53,16 @@ function SchedulingCalendarDayButton({
       data-range-start={modifiers.range_start}
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
-      style={dayButtonTextStyle}
+      style={isOutsideInColorMode ? { ...dayButtonTextStyle, color: "#ffffff" } : dayButtonTextStyle}
       className={cn(
-        "rdp-day-button inline-flex items-center justify-center rounded-full transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent data-[selected-single=true]:text-white data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
+        "rdp-day-button inline-flex items-center justify-center rounded-full transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent color:data-[outside=true]:!text-white data-[selected-single=true]:text-white data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
         /* omit defaultClassNames.day to avoid library default background on unselected cells */
         className
       )}
       {...props}
     >
       <span
-        style={{
-          ...dayButtonTextStyle,
-          /* selected and outside date colors are controlled by CSS per mode */
-          color: undefined,
-        }}
+        style={spanStyle}
         className="flex min-h-0 min-w-0 flex-1 items-center justify-center text-center"
       >
         {children}

@@ -295,12 +295,12 @@ html.dark {
 ------------------------------------------------------- */
 html.color,
 .color {
-  --background: #0f261c;   /* Page: 1 shade lighter than previous #0a1d14 */
+  --background: #0c2018;   /* Page: 1 step darker than #0f261c */
   --foreground: oklch(96% 0.01 140);
 
-  --card: #0f261c;
+  --card: #0c2018;
   --card-foreground: oklch(96% 0.01 140);
-  --popover: #0f261c;
+  --popover: #0c2018;
   --popover-foreground: oklch(96% 0.01 140);
 
   --primary: #1e3d2e;      /* Forest green — button fill */
@@ -318,11 +318,11 @@ html.color,
   --destructive: oklch(57% 0.245 27.325);
 
   --border: #1a3d2e;
-  --input: #0f261c;
+  --input: #0c2018;
   --ring: #1e3d2e;
 
-  --sidebar: #132a1f;        /* left sidebar = page + 1 shade lighter */
-  --surface-sidebar-sheet: #132a1f; /* sidebar + chat sheet = page (#0f261c) + 1 shade lighter */
+  --sidebar: #0f261c;        /* left sidebar = page + 1 shade lighter */
+  --surface-sidebar-sheet: #0f261c; /* sidebar + chat sheet = page (#0c2018) + 1 shade lighter */
   --scheduling-toggle-track-bg: #132a1f; /* color mode: same as time slot buttons */
   --sidebar-foreground: oklch(96% 0.01 140);
   --sidebar-primary: #1e3d2e;
@@ -485,6 +485,28 @@ html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-trigger"]:hover {
   background-color: #333333 !important;
   color: #fff !important;
 }
+
+/* Light mode right sidebar chat sheet: pill close button = black bg, white text, no border */
+html:not(.color):not(.dark) .chat-sheet-close-pill,
+html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-footer"] button.chat-sheet-close-pill,
+html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-footer"] .chat-sheet-close-pill {
+  background-color: #000 !important;
+  background: #000 !important;
+  color: #fff !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+}
+html:not(.color):not(.dark) .chat-sheet-close-pill:hover,
+html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-footer"] button.chat-sheet-close-pill:hover,
+html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-footer"] .chat-sheet-close-pill:hover {
+  background-color: #333333 !important;
+  background: #333333 !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 html:not(.color):not(.dark) header [data-slot="button"] svg,
 html:not(.color):not(.dark) header [data-slot="dialog-trigger"] svg,
 html:not(.color):not(.dark) header [data-slot="sheet-trigger"] svg,
@@ -578,6 +600,27 @@ html.dark .chat-sheet [data-slot="dialog-trigger"]:hover,
 html.dark .chat-sheet [data-slot="sheet-trigger"]:hover {
   background-color: #e5e5e5 !important;
   color: #000 !important;
+}
+
+/* Dark mode right sidebar chat sheet: pill close button = white bg, black text, no border */
+html.dark .chat-sheet-close-pill,
+html.dark .chat-sheet [data-slot="sheet-footer"] button.chat-sheet-close-pill,
+html.dark .chat-sheet [data-slot="sheet-footer"] .chat-sheet-close-pill {
+  background-color: #fff !important;
+  background: #fff !important;
+  color: #000 !important;
+  border: none !important;
+  border-width: 0 !important;
+  box-shadow: none !important;
+}
+html.dark .chat-sheet-close-pill:hover,
+html.dark .chat-sheet [data-slot="sheet-footer"] button.chat-sheet-close-pill:hover,
+html.dark .chat-sheet [data-slot="sheet-footer"] .chat-sheet-close-pill:hover {
+  background-color: #e5e5e5 !important;
+  background: #e5e5e5 !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Dark mode sidebar: no white fill — transparent bg, white icon/text (theme toggles + close) */
@@ -1759,9 +1802,10 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   border: none !important;
 }
 /* Color mode: outside-month dates — muted so they don’t look like current month */
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"],
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button[data-outside="true"] * {
-  color: rgba(255, 255, 255, 0.5) !important;
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-outside="true"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-outside="true"] *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button[data-outside="true"] span {
+  color: #ffffff !important;
   background-color: transparent !important;
   background: transparent !important;
 }
