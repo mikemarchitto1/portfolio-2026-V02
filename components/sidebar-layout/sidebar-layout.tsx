@@ -44,7 +44,7 @@ function SidebarHeaderContent() {
         variant="ghost"
         size="icon"
         onClick={() => setOpen(false)}
-        className="sidebar-icon-btn h-12 w-12 min-h-12 min-w-12 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[#2d5a45] color:hover:text-[#2d5a45] flex items-center justify-center"
+        className="sidebar-icon-btn h-12 w-12 min-h-12 min-w-12 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)] color:hover:text-[#2d5a45] flex items-center justify-center"
         aria-label="Close sidebar"
       >
         <X className="size-5" />
@@ -65,7 +65,7 @@ function SidebarContentArea() {
         <Button
           variant="ghost"
           size="icon"
-          className="sidebar-icon-btn h-auto w-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[#2d5a45] color:hover:text-[#2d5a45]"
+          className="sidebar-icon-btn h-auto w-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)] color:hover:text-[#2d5a45]"
           aria-label="Light mode"
           onClick={() => setTheme("light")}
         >
@@ -74,7 +74,7 @@ function SidebarContentArea() {
         <Button
           variant="ghost"
           size="icon"
-          className="sidebar-icon-btn h-auto w-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[#2d5a45] color:hover:text-[#2d5a45]"
+          className="sidebar-icon-btn h-auto w-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)] color:hover:text-[#2d5a45]"
           aria-label="Dark mode"
           onClick={() => setTheme("dark")}
         >
@@ -83,7 +83,7 @@ function SidebarContentArea() {
         <Button
           variant="ghost"
           size="icon"
-          className="sidebar-icon-btn h-auto w-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[#2d5a45] color:hover:text-[#2d5a45]"
+          className="sidebar-icon-btn h-auto w-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)] color:hover:text-[#2d5a45]"
           aria-label="Color mode"
           onClick={() => setTheme("color")}
         >

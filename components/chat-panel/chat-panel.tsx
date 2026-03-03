@@ -22,7 +22,7 @@ type ChatPanelProps = {
 const defaultTrigger = (
   <Button
     variant="outline"
-    className="flex items-center gap-2 color:border-transparent color:bg-[#1e3d2e] color:text-white color:hover:bg-[#1a3528] color:[&_svg]:text-white"
+    className="flex items-center gap-2 color:border-transparent color:bg-[oklch(28%_0.055_155)] color:text-white color:hover:bg-[oklch(20%_0.04_155)] color:[&_svg]:text-white"
   >
     <MessageCircle className="h-5 w-5" />
     <span className="text-button">Let{"\u2019"}s Chat</span>
@@ -36,7 +36,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
       <SheetContent
         side="right"
         className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
-        closeButtonClassName="color:text-white color:hover:text-[#2d5a45] color:[&_svg]:text-white color:hover:[&_svg]:text-[#2d5a45]"
+        closeButtonClassName="color:text-white color:hover:text-[oklch(38%_0.065_155)] color:[&_svg]:text-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)]"
       >
         <SheetTitle className="sr-only">Chat</SheetTitle>
         <SheetHeader>
@@ -52,7 +52,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-100 dark:bg-muted color:bg-[#153020] text-black dark:text-white color:text-white border border-[#525252] dark:border-[#404040] color:border-[#244836]"
+                className="bg-gray-100 dark:bg-muted color:bg-[oklch(22%_0.045_155)] text-black dark:text-white color:text-white border border-[oklch(32%_0_0)] dark:border-[oklch(26%_0_0)] color:border-[oklch(30%_0.05_155)]"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
@@ -64,12 +64,12 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             type="text"
             placeholder="Type a message…"
             aria-label="Chat message"
-            className="chat-input-unified-field w-full rounded-md border border-black color:border-[#1e3d2e] bg-white px-4 py-3 text-body2 text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
+            className="chat-input-unified-field w-full rounded-md border border-black color:border-[oklch(28%_0.055_155)] bg-white px-4 py-3 text-body2 text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
           />
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button variant="outline" className="chat-sheet-close-pill border-[#6B7280] dark:border-[#374151] bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[#1e3d2e] color:bg-[#1e3d2e] color:hover:bg-[#244836] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
+            <Button variant="outline" className="chat-sheet-close-pill border-[oklch(51.5%_0.02_264)] dark:border-[oklch(31.5%_0.02_264)] bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[oklch(28%_0.055_155)] color:bg-[oklch(28%_0.055_155)] color:hover:bg-[oklch(30%_0.05_155)] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>
