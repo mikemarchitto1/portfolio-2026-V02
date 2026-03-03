@@ -52,7 +52,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
             <div className="text-black dark:text-white color:text-white">
               <ChatBubble
                 variant="received"
-                className="bg-gray-100 dark:bg-muted color:bg-[oklch(22%_0.045_155)] text-black dark:text-white color:text-white border border-[oklch(32%_0_0)] dark:border-[oklch(26%_0_0)] color:border-[oklch(30%_0.05_155)]"
+                className="bg-gray-100 dark:bg-muted color:bg-[oklch(22%_0.045_155)] text-black dark:text-white color:text-white border border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)]"
               >
                 <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
               </ChatBubble>
@@ -69,7 +69,7 @@ export function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps
         </div>
         <SheetFooter>
           <SheetClose asChild>
-            <Button variant="outline" className="chat-sheet-close-pill border-[oklch(51.5%_0.02_264)] dark:border-[oklch(31.5%_0.02_264)] bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent color:border-[oklch(28%_0.055_155)] color:bg-[oklch(28%_0.055_155)] color:hover:bg-[oklch(30%_0.05_155)] text-black dark:text-white color:text-white color:hover:text-white hover:text-foreground">Close</Button>
+            <Button variant="outline" className="chat-sheet-close-pill border-0 bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent text-black dark:text-white color:text-black hover:text-foreground">Close</Button>
           </SheetClose>
         </SheetFooter>
       </SheetContent>

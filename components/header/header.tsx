@@ -1,15 +1,13 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
+import { NavButton } from "@/components/ui/nav-button";
 import { BrainCircuit } from "@/components/icons/brain-circuit";
 import { Calendar, MessageCircle } from "lucide-react";
 import { useSidebar } from "@/components/ui/sidebar";
 import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
-/* Light/dark/color button colors come from globals.css */
-const navButtonClass =
-  "dark:!text-black dark:bg-background dark:border-white dark:hover:bg-white/10 color:border-transparent color:text-white color:[&_svg]:text-white";
+
 const navIconClass = "h-5 w-5 shrink-0";
 
 export default function Header() {
@@ -18,43 +16,31 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full min-w-0 bg-transparent text-foreground">
       <div className="min-h-16 w-full min-w-0 max-w-[1328px] mx-auto flex items-center justify-start gap-2 py-4 px-16">
         <div className="flex min-w-0 flex-wrap items-center gap-4">
-          <Button
-            variant="outline"
+          {/* Panel icon: black SVG, no invert so it stays black on white nav button */}
+          <NavButton
             size="icon"
             onClick={toggle}
-            className={`${navButtonClass} color:[&_img]:invert`}
             aria-label="Toggle sidebar"
           >
             <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
-          </Button>
+          </NavButton>
           <SchedulingDialog
             trigger={
-              <Button
-                variant="outline"
-                size="icon"
-                className={`${navButtonClass} [&_svg]:text-black dark:[&_svg]:text-black`}
-                aria-label="Open calendar"
-              >
+              <NavButton size="icon" aria-label="Open calendar">
                 <Calendar className={navIconClass} />
-              </Button>
+              </NavButton>
             }
           />
-          <Button
-            variant="outline"
-            className={`flex items-center gap-2 ${navButtonClass} [&_svg]:text-black dark:[&_svg]:text-black`}
-          >
+          <NavButton className="flex items-center gap-2">
             <BrainCircuit className={navIconClass} />
             <span className="text-button">AI Exploration</span>
-          </Button>
+          </NavButton>
           <ChatPanel
             trigger={
-              <Button
-                variant="outline"
-                className={`flex items-center gap-2 ${navButtonClass} [&_svg]:text-black dark:[&_svg]:text-black`}
-              >
+              <NavButton className="flex items-center gap-2">
                 <MessageCircle className={navIconClass} />
                 <span className="text-button">Let{"\u2019"}s Chat</span>
-              </Button>
+              </NavButton>
             }
           />
         </div>

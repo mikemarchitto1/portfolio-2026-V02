@@ -58,7 +58,7 @@ const Sidebar = React.forwardRef<
       {...props}
     >
       <aside
-        className="h-full min-w-0 w-full flex flex-col bg-sidebar text-sidebar-foreground overflow-hidden shadow-elevation"
+        className="h-full min-w-0 w-full flex flex-col bg-sidebar text-sidebar-foreground overflow-hidden shadow-elevation border-r border-[oklch(92%_0_0)] dark:border-[oklch(26%_0_0)] color:border-[oklch(28%_0.05_155)]"
         style={{ width }}
       >
         {children}

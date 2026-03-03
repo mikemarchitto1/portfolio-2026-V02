@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { NavButton } from "@/components/ui/nav-button";
 import ProjectCard from "@/components/project-card/project-card";
 import Header from "@/components/header/header";
 import { StatCounter } from "@/components/stat-counter/stat-counter";
@@ -39,32 +40,17 @@ function Footer() {
       <div className="w-full">
         <div className="max-w-[1328px] mx-auto p-16 flex flex-col sm:flex-row justify-between items-end gap-4">
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[oklch(28%_0.055_155)] color:text-white color:hover:bg-[oklch(20%_0.04_155)] color:hover:text-white"
-              asChild
-            >
+            <NavButton size="lg" asChild>
               <a href="mailto:hello@carlwalker.com">Email Mike</a>
-            </Button>
+            </NavButton>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[oklch(28%_0.055_155)] color:text-white color:hover:bg-[oklch(20%_0.04_155)] color:hover:text-white"
-              asChild
-            >
+            <NavButton size="lg" asChild>
               <a href="/resume.pdf" download>
                 Download Resume
               </a>
-            </Button>
+            </NavButton>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:border-white dark:text-white dark:hover:bg-white/10 color:border-transparent color:bg-[oklch(28%_0.055_155)] color:text-white color:hover:bg-[oklch(20%_0.04_155)] color:hover:text-white"
-              asChild
-            >
+            <NavButton size="lg" asChild>
               <a
                 href="https://linkedin.com/in/carlwalker"
                 target="_blank"
@@ -72,7 +58,7 @@ function Footer() {
               >
                 Connect on LinkedIn
               </a>
-            </Button>
+            </NavButton>
           </div>
           <img
             src={
@@ -257,7 +243,7 @@ export default function Home() {
               <h5 className="text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
-                  I{"\u2019"}m originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
+                  I{"\u2019"}m from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
                 </p>
               </div>
             </div>

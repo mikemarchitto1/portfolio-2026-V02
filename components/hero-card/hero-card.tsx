@@ -32,7 +32,7 @@ export default function HeroCard() {
               </CardHeader>
               <CardContent className="text-body1 text-foreground space-y-4">
                 <p>
-                  I{"\u2019"}m originally from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
+                  I{"\u2019"}m from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
                 </p>
               </CardContent>
             </Card>

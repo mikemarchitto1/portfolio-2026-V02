@@ -49,7 +49,7 @@ export default function ProjectCard({
         <Button
           variant="outline"
           size="lg"
-          className="project-card-cta mt-6 w-fit shrink-0 rounded-full border border-foreground text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:bg-black dark:border-black dark:text-white dark:hover:bg-black/90 color:border-transparent color:bg-[oklch(28%_0.055_155)] color:text-white color:hover:bg-[oklch(20%_0.04_155)] color:hover:text-white"
+          className="project-card-cta mt-6 w-fit shrink-0 rounded-full border-0 text-foreground hover:bg-foreground/[0.02] hover:text-foreground dark:bg-black dark:text-white dark:hover:bg-black/90 color:bg-[oklch(28%_0.055_155)] color:text-white color:hover:bg-[oklch(20%_0.04_155)] color:hover:text-white"
           asChild
         >
           <span>See Case Study</span>

@@ -20,6 +20,9 @@ import { useTheme } from "@/hooks/use-theme";
 /** Day button for scheduling calendar: same text style/size as time slot buttons (14px, 500) */
 const dayButtonTextStyle = { fontSize: "14px", lineHeight: "20px", fontWeight: 500 as const };
 
+/** Color mode page/scheduling panel background — must match globals.css .color { --background } */
+const COLOR_THEME_BACKGROUND = "oklch(24% 0.035 165)";
+
 function SchedulingCalendarDayButton({
   className,
   day,
@@ -141,14 +144,20 @@ export function SchedulingDialog({ trigger }: SchedulingDialogProps) {
           <XIcon className="size-6 shrink-0 text-white" />
         </DialogClose>
 
-        {/* Main wrapper: overflow-hidden so center borders stay flush with edges */}
+        {/* Main wrapper: same bg as page. Color mode uses literal value so it works in portal. */}
         <div
           data-slot="scheduling-panel"
           data-theme={theme}
           className={cn(
-            "relative flex h-[514px] min-w-[1136px] flex-col overflow-hidden rounded-lg bg-white p-0 text-black",
-            theme !== "light" && "shadow-lg"
+            "relative flex h-[514px] min-w-[1136px] flex-col overflow-hidden rounded-lg p-0 text-black",
+            theme !== "light" && "shadow-lg",
+            theme === "color" && "!bg-[oklch(24%_0.035_165)]"
           )}
+          style={
+            theme === "color"
+              ? { backgroundColor: COLOR_THEME_BACKGROUND }
+              : { backgroundColor: "var(--background)" }
+          }
         >
           {/* Three-column row: no top padding so center borders start at top; padding is inside each panel */}
           <div className="flex h-full flex-row items-stretch gap-6 px-6 py-0">

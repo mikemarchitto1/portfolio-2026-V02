@@ -183,8 +183,8 @@ main {
   --chart-4: oklch(82.8% 0.189 84.429);
   --chart-5: oklch(76.9% 0.188 70.08);
 
-  --sidebar: oklch(98.5% 0 0);
-  --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
+  --sidebar: var(--background);
+  --surface-sidebar-sheet: var(--background); /* sidebar + chat sheet = page bg */
   --scheduling-toggle-track-bg: oklch(96.2% 0.004 264); /* light: same grey as time slot & calendar buttons */
   --sidebar-primary: oklch(20% 0 0);
   --sidebar-primary-foreground: oklch(98.5% 0 0);
@@ -253,7 +253,9 @@ main {
 .dark,
 html.dark {
   --scheduling-toggle-track-bg: oklch(0% 0 0); /* 12h/24h toggle track black in dark mode */
-  --background: oklch(14.5% 0 0);
+  --scheduling-unselected-btn: oklch(32% 0 0); /* date + time slot buttons: same as unselected toggle */
+  --scheduling-unselected-btn-hover: oklch(36% 0 0);
+  --background: oklch(20.5% 0 0);
   --foreground: oklch(98.5% 0 0);
   --card: oklch(20.5% 0 0);
   --card-foreground: oklch(98.5% 0 0);
@@ -277,8 +279,8 @@ html.dark {
   --border: oklch(51.5% 0.02 264);
   --input: oklch(31.5% 0.02 264);
   --ring: oklch(55.6% 0 0);
-  --sidebar: oklch(14.2% 0.015 264);  /* match page background */
-  --surface-sidebar-sheet: var(--sidebar); /* shared: sidebar + chat sheet same bg */
+  --sidebar: var(--background);
+  --surface-sidebar-sheet: var(--background);
   --sidebar-foreground: oklch(96.5% 0.005 264);
   --sidebar-primary: oklch(55% 0.2 264);
   --sidebar-primary-foreground: oklch(100% 0 0);
@@ -293,7 +295,7 @@ html.dark {
 ------------------------------------------------------- */
 html.color,
 .color {
-  --background: oklch(14% 0.035 165);   /* Page: 1 step darker than #0f261c */
+  --background: oklch(24% 0.035 165);   /* Page background */
   --foreground: oklch(96% 0.01 140);
 
   --card: oklch(14% 0.035 165);
@@ -319,8 +321,8 @@ html.color,
   --input: oklch(14% 0.035 165);
   --ring: oklch(28% 0.055 155);
 
-  --sidebar: oklch(16% 0.035 162);        /* left sidebar = page + 1 shade lighter */
-  --surface-sidebar-sheet: oklch(16% 0.035 162); /* sidebar + chat sheet = page (#0c2018) + 1 shade lighter */
+  --sidebar: var(--background);
+  --surface-sidebar-sheet: var(--background); /* sidebar + chat sheet = page bg */
   --scheduling-toggle-track-bg: oklch(18% 0.045 158); /* color mode: same as time slot buttons */
   --sidebar-foreground: oklch(96% 0.01 140);
   --sidebar-primary: oklch(28% 0.055 155);
@@ -443,6 +445,14 @@ html.color,
    Include dialog-trigger and sheet-trigger: Radix asChild overwrites data-slot so
    triggers render as [data-slot="dialog-trigger"] / [data-slot="sheet-trigger"].
 ------------------------------------------------------- */
+/* All buttons: no border */
+button,
+[data-slot="button"],
+[data-slot="dialog-trigger"],
+[data-slot="sheet-trigger"] {
+  border: none !important;
+  border-width: 0 !important;
+}
 /* Light: filled black bg, white text, no border — one rule for all page buttons */
 html:not(.color):not(.dark) header button[data-slot="button"],
 html:not(.color):not(.dark) header [data-slot="button"],
@@ -669,7 +679,6 @@ html.dark main a.project-card-cta,
 html.dark main span.project-card-cta {
   background-color: oklch(0% 0 0) !important;
   color: oklch(100% 0 0) !important;
-  border-color: oklch(0% 0 0) !important;
 }
 html.dark main [data-slot="button"].project-card-cta:hover,
 html.dark main button.project-card-cta:hover,
@@ -770,16 +779,193 @@ html.color footer button[data-slot="button"] {
   background: oklch(28% 0.055 155) !important;
   color: white !important;
 }
+/* Color mode: header and footer buttons = white bg, black text (override green above) */
+html.color header [data-slot="button"],
+html.color header [data-slot="dialog-trigger"],
+html.color header [data-slot="sheet-trigger"],
+html.color header button[data-slot="button"],
+html.color footer [data-slot="button"],
+html.color footer [data-slot="dialog-trigger"],
+html.color footer [data-slot="sheet-trigger"],
+html.color footer button[data-slot="button"] {
+  background-color: oklch(100% 0 0) !important;
+  background: oklch(100% 0 0) !important;
+  color: oklch(0% 0 0) !important;
+}
+html.color header [data-slot="button"]:hover,
+html.color header [data-slot="dialog-trigger"]:hover,
+html.color header [data-slot="sheet-trigger"]:hover,
+html.color header button[data-slot="button"]:hover,
+html.color footer [data-slot="button"]:hover,
+html.color footer [data-slot="dialog-trigger"]:hover,
+html.color footer [data-slot="sheet-trigger"]:hover,
+html.color footer button[data-slot="button"]:hover {
+  background-color: oklch(91% 0 0) !important;
+  background: oklch(91% 0 0) !important;
+  color: oklch(0% 0 0) !important;
+}
 html.color header [data-slot="button"] svg,
 html.color header [data-slot="dialog-trigger"] svg,
 html.color header [data-slot="sheet-trigger"] svg,
-html.color main [data-slot="button"] svg,
-html.color main [data-slot="dialog-trigger"] svg,
-html.color main [data-slot="sheet-trigger"] svg,
-html.color main .project-card-cta svg,
 html.color footer [data-slot="button"] svg,
 html.color footer [data-slot="dialog-trigger"] svg,
 html.color footer [data-slot="sheet-trigger"] svg {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+  fill: none !important;
+}
+/* Color mode header/footer: icon lines black, no fill (outline style) */
+html.color header [data-slot="button"] svg path,
+html.color header [data-slot="button"] svg circle,
+html.color header [data-slot="button"] svg line,
+html.color header [data-slot="button"] svg polyline,
+html.color header [data-slot="button"] svg polygon,
+html.color header [data-slot="button"] svg rect,
+html.color header [data-slot="dialog-trigger"] svg path,
+html.color header [data-slot="dialog-trigger"] svg circle,
+html.color header [data-slot="dialog-trigger"] svg line,
+html.color header [data-slot="dialog-trigger"] svg polyline,
+html.color header [data-slot="dialog-trigger"] svg polygon,
+html.color header [data-slot="dialog-trigger"] svg rect,
+html.color header [data-slot="sheet-trigger"] svg path,
+html.color header [data-slot="sheet-trigger"] svg circle,
+html.color header [data-slot="sheet-trigger"] svg line,
+html.color header [data-slot="sheet-trigger"] svg polyline,
+html.color header [data-slot="sheet-trigger"] svg polygon,
+html.color header [data-slot="sheet-trigger"] svg rect,
+html.color header button[data-slot="button"] svg path,
+html.color header button[data-slot="button"] svg circle,
+html.color header button[data-slot="button"] svg line,
+html.color header button[data-slot="button"] svg polyline,
+html.color header button[data-slot="button"] svg polygon,
+html.color header button[data-slot="button"] svg rect {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+  fill: none !important;
+}
+/* Catch-all: stroke only, no fill */
+html.color header [data-slot="button"] svg *,
+html.color header [data-slot="dialog-trigger"] svg *,
+html.color header [data-slot="sheet-trigger"] svg *,
+html.color header button svg *,
+html.color footer [data-slot="button"] svg *,
+html.color footer [data-slot="dialog-trigger"] svg *,
+html.color footer [data-slot="sheet-trigger"] svg *,
+html.color footer button svg * {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+  fill: none !important;
+}
+
+/* Nav button: white bg + black icons only in dark and color mode (light uses rules below) */
+html.dark header .nav-button,
+html.dark footer .nav-button,
+html.color header .nav-button,
+html.color footer .nav-button {
+  background-color: oklch(100% 0 0) !important;
+  color: oklch(0% 0 0) !important;
+  border: none !important;
+}
+html.dark header .nav-button:hover,
+html.dark footer .nav-button:hover,
+html.color header .nav-button:hover,
+html.color footer .nav-button:hover {
+  background-color: oklch(91.2% 0 0) !important;
+  color: oklch(0% 0 0) !important;
+}
+html.dark header .nav-button svg,
+html.dark footer .nav-button svg,
+html.color header .nav-button svg,
+html.color footer .nav-button svg {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+  fill: none !important;
+}
+html.dark header .nav-button svg path,
+html.dark header .nav-button svg circle,
+html.dark header .nav-button svg line,
+html.dark header .nav-button svg polyline,
+html.dark header .nav-button svg polygon,
+html.dark header .nav-button svg rect,
+html.dark footer .nav-button svg path,
+html.dark footer .nav-button svg circle,
+html.dark footer .nav-button svg line,
+html.dark footer .nav-button svg polyline,
+html.dark footer .nav-button svg polygon,
+html.dark footer .nav-button svg rect,
+html.color header .nav-button svg path,
+html.color header .nav-button svg circle,
+html.color header .nav-button svg line,
+html.color header .nav-button svg polyline,
+html.color header .nav-button svg polygon,
+html.color header .nav-button svg rect,
+html.color footer .nav-button svg path,
+html.color footer .nav-button svg circle,
+html.color footer .nav-button svg line,
+html.color footer .nav-button svg polyline,
+html.color footer .nav-button svg polygon,
+html.color footer .nav-button svg rect {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+  fill: none !important;
+}
+html.dark header .nav-button svg *,
+html.dark footer .nav-button svg *,
+html.color header .nav-button svg *,
+html.color footer .nav-button svg * {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+  fill: none !important;
+}
+
+/* Light mode: header/footer nav buttons = black bg, white icons and text */
+html:not(.color):not(.dark) header .nav-button,
+html:not(.color):not(.dark) footer .nav-button {
+  background-color: oklch(0% 0 0) !important;
+  color: oklch(100% 0 0) !important;
+  border: none !important;
+}
+html:not(.color):not(.dark) header .nav-button:hover,
+html:not(.color):not(.dark) footer .nav-button:hover {
+  background-color: oklch(0% 0 0) !important;
+  color: oklch(100% 0 0) !important;
+}
+html:not(.color):not(.dark) header .nav-button svg,
+html:not(.color):not(.dark) footer .nav-button svg {
+  color: oklch(100% 0 0) !important;
+  stroke: oklch(100% 0 0) !important;
+  fill: none !important;
+}
+html:not(.color):not(.dark) header .nav-button svg path,
+html:not(.color):not(.dark) header .nav-button svg circle,
+html:not(.color):not(.dark) header .nav-button svg line,
+html:not(.color):not(.dark) header .nav-button svg polyline,
+html:not(.color):not(.dark) header .nav-button svg polygon,
+html:not(.color):not(.dark) header .nav-button svg rect,
+html:not(.color):not(.dark) footer .nav-button svg path,
+html:not(.color):not(.dark) footer .nav-button svg circle,
+html:not(.color):not(.dark) footer .nav-button svg line,
+html:not(.color):not(.dark) footer .nav-button svg polyline,
+html:not(.color):not(.dark) footer .nav-button svg polygon,
+html:not(.color):not(.dark) footer .nav-button svg rect {
+  color: oklch(100% 0 0) !important;
+  stroke: oklch(100% 0 0) !important;
+  fill: none !important;
+}
+html:not(.color):not(.dark) header .nav-button svg *,
+html:not(.color):not(.dark) footer .nav-button svg * {
+  color: oklch(100% 0 0) !important;
+  stroke: oklch(100% 0 0) !important;
+  fill: none !important;
+}
+html:not(.color):not(.dark) header .nav-button img {
+  filter: brightness(0) invert(1);
+}
+
+html.color main [data-slot="button"] svg,
+html.color main [data-slot="dialog-trigger"] svg,
+html.color main [data-slot="sheet-trigger"] svg,
+html.color main .project-card-cta svg {
   color: white !important;
   stroke: white !important;
 }
@@ -970,9 +1156,9 @@ html.color main .profile-quote cite {
 
 /* Color theme — force green palette everywhere */
 html.color {
-  --background: oklch(16% 0.035 162) !important;  /* page */
-  --sidebar: oklch(18% 0.045 158) !important;     /* left sidebar = page + 1 shade lighter */
-  --surface-sidebar-sheet: oklch(18% 0.045 158) !important;
+  --background: oklch(24% 0.035 165) !important;  /* page — match .color */
+  --sidebar: var(--background) !important;
+  --surface-sidebar-sheet: var(--background) !important;
   --card: oklch(16% 0.035 162) !important;
   --popover: oklch(16% 0.035 162) !important;
   --primary: oklch(28% 0.055 155) !important;
@@ -988,34 +1174,30 @@ html.color {
   --border: oklch(27% 0.055 155) !important;
   --input: oklch(16% 0.035 162) !important;
 }
-/* Force color mode backgrounds: page/main 1 shade lighter */
+/* Force color mode backgrounds: use --background so page/main follow theme variable */
 html.color,
 html.color body {
-  background-color: oklch(16% 0.035 162) !important;
+  background-color: var(--background) !important;
 }
 html.color main {
-  background-color: oklch(16% 0.035 162) !important;
+  background-color: var(--background) !important;
 }
 html.color [data-slot="dialog-content"]:not([data-transparent-backdrop]) {
-  background-color: oklch(16% 0.035 162) !important;
+  background-color: var(--background) !important;
 }
-/* Color mode: sidebar and sheet use --surface-sidebar-sheet (#0f261c) set in html.color above */
+/* Color mode: sidebar and sheet = page background */
 html.color [data-slot="sheet-content"],
 html.color .bg-sidebar,
 html.color [data-sidebar="header"],
 html.color [data-sidebar="content"],
 html.color [data-sidebar="footer"] {
-  background-color: var(--surface-sidebar-sheet) !important;
+  background-color: var(--background) !important;
 }
 /* Color mode: nav and footer buttons — resting #1e3d2e, hover 1 shade lighter (#244836) */
-html.color header [data-slot="button"]:hover,
-html.color header button:hover,
 html.color main [data-slot="button"]:hover,
 html.color main button:hover,
 html.color main a.project-card-cta:hover,
-html.color main .project-card-cta:hover,
-html.color footer [data-slot="button"]:hover,
-html.color footer button:hover {
+html.color main .project-card-cta:hover {
   background-color: oklch(30% 0.05 155) !important;
   background: oklch(30% 0.05 155) !important;
   color: white !important;
@@ -1032,6 +1214,23 @@ html.color .chat-sheet [data-slot="sheet-footer"] button:hover,
 html.color .chat-sheet [data-slot="sheet-footer"] [data-slot="button"]:hover {
   background-color: oklch(30% 0.05 155) !important;
   background: oklch(30% 0.05 155) !important;
+}
+/* Color mode chat sheet: bottom Close pill = white bg, black text (override Tailwind green) */
+html.color .chat-sheet-close-pill,
+html.color .chat-sheet [data-slot="sheet-footer"] button.chat-sheet-close-pill,
+html.color .chat-sheet [data-slot="sheet-footer"] .chat-sheet-close-pill {
+  background-color: oklch(100% 0 0) !important;
+  background: oklch(100% 0 0) !important;
+  color: oklch(0% 0 0) !important;
+  border: none !important;
+}
+html.color .chat-sheet-close-pill:hover,
+html.color .chat-sheet [data-slot="sheet-footer"] button.chat-sheet-close-pill:hover,
+html.color .chat-sheet [data-slot="sheet-footer"] .chat-sheet-close-pill:hover {
+  background-color: oklch(91% 0 0) !important;
+  background: oklch(91% 0 0) !important;
+  color: oklch(0% 0 0) !important;
+  border: none !important;
 }
 
 /* Chat sheet (color mode): X close button and icon white, no background fill; hover = forest green */
@@ -1210,24 +1409,22 @@ html.color [data-slot="dialog-content"]:has([data-slot="scheduling-panel"]) {
   background: transparent !important;
 }
 
-/* Scheduling panel: fallback background when no mode class (light/dark/color set their own below) */
+/* Scheduling panel: fallback only; component sets background via inline style so it wins in portal */
 [data-slot="scheduling-panel"] {
-  background-color: var(--sidebar) !important;
+  background-color: var(--background);
 }
 
 /* ===== LIGHT MODE SCHEDULING (no .color, no .dark): same bg as sidebar/chat sheet ===== */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] {
-  --scheduling-border: oklch(68.5% 0.015 264); /* time slot & calendar button border; toggle uses same */
-  background-color: var(--sidebar) !important;
+  --scheduling-border: oklch(68.5% 0.015 264); /* calendar wrap divider; container border = time slot color */
+  background-color: var(--background) !important;
   color: oklch(24% 0.02 264) !important;
-  border: none !important;
-  border-width: 0 !important;
+  border: 1px solid oklch(87% 0.005 264) !important; /* 1 step darker */
   box-shadow: none !important;
   outline: none !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] {
-  border: none !important;
-  border-width: 0 !important;
+  border: 1px solid oklch(87% 0.005 264) !important; /* 1 step darker */
   box-shadow: none !important;
   outline: none !important;
 }
@@ -1447,11 +1644,16 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border-color: oklch(85% 0.01 264) !important;
 }
 /* ========== DARK MODE SCHEDULING (dark greys, light text) ========== */
-/* Panel = 1 step darker than sidebar, border-neutral-600, text-white */
+/* Panel = 1 step darker than sidebar, border-neutral-600, text-white. Set unselected-btn vars on panel so portaled content gets same color as time slots. */
+html.dark [data-slot="scheduling-panel"],
+[data-slot="scheduling-panel"][data-theme="dark"] {
+  --scheduling-unselected-btn: oklch(32% 0 0);
+  --scheduling-unselected-btn-hover: oklch(36% 0 0);
+}
 html.dark [data-slot="scheduling-panel"] {
-  background-color: oklch(18% 0 0) !important;
-  background: oklch(18% 0 0) !important;
-  border: 1px solid oklch(22% 0 0) !important; /* slightly lighter than neutral-900 */
+  background-color: var(--background) !important;
+  background: var(--background) !important;
+  border: 1px solid oklch(28% 0 0) !important; /* 1 step darker */
   color: oklch(100% 0 0) !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
@@ -1513,16 +1715,16 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] 
   border-left-color: oklch(32% 0 0) !important; /* neutral-600 */
   border-right-color: oklch(26% 0 0) !important;
 }
-/* Dark: unselected date = neutral-800, text-white */
+/* Dark: unselected date = same as time slot (shared variable) */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: var(--scheduling-unselected-btn) !important;
+  background: var(--scheduling-unselected-btn) !important;
   color: oklch(100% 0 0) !important;
   border: none !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]):hover {
-  background-color: oklch(26% 0 0) !important;
-  background: oklch(26% 0 0) !important;
+  background-color: var(--scheduling-unselected-btn-hover) !important;
+  background: var(--scheduling-unselected-btn-hover) !important;
   border: none !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) * {
@@ -1574,10 +1776,10 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] b
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) {
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: oklch(32% 0 0) !important;
+  background: oklch(32% 0 0) !important;
   color: oklch(100% 0 0) !important;
-  border: 1px solid oklch(22% 0 0) !important;
+  border: 1px solid oklch(32% 0 0) !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) *,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
@@ -1585,17 +1787,17 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] b
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]):hover,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]):hover {
-  background-color: oklch(32% 0 0) !important;
-  background: oklch(32% 0 0) !important;
-  border-color: oklch(32% 0 0) !important;
+  background-color: oklch(36% 0 0) !important;
+  background: oklch(36% 0 0) !important;
+  border-color: oklch(36% 0 0) !important;
   color: oklch(100% 0 0) !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: oklch(28% 0 0) !important;
+  background: oklch(28% 0 0) !important;
   color: oklch(100% 0 0) !important;
-  border: 1px solid oklch(22% 0 0) !important;
+  border: 1px solid oklch(28% 0 0) !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] *,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
@@ -1612,68 +1814,82 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] b
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover *,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover * {
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: oklch(28% 0 0) !important;
+  background: oklch(28% 0 0) !important;
   color: oklch(100% 0 0) !important;
-  border-color: oklch(22% 0 0) !important;
+  border-color: oklch(28% 0 0) !important;
 }
 /* ========== COLOR MODE SCHEDULING (green theme) — borders one shade lighter #1e3d2e ========== */
 html.color [data-slot="scheduling-panel"] {
   background-color: oklch(14% 0.035 165) !important;  /* one step darker than #0f261c */
   --scheduling-border: oklch(28% 0.055 155);
-  border: 1px solid oklch(20% 0.04 158) !important;  /* slightly lighter than #152a20 */
+  border: 1px solid oklch(30% 0.05 155) !important;  /* 1 step darker */
 }
 /* Center column left/right borders */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
   border-left-color: oklch(28% 0.055 155) !important;
   border-right-color: oklch(28% 0.055 155) !important;
 }
-/* Color mode: two-segment toggle like dark — transparent track, unselected = dark green, selected = accent green */
+/* Color mode: two-segment toggle like dark — transparent track, unselected = lighter green, selected = darker green. Use both html.color and data-theme so portaled panel gets styles. */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"],
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-toggle-wrap"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [data-slot="scheduling-toggle-wrap"],
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] [data-slot="scheduling-toggle-wrap"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] [role="tablist"],
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"] {
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] [role="tablist"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle"],
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-toggle"] {
   border: none !important;
   background-color: transparent !important;
   background: transparent !important;
 }
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"] {
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-toggle-wrap"],
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-toggle-wrap"] {
   padding: 0 !important;
 }
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) {
-  background-color: oklch(28% 0.055 155) !important;
-  background: oklch(28% 0.055 155) !important;
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]),
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) {
+  background-color: oklch(34% 0.052 155) !important;
+  background: oklch(34% 0.052 155) !important;
   color: oklch(100% 0 0) !important;
-  border: 1px solid oklch(28% 0.055 155) !important;
+  border: 1px solid oklch(34% 0.052 155) !important;
 }
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
-  color: oklch(100% 0 0) !important;
-}
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]):hover {
-  background-color: oklch(30% 0.05 155) !important;
-  background: oklch(30% 0.05 155) !important;
-  border-color: oklch(30% 0.05 155) !important;
-}
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
-  background-color: oklch(22% 0.045 155) !important;
-  background: oklch(22% 0.045 155) !important;
-  color: oklch(100% 0 0) !important;
-  border: 1px solid oklch(22% 0.045 155) !important;
-}
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
   color: oklch(100% 0 0) !important;
 }
-/* Selected (dark green) = no hover — disable pointer so it never receives hover */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]):hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]):hover {
+  background-color: oklch(36% 0.048 155) !important;
+  background: oklch(36% 0.048 155) !important;
+  border-color: oklch(36% 0.048 155) !important;
+}
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
+  background-color: oklch(30% 0.04 158) !important;
+  background: oklch(30% 0.04 158) !important;
+  color: oklch(100% 0 0) !important;
+  border: 1px solid oklch(30% 0.04 158) !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
+  color: oklch(100% 0 0) !important;
+}
+/* Selected = no hover — disable pointer so it never receives hover */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"],
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
   pointer-events: none !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover,
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover * {
-  background-color: oklch(22% 0.045 155) !important;
-  background: oklch(22% 0.045 155) !important;
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"]:hover * {
+  background-color: oklch(30% 0.04 158) !important;
+  background: oklch(30% 0.04 158) !important;
   color: oklch(100% 0 0) !important;
-  border-color: oklch(22% 0.045 155) !important;
+  border-color: oklch(30% 0.04 158) !important;
 }
 /* Center/right default text (unselected date boxes and time slot buttons = white via rules below; other center/right text handled per block) */
 /* Left panel: color mode — transparent bg, white text; avatar no background (no black behind letter) */
@@ -1742,19 +1958,20 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   color: oklch(100% 0 0) !important;
 }
 /* Color mode: all in-month date buttons (unselected + selected) = same color (#1e3d2e) so circle matches squares */
+/* Unselected date cells = same as unselected toggle */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]) {
-  background-color: oklch(28% 0.055 155) !important;
-  background: oklch(28% 0.055 155) !important;
+  background-color: oklch(34% 0.052 155) !important;
+  background: oklch(34% 0.052 155) !important;
   color: oklch(100% 0 0) !important;
   border: none !important;
 }
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]) * {
   color: oklch(100% 0 0) !important;
 }
-/* Hover: same for unselected and selected */
+/* Hover: same as unselected toggle hover */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-outside="true"]):hover {
-  background-color: oklch(30% 0.05 155) !important;
-  background: oklch(30% 0.05 155) !important;
+  background-color: oklch(36% 0.048 155) !important;
+  background: oklch(36% 0.048 155) !important;
   border: none !important;
 }
 /* Color mode: day cell wrapper when selected — same dark green so circle doesn’t look light */
@@ -1784,19 +2001,32 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
   border-left-width: 0 !important;
   border-right-width: 0 !important;
 }
-/* Color mode: time slot buttons = same as chat sheet close button (#1e3d2e); hover = #244836 */
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
-  background-color: oklch(28% 0.055 155) !important;
-  background: oklch(28% 0.055 155) !important;
+/* Color mode: time slot buttons = same as unselected toggle (34% / 36% hover) */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] ~ div button,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-time-slots"] button,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"],
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-time-slot-btn"] {
+  background-color: oklch(34% 0.052 155) !important;
+  background: oklch(34% 0.052 155) !important;
   color: oklch(100% 0 0) !important;
   border: none !important;
 }
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button * {
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] ~ div button *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-time-slots"] button * {
   color: oklch(100% 0 0) !important;
 }
-html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: oklch(30% 0.05 155) !important;
-  background: oklch(30% 0.05 155) !important;
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-header"] ~ div button:hover,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button:hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-time-slots"] button:hover,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"]:hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-time-slot-btn"]:hover {
+  background-color: oklch(36% 0.048 155) !important;
+  background: oklch(36% 0.048 155) !important;
   border: none !important;
 }
 /* Color mode: outside-month dates — muted so they don’t look like current month */
@@ -1993,16 +2223,16 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"],
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-time-slot-btn"] {
   border: none !important;
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: var(--scheduling-unselected-btn) !important;
+  background: var(--scheduling-unselected-btn) !important;
   color: oklch(100% 0 0) !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button:hover,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button:hover,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-time-slots"] button:hover,
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-header"] ~ div button:hover {
-  background-color: oklch(26% 0 0) !important;
-  background: oklch(26% 0 0) !important;
+  background-color: var(--scheduling-unselected-btn-hover) !important;
+  background: var(--scheduling-unselected-btn-hover) !important;
 }
 /* Color mode time slots: use ~ div button in color block above; selected/disabled there too */
 /* Time slot hover: color mode only (light green) — light/dark use grey hover in their blocks */
@@ -2203,14 +2433,14 @@ html:not(.dark):not(.color) [data-slot="scheduling-panel"] [data-slot="schedulin
 /* Color mode time slots: styled via [data-slot="scheduling-right-header"] ~ div button in color block above */
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
   border: none !important;
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: var(--scheduling-unselected-btn) !important;
+  background: var(--scheduling-unselected-btn) !important;
   color: oklch(100% 0 0) !important;
 }
 [data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-time-slot-btn"] {
   border: none !important;
-  background-color: oklch(22% 0 0) !important;
-  background: oklch(22% 0 0) !important;
+  background-color: var(--scheduling-unselected-btn) !important;
+  background: var(--scheduling-unselected-btn) !important;
   color: oklch(100% 0 0) !important;
 }
 
