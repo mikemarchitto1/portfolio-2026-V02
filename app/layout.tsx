@@ -1,8 +1,10 @@
+import "./runtime-debug";
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/hooks/use-theme";
-import Layout from "@/components/layout/layout";
+import ErrorBoundary from "./error-boundary";
+import SidebarLayout from "@/components/sidebar-layout/sidebar-layout";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -48,7 +50,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
         <ThemeProvider>
-          <Layout>{children}</Layout>
+          <ErrorBoundary>
+            <SidebarLayout>{children}</SidebarLayout>
+          </ErrorBoundary>
         </ThemeProvider>
       </body>
     </html>

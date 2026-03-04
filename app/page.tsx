@@ -23,9 +23,9 @@ const bg = (hex: string) => (SHOW_BACKGROUND_COLORS ? `bg-[${hex}]` : "");
 function Footer() {
   const { theme } = useTheme();
   return (
-    <footer className="text-foreground w-full">
-      <div className="w-full max-w-[1328px] mx-auto px-4 md:px-8 lg:px-16">
-        <div className="w-full min-w-0 py-0 text-left flex flex-col">
+    <footer className="text-foreground w-full bg-[oklch(88%_0.09_25)] dark:bg-[oklch(24%_0.07_25)]">
+      <div className="w-full max-w-[1328px] mx-auto px-4 md:px-8 lg:px-16 py-6 md:py-8">
+        <div className="w-full min-w-0 bg-[oklch(88%_0.10_175)] dark:bg-[oklch(28%_0.08_175)] text-left flex flex-col">
             <div className="w-fit p-0 m-0">
               <h1 className="text-h1 font-light text-foreground p-0 m-0" style={{ letterSpacing: 0 }}>Let’s Talk</h1>
             </div>
@@ -37,7 +37,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full bg-[oklch(88%_0.09_265)] dark:bg-[oklch(26%_0.07_265)]">
         <div className="max-w-[1328px] mx-auto p-4 md:p-8 lg:p-16 flex flex-col sm:flex-row justify-between items-end gap-4">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <NavButton size="lg" asChild>
@@ -178,10 +178,10 @@ function ProjectCardFiftyFifty({
   href?: string;
 }) {
   const content = (
-    <div className="w-full min-w-0 p-4 md:p-8 lg:p-16">
+    <div className="w-full min-w-0 p-4 md:p-8 lg:p-16 bg-[oklch(88%_0.10_120)] dark:bg-[oklch(26%_0.08_120)]">
       <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden shadow-elevation">
         {/* Left: product image — 50% */}
-        <div className="relative w-full h-full min-h-[240px] md:min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-muted">
+        <div className="relative w-full h-full min-h-[240px] md:min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-[oklch(86%_0.09_210)] dark:bg-[oklch(24%_0.07_210)]">
           <Image
             src={image}
             alt={title}
@@ -190,9 +190,9 @@ function ProjectCardFiftyFifty({
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
-        {/* Right: white panel — 50%, 64px internal padding */}
-        <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-white p-4 md:p-8 lg:p-16 text-left">
-          <h3 className="text-lg md:text-h5 font-medium text-foreground dark:text-black color:text-black m-0 mb-2">{title}</h3>
+        {/* Right: text panel — 50%, 64px internal padding */}
+        <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl rounded-br-2xl md:rounded-b-none md:rounded-r-2xl md:rounded-tr-2xl md:rounded-br-2xl bg-[oklch(88%_0.11_340)] dark:bg-[oklch(26%_0.09_340)] p-4 md:p-8 lg:p-16 text-left">
+          <h3 className="text-h6 md:text-h5 font-medium text-foreground dark:text-black color:text-black m-0 mb-2">{title}</h3>
           <p className="text-body1 text-foreground dark:text-black color:text-black m-0 mb-8">{description}</p>
           <Button
             variant="outline"
@@ -234,13 +234,13 @@ export default function Home() {
         <Header />
 
         {/* HERO BODY — full-width wrapper + internal max-width (no max-w + px on same element) */}
-        <section className="hero w-full min-w-0">
+        <section className="hero w-full min-w-0 bg-[oklch(93%_0.08_75)] dark:bg-[oklch(30%_0.07_75)]">
           <div className="w-full px-4 md:px-8 lg:px-16">
             <div className="max-w-[1328px] mx-auto py-8 md:py-16 lg:py-24">
           <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
-            <div className="w-full min-w-0 pb-8 md:pb-16 lg:pb-24 pr-0 md:pr-8 lg:pr-16 text-foreground">
-              <h1 className="hero-h1 text-3xl md:text-5xl lg:text-h1 font-light text-foreground" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
-              <h5 className="text-base md:text-lg lg:text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
+            <div className="w-full min-w-0 text-foreground bg-[oklch(90%_0.12_75)] dark:bg-[oklch(32%_0.09_75)]">
+              <h1 className="hero-h1 text-h4 md:text-h3 lg:text-h1 font-light text-foreground" style={{ letterSpacing: 0, fontFamily: '"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif' }}>Hi, I{"\u2019"}m Mike</h1>
+              <h5 className="text-body1 md:text-h6 lg:text-h5 font-light text-foreground max-w-[528px]">I design digital experiences for startups and global brands.</h5>
               <div className="text-body1 space-y-4 text-foreground mt-8">
                 <p>
                   I{"\u2019"}m from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
@@ -248,8 +248,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="w-full min-w-0 flex flex-col h-full gap-0">
-              <div className="w-full flex-1 min-h-0 rounded-2xl shadow-elevation mb-6">
+            <div className="w-full min-w-0 flex flex-col h-full gap-0 bg-[oklch(90%_0.10_140)] dark:bg-[oklch(28%_0.08_140)]">
+              <div className="w-full flex-1 min-h-0 rounded-2xl shadow-elevation mb-6 overflow-hidden">
                 <div className="w-full h-full min-h-[280px] rounded-2xl overflow-hidden relative">
                   <Image
                     src="/images/knight-wide.png"
@@ -272,7 +272,7 @@ export default function Home() {
         </section>
 
         {/* FEATURED WORK — single project entry in white block */}
-        <section className="hidden px-4 md:px-8 lg:px-16 pt-0 py-8 md:py-16 lg:py-24">
+        <section className="hidden px-4 md:px-8 lg:px-16 pt-0 py-8 md:py-16 lg:py-24 bg-[oklch(91%_0.09_55)] dark:bg-[oklch(30%_0.07_55)]">
           <div className="w-full max-w-[1200px] mx-auto">
             <div className="w-fit mb-10">
               <h2 className="text-h2 font-light text-left text-foreground p-0 m-0">Featured Work</h2>
@@ -307,18 +307,18 @@ export default function Home() {
         </section>
 
         {/* IMPACT METRICS AND TECH STACK — full-width wrapper + internal max-width (no max-w + p on same element) */}
-        <section className="w-full min-w-0 min-h-0 md:min-h-[520px]">
+        <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-8 md:py-16 lg:py-24 bg-[oklch(92%_0.07_200)] dark:bg-[oklch(28%_0.06_200)]">
           <div className="w-full px-4 md:px-8 lg:px-16">
-            <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px] py-8 md:py-16 lg:py-24">
-          <div className="w-full min-w-0 flex flex-col">
-            <div className="w-full mb-8 md:mb-16">
-              <h2 className="text-2xl md:text-4xl lg:text-h2 font-light text-left text-foreground">
-                Impact and Tech Stack
-              </h2>
-            </div>
+            <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
+          <div className="w-full mb-6 py-4 px-4 md:px-6 bg-[oklch(88%_0.10_220)] dark:bg-[oklch(30%_0.08_220)]">
+            <h2 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
+              Impact and Tech Stack
+            </h2>
+          </div>
+          <div className="w-full min-w-0 flex flex-col p-16 bg-[oklch(90%_0.08_170)] dark:bg-[oklch(28%_0.07_170)]">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Impact Metrics */}
-              <div className="p-0 text-black flex flex-col min-h-0">
+              <div className="p-0 text-black flex flex-col min-h-0 bg-[oklch(88%_0.11_165)] dark:bg-[oklch(26%_0.09_165)]">
                 <div
                   ref={statsTriggerRef}
                   className="numbers-anchor p-0 w-full flex-1 flex flex-col min-h-0"
@@ -338,7 +338,7 @@ export default function Home() {
 
               {/* Tech Stack */}
               <div className="p-0 text-foreground flex flex-col min-h-0">
-                <div className="bg-white rounded-2xl shadow-elevation p-4 md:p-8 lg:p-16 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden">
+                <div className="rounded-2xl shadow-elevation pt-16 px-12 pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-[oklch(88%_0.11_300)] dark:bg-[oklch(26%_0.09_300)]">
                 <div className="grid w-full min-w-0 max-w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                 {/* Row 1: Figma, Cursor, OpenAI */}
                 <div className="flex h-full w-full items-center justify-center">
@@ -490,10 +490,10 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS — max-w wrapper with no horizontal padding; padding only on inner so total ≤ 1328px */}
-        <section className="w-full min-w-0 flex flex-col pt-8 md:pt-16 lg:pt-24 pb-8 md:pb-16 lg:pb-24">
+        <section className="w-full min-w-0 flex flex-col pt-8 md:pt-16 lg:pt-24 pb-8 md:pb-16 lg:pb-24 bg-[oklch(91%_0.08_280)] dark:bg-[oklch(28%_0.07_280)]">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
-            <div className="w-full min-w-0 px-4 md:px-8 lg:px-16 py-2 mb-0">
-              <h2 className="text-2xl md:text-4xl lg:text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
+            <div className="w-full min-w-0 px-4 md:px-8 lg:px-16 py-4 mb-10 bg-[oklch(86%_0.11_260)] dark:bg-[oklch(28%_0.09_260)]">
+              <h2 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>
             </div>
             <div className="w-full min-w-0 flex flex-col gap-12">
               {projects.map((project, i) => (
@@ -510,7 +510,7 @@ export default function Home() {
         </section>
 
         {/* PROJECT CARDS GRID (original) — hidden */}
-        <section className="hidden flex flex-col pt-16">
+        <section className="hidden flex flex-col pt-16 bg-[oklch(90%_0.08_160)] dark:bg-[oklch(28%_0.07_160)]">
           <div className="w-full flex flex-col min-w-0">
             <div className="w-full px-4 md:px-8 lg:px-16 py-2 mb-0">
               <h2 className="text-h2 font-light text-left text-foreground m-0 p-0">Clients</h2>

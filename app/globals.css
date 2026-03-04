@@ -5,24 +5,6 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant color (&:is(.color *));
 
-/* Prevent horizontal scroll: lock to vertical scroll only.
-   Use !important so no other rule can re-enable horizontal scroll. */
-html {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-  /* Reserve space for scrollbar so 100vw doesn’t change when scrollbar appears/disappears (reduces horizontal shift). */
-  scrollbar-gutter: stable;
-}
-body {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-}
-/* Main content area is the scroll context in sidebar layout; prevent horizontal scroll there too */
-main {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
-}
-
 /* -------------------------------------------------------
    GLOBAL 4px BASELINE GRID
    All vertical spacing, line-heights, margins, padding, and
@@ -101,6 +83,48 @@ main {
   --font-size-button: var(--text-button);
   --font-size-caption: var(--text-caption);
   --font-size-overline: var(--text-overline);
+
+  /* Tailwind v4 font-size utilities: literal values so utilities apply (avoid circular var refs) */
+  --text-h1: 5.5rem;
+  --text-h1--line-height: var(--line-height-h1);
+  --text-h2: 3.75rem;
+  --text-h2--line-height: var(--line-height-h2);
+  --text-h3: 3rem;
+  --text-h3--line-height: var(--line-height-h3);
+  --text-h4: 2.125rem;
+  --text-h4--line-height: var(--line-height-h4);
+  --text-h5: 1.5rem;
+  --text-h5--line-height: var(--line-height-h5);
+  --text-h6: 1.25rem;
+  --text-h6--line-height: var(--line-height-h6);
+  --text-subtitle1: 1rem;
+  --text-subtitle1--line-height: var(--line-height-subtitle1);
+  --text-subtitle2: 0.875rem;
+  --text-subtitle2--line-height: var(--line-height-subtitle2);
+  --text-body1: 1rem;
+  --text-body1--line-height: var(--line-height-body1);
+  --text-body2: 0.875rem;
+  --text-body2--line-height: var(--line-height-body2);
+  --text-button: 0.875rem;
+  --text-button--line-height: var(--line-height-button);
+  --text-caption: 0.75rem;
+  --text-caption--line-height: var(--line-height-caption);
+  --text-overline: 0.625rem;
+  --text-overline--line-height: var(--line-height-overline);
+
+  --text-h1--font-weight: var(--font-weight-h1);
+  --text-h2--font-weight: var(--font-weight-h2);
+  --text-h3--font-weight: var(--font-weight-h3);
+  --text-h4--font-weight: var(--font-weight-h4);
+  --text-h5--font-weight: var(--font-weight-h5);
+  --text-h6--font-weight: var(--font-weight-h6);
+  --text-subtitle1--font-weight: var(--font-weight-subtitle1);
+  --text-subtitle2--font-weight: var(--font-weight-subtitle2);
+  --text-body1--font-weight: var(--font-weight-body1);
+  --text-body2--font-weight: var(--font-weight-body2);
+  --text-button--font-weight: var(--font-weight-button);
+  --text-caption--font-weight: var(--font-weight-caption);
+  --text-overline--font-weight: var(--font-weight-overline);
 
   --line-height-h1: var(--text-h1-line);
   --line-height-h2: var(--text-h2-line);
@@ -194,55 +218,55 @@ main {
   --sidebar-ring: oklch(70% 0 0);
 
   /* TYPOGRAPHY — font-size unchanged; line-heights are 4px baseline multiples */
-  --text-h1: 88px;
+  --text-h1: 5.5rem;
   --text-h1-line: 104px;   /* 4px baseline */
   --text-h1-weight: 300;
 
-  --text-h2: 60px;
+  --text-h2: 3.75rem;
   --text-h2-line: 76px;    /* 4px baseline */
   --text-h2-weight: 300;
 
-  --text-h3: 48px;
+  --text-h3: 3rem;
   --text-h3-line: 56px;    /* 4px baseline */
   --text-h3-weight: 400;
 
-  --text-h4: 34px;
+  --text-h4: 2.125rem;
   --text-h4-line: 44px;    /* 4px baseline */
   --text-h4-weight: 400;
 
-  --text-h5: 24px;
+  --text-h5: 1.5rem;
   --text-h5-line: 32px;    /* 4px baseline */
   --text-h5-weight: 400;
 
-  --text-h6: 20px;
+  --text-h6: 1.25rem;
   --text-h6-line: 28px;    /* 4px baseline */
   --text-h6-weight: 500;
 
-  --text-subtitle1: 16px;
+  --text-subtitle1: 1rem;
   --text-subtitle1-line: 24px;   /* 4px baseline */
   --text-subtitle1-weight: 400;
 
-  --text-subtitle2: 14px;
+  --text-subtitle2: 0.875rem;
   --text-subtitle2-line: 20px;   /* 4px baseline */
   --text-subtitle2-weight: 500;
 
-  --text-body1: 16px;
+  --text-body1: 1rem;
   --text-body1-line: 24px;       /* 4px baseline */
   --text-body1-weight: 400;
 
-  --text-body2: 14px;
+  --text-body2: 0.875rem;
   --text-body2-line: 20px;      /* 4px baseline */
   --text-body2-weight: 400;
 
-  --text-button: 14px;
+  --text-button: 0.875rem;
   --text-button-line: 20px;      /* 4px baseline */
   --text-button-weight: 500;
 
-  --text-caption: 12px;
+  --text-caption: 0.75rem;
   --text-caption-line: 16px;    /* 4px baseline */
   --text-caption-weight: 400;
 
-  --text-overline: 10px;
+  --text-overline: 0.625rem;
   --text-overline-line: 12px;   /* 4px baseline */
   --text-overline-weight: 400;
 }
@@ -387,56 +411,63 @@ html.color,
 }
 
 /* -------------------------------------------------------
-   BASE
+   TAILWIND LAYERS — base, components, utilities (required order)
 ------------------------------------------------------- */
 @layer base {
+  html {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    scrollbar-gutter: stable;
+  }
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    @apply bg-background text-foreground text-body1;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  main {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    line-height: 24px; /* 6 × 4px baseline — default text snaps to grid */
-  }
-  /* Button text: typography scale (14px, 500 medium) — force Plus Jakarta Sans by name */
-  /* Calendar day numbers use regular weight, so exclude .rdp-day-button from font-weight */
+}
+
+@layer components {
   button:not(.rdp-day-button),
   [role="button"]:not(.rdp-day-button),
   [data-slot="button"]:not(.rdp-day-button),
   .text-button:not(.rdp-day-button) {
+    @apply text-button;
     font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
-    font-size: var(--font-size-button) !important;
-    line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
   }
   button.rdp-day-button,
   .rdp-day-button[data-slot="button"] {
+    @apply text-caption;
     font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
-    font-size: var(--font-size-caption) !important;
-    line-height: var(--line-height-caption) !important;
     font-weight: 400 !important;
   }
-  /* Header nav: ensure icon buttons use button typography (overrides header context) */
   header button,
   header [data-slot="button"] {
+    @apply text-button;
     font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
-    font-size: var(--font-size-button) !important;
-    line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
   }
-  /* Sidebar menu items: same as button font */
   [data-sidebar="menu-button"] {
+    @apply text-button;
     font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
-    font-size: var(--font-size-button) !important;
-    line-height: var(--line-height-button) !important;
     font-weight: var(--font-weight-button) !important;
   }
-  /* Inputs and form fields use theme sans */
   input,
   textarea,
   select {
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   }
+}
+
+@layer utilities {
 }
 
 /* -------------------------------------------------------
@@ -1005,92 +1036,9 @@ html.color [data-sidebar] button[data-slot="button"] svg polygon {
 }
 
 /* -------------------------------------------------------
-   TYPOGRAPHY UTILITIES
+   TYPOGRAPHY — text-h1 … text-overline generated by Tailwind from @theme.
+   Font-family/letter-spacing overrides for headings (no font-size/line-height here).
 ------------------------------------------------------- */
-@layer utilities {
-  .text-h1 {
-    font-family: var(--font-plus-jakarta-sans), var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
-    font-size: var(--font-size-h1);
-    line-height: var(--line-height-h1);
-    font-weight: var(--font-weight-h1);
-    letter-spacing: 0; /* 0% */
-  }
-  .text-h2 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-h2);
-    line-height: var(--line-height-h2);
-    font-weight: var(--font-weight-h2);
-  }
-  .text-h3 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-h3);
-    line-height: var(--line-height-h3);
-    font-weight: var(--font-weight-h3);
-  }
-  .text-h4 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-h4);
-    line-height: var(--line-height-h4);
-    font-weight: var(--font-weight-h4);
-  }
-  .text-h5 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-h5);
-    font-weight: var(--font-weight-h5);
-  }
-  .text-h6 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-h6);
-    line-height: var(--line-height-h6);
-    font-weight: var(--font-weight-h6);
-  }
-
-  .text-subtitle1 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-subtitle1);
-    line-height: var(--line-height-subtitle1);
-    font-weight: var(--font-weight-subtitle1);
-  }
-  .text-subtitle2 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-subtitle2);
-    line-height: var(--line-height-subtitle2);
-    font-weight: var(--font-weight-subtitle2);
-  }
-
-  .text-body1 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-body1);
-    line-height: var(--line-height-body1);
-    font-weight: var(--font-weight-body1);
-  }
-  .text-body2 {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-body2);
-    line-height: var(--line-height-body2);
-    font-weight: var(--font-weight-body2);
-  }
-
-  .text-button {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-button);
-    line-height: var(--line-height-button);
-    font-weight: var(--font-weight-button);
-  }
-  .text-caption {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-caption);
-    line-height: var(--line-height-caption);
-    font-weight: var(--font-weight-caption);
-  }
-  .text-overline {
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    font-size: var(--font-size-overline);
-    line-height: var(--line-height-overline);
-    font-weight: var(--font-weight-overline);
-  }
-}
 
 /* -------------------------------------------------------
    ELEVATION SHADOW — Global for cards and images (visible lift)
@@ -1123,25 +1071,24 @@ section.hero h1 {
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
 }
 
-/* Profile quote: 24px line-height, not tied to baseline grid or body2 utility */
-.profile-quote {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  font-size: 14px !important;
-  line-height: 24px !important;
-  margin: 0 !important;
-  padding-top: 0 !important;
-}
-.profile-quote p,
-.profile-quote cite {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  font-size: 14px !important;
-  line-height: 24px !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-/* Force cite to match (override any browser/default larger size) */
-.profile-quote cite {
-  font-size: 14px !important;
+@layer components {
+  /* Profile quote: body2 typography from type scale */
+  .profile-quote {
+    @apply text-body2;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    margin: 0 !important;
+    padding-top: 0 !important;
+  }
+  .profile-quote p,
+  .profile-quote cite {
+    @apply text-body2;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .profile-quote cite {
+    @apply text-body2;
+  }
 }
 
 /* Color mode: profile pull quote text white */
@@ -2176,30 +2123,28 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   background-color: transparent !important;
   background: transparent !important;
 }
-/* Month/Year caption: subtitle1 typography (shared); color is per-mode below */
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label {
-  font-size: var(--font-size-subtitle1) !important;
-  line-height: var(--line-height-subtitle1) !important;
-  font-weight: var(--font-weight-subtitle1) !important;
-}
-/* Day at top of right panel: subtitle1 typography (shared) */
-[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
-  font-size: 16px !important;
-  line-height: 24px !important;
-  font-weight: 400 !important;
-}
-
-/* Scheduling panel: time slot buttons = button style below (days-of-week row uses default primitive: text-caption) */
-[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] + div [data-slot="button"],
-[data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button,
-[data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
-  font-size: var(--font-size-button) !important;
-  line-height: var(--line-height-button) !important;
-  font-weight: var(--font-weight-button) !important;
-  border: none !important;
-  box-shadow: none !important;
-  height: 44px !important;
-  min-height: 44px !important;
+@layer components {
+  /* Month/Year caption: subtitle1 typography (shared); color is per-mode below */
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label {
+    @apply text-subtitle1;
+    font-weight: var(--font-weight-subtitle1) !important;
+  }
+  /* Day at top of right panel: body1 typography (shared) */
+  [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] > span {
+    @apply text-body1;
+    font-weight: 400 !important;
+  }
+  /* Scheduling panel: time slot buttons = button style below */
+  [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] + div [data-slot="button"],
+  [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button {
+    @apply text-button;
+    font-weight: var(--font-weight-button) !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 44px !important;
+    min-height: 44px !important;
+  }
 }
 /* Time slot buttons: same bg and border as unselected date boxes per mode */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button,
@@ -2245,14 +2190,15 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
   display: none;
 }
 /* Scheduling panel: calendar date numbers = global button text style (override base .rdp-day-button caption size) */
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button *,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button [class],
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button * {
-  font-size: 14px !important;
-  line-height: 1 !important;
-  font-weight: 500 !important;
+@layer components {
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button *,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button [class],
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button * {
+    @apply text-body2;
+    font-weight: 500 !important;
+  }
 }
 /* Month: no gap between caption and weekdays row */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month {
@@ -2361,23 +2307,23 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
 }
 /* Selected day + outside dates: colors are per-mode (light/dark/color blocks above) */
 
-/* Calendar: force weekday labels to match small date size (unlayered to override all) */
-[data-slot="calendar"] .rdp-weekday,
-[data-slot="calendar"] .calendar-weekday,
-[data-slot="calendar"] .calendar-weekday *,
-[data-slot="calendar"] [class*="weekday"] {
-  font-size: 10px !important;
-  line-height: 1.25 !important;
-  font-weight: 400 !important;
-}
-/* Scheduling panel: days of week = Subtitle 2 (must come after 10px rule above) */
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday *,
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
-  font-size: var(--font-size-subtitle2) !important;
-  line-height: var(--line-height-subtitle2) !important;
-  font-weight: var(--font-weight-subtitle2) !important;
+@layer components {
+  /* Calendar: weekday labels = overline from type scale */
+  [data-slot="calendar"] .rdp-weekday,
+  [data-slot="calendar"] .calendar-weekday,
+  [data-slot="calendar"] .calendar-weekday *,
+  [data-slot="calendar"] [class*="weekday"] {
+    @apply text-overline;
+    font-weight: 400 !important;
+  }
+  /* Scheduling panel: days of week = Subtitle 2 */
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday *,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .calendar-weekday * {
+    @apply text-subtitle2;
+    font-weight: var(--font-weight-subtitle2) !important;
+  }
 }
 /* Light mode scheduling — final overrides (no green; blacks and greys only; must come last) */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label,

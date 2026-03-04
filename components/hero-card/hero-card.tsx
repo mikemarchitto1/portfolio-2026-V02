@@ -23,10 +23,10 @@ export default function HeroCard() {
           <div className="w-full min-w-0 pb-8 md:pb-16 lg:pb-24 pr-0 md:pr-8 lg:pr-16">
             <Card className="rounded-lg border bg-card text-card-foreground shadow-sm h-full">
               <CardHeader className="space-y-2">
-                <CardTitle className="text-3xl md:text-5xl lg:text-h1 font-light text-foreground whitespace-nowrap tracking-normal">
+                <CardTitle className="text-h4 md:text-h3 lg:text-h1 font-light text-foreground whitespace-nowrap tracking-normal">
                   Hi, I{"\u2019"}m Mike
                 </CardTitle>
-                <CardDescription className="text-base md:text-lg lg:text-h5 font-light text-foreground max-w-[528px]">
+                <CardDescription className="text-body1 md:text-h6 lg:text-h5 font-light text-foreground max-w-[528px]">
                   I design digital experiences for startups and global brands.
                 </CardDescription>
               </CardHeader>

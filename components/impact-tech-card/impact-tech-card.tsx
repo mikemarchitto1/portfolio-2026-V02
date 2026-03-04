@@ -54,7 +54,7 @@ export default function ImpactTechCard() {
         <div className="w-full flex flex-col">
           <h2
             id="impact-tech-card-heading"
-            className="text-2xl md:text-4xl lg:text-h2 font-light text-left text-foreground w-full mb-8 md:mb-16"
+            className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground w-full mb-8 md:mb-16"
           >
             Impact and Tech Stack
           </h2>
