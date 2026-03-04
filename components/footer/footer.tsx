@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="text-foreground w-full">
-      <div className="w-full max-w-[1328px] mx-auto px-4 md:px-8 lg:px-16">
+      <div className="w-full max-w-[1328px] mx-auto px-4 md:px-8 lg:px-16 bg-[oklch(88%_0.10_175)] dark:bg-[oklch(28%_0.08_175)]">
         <div className="w-full min-w-0 py-0 text-left flex flex-col">
           <div className="w-fit p-0 m-0">
             <h1
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full bg-[oklch(88%_0.09_265)] dark:bg-[oklch(26%_0.07_265)]">
         <div className="max-w-[1328px] mx-auto p-4 md:p-8 lg:p-16 flex flex-col sm:flex-row justify-between items-end gap-4">
           <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <NavButton size="lg" asChild>

@@ -6,7 +6,7 @@ export default function HeroCard() {
   return (
     <section className="w-full min-w-0 bg-[oklch(92%_0.06_250)] dark:bg-[oklch(26%_0.06_250)]">
       <div className="w-full px-4 md:px-8 lg:px-16">
-        <div className="max-w-[1328px] mx-auto py-8 md:py-16 lg:py-24">
+        <div className="max-w-[1328px] mx-auto py-4">
 
           {/* OUTER BOX */}
           <div className="w-full min-w-0 flex flex-col p-16 bg-[oklch(90%_0.08_170)] dark:bg-[oklch(28%_0.07_170)]">

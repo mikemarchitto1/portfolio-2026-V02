@@ -76,7 +76,7 @@ export default function Home() {
         <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-8 md:py-16 lg:py-24 bg-[oklch(92%_0.07_200)] dark:bg-[oklch(28%_0.06_200)]">
           <div className="w-full px-4 md:px-8 lg:px-16">
             <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
-              <div className="w-full mb-6 py-4 px-16 bg-[oklch(88%_0.10_220)] dark:bg-[oklch(30%_0.08_220)]">
+              <div className="w-full mb-0 py-4 px-16 bg-[oklch(88%_0.10_220)] dark:bg-[oklch(30%_0.08_220)]">
                 <h2 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
                   Impact and Tech Stack
                 </h2>
@@ -266,7 +266,7 @@ export default function Home() {
         {/* PROJECTS */}
         <section className="w-full min-w-0 flex flex-col pt-8 md:pt-16 lg:pt-24 pb-8 md:pb-16 lg:pb-24 bg-[oklch(91%_0.08_280)] dark:bg-[oklch(28%_0.07_280)]">
           <div className="w-full max-w-[1328px] mx-auto flex flex-col min-w-0">
-            <div className="w-full min-w-0 px-4 md:px-8 lg:px-16 py-4 mb-10 bg-[oklch(86%_0.11_260)] dark:bg-[oklch(28%_0.09_260)]">
+            <div className="w-full min-w-0 px-4 md:px-8 lg:px-16 py-4 mb-0 bg-[oklch(86%_0.11_260)] dark:bg-[oklch(28%_0.09_260)]">
               <h2 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground m-0 p-0">
                 Clients
               </h2>
