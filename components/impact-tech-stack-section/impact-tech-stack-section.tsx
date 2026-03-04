@@ -16,19 +16,19 @@ export default function ImpactTechStackSection() {
     useScrollTriggerOnce();
 
   return (
-    <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-12 bg-[oklch(92%_0.07_200)] dark:bg-[oklch(28%_0.06_200)]">
+    <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-12 bg-transparent">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
-          <div className="w-full mb-0 py-4 px-16 bg-[oklch(88%_0.10_220)] dark:bg-[oklch(30%_0.08_220)]">
+          <div className="w-full mb-0 py-4 px-16 bg-transparent">
             <h2 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
               Impact and Tech Stack
             </h2>
           </div>
 
-          <div className="w-full min-w-0 flex flex-col p-16 bg-[oklch(90%_0.08_170)] dark:bg-[oklch(28%_0.07_170)]">
+          <div className="w-full min-w-0 flex flex-col p-16 bg-transparent">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Metrics */}
-              <div className="p-0 flex flex-col min-h-0 bg-[oklch(88%_0.11_165)] dark:bg-[oklch(26%_0.09_165)]">
+              <div className="p-0 flex flex-col min-h-0 bg-transparent">
                 <div ref={statsTriggerRef} className="numbers-anchor p-0 w-full flex-1 flex flex-col min-h-0">
                   <div className="grid grid-cols-2 grid-rows-[1fr_1fr] gap-4 min-w-0 items-stretch flex-1 min-h-0">
                     {metrics.map((metric, i) => (
@@ -45,7 +45,7 @@ export default function ImpactTechStackSection() {
 
               {/* Tech Stack */}
               <div className="p-0 flex flex-col min-h-0">
-                <div className="rounded-2xl shadow-elevation pt-16 px-12 pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-[oklch(88%_0.11_300)] dark:bg-[oklch(26%_0.09_300)]">
+                <div className="rounded-2xl shadow-elevation pt-16 px-12 pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-white dark:bg-zinc-900">
                   <div className="grid w-full min-w-0 max-w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                     {/* Row 1: Figma, Cursor, OpenAI */}
                     <div className="flex h-full w-full items-center justify-center">

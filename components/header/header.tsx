@@ -19,10 +19,10 @@ try {
     console.log("MOUNT:", "Header");
     const { toggle } = useSidebar();
     return (
-      <header className="sticky top-0 z-50 w-full min-w-0 bg-[oklch(94%_0.08_250)]/95 dark:bg-[oklch(24%_0.07_250)]/95 text-foreground backdrop-blur-sm">
+      <header className="sticky top-0 z-50 w-full min-w-0 bg-transparent text-foreground backdrop-blur-sm">
         <div className="w-full px-4 md:px-8 lg:px-16">
           <div className="max-w-[1328px] mx-auto">
-            <div className="w-full min-w-0 flex items-center justify-start gap-2 py-4 px-16 bg-[oklch(88%_0.10_120)] dark:bg-[oklch(26%_0.08_120)]">
+            <div className="w-full min-w-0 flex items-center justify-start gap-2 py-4 px-16 bg-transparent">
               <div className="flex min-w-0 flex-wrap items-center gap-4">
                 <NavButton
                   size="icon"
