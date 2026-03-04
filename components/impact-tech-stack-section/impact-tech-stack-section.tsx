@@ -16,7 +16,7 @@ export default function ImpactTechStackSection() {
     useScrollTriggerOnce();
 
   return (
-    <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-8 md:py-16 lg:py-24 bg-[oklch(92%_0.07_200)] dark:bg-[oklch(28%_0.06_200)]">
+    <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-12 bg-[oklch(92%_0.07_200)] dark:bg-[oklch(28%_0.06_200)]">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
           <div className="w-full mb-0 py-4 px-16 bg-[oklch(88%_0.10_220)] dark:bg-[oklch(30%_0.08_220)]">

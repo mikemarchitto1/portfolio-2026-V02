@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function HeroCard() {
   return (
-    <section className="w-full min-w-0 bg-[oklch(92%_0.06_250)] dark:bg-[oklch(26%_0.06_250)]">
+    <section className="w-full min-w-0 py-12 bg-[oklch(92%_0.06_250)] dark:bg-[oklch(26%_0.06_250)]">
       <div className="w-full px-4 md:px-8 lg:px-16">
-        <div className="max-w-[1328px] mx-auto py-4">
+        <div className="max-w-[1328px] mx-auto">
 
           {/* OUTER BOX */}
           <div className="w-full min-w-0 flex flex-col p-16 bg-[oklch(90%_0.08_170)] dark:bg-[oklch(28%_0.07_170)]">
