@@ -132,7 +132,7 @@ try {
       <div
         ref={ref}
         data-sidebar="header"
-        className={cn("flex shrink-0 flex-col gap-2 p-4 md:p-8 lg:p-16", className)}
+        className={cn("flex shrink-0 flex-col gap-2 p-4", className)}
         {...props}
       />
     );
@@ -146,7 +146,7 @@ try {
       <div
         ref={ref}
         data-sidebar="content"
-        className={cn("flex flex-1 flex-col gap-2 overflow-auto p-4 md:p-8 lg:p-16", className)}
+        className={cn("flex flex-1 flex-col gap-2 overflow-auto p-4", className)}
         {...props}
       />
     );
@@ -160,7 +160,7 @@ try {
       <div
         ref={ref}
         data-sidebar="footer"
-        className={cn("flex shrink-0 flex-col gap-2 p-4 md:p-8 lg:p-16", className)}
+        className={cn("flex shrink-0 flex-col gap-2 p-4", className)}
         {...props}
       />
     );

@@ -145,7 +145,7 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen lg:min-h-[514px] w-full max-w-full md:max-w-[500px] lg:max-w-[600px] flex-col overflow-hidden rounded-none md:rounded-lg p-4 md:p-8 lg:p-16 text-black",
+              "relative flex min-h-screen lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full md:max-w-[500px] lg:max-w-[800px] flex-col overflow-hidden rounded-none md:rounded-lg p-4 text-black",
               theme !== "light" && "shadow-lg",
               theme === "color" && "!bg-[oklch(24%_0.035_165)]"
             )}
@@ -155,9 +155,9 @@ try {
                 : { backgroundColor: "var(--background)" }
             }
           >
-            <div className="flex h-full flex-col lg:flex-row items-stretch gap-4 lg:gap-6">
-              <div data-slot="scheduling-left-panel" className="flex h-full min-h-0 min-w-0 flex-1 flex-col text-white">
-                <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-4 md:pt-6 shadow-none text-white">
+            <div className="flex h-full lg:h-auto flex-col lg:flex-row items-stretch gap-4 lg:gap-6">
+              <div data-slot="scheduling-left-panel" className="flex h-full lg:h-auto min-h-0 min-w-0 shrink-0 flex-col text-white w-[168px] lg:w-[168px]">
+                <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 shadow-none text-white">
                   <CardHeader className="scheduling-left-header mb-6 gap-0 space-y-0 pb-0 px-0 pt-0">
                     <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-h5 text-white">
                       Introduction Call
@@ -166,7 +166,7 @@ try {
                       Michael Marchitto
                     </span>
                     <p className="scheduling-left-desc mt-4 mb-0 text-body2 text-white/80">
-                      A 30-minute video introduction to discuss potential opportunities.
+                      30-minute conversation to explore collaboration opportunities.
                     </p>
                   </CardHeader>
                   <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
@@ -186,25 +186,26 @@ try {
                 </Card>
               </div>
 
-              <div data-slot="scheduling-calendar-wrap" className="flex h-full min-h-0 min-w-0 max-w-full lg:max-w-[480px] flex-1 flex-col bg-transparent overflow-hidden">
-                <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-4 md:pt-6">
-                  <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={setDate}
-                    defaultMonth={date}
-                    className="rounded-none border-0 p-0"
-                    classNames={{
-                      caption_label:
-                        "select-none text-subtitle1 text-foreground leading-8 h-8 flex items-center",
-                    }}
-                    components={{ DayButton: SchedulingCalendarDayButton }}
-                  />
+              <div className="flex flex-col gap-4 lg:relative lg:min-w-0 lg:flex-1">
+                <div data-slot="scheduling-calendar-wrap" className="flex h-full lg:h-auto min-h-0 min-w-0 max-w-full lg:min-w-[340px] lg:max-w-[480px] lg:mr-[192px] flex-1 flex-col bg-transparent overflow-hidden">
+                  <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-0">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      defaultMonth={date}
+                      className="rounded-none border-0 p-0 [--cell-size:3rem]"
+                      classNames={{
+                        caption_label:
+                          "select-none text-subtitle1 text-foreground leading-8 h-8 flex items-center",
+                      }}
+                      components={{ DayButton: SchedulingCalendarDayButton }}
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex h-full min-h-0 min-w-0 flex-1 flex-col pt-4 md:pt-6 pb-4 md:pb-6">
-                <div data-slot="scheduling-right-header" className="mb-4 md:mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 min-w-0">
+                <div className="flex h-full lg:h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 pb-0 w-[168px] overflow-hidden lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-[168px]">
+                  <div data-slot="scheduling-right-header" className="mb-4 md:mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0 min-w-0">
                   <span className="text-subtitle1 text-black dark:text-white">{selectedLabel}</span>
                   <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                     <div
@@ -234,7 +235,7 @@ try {
                     </div>
                   </Tabs>
                 </div>
-                <div className="flex flex-col overflow-y-auto min-w-0" data-slot="scheduling-time-slots">
+                <div className="flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0" data-slot="scheduling-time-slots">
                   <div className="flex flex-col flex-wrap gap-2 pt-0 pb-4 md:pb-6">
                     {slots.map((slot) => (
                       <Button
@@ -250,6 +251,7 @@ try {
                     ))}
                   </div>
                 </div>
+              </div>
               </div>
             </div>
           </div>

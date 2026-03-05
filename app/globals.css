@@ -1073,20 +1073,20 @@ section.hero h1 {
 
 @layer components {
   /* Profile quote: body2 typography from type scale */
-  .profile-quote {
+.profile-quote {
     @apply text-body2;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    margin: 0 !important;
-    padding-top: 0 !important;
-  }
-  .profile-quote p,
-  .profile-quote cite {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+.profile-quote p,
+.profile-quote cite {
     @apply text-body2;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .profile-quote cite {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.profile-quote cite {
     @apply text-body2;
   }
 }
@@ -2125,7 +2125,7 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 @layer components {
   /* Month/Year caption: subtitle1 typography (shared); color is per-mode below */
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label {
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-caption_label {
     @apply text-subtitle1;
     font-weight: var(--font-weight-subtitle1) !important;
   }
@@ -2191,14 +2191,14 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
 }
 /* Scheduling panel: calendar date numbers = global button text style (override base .rdp-day-button caption size) */
 @layer components {
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button,
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button *,
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button [class],
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button,
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button * {
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button *,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] button.rdp-day-button [class],
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button * {
     @apply text-body2;
-    font-weight: 500 !important;
-  }
+  font-weight: 500 !important;
+}
 }
 /* Month: no gap between caption and weekdays row */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month {
@@ -2309,12 +2309,12 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
 
 @layer components {
   /* Calendar: weekday labels = overline from type scale */
-  [data-slot="calendar"] .rdp-weekday,
-  [data-slot="calendar"] .calendar-weekday,
-  [data-slot="calendar"] .calendar-weekday *,
-  [data-slot="calendar"] [class*="weekday"] {
+[data-slot="calendar"] .rdp-weekday,
+[data-slot="calendar"] .calendar-weekday,
+[data-slot="calendar"] .calendar-weekday *,
+[data-slot="calendar"] [class*="weekday"] {
     @apply text-overline;
-    font-weight: 400 !important;
+  font-weight: 400 !important;
   }
   /* Scheduling panel: days of week = Subtitle 2 */
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
