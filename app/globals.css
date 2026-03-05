@@ -2144,8 +2144,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
     font-weight: var(--font-weight-button) !important;
     border: none !important;
     box-shadow: none !important;
-    height: 44px !important;
-    min-height: 44px !important;
+    height: 48px !important;
+    min-height: 48px !important;
   }
 }
 /* Time slot buttons: same bg and border as unselected date boxes per mode */
@@ -2368,8 +2368,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border-style: solid !important;
   border-radius: 9999px !important;
   box-shadow: none !important;
-  height: 44px !important;
-  min-height: 44px !important;
+  height: 48px !important;
+  min-height: 48px !important;
 }
 html:not(.dark):not(.color) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
   border: 1px solid oklch(68.5% 0.015 264) !important;

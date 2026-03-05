@@ -41,9 +41,9 @@ export default function ProjectCard({
             />
           </div>
 
-          <h5 className={`text-h5 font-medium text-foreground dark:text-black color:text-black mt-[16px] shrink-0 ${titleClassName ?? ""}`}>{title}</h5>
+          <h5 className={`text-h5 font-medium text-black mt-[16px] shrink-0 ${titleClassName ?? ""}`}>{title}</h5>
 
-          <p className={`text-body1 text-foreground dark:text-black color:text-black mt-[8px] flex-1 min-h-0 ${descriptionClassName ?? ""}`}>{description}</p>
+          <p className={`text-body1 text-black mt-[8px] flex-1 min-h-0 ${descriptionClassName ?? ""}`}>{description}</p>
         </div>
 
         <Button
@@ -62,7 +62,7 @@ export default function ProjectCard({
     return (
       <a
         href={href}
-        className="block w-full min-w-0 h-full min-h-0 no-underline text-foreground dark:text-black color:text-black flex flex-col items-stretch"
+        className="block w-full min-w-0 h-full min-h-0 no-underline text-black flex flex-col items-stretch"
       >
         {content}
       </a>

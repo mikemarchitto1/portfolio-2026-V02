@@ -159,7 +159,7 @@ try {
                     Michael Marchitto
                   </span>
                   <p className="scheduling-left-desc mt-4 mb-0 text-body2 text-white/80">
-                    A 30-minute video introduction to discuss potential opportunities.
+                    30-minute introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
                 <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
@@ -199,7 +199,7 @@ try {
 
             {/* Right column */}
             <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 pb-4 lg:pb-6 w-full lg:w-[168px]">
-              <div data-slot="scheduling-right-header" className="mb-4 lg:mb-5 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
+              <div data-slot="scheduling-right-header" className="mb-3 lg:mb-4 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
                 <span className="text-subtitle1 text-black dark:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                   <div
@@ -229,6 +229,7 @@ try {
                   </div>
                 </Tabs>
               </div>
+              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mb-5 shrink-0">Time Selection</span>
               <div className="flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[360px]" data-slot="scheduling-time-slots">
                 <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
                   {slots.map((slot) => (
@@ -237,7 +238,7 @@ try {
                       variant="ghost"
                       data-slot="scheduling-time-slot-btn"
                       className={cn(
-                        "w-full justify-center rounded-full h-12 text-button"
+                        "w-full justify-center rounded-full !h-[48px] !min-h-[48px] py-3 text-button"
                       )}
                     >
                       {slot}
