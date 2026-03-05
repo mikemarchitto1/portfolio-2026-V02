@@ -20,9 +20,9 @@ export default function ImpactTechStackSection() {
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
           <div className="w-full mb-0 py-4 px-16 bg-transparent">
-            <h2 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
+            <h1 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
               Impact and Tech Stack
-            </h2>
+            </h1>
           </div>
 
           <div className="w-full min-w-0 flex flex-col p-16 bg-transparent">
