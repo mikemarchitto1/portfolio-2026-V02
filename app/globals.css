@@ -2211,9 +2211,9 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
  *   Row (.rdp-weekdays): "flex" + "rdp-weekdays" → display: flex only.
  *   Cell (.rdp-weekday): "calendar-weekday text-caption text-muted-foreground font-normal tracking-wide rounded-md flex-1 select-none" + "rdp-weekday".
  * Library adds only class names (rdp-weekdays, rdp-weekday); no built-in CSS. */
-/* 16px white space above and below days-of-week (thead padding often ignored in table layout; use table margin + first row cell padding) */
+/* 16px between caption and weekdays so weekdays align with "Michael Marchitto" and "Time Slot" (row 2) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] thead:has(.rdp-weekdays) {
-  padding-top: 16px !important;
+  padding-top: 0 !important;
   padding-bottom: 16px !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table {

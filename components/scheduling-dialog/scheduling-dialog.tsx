@@ -136,7 +136,7 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[900px] flex-col overflow-y-auto lg:overflow-hidden rounded-none lg:rounded-lg p-4 text-black",
+              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[868px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-black",
               theme !== "light" && "shadow-lg",
               theme === "color" && "!bg-[oklch(24%_0.035_165)]"
             )}
@@ -147,18 +147,18 @@ try {
             }
           >
             {/* Stack on mobile/tablet; three columns on desktop */}
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-6">
+            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-12">
               {/* Left column */}
               <div data-slot="scheduling-left-panel" className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-white w-full lg:w-[168px]">
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-white">
-                <CardHeader className="scheduling-left-header mb-6 gap-0 space-y-0 pb-0 px-0 pt-0">
+                <CardHeader className="scheduling-left-header mb-2 gap-0 space-y-0 pb-0 px-0 pt-0">
                   <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-h5 text-white">
                     Introduction Call
                   </CardTitle>
                   <span className="scheduling-left-name block text-subtitle2 text-white/90" style={{ marginTop: 16 }}>
                     Michael Marchitto
                   </span>
-                  <p className="scheduling-left-desc mt-4 mb-0 text-body2 text-white/80">
+                  <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-white/80">
                     30-minute introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
@@ -180,8 +180,8 @@ try {
             </div>
 
             {/* Center column: calendar */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full lg:min-w-[340px] lg:max-w-[480px] flex-none lg:flex-1 flex-col bg-transparent overflow-visible lg:overflow-hidden">
-              <div className="flex min-w-0 flex-1 flex-col overflow-hidden pt-0">
+            <div data-slot="scheduling-calendar-wrap" className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full lg:min-w-[360px] lg:max-w-[480px] flex-none lg:flex-1 flex-col bg-transparent overflow-visible">
+              <div className="flex min-w-0 flex-1 flex-col overflow-visible pt-0">
                 <Calendar
                   mode="single"
                   selected={date}
@@ -198,8 +198,8 @@ try {
             </div>
 
             {/* Right column */}
-            <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 pb-4 lg:pb-6 w-full lg:w-[168px]">
-              <div data-slot="scheduling-right-header" className="mb-3 lg:mb-4 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
+            <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[168px]">
+              <div data-slot="scheduling-right-header" className="mb-4 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
                 <span className="text-subtitle1 text-black dark:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                   <div
@@ -229,8 +229,8 @@ try {
                   </div>
                 </Tabs>
               </div>
-              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mb-5 shrink-0">Time Selection</span>
-              <div className="flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[360px]" data-slot="scheduling-time-slots">
+              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mb-5 shrink-0 block w-full text-center">Time Slot</span>
+              <div className="flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[272px]" data-slot="scheduling-time-slots">
                 <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
                   {slots.map((slot) => (
                     <Button
