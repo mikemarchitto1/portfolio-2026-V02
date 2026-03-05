@@ -180,7 +180,7 @@ try {
             </div>
 
             {/* Center column: calendar */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full lg:min-w-[360px] lg:max-w-[480px] flex-none lg:flex-1 flex-col bg-transparent overflow-visible">
+            <div data-slot="scheduling-calendar-wrap" className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full lg:min-w-[384px] lg:max-w-[480px] flex-none lg:flex-1 flex-col bg-transparent overflow-visible">
               <div className="flex min-w-0 flex-1 flex-col overflow-visible pt-0">
                 <Calendar
                   mode="single"

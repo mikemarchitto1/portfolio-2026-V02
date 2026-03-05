@@ -2291,6 +2291,25 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
   border-radius: 0.375rem !important;
 }
+
+/* Desktop only: fixed 48×48px date cells (no fractional pixels) */
+@media (min-width: 1024px) {
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] [class*="rdp-day"]:has(.rdp-day-button) {
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    aspect-ratio: auto !important;
+    min-width: 48px !important;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day-button {
+    flex: 0 0 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+}
+
 /* Calendar day hover: color mode only (light green) — light/dark use grey in their blocks */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] {
   border: none !important;
