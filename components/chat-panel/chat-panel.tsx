@@ -53,7 +53,7 @@ try {
               Whenever you{"\u2019"}re ready, go ahead and start the conversation.
             </p>
           </SheetHeader>
-          <div className="flex-1 overflow-auto px-4 md:px-8 py-4 min-w-0">
+          <div className="flex-1 overflow-auto px-4 py-4 min-w-0">
             {children ?? (
               <div className="text-black dark:text-white color:text-white">
                 <ChatBubble
@@ -65,7 +65,7 @@ try {
               </div>
             )}
           </div>
-          <div className="shrink-0 px-4 pb-4">
+          <div className="shrink-0 px-4 pb-4 min-w-0">
             <input
               type="text"
               placeholder="Type a message…"

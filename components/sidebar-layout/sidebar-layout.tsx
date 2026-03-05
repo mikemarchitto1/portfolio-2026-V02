@@ -19,8 +19,6 @@ import {
 } from "@/components/ui/sidebar";
 import { useTheme } from "@/hooks/use-theme";
 
-console.log("🔥 MODULE LOAD:", "sidebar-layout");
-
 let SidebarLayout: React.FC<{ children: React.ReactNode }>;
 try {
   const PROJECTS = [
@@ -36,7 +34,7 @@ try {
     const { setOpen } = useSidebar();
     const { theme } = useTheme();
     const logoSrc =
-      theme === "light" ? "/images/crown-draw-b.svg" : "/images/crown-draw-w.svg";
+      theme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
     return (
       <div className="flex items-start justify-between shrink-0 pt-0 pb-4">
         <img
@@ -115,8 +113,8 @@ try {
 
   const IMAGE_PATHS_TO_CHECK = [
     "/images/panel-left.svg",
-    "/images/crown-draw-b.svg",
-    "/images/crown-draw-w.svg",
+    "/images/crown-black.svg",
+    "/images/crown-white.svg",
     "/images/crown works-up-b.svg",
     "/images/crown works-up-w.svg",
   ];
