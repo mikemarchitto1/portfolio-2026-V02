@@ -46,22 +46,22 @@ try {
           closeButtonClassName="color:text-white color:hover:text-[oklch(38%_0.065_155)] color:[&_svg]:text-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)]"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>
-          <SheetHeader className="gap-2">
+          <SheetHeader className="gap-6">
             <h6 className="text-subtitle1 font-medium text-black dark:text-white color:text-white font-sans">
               Chat Assistant
             </h6>
-            <p className="text-body2 text-black dark:text-white color:text-white">
-              Whenever you{"\u2019"}re ready, go ahead and start the conversation.
+            <p className="sr-only text-body2 text-black dark:text-white color:text-white">
+              Hello!
             </p>
           </SheetHeader>
-          <div className="flex-1 overflow-auto px-4 pt-6 pb-4 min-w-0">
+          <div className="flex-1 overflow-auto px-4 pt-[4.5rem] pb-4 min-w-0">
             {children ?? (
               <div className="text-black dark:text-white color:text-white">
                 <ChatBubble
                   variant="received"
                   className="bg-gray-100 dark:bg-muted color:bg-[oklch(22%_0.045_155)] text-black dark:text-white color:text-white border border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)]"
                 >
-                  <ChatBubbleMessage>What would you like to explore today?</ChatBubbleMessage>
+                  <ChatBubbleMessage>Hello. What are you curious about today?</ChatBubbleMessage>
                 </ChatBubble>
               </div>
             )}
