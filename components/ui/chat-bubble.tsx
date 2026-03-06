@@ -19,7 +19,7 @@ function ChatBubble({
       data-slot="chat-bubble"
       data-variant={variant}
       className={cn(
-        "relative max-w-[85%] min-w-0 rounded-2xl border px-0 py-0 gap-0 border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)] shadow-none",
+        "relative max-w-[85%] min-w-0 min-h-12 rounded-2xl border px-0 py-0 gap-0 border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)] shadow-none",
         variant === "received" &&
           "rounded-bl-md bg-muted text-muted-foreground",
         variant === "sent" &&
@@ -43,7 +43,7 @@ function ChatBubbleMessage({
   return (
     <p
       data-slot="chat-bubble-message"
-      className={cn("text-body2", className)}
+      className={cn("text-body2 my-0", className)}
       {...props}
     />
   );

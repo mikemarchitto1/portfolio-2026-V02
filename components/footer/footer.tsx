@@ -19,10 +19,7 @@ export default function Footer() {
               <div className="w-full bg-transparent py-12 md:py-16">
                 <div className="w-full min-w-0 text-left flex flex-col">
                   <div className="w-fit p-0 m-0">
-                    <h1
-                      className="text-h1 font-light text-foreground p-0 m-0"
-                      style={{ letterSpacing: 0 }}
-                    >
+                    <h1 className="text-h1 font-light text-foreground p-0 m-0 tracking-[0]">
                       Let's Talk
                     </h1>
                   </div>

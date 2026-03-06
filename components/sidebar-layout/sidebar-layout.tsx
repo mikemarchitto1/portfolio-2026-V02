@@ -94,7 +94,7 @@ try {
         </nav>
 
         <SidebarGroup className="mt-6">
-          <SidebarGroupLabel className="text-body2 !font-bold">Clients</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-subtitle1 font-medium">Clients</SidebarGroupLabel>
           <SidebarMenu>
             {PROJECTS.map(({ label, href }) => (
               <SidebarMenuItem key={href}>

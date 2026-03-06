@@ -4,7 +4,6 @@ import Header from "@/components/header/header";
 import HeroCard from "@/components/hero-card/hero-card";
 import ImpactTechStackSection from "@/components/impact-tech-stack-section/impact-tech-stack-section";
 import ClientsSection from "@/components/clients-section/clients-section";
-import { useTheme } from "@/hooks/use-theme";
 import Footer from "@/components/footer/footer";
 
 const projects = [

@@ -149,15 +149,17 @@ try {
             {/* Stack on mobile/tablet; three columns on desktop */}
             <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-12">
               {/* Left column */}
-              <div data-slot="scheduling-left-panel" className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-white w-full lg:w-[168px]">
+              <div data-slot="scheduling-left-panel" className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-white w-full lg:w-[168px] pt-1">
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-white">
                 <CardHeader className="scheduling-left-header mb-2 gap-0 space-y-0 pb-0 px-0 pt-0">
-                  <CardTitle className="scheduling-left-title mt-0 h-8 min-h-8 shrink-0 text-h5 text-white">
-                    Introduction Call
-                  </CardTitle>
-                  <span className="scheduling-left-name block text-subtitle2 text-white/90" style={{ marginTop: 16 }}>
-                    Michael Marchitto
-                  </span>
+                  <div className="flex flex-col gap-5">
+                    <CardTitle className="scheduling-left-title mt-0 shrink-0 text-subtitle1 font-medium text-white">
+                      Introduction Call
+                    </CardTitle>
+                    <span className="scheduling-left-name block text-subtitle2 text-white/90">
+                      Michael Marchitto
+                    </span>
+                  </div>
                   <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-white/80">
                     30-minute introduction to discuss potential opportunities.
                   </p>
@@ -200,18 +202,16 @@ try {
             {/* Right column */}
             <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[168px]">
               <div data-slot="scheduling-right-header" className="mb-4 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
-                <span className="text-subtitle1 text-black dark:text-white">{selectedLabel}</span>
+                <span className="text-subtitle1 text-black dark:text-white color:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                   <div
                     className="rounded-full h-8 overflow-hidden flex box-border w-fit bg-transparent"
-                    style={{ backgroundColor: "transparent" }}
                     data-slot="scheduling-toggle-wrap"
                   >
                     <TabsList
                       noBg
                       data-slot="scheduling-toggle"
                       className="scheduling-toggle-track h-8 w-full p-0 rounded-full border-0 shadow-none min-w-0 inline-flex flex-1 bg-transparent"
-                      style={{ backgroundColor: "transparent" }}
                     >
                       <TabsTrigger
                         value="12h"

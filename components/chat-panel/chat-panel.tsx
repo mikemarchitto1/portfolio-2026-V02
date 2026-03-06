@@ -46,15 +46,15 @@ try {
           closeButtonClassName="color:text-white color:hover:text-[oklch(38%_0.065_155)] color:[&_svg]:text-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)]"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>
-          <SheetHeader>
+          <SheetHeader className="gap-2">
+            <h6 className="text-subtitle1 font-medium text-black dark:text-white color:text-white font-sans">
+              Chat Assistant
+            </h6>
             <p className="text-body2 text-black dark:text-white color:text-white">
-              Hello!
-              <br />
-              <br />
               Whenever you{"\u2019"}re ready, go ahead and start the conversation.
             </p>
           </SheetHeader>
-          <div className="flex-1 overflow-auto px-4 py-4 min-w-0">
+          <div className="flex-1 overflow-auto px-4 pt-6 pb-4 min-w-0">
             {children ?? (
               <div className="text-black dark:text-white color:text-white">
                 <ChatBubble
@@ -71,7 +71,7 @@ try {
               type="text"
               placeholder="Type a message…"
               aria-label="Chat message"
-              className="chat-input-unified-field w-full rounded-md border border-black color:border-[oklch(28%_0.055_155)] bg-white px-4 py-3 text-body2 text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
+              className="chat-input-unified-field h-12 w-full rounded-md border border-black color:border-[oklch(28%_0.055_155)] bg-white px-4 py-3 text-body2 text-black placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-black focus:ring-offset-0"
             />
           </div>
           <SheetFooter>
