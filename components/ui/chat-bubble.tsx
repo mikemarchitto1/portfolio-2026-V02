@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 type ChatBubbleProps = React.ComponentProps<"div"> & {
@@ -10,14 +11,15 @@ type ChatBubbleProps = React.ComponentProps<"div"> & {
 function ChatBubble({
   className,
   variant = "received",
-  ...props
+  children,
+  ...rest
 }: ChatBubbleProps) {
   return (
-    <div
+    <Card
       data-slot="chat-bubble"
       data-variant={variant}
       className={cn(
-        "relative max-w-[85%] min-w-0 rounded-2xl border px-4 py-3 text-body2 border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)]",
+        "relative max-w-[85%] min-w-0 rounded-2xl border px-0 py-0 gap-0 border-[oklch(32%_0_0)] dark:border-[oklch(36%_0_0)] color:border-[oklch(32%_0.05_155)] shadow-none",
         variant === "received" &&
           "rounded-bl-md bg-muted text-muted-foreground",
         variant === "sent" &&
@@ -25,8 +27,12 @@ function ChatBubble({
         variant === "default" && "bg-muted text-muted-foreground",
         className
       )}
-      {...props}
-    />
+      {...rest}
+    >
+      <CardContent className="px-4 py-3 text-body2">
+        {children}
+      </CardContent>
+    </Card>
   );
 }
 

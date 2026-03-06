@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function HeroCard() {
   return (
@@ -16,37 +17,41 @@ export default function HeroCard() {
               {/* LEFT — exactly 50% so profile left edge is at center */}
               <div className="w-full md:w-[calc(50%-4rem)] md:min-w-0 shrink-0 text-foreground bg-transparent">
                 <h1 className="text-h1 font-light" style={{ letterSpacing: 0 }}>
-                  Hi, <span className="tracking-[-0.04em]">I’m</span> Mike
+                  Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
                 </h1>
                 <h5 className="text-body1 md:text-h6 lg:text-h5 font-light max-w-[528px]">
                   I design digital experiences for startups and global brands.
                 </h5>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
-                    <span className="tracking-[-0.04em]">I’m</span> from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
+                    <span className="tracking-[-0.04em]">I'm</span> from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
                   </p>
                 </div>
               </div>
 
-              {/* RIGHT — fills remainder so its left edge is at center */}
+              {/* RIGHT — shadcn Card wrapping profile image + quote */}
               <div className="w-full md:flex-1 md:min-w-0 flex flex-col h-full gap-0 bg-transparent">
-                <div className="w-full flex-1 min-h-0 rounded-2xl overflow-hidden mb-6">
-                  <div className="w-full h-full min-h-[376px] relative rounded-2xl overflow-hidden">
-                    <Image
-                      src="/images/knight-wide.png"
-                      alt="Mike profile"
-                      fill
-                      className="object-cover object-center"
-                      priority
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                <Card className="flex flex-col flex-1 gap-0 border-0 bg-transparent p-0 shadow-none">
+                  {/* Image area: same min-height and rounding as original */}
+                  <div className="w-full flex-1 min-h-0 rounded-2xl overflow-hidden mb-6">
+                    <div className="w-full h-full min-h-[376px] relative rounded-2xl overflow-hidden">
+                      <Image
+                        src="/images/knight-wide.png"
+                        alt="Mike profile"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
                   </div>
-                </div>
-
-                <blockquote className="text-foreground font-light text-center mb-8">
-                  <p className="italic">“A king is a man who turns hope into action.”</p>
-                  <cite className="not-italic block opacity-80">— Ralph Waldo Emerson</cite>
-                </blockquote>
+                  <CardContent className="p-0">
+                    <blockquote className="profile-quote text-foreground font-light text-center mb-8">
+                      <p className="italic">"A king is a man who turns hope into action."</p>
+                      <cite className="not-italic block opacity-80">— Ralph Waldo Emerson</cite>
+                    </blockquote>
+                  </CardContent>
+                </Card>
               </div>
 
             </div>

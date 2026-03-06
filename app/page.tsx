@@ -58,13 +58,13 @@ export default function Home() {
       <main className="min-h-screen min-w-0">
         <Header />
 
-        {/* NEW HERO */}
+        {/* Hero */}
         <HeroCard />
 
         {/* IMPACT + TECH STACK */}
         <ImpactTechStackSection />
 
-        {/* PROJECTS */}
+        {/* Clients */}
         <ClientsSection projects={projects} />
       </main>
 

@@ -1074,23 +1074,21 @@ section.hero h1 {
 }
 
 @layer components {
-  /* Profile quote: body2 typography from type scale */
-.profile-quote {
-    @apply text-body2;
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  margin: 0 !important;
-  padding-top: 0 !important;
-}
+  /* Profile quote: body2 size, 24px line-height */
+.profile-quote,
 .profile-quote p,
 .profile-quote cite {
-    @apply text-body2;
+  font-size: 0.875rem !important;
+  line-height: 24px !important;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   margin: 0 !important;
   padding: 0 !important;
+  padding-top: 0 !important;
 }
-.profile-quote cite {
-    @apply text-body2;
-  }
+.profile-quote {
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
 }
 
 /* Color mode: profile pull quote text white */

@@ -11,6 +11,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { ChatBubble, ChatBubbleMessage } from "@/components/ui/chat-bubble";
 import { MessageCircle } from "lucide-react";
 
@@ -66,7 +67,7 @@ try {
             )}
           </div>
           <div className="shrink-0 px-4 pb-4 min-w-0">
-            <input
+            <Input
               type="text"
               placeholder="Type a message…"
               aria-label="Chat message"

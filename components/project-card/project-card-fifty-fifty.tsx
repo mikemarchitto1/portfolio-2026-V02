@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function ProjectCardFiftyFifty({
   title,
@@ -26,24 +27,26 @@ export default function ProjectCardFiftyFifty({
         />
       </div>
 
-      <div className="flex flex-col justify-center overflow-hidden rounded-b-2xl md:rounded-b-none md:rounded-r-2xl bg-white dark:bg-zinc-900 p-4 md:p-8 lg:p-16 text-left">
-        <h3 className="text-h6 md:text-h5 font-medium text-black m-0 mb-2">
-          {title}
-        </h3>
+      <Card className="flex flex-col justify-center overflow-hidden rounded-b-2xl md:rounded-b-none md:rounded-r-2xl bg-white border-0 shadow-none p-0 gap-0">
+        <CardContent className="flex flex-col justify-center p-4 md:p-8 lg:p-16 text-left">
+          <h3 className="text-h6 md:text-h5 font-medium text-black m-0 mb-2">
+            {title}
+          </h3>
 
-        <p className="text-body1 text-black m-0 mb-8">
-          {description}
-        </p>
+          <p className="text-body1 text-black m-0 mb-8">
+            {description}
+          </p>
 
-        <Button
-          variant="outline"
-          size="lg"
-          className="project-card-cta w-fit rounded-full border border-black text-black hover:bg-black/[0.06]"
-          asChild
-        >
-          {href ? <a href={href}>See Case Study</a> : <span>See Case Study</span>}
-        </Button>
-      </div>
+          <Button
+            variant="outline"
+            size="lg"
+            className="project-card-cta w-fit rounded-full border border-black text-black hover:bg-black/[0.06]"
+            asChild
+          >
+            {href ? <a href={href}>See Case Study</a> : <span>See Case Study</span>}
+          </Button>
+        </CardContent>
+      </Card>
     </div>
   );
 
