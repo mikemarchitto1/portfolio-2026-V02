@@ -20,6 +20,8 @@ console.log("🔥 MODULE LOAD:", "chat-panel");
 type ChatPanelProps = {
   trigger?: React.ReactNode;
   children?: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 };
 
 let ChatPanel: React.FC<ChatPanelProps>;
@@ -34,15 +36,15 @@ try {
     </Button>
   );
 
-  ChatPanel = function ChatPanel({ trigger = defaultTrigger, children }: ChatPanelProps) {
+  ChatPanel = function ChatPanel({ trigger = defaultTrigger, children, open, onOpenChange }: ChatPanelProps) {
     console.log("🔥 COMPONENT RENDER:", "ChatPanel");
     console.log("MOUNT:", "ChatPanel");
     return (
-      <Sheet>
+      <Sheet open={open} onOpenChange={onOpenChange}>
         <SheetTrigger asChild>{trigger}</SheetTrigger>
         <SheetContent
           side="right"
-          className="chat-sheet flex w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
+          className="chat-sheet flex w-full max-w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
           closeButtonClassName="color:text-white color:hover:text-[oklch(38%_0.065_155)] color:[&_svg]:text-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)]"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>

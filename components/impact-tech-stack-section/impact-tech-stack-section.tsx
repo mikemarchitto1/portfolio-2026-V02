@@ -6,10 +6,10 @@ import { StatCounter } from "@/components/stat-counter/stat-counter";
 import { useScrollTriggerOnce } from "@/components/stat-counter/use-scroll-trigger-once";
 
 const metrics = [
-  { value: "10", label: "Years Working" },
-  { value: "4", label: "Product Builds" },
-  { value: "350", label: "Testing Hours" },
-  { value: "3", label: "AI Explorations" },
+  { value: "10", label: "Years" },
+  { value: "4", label: "Products" },
+  { value: "27", label: "Testings" },
+  { value: "3", label: "AI Works" },
 ];
 
 export default function ImpactTechStackSection() {
@@ -22,7 +22,7 @@ export default function ImpactTechStackSection() {
         <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
           <div className="w-full mb-0 py-4 px-0 lg:px-16 bg-transparent">
             <h1 className="text-h2 font-light text-left text-foreground">
-              Impact and Tech Stack
+              Impact Stats and Tech Stack
             </h1>
           </div>
 
@@ -52,7 +52,7 @@ export default function ImpactTechStackSection() {
               <div className="p-0 flex flex-col min-h-0">
                 <Card className="rounded-2xl shadow-elevation pt-6 px-6 pb-6 md:pt-10 md:px-8 md:pb-10 lg:pt-16 lg:px-12 lg:pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-white border-0 gap-0">
                   <CardContent className="p-0">
-                    <div className="grid w-full min-w-0 max-w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
+                    <div className="grid w-full min-w-0 max-w-full grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 lg:gap-x-[56px] gap-y-4 md:gap-y-8 lg:gap-y-[52px] grid-auto-rows-[56px] md:grid-auto-rows-[72px] lg:grid-auto-rows-[80px] items-stretch content-start">
                       {/* Row 1: Figma, Cursor, OpenAI */}
                       <div className="flex h-full w-full items-center justify-center">
                         <img

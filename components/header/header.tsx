@@ -78,11 +78,19 @@ function NavItems({
   hideSidebarToggle,
   hideAIExploration,
   hideIcons,
+  scheduleOpen,
+  setScheduleOpen,
+  chatOpen,
+  setChatOpen,
 }: {
   onItemClick?: () => void;
   hideSidebarToggle?: boolean;
   hideAIExploration?: boolean;
   hideIcons?: boolean;
+  scheduleOpen?: boolean;
+  setScheduleOpen?: (open: boolean) => void;
+  chatOpen?: boolean;
+  setChatOpen?: (open: boolean) => void;
 }) {
   const { toggle } = useSidebar();
   return (
@@ -104,25 +112,33 @@ function NavItems({
       {!hideAIExploration && (
         <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
           {!hideIcons && <BrainCircuit className={navIconClass} />}
-          <span className="text-button">AI Exploration</span>
+          <span className="text-button">AI Works</span>
         </Button>
       )}
-      <SchedulingDialog
-        trigger={
-          <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar" onClick={onItemClick}>
-            {!hideIcons && <Calendar className={navIconClass} />}
-            <span className="text-button">Schedule</span>
-          </Button>
-        }
-      />
-      <ChatPanel
-        trigger={
-          <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
-            {!hideIcons && <MessageCircle className={navIconClass} />}
-            <span className="text-button">Let{"\u2019"}s Chat</span>
-          </Button>
-        }
-      />
+      {setScheduleOpen != null && (
+        <SchedulingDialog
+          open={scheduleOpen}
+          onOpenChange={setScheduleOpen}
+          trigger={
+            <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar" onClick={onItemClick}>
+              {!hideIcons && <Calendar className={navIconClass} />}
+              <span className="text-button">Schedule</span>
+            </Button>
+          }
+        />
+      )}
+      {setChatOpen != null && (
+        <ChatPanel
+          open={chatOpen}
+          onOpenChange={setChatOpen}
+          trigger={
+            <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
+              {!hideIcons && <MessageCircle className={navIconClass} />}
+              <span className="text-button">Let{"\u2019"}s Chat</span>
+            </Button>
+          }
+        />
+      )}
     </>
   );
 }
@@ -131,6 +147,8 @@ let Header: React.FC;
 try {
   Header = function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scheduleOpen, setScheduleOpen] = useState(false);
+    const [chatOpen, setChatOpen] = useState(false);
 
     useEffect(() => {
       const mq = window.matchMedia("(min-width: 1024px)");
@@ -162,7 +180,7 @@ try {
                 >
                   <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
                 </Button>
-                <NavItems hideSidebarToggle hideIcons />
+                <NavItems hideSidebarToggle hideIcons scheduleOpen={scheduleOpen} setScheduleOpen={setScheduleOpen} chatOpen={chatOpen} setChatOpen={setChatOpen} />
               </div>
               <div className="flex lg:hidden items-center gap-2">
                 <button
@@ -220,7 +238,7 @@ try {
                           variant="outline"
                           onClick={() => setMobileMenuOpen(false)}
                         >
-                          <span className="text-button">AI Exploration</span>
+                          <span className="text-button">AI Works</span>
                         </Button>
                       </nav>
                       <p className="text-subtitle1 font-medium mb-2 mt-6">Connect</p>
@@ -270,12 +288,27 @@ try {
                             <span className="text-button">Connect on LinkedIn</span>
                           </a>
                         </Button>
-                        <NavItems
-                          onItemClick={() => setMobileMenuOpen(false)}
-                          hideSidebarToggle
-                          hideAIExploration
-                          hideIcons
-                        />
+                        <Button
+                          className="nav-button flex items-center gap-2"
+                          variant="outline"
+                          aria-label="Open calendar"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setScheduleOpen(true);
+                          }}
+                        >
+                          <span className="text-button">Schedule</span>
+                        </Button>
+                        <Button
+                          className="nav-button flex items-center gap-2"
+                          variant="outline"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setChatOpen(true);
+                          }}
+                        >
+                          <span className="text-button">Let{"\u2019"}s Chat</span>
+                        </Button>
                       </nav>
           </div>
         </SheetContent>

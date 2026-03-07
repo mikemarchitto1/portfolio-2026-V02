@@ -19,7 +19,11 @@ import { useTheme } from "@/hooks/use-theme";
 
 const COLOR_THEME_BACKGROUND = "oklch(24% 0.035 165)";
 
-type SchedulingDialogProps = { trigger: React.ReactNode };
+type SchedulingDialogProps = {
+  trigger: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+};
 
 let SchedulingDialog: React.FC<SchedulingDialogProps>;
 try {
@@ -88,7 +92,7 @@ try {
     return slots;
   }
 
-  SchedulingDialog = function SchedulingDialog({ trigger }: SchedulingDialogProps) {
+  SchedulingDialog = function SchedulingDialog({ trigger, open, onOpenChange }: SchedulingDialogProps) {
     const { theme } = useTheme();
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [timeFormat, setTimeFormat] = React.useState<"12h" | "24h">("12h");
@@ -102,7 +106,7 @@ try {
       : "Select a date";
 
     return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent
         showCloseButton={false}
