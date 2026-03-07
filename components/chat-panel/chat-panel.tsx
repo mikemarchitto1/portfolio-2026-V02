@@ -44,7 +44,7 @@ try {
         <SheetTrigger asChild>{trigger}</SheetTrigger>
         <SheetContent
           side="right"
-          className="chat-sheet flex w-full max-w-full flex-col sm:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
+          className="chat-sheet flex w-full max-w-full flex-col sm:w-full sm:max-w-full md:w-full md:max-w-full lg:max-w-md border-0 bg-sidebar dark:bg-sidebar text-black dark:text-white color:text-white"
           closeButtonClassName="color:text-white color:hover:text-[oklch(38%_0.065_155)] color:[&_svg]:text-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)]"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>
