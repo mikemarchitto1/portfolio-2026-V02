@@ -50,16 +50,16 @@ export function StatCounter({ value, label, startAnimation }: StatCounterProps) 
   const isTen = value === 10;
 
   return (
-    <Card className="w-full h-full min-h-0 flex flex-col items-center justify-center text-center pt-10 px-12 pb-12 rounded-2xl shadow-elevation bg-white text-foreground dark:text-black color:text-black border-0 gap-0">
+    <Card className="w-full h-full min-h-0 flex flex-col items-center justify-center text-center pt-2.5 px-3 pb-2.5 md:pt-5 md:px-6 md:pb-6 lg:pt-4 lg:px-5 lg:pb-5 rounded-2xl shadow-elevation bg-white text-foreground dark:text-black color:text-black border-0 gap-0">
       <CardContent className="p-0 flex flex-col items-center justify-center text-center flex-1">
-        <div className="text-h5 md:text-h1 font-light -mb-1 !py-0 text-foreground dark:text-black color:text-black">
+        <div className="text-h1 font-light -mb-1 !py-0 text-foreground dark:text-black color:text-black">
           {isTen ? (
             <span className="tracking-[-0.04em]">{displayValue}</span>
           ) : (
             displayValue
           )}
         </div>
-        <div className="text-body1 md:text-h5 font-normal text-foreground dark:text-black color:text-black">
+        <div className="text-h4 text-foreground dark:text-black color:text-black">
           {label}
         </div>
       </CardContent>

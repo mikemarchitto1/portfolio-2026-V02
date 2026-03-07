@@ -29,7 +29,7 @@ export default function ProjectCard({
 
       <Card className="flex flex-col justify-center overflow-hidden rounded-b-2xl md:rounded-b-none md:rounded-r-2xl bg-white border-0 shadow-none p-0 gap-0">
         <CardContent className="flex flex-col justify-center p-4 md:p-8 lg:p-16 text-left">
-          <h3 className="text-h6 md:text-h5 font-medium text-black m-0 mb-2">
+          <h3 className="text-h4 text-black m-0 mb-2">
             {title}
           </h3>
 

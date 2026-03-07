@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function HeroSection() {
   return (
-    <section className="w-full min-w-0 py-12 bg-transparent">
+    <section className="w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
 
@@ -13,13 +13,13 @@ export default function HeroSection() {
           <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
 
             {/* INNER GRID: left column 50% so profile card starts at center */}
-            <div className="w-full min-w-0 flex flex-col md:flex-row md:gap-16 items-stretch">
+            <div className="w-full min-w-0 flex flex-col md:flex-row gap-16 items-stretch">
               {/* LEFT — exactly 50% so profile left edge is at center */}
               <div className="w-full md:w-[calc(50%-4rem)] md:min-w-0 shrink-0 text-foreground bg-transparent">
                 <h1 className="text-h1 font-light tracking-[0]">
                   Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
                 </h1>
-                <h5 className="text-body1 md:text-h6 lg:text-h5 font-light max-w-[528px]">
+                <h5 className="text-h4 max-w-[528px]">
                   I design digital experiences for startups and global brands.
                 </h5>
                 <div className="text-body1 space-y-4 mt-7">

@@ -17,11 +17,11 @@ export default function ImpactTechStackSection() {
     useScrollTriggerOnce();
 
   return (
-    <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-12 bg-transparent">
+    <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-6 md:py-9 lg:py-12 bg-transparent">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
           <div className="w-full mb-0 py-4 px-0 lg:px-16 bg-transparent">
-            <h1 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
+            <h1 className="text-h2 font-light text-left text-foreground">
               Impact and Tech Stack
             </h1>
           </div>
@@ -50,7 +50,7 @@ export default function ImpactTechStackSection() {
 
               {/* Tech Stack */}
               <div className="p-0 flex flex-col min-h-0">
-                <Card className="rounded-2xl shadow-elevation pt-16 px-12 pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-white border-0 gap-0">
+                <Card className="rounded-2xl shadow-elevation pt-6 px-6 pb-6 md:pt-10 md:px-8 md:pb-10 lg:pt-16 lg:px-12 lg:pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-white border-0 gap-0">
                   <CardContent className="p-0">
                     <div className="grid w-full min-w-0 max-w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[56px] gap-y-[52px] grid-auto-rows-[80px] items-stretch content-start">
                       {/* Row 1: Figma, Cursor, OpenAI */}

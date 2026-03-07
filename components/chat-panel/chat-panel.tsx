@@ -54,7 +54,7 @@ try {
               Hello!
             </p>
           </SheetHeader>
-          <div className="flex-1 overflow-auto px-4 pt-[4.5rem] pb-4 min-w-0">
+          <div className="flex-1 overflow-auto px-4 pt-[104px] pb-4 min-w-0">
             {children ?? (
               <div className="text-black dark:text-white color:text-white">
                 <ChatBubble

@@ -188,7 +188,7 @@ try {
           <div className="flex flex-col items-start p-4">
                       <MobileMenuCrown />
                       <MobileMenuThemeSwitcher />
-                      <div className="mt-0 w-full pl-0 min-w-0">
+                      <div className="mt-[76px] w-full pl-0 min-w-0">
                         <p className="text-subtitle1 font-medium mb-2">Clients</p>
                         <ul className="mobile-menu-clients-list flex flex-col gap-1 m-0 mt-0 w-full">
                           {SIDEBAR_PROJECTS.map(({ label, href }) => (

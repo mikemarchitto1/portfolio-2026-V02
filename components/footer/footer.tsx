@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="text-foreground w-full">
       {/* 1. SECTION — full bleed */}
-      <section className="w-full py-12 bg-transparent">
+      <section className="w-full py-6 md:py-9 lg:py-12 bg-transparent">
         {/* 2. GUTTER */}
         <div className="w-full px-4 md:px-8 lg:px-16">
           {/* 3. MAX-WIDTH */}
@@ -16,7 +16,7 @@ export default function Footer() {
             {/* 4. CONTENT WRAPPER — 64px padding, visible band */}
             <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
               {/* Let's Talk band */}
-              <div className="w-full bg-transparent py-12 md:py-16">
+              <div className="w-full bg-transparent py-6 md:py-10 lg:py-16">
                 <div className="w-full min-w-0 text-left flex flex-col">
                   <div className="w-fit p-0 m-0">
                     <h1 className="text-h1 font-light text-foreground p-0 m-0 tracking-[0]">
@@ -24,7 +24,7 @@ export default function Footer() {
                     </h1>
                   </div>
                   <div className="max-w-[528px] p-0 m-0 mt-4">
-                    <h5 className="text-h5 max-w-[528px] font-light text-foreground p-0 m-0">
+                    <h5 className="text-h4 max-w-[528px] text-foreground p-0 m-0">
                       <span className="tracking-[-0.04em]">I{"'"}m</span> interested in creative partnerships that grow from meaningful work.
                     </h5>
                   </div>
@@ -32,7 +32,7 @@ export default function Footer() {
               </div>
 
               {/* Buttons band */}
-              <div className="w-full bg-transparent py-8 md:py-12">
+              <div className="w-full bg-transparent py-4 md:py-8 lg:py-12">
                 <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
                   <div className="hidden lg:flex flex-col sm:flex-row flex-wrap gap-4">
                     <Button className="nav-button" variant="outline" size="lg" asChild>
