@@ -166,10 +166,10 @@ try {
     console.log("MOUNT:", "Header");
     return (
       <>
-      <header className="sticky top-0 z-50 w-full min-w-0 bg-transparent text-foreground backdrop-blur-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full min-w-0 bg-background text-foreground">
         <div className="w-full px-4 md:px-8 lg:px-16">
           <div className="max-w-[1328px] mx-auto">
-            <div className="w-full min-w-0 flex items-center justify-between gap-2 py-4 px-0 lg:px-16 bg-transparent">
+            <div className="w-full min-w-0 flex items-center justify-between gap-2 py-4 px-0 lg:px-16">
               <div className="hidden lg:flex min-w-0 flex-wrap items-center gap-4">
                 <Button
                   type="button"

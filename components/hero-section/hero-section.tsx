@@ -2,11 +2,28 @@
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { useTheme } from "@/hooks/use-theme";
+import styles from "./hero-section.module.css";
 
 export default function HeroSection() {
+  const { theme } = useTheme();
+  const isColorMode = theme === "color";
+
   return (
-    <section className="w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent">
-      <div className="w-full px-4 md:px-8 lg:px-16">
+    <section
+      className={`${styles.hero} ${isColorMode ? styles.heroWithBg : ""} w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent`}
+      style={
+        isColorMode
+          ? {
+              backgroundImage: 'url("/images/forest-6.png?v=21")',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }
+          : undefined
+      }
+    >
+      <div className={`${styles.content} w-full px-4 md:px-8 lg:px-16`}>
         <div className="max-w-[1328px] mx-auto">
 
           {/* OUTER BOX */}

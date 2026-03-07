@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/header/header";
 import HeroSection from "@/components/hero-section/hero-section";
 import ImpactTechStackSection from "@/components/impact-tech-stack-section/impact-tech-stack-section";
 import ClientsSection from "@/components/clients-section/clients-section";
@@ -55,8 +54,6 @@ export default function Home() {
   return (
     <>
       <main className="min-h-screen min-w-0">
-        <Header />
-
         {/* Hero */}
         <HeroSection />
 
