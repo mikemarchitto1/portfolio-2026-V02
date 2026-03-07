@@ -181,7 +181,7 @@ try {
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetContent
           side="left"
-          className="mobile-menu-sheet w-full max-w-full sm:max-w-[280px] bg-background dark:border-[oklch(26%_0_0)]"
+          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-background dark:border-[oklch(26%_0_0)]"
           closeButtonClassName="text-black dark:text-white color:text-white [&_svg]:text-black dark:[&_svg]:text-white color:[&_svg]:text-white"
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>

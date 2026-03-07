@@ -34,7 +34,7 @@ export default function Footer() {
               {/* Buttons band */}
               <div className="w-full bg-transparent py-8 md:py-12">
                 <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
-                  <div className="hidden sm:flex flex-col sm:flex-row flex-wrap gap-4">
+                  <div className="hidden lg:flex flex-col sm:flex-row flex-wrap gap-4">
                     <Button className="nav-button" variant="outline" size="lg" asChild>
                       <a href="mailto:hello@carlwalker.com">Email Mike</a>
                     </Button>
