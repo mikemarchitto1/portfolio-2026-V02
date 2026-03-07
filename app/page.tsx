@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "@/components/header/header";
-import HeroCard from "@/components/hero-card/hero-card";
+import HeroSection from "@/components/hero-section/hero-section";
 import ImpactTechStackSection from "@/components/impact-tech-stack-section/impact-tech-stack-section";
 import ClientsSection from "@/components/clients-section/clients-section";
 import Footer from "@/components/footer/footer";
@@ -58,7 +58,7 @@ export default function Home() {
         <Header />
 
         {/* Hero */}
-        <HeroCard />
+        <HeroSection />
 
         {/* IMPACT + TECH STACK */}
         <ImpactTechStackSection />

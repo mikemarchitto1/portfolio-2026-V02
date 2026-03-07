@@ -5,6 +5,101 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant color (&:is(.color *));
 
+/* Mobile menu sheet: Connect and Mode use 0.75rem gap; Clients list 4px (8px less) */
+.mobile-menu-sheet .mobile-menu-connect-nav,
+.mobile-menu-sheet .mobile-menu-theme-nav {
+  gap: 0.75rem;
+}
+.mobile-menu-sheet .mobile-menu-clients-list {
+  gap: 0.5rem !important; /* 8px between items (4px less than before) */
+}
+
+/* Mobile menu sheet: theme icons in a row, 24px between icons */
+.mobile-menu-sheet .mobile-menu-theme-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* Mobile menu sheet: Connect/Experiments list items 8px apart (4px less than before) */
+.mobile-menu-sheet .mobile-menu-connect-nav {
+  gap: 0.5rem;
+}
+
+/* Mobile menu sheet: nav buttons same spacing/behavior as Mode — no internal padding, compact height */
+.mobile-menu-sheet .nav-button {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 0;
+  min-height: 0;
+  height: auto;
+}
+
+/* Mobile menu sheet: no CTA treatment — transparent, text/icon color change on hover only (like desktop sidebar) */
+.mobile-menu-sheet .nav-button {
+  background-color: transparent !important;
+  border: none !important;
+}
+.mobile-menu-sheet .nav-button:hover {
+  background-color: transparent !important;
+}
+/* Light: hover = same gray as desktop sidebar Clients */
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg path,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg circle,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg line {
+  color: oklch(51.5% 0.02 264) !important;
+  stroke: oklch(51.5% 0.02 264) !important;
+}
+/* Dark: hover = accent */
+html.dark .mobile-menu-sheet .nav-button:hover,
+html.dark .mobile-menu-sheet .nav-button:hover svg,
+html.dark .mobile-menu-sheet .nav-button:hover svg path,
+html.dark .mobile-menu-sheet .nav-button:hover svg circle,
+html.dark .mobile-menu-sheet .nav-button:hover svg line {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+/* Color: hover = sidebar-hover */
+html.color .mobile-menu-sheet .nav-button:hover,
+html.color .mobile-menu-sheet .nav-button:hover svg,
+html.color .mobile-menu-sheet .nav-button:hover svg path,
+html.color .mobile-menu-sheet .nav-button:hover svg circle,
+html.color .mobile-menu-sheet .nav-button:hover svg line {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
+}
+
+/* Mobile menu sheet: Clients list = text-button, no underline, hover color only (match desktop sidebar) */
+.mobile-menu-sheet .mobile-menu-client-link {
+  transition: color 0.2s ease;
+}
+.mobile-menu-sheet .mobile-menu-client-link:hover {
+  text-decoration: none !important;
+}
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-client-link:hover {
+  color: oklch(51.5% 0.02 264) !important;
+}
+html.dark .mobile-menu-sheet .mobile-menu-client-link:hover {
+  color: var(--accent) !important;
+}
+html.color .mobile-menu-sheet .mobile-menu-client-link:hover {
+  color: var(--sidebar-hover) !important;
+}
+
+/* Sidebar: same line-height for all text (desktop + mobile) */
+[data-sidebar="content"] .text-subtitle1,
+[data-sidebar="content"] .text-button,
+[data-sidebar="content"] [data-sidebar="group-label"],
+[data-sidebar="content"] [data-sidebar="menu-button"],
+.mobile-menu-sheet .text-subtitle1,
+.mobile-menu-sheet .text-button,
+.mobile-menu-sheet .mobile-menu-client-link,
+.mobile-menu-sheet .nav-button {
+  line-height: 24px !important;
+}
+
 /* -------------------------------------------------------
    GLOBAL 4px BASELINE GRID
    All vertical spacing, line-heights, margins, padding, and
@@ -505,7 +600,7 @@ button,
 html:not(.color):not(.dark) header button[data-slot="button"],
 html:not(.color):not(.dark) header [data-slot="button"],
 html:not(.color):not(.dark) header [data-slot="dialog-trigger"],
-html:not(.color):not(.dark) header [data-slot="sheet-trigger"],
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"]:not(.hamburger-trigger),
 html:not(.color):not(.dark) main button[data-slot="button"],
 html:not(.color):not(.dark) main [data-slot="button"],
 html:not(.color):not(.dark) main [data-slot="dialog-trigger"],
@@ -525,7 +620,7 @@ html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-trigger"] {
 html:not(.color):not(.dark) header button[data-slot="button"]:hover,
 html:not(.color):not(.dark) header [data-slot="button"]:hover,
 html:not(.color):not(.dark) header [data-slot="dialog-trigger"]:hover,
-html:not(.color):not(.dark) header [data-slot="sheet-trigger"]:hover,
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"]:not(.hamburger-trigger):hover,
 html:not(.color):not(.dark) main button[data-slot="button"]:hover,
 html:not(.color):not(.dark) main [data-slot="button"]:hover,
 html:not(.color):not(.dark) main [data-slot="dialog-trigger"]:hover,
@@ -565,7 +660,7 @@ html:not(.color):not(.dark) .chat-sheet [data-slot="sheet-footer"] .chat-sheet-c
 
 html:not(.color):not(.dark) header [data-slot="button"] svg,
 html:not(.color):not(.dark) header [data-slot="dialog-trigger"] svg,
-html:not(.color):not(.dark) header [data-slot="sheet-trigger"] svg,
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg,
 html:not(.color):not(.dark) main [data-slot="button"] svg,
 html:not(.color):not(.dark) main [data-slot="dialog-trigger"] svg,
 html:not(.color):not(.dark) main [data-slot="sheet-trigger"] svg,
@@ -576,8 +671,54 @@ html:not(.color):not(.dark) footer [data-slot="sheet-trigger"] svg {
 }
 html:not(.color):not(.dark) header [data-slot="button"] img,
 html:not(.color):not(.dark) header [data-slot="dialog-trigger"] img,
-html:not(.color):not(.dark) header [data-slot="sheet-trigger"] img {
+html:not(.color):not(.dark) header [data-slot="sheet-trigger"]:not(.hamburger-trigger) img {
   filter: brightness(0) invert(1);
+}
+
+/* Hamburger menu trigger: no background, icon only — light: black icon, dark/color: white icon (match CTA specificity) */
+html:not(.color):not(.dark) header button.hamburger-trigger,
+html:not(.color):not(.dark) header button.hamburger-trigger:hover,
+html:not(.color):not(.dark) header button.hamburger-trigger:focus-visible,
+html.dark header button.hamburger-trigger,
+html.dark header button.hamburger-trigger:hover,
+html.dark header button.hamburger-trigger:focus-visible,
+html.color header button.hamburger-trigger,
+html.color header button.hamburger-trigger:hover,
+html.color header button.hamburger-trigger:focus-visible {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+html:not(.color):not(.dark) header button.hamburger-trigger,
+html:not(.color):not(.dark) header button.hamburger-trigger:hover {
+  color: oklch(0% 0 0) !important;
+}
+html:not(.color):not(.dark) header button.hamburger-trigger svg,
+html:not(.color):not(.dark) header button.hamburger-trigger svg path,
+html:not(.color):not(.dark) header button.hamburger-trigger svg line {
+  color: oklch(0% 0 0) !important;
+  stroke: oklch(0% 0 0) !important;
+}
+html.dark header button.hamburger-trigger,
+html.dark header button.hamburger-trigger:hover {
+  color: oklch(100% 0 0) !important;
+}
+html.dark header button.hamburger-trigger svg,
+html.dark header button.hamburger-trigger svg path,
+html.dark header button.hamburger-trigger svg line {
+  color: oklch(100% 0 0) !important;
+  stroke: oklch(100% 0 0) !important;
+}
+html.color header button.hamburger-trigger,
+html.color header button.hamburger-trigger:hover {
+  color: oklch(100% 0 0) !important;
+}
+html.color header button.hamburger-trigger svg,
+html.color header button.hamburger-trigger svg path,
+html.color header button.hamburger-trigger svg line {
+  color: oklch(100% 0 0) !important;
+  stroke: oklch(100% 0 0) !important;
 }
 
 /* Light mode sidebar: no black fill — transparent bg, black icon/text (theme toggles + close) */
@@ -628,7 +769,7 @@ html:not(.color):not(.dark) [data-sidebar] .sidebar-icon-btn:hover svg line {
 /* Dark: CTA buttons — var(--cta-bg) resting, var(--cta-bg-hover) hover, var(--cta-color) text */
 html.dark header [data-slot="button"],
 html.dark header [data-slot="dialog-trigger"],
-html.dark header [data-slot="sheet-trigger"],
+html.dark header [data-slot="sheet-trigger"]:not(.hamburger-trigger),
 html.dark main [data-slot="button"],
 html.dark main [data-slot="dialog-trigger"],
 html.dark main [data-slot="sheet-trigger"],
@@ -644,7 +785,7 @@ html.dark .chat-sheet [data-slot="sheet-trigger"] {
 }
 html.dark header [data-slot="button"]:hover,
 html.dark header [data-slot="dialog-trigger"]:hover,
-html.dark header [data-slot="sheet-trigger"]:hover,
+html.dark header [data-slot="sheet-trigger"]:not(.hamburger-trigger):hover,
 html.dark main [data-slot="button"]:hover,
 html.dark main [data-slot="dialog-trigger"]:hover,
 html.dark main [data-slot="sheet-trigger"]:hover,
@@ -746,7 +887,7 @@ html.dark .nav-icon line {
 /* Dark mode: force button icons black (svg + inner path/circle/line) */
 html.dark header [data-slot="button"] svg,
 html.dark header [data-slot="dialog-trigger"] svg,
-html.dark header [data-slot="sheet-trigger"] svg,
+html.dark header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg,
 html.dark main [data-slot="button"] svg,
 html.dark main [data-slot="dialog-trigger"] svg,
 html.dark main [data-slot="sheet-trigger"] svg,
@@ -762,9 +903,9 @@ html.dark header [data-slot="button"] svg line,
 html.dark header [data-slot="dialog-trigger"] svg path,
 html.dark header [data-slot="dialog-trigger"] svg circle,
 html.dark header [data-slot="dialog-trigger"] svg line,
-html.dark header [data-slot="sheet-trigger"] svg path,
-html.dark header [data-slot="sheet-trigger"] svg circle,
-html.dark header [data-slot="sheet-trigger"] svg line,
+html.dark header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg path,
+html.dark header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg circle,
+html.dark header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg line,
 html.dark main [data-slot="button"] svg path,
 html.dark main [data-slot="button"] svg circle,
 html.dark main [data-slot="button"] svg line,
@@ -789,7 +930,7 @@ html.dark footer [data-slot="sheet-trigger"] svg line {
 /* Color: page buttons = page bg + 2 shades lighter (#1e3d2e); remove borders; sidebar stays transparent */
 html.color header [data-slot="button"],
 html.color header [data-slot="dialog-trigger"],
-html.color header [data-slot="sheet-trigger"],
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger),
 html.color header button[data-slot="button"],
 html.color main [data-slot="button"],
 html.color main [data-slot="dialog-trigger"],
@@ -811,7 +952,7 @@ html.color .chat-sheet [data-slot="sheet-trigger"] {
 /* Color: CTA buttons — var(--cta-bg) resting, var(--cta-bg-hover) hover, var(--cta-color) text */
 html.color header [data-slot="button"],
 html.color header [data-slot="dialog-trigger"],
-html.color header [data-slot="sheet-trigger"],
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger),
 html.color header button[data-slot="button"],
 html.color main [data-slot="button"],
 html.color main [data-slot="dialog-trigger"],
@@ -829,7 +970,7 @@ html.color footer button[data-slot="button"] {
 }
 html.color header [data-slot="button"]:hover,
 html.color header [data-slot="dialog-trigger"]:hover,
-html.color header [data-slot="sheet-trigger"]:hover,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger):hover,
 html.color header button[data-slot="button"]:hover,
 html.color main [data-slot="button"]:hover,
 html.color main [data-slot="dialog-trigger"]:hover,
@@ -866,7 +1007,7 @@ html.color main span.project-card-cta:hover {
 
 html.color header [data-slot="button"] svg,
 html.color header [data-slot="dialog-trigger"] svg,
-html.color header [data-slot="sheet-trigger"] svg,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg,
 html.color footer [data-slot="button"] svg,
 html.color footer [data-slot="dialog-trigger"] svg,
 html.color footer [data-slot="sheet-trigger"] svg {
@@ -887,12 +1028,12 @@ html.color header [data-slot="dialog-trigger"] svg line,
 html.color header [data-slot="dialog-trigger"] svg polyline,
 html.color header [data-slot="dialog-trigger"] svg polygon,
 html.color header [data-slot="dialog-trigger"] svg rect,
-html.color header [data-slot="sheet-trigger"] svg path,
-html.color header [data-slot="sheet-trigger"] svg circle,
-html.color header [data-slot="sheet-trigger"] svg line,
-html.color header [data-slot="sheet-trigger"] svg polyline,
-html.color header [data-slot="sheet-trigger"] svg polygon,
-html.color header [data-slot="sheet-trigger"] svg rect,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg path,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg circle,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg line,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg polyline,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg polygon,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg rect,
 html.color header button[data-slot="button"] svg path,
 html.color header button[data-slot="button"] svg circle,
 html.color header button[data-slot="button"] svg line,
@@ -906,7 +1047,7 @@ html.color header button[data-slot="button"] svg rect {
 /* Catch-all: stroke only, no fill */
 html.color header [data-slot="button"] svg *,
 html.color header [data-slot="dialog-trigger"] svg *,
-html.color header [data-slot="sheet-trigger"] svg *,
+html.color header [data-slot="sheet-trigger"]:not(.hamburger-trigger) svg *,
 html.color header button svg *,
 html.color footer [data-slot="button"] svg *,
 html.color footer [data-slot="dialog-trigger"] svg *,
@@ -1038,6 +1179,67 @@ html:not(.color):not(.dark) footer .nav-button svg * {
 }
 html:not(.color):not(.dark) header .nav-button img {
   filter: brightness(0) invert(1);
+}
+
+/* Mobile menu sheet: nav buttons and client links — same as desktop sidebar (no CTA, hover = color only). Place after header .nav-button so these win. */
+.mobile-menu-sheet .nav-button,
+.mobile-menu-sheet .nav-button:hover {
+  background-color: transparent !important;
+  border: none !important;
+}
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg path,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg circle,
+html:not(.color):not(.dark) .mobile-menu-sheet .nav-button:hover svg line {
+  color: oklch(51.5% 0.02 264) !important;
+  stroke: oklch(51.5% 0.02 264) !important;
+}
+html.dark .mobile-menu-sheet .nav-button:hover,
+html.dark .mobile-menu-sheet .nav-button:hover svg,
+html.dark .mobile-menu-sheet .nav-button:hover svg path,
+html.dark .mobile-menu-sheet .nav-button:hover svg circle,
+html.dark .mobile-menu-sheet .nav-button:hover svg line {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.color .mobile-menu-sheet .nav-button:hover,
+html.color .mobile-menu-sheet .nav-button:hover svg,
+html.color .mobile-menu-sheet .nav-button:hover svg path,
+html.color .mobile-menu-sheet .nav-button:hover svg circle,
+html.color .mobile-menu-sheet .nav-button:hover svg line {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
+}
+
+/* Mobile menu sheet: color mode icons — same hover as nav and client links; scoped so only mobile theme nav is targeted */
+.mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn,
+.mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn svg {
+  transition: color 0.2s ease, stroke 0.2s ease;
+}
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg path,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg circle,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
+  color: oklch(51.5% 0.02 264) !important;
+  stroke: oklch(51.5% 0.02 264) !important;
+}
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg path,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg circle,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg path,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg circle,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
 }
 
 html.color main [data-slot="button"] svg,
@@ -2490,4 +2692,34 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [da
   background-color: oklch(100% 0 0) !important;
   background: oklch(100% 0 0) !important;
   color: oklch(0% 0 0) !important;
+}
+
+/* Mobile menu sheet: color mode icons hover — last so it wins over Tailwind/other rules */
+.mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg path,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg circle,
+html:not(.color):not(.dark) .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
+  color: oklch(51.5% 0.02 264) !important;
+  stroke: oklch(51.5% 0.02 264) !important;
+}
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg path,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg circle,
+html.dark .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg path,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg circle,
+html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
 }

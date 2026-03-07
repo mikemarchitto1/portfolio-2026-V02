@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
-export default function HeroCard() {
+export default function HeroSection() {
   return (
     <section className="w-full min-w-0 py-12 bg-transparent">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
 
           {/* OUTER BOX */}
-          <div className="w-full min-w-0 flex flex-col p-16 bg-transparent">
+          <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
 
             {/* INNER GRID: left column 50% so profile card starts at center */}
             <div className="w-full min-w-0 flex flex-col md:flex-row md:gap-16 items-stretch">

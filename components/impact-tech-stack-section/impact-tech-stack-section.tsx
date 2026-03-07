@@ -20,13 +20,13 @@ export default function ImpactTechStackSection() {
     <section className="w-full min-w-0 min-h-0 md:min-h-[520px] py-12 bg-transparent">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto min-h-0 md:min-h-[520px]">
-          <div className="w-full mb-0 py-4 px-16 bg-transparent">
+          <div className="w-full mb-0 py-4 px-0 lg:px-16 bg-transparent">
             <h1 className="text-h5 md:text-h4 lg:text-h2 font-light text-left text-foreground">
               Impact and Tech Stack
             </h1>
           </div>
 
-          <div className="w-full min-w-0 flex flex-col p-16 bg-transparent">
+          <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Metrics */}
               <div className="p-0 flex flex-col min-h-0 bg-transparent">

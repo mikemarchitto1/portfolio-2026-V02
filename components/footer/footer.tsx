@@ -1,5 +1,5 @@
 import React from "react";
-import { NavButton } from "@/components/ui/nav-button";
+import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 
 export default function Footer() {
@@ -14,7 +14,7 @@ export default function Footer() {
           {/* 3. MAX-WIDTH */}
           <div className="max-w-[1328px] mx-auto">
             {/* 4. CONTENT WRAPPER — 64px padding, visible band */}
-            <div className="w-full min-w-0 flex flex-col p-16 bg-transparent">
+            <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
               {/* Let's Talk band */}
               <div className="w-full bg-transparent py-12 md:py-16">
                 <div className="w-full min-w-0 text-left flex flex-col">
@@ -34,18 +34,18 @@ export default function Footer() {
               {/* Buttons band */}
               <div className="w-full bg-transparent py-8 md:py-12">
                 <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
-                  <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-                    <NavButton size="lg" asChild>
+                  <div className="hidden sm:flex flex-col sm:flex-row flex-wrap gap-4">
+                    <Button className="nav-button" variant="outline" size="lg" asChild>
                       <a href="mailto:hello@carlwalker.com">Email Mike</a>
-                    </NavButton>
+                    </Button>
 
-                    <NavButton size="lg" asChild>
+                    <Button className="nav-button" variant="outline" size="lg" asChild>
                       <a href="/resume.pdf" download>
                         Download Resume
                       </a>
-                    </NavButton>
+                    </Button>
 
-                    <NavButton size="lg" asChild>
+                    <Button className="nav-button" variant="outline" size="lg" asChild>
                       <a
                         href="https://linkedin.com/in/carlwalker"
                         target="_blank"
@@ -53,7 +53,7 @@ export default function Footer() {
                       >
                         Connect on LinkedIn
                       </a>
-                    </NavButton>
+                    </Button>
                   </div>
                   <img
                     src={
