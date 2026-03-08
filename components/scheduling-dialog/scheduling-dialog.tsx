@@ -109,6 +109,7 @@ try {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent
+        id="schedule-dialog"
         showCloseButton={false}
         centerInViewport
         overlayClassName={cn(
@@ -120,8 +121,10 @@ try {
         className={cn(
           "gap-0 fixed inset-y-0 right-0 w-full",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
-          "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right",
+          "max-lg:data-[state=closed]:slide-out-to-right max-lg:data-[state=open]:slide-in-from-right",
+          "lg:data-[state=closed]:fade-out-0 lg:data-[state=open]:fade-in-0",
           "data-[state=closed]:duration-300 data-[state=open]:duration-500",
+          "lg:data-[state=closed]:duration-150 lg:data-[state=open]:duration-200",
           "lg:inset-0 lg:flex lg:items-center lg:justify-center"
         )}
       >

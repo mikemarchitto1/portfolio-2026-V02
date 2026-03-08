@@ -82,6 +82,7 @@ function NavItems({
   setScheduleOpen,
   chatOpen,
   setChatOpen,
+  deferRadixTriggers = false,
 }: {
   onItemClick?: () => void;
   hideSidebarToggle?: boolean;
@@ -91,6 +92,8 @@ function NavItems({
   setScheduleOpen?: (open: boolean) => void;
   chatOpen?: boolean;
   setChatOpen?: (open: boolean) => void;
+  /** When true, render static buttons for Schedule/Chat to avoid Radix ID hydration mismatch */
+  deferRadixTriggers?: boolean;
 }) {
   const { toggle } = useSidebar();
   return (
@@ -115,30 +118,42 @@ function NavItems({
           <span className="text-button">AI Works</span>
         </Button>
       )}
-      {setScheduleOpen != null && (
-        <SchedulingDialog
-          open={scheduleOpen}
-          onOpenChange={setScheduleOpen}
-          trigger={
-            <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar" onClick={onItemClick}>
-              {!hideIcons && <Calendar className={navIconClass} />}
-              <span className="text-button">Schedule</span>
-            </Button>
-          }
-        />
-      )}
-      {setChatOpen != null && (
-        <ChatPanel
-          open={chatOpen}
-          onOpenChange={setChatOpen}
-          trigger={
-            <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
-              {!hideIcons && <MessageCircle className={navIconClass} />}
-              <span className="text-button">Let{"\u2019"}s Chat</span>
-            </Button>
-          }
-        />
-      )}
+      {setScheduleOpen != null &&
+        (deferRadixTriggers ? (
+          <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar">
+            {!hideIcons && <Calendar className={navIconClass} />}
+            <span className="text-button">Schedule</span>
+          </Button>
+        ) : (
+          <SchedulingDialog
+            open={scheduleOpen}
+            onOpenChange={setScheduleOpen}
+            trigger={
+              <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar" onClick={onItemClick}>
+                {!hideIcons && <Calendar className={navIconClass} />}
+                <span className="text-button">Schedule</span>
+              </Button>
+            }
+          />
+        ))}
+      {setChatOpen != null &&
+        (deferRadixTriggers ? (
+          <Button className="nav-button flex items-center gap-2" variant="outline">
+            {!hideIcons && <MessageCircle className={navIconClass} />}
+            <span className="text-button">Let{"\u2019"}s Chat</span>
+          </Button>
+        ) : (
+          <ChatPanel
+            open={chatOpen}
+            onOpenChange={setChatOpen}
+            trigger={
+              <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
+                {!hideIcons && <MessageCircle className={navIconClass} />}
+                <span className="text-button">Let{"\u2019"}s Chat</span>
+              </Button>
+            }
+          />
+        ))}
     </>
   );
 }
@@ -149,6 +164,11 @@ try {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scheduleOpen, setScheduleOpen] = useState(false);
     const [chatOpen, setChatOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+    }, []);
 
     useEffect(() => {
       const mq = window.matchMedia("(min-width: 1024px)");
@@ -180,7 +200,7 @@ try {
                 >
                   <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
                 </Button>
-                <NavItems hideSidebarToggle hideIcons scheduleOpen={scheduleOpen} setScheduleOpen={setScheduleOpen} chatOpen={chatOpen} setChatOpen={setChatOpen} />
+                <NavItems hideSidebarToggle hideIcons scheduleOpen={scheduleOpen} setScheduleOpen={setScheduleOpen} chatOpen={chatOpen} setChatOpen={setChatOpen} deferRadixTriggers={!mounted} />
               </div>
               <div className="flex lg:hidden items-center gap-2">
                 <button
@@ -198,6 +218,7 @@ try {
       </header>
       <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
         <SheetContent
+          id="mobile-menu-sheet"
           side="left"
           className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-background dark:border-[oklch(26%_0_0)]"
           closeButtonClassName="text-black dark:text-white color:text-white [&_svg]:text-black dark:[&_svg]:text-white color:[&_svg]:text-white"

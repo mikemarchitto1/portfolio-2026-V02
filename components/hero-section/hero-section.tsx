@@ -33,7 +33,7 @@ export default function HeroSection() {
             <div className="w-full min-w-0 flex flex-col md:flex-row gap-16 items-stretch">
               {/* LEFT — exactly 50% so profile left edge is at center */}
               <div className="w-full md:w-[calc(50%-4rem)] md:min-w-0 shrink-0 text-foreground bg-transparent">
-                <h1 className="text-h1 font-light tracking-[0]">
+                <h1 className="text-h1 font-light tracking-[0] whitespace-nowrap">
                   Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
                 </h1>
                 <h5 className="text-h4 max-w-[528px]">

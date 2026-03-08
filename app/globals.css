@@ -338,7 +338,7 @@ html.color .mobile-menu-sheet .mobile-menu-client-link:hover {
   --text-h4-line: clamp(24px, calc(24px + 12 * (100vw - 390px) / 938), 36px);
   --text-h4-weight: 500;
 
-  --text-h5-fluid: clamp(0.75rem, 0.438rem + 1.28vw, 1.5rem);
+  --text-h5-fluid: clamp(1rem, 0.438rem + 1.28vw, 1.5rem);
   --text-h5-line: clamp(20px, calc(20px + 16 * (100vw - 390px) / 938), 36px);
   --text-h5-weight: 500;
 

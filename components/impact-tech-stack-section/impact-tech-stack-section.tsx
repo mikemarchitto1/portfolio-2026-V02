@@ -50,9 +50,9 @@ export default function ImpactTechStackSection() {
 
               {/* Tech Stack */}
               <div className="p-0 flex flex-col min-h-0">
-                <Card className="rounded-2xl shadow-elevation pt-6 px-6 pb-6 md:pt-10 md:px-8 md:pb-10 lg:pt-16 lg:px-12 lg:pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-white border-0 gap-0">
+                <Card className="rounded-2xl shadow-elevation pt-4 px-4 pb-4 md:pt-8 md:px-8 md:pb-8 lg:pt-[72px] lg:px-12 lg:pb-12 w-full min-w-0 flex-1 min-h-0 flex flex-col overflow-hidden bg-white border-0 gap-0">
                   <CardContent className="p-0">
-                    <div className="grid w-full min-w-0 max-w-full grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 lg:gap-x-[56px] gap-y-4 md:gap-y-8 lg:gap-y-[52px] grid-auto-rows-[56px] md:grid-auto-rows-[72px] lg:grid-auto-rows-[80px] items-stretch content-start">
+                    <div className="logo-columns-grid grid w-full min-w-0 max-w-xl lg:max-w-4xl mx-auto grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 md:gap-y-8 lg:gap-[56px] grid-auto-rows-[56px] md:grid-auto-rows-[72px] lg:grid-auto-rows-[80px] items-stretch content-start">
                       {/* Row 1: Figma, Cursor, OpenAI */}
                       <div className="flex h-full w-full items-center justify-center">
                         <img
