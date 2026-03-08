@@ -45,7 +45,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistMono.variable}`}>
-      <body className={`${plusJakartaSans.className} font-sans antialiased bg-background`}>
+      <body className={`${plusJakartaSans.className} font-sans antialiased bg-white dark:bg-black`}>
         <script
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
