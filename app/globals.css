@@ -1661,8 +1661,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 /* Unselected day cells: much lighter grey bg, black text */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] .rdp-day-button:not([data-selected-single="true"]):not([data-outside="true"]) {
-  background-color: oklch(91.5% 0.005 264) !important;
-  background: oklch(91.5% 0.005 264) !important;
+  background-color: oklch(93.5% 0.005 264) !important;
+  background: oklch(93.5% 0.005 264) !important;
   color: oklch(0% 0 0) !important;
   border: none !important;
   box-shadow: none !important;
@@ -1771,10 +1771,10 @@ html:not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-head
   padding: 0 !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) {
-  background-color: oklch(91.5% 0.005 264) !important;
-  background: oklch(91.5% 0.005 264) !important;
+  background-color: oklch(93.5% 0.005 264) !important;
+  background: oklch(93.5% 0.005 264) !important;
   color: oklch(0% 0 0) !important;
-  border: 1px solid oklch(91.5% 0.005 264) !important;
+  border: 1px solid oklch(93.5% 0.005 264) !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
   color: oklch(0% 0 0) !important;
@@ -1785,10 +1785,10 @@ html:not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-head
   border-color: oklch(85% 0.01 264) !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
-  background-color: oklch(85% 0.01 264) !important;
-  background: oklch(85% 0.01 264) !important;
+  background-color: oklch(87.5% 0.01 264) !important;
+  background: oklch(87.5% 0.01 264) !important;
   color: oklch(0% 0 0) !important;
-  border: 1px solid oklch(85% 0.01 264) !important;
+  border: 1px solid oklch(87.5% 0.01 264) !important;
 }
 [data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
   color: oklch(0% 0 0) !important;
@@ -1818,10 +1818,10 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   padding: 0 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) {
-  background-color: oklch(91.5% 0.005 264) !important;
-  background: oklch(91.5% 0.005 264) !important;
+  background-color: oklch(93.5% 0.005 264) !important;
+  background: oklch(93.5% 0.005 264) !important;
   color: oklch(0% 0 0) !important;
-  border: 1px solid oklch(91.5% 0.005 264) !important;
+  border: 1px solid oklch(93.5% 0.005 264) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"]:not([data-state="active"]) * {
   color: oklch(0% 0 0) !important;
@@ -1832,10 +1832,10 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   border-color: oklch(85% 0.01 264) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] {
-  background-color: oklch(85% 0.01 264) !important;
-  background: oklch(85% 0.01 264) !important;
+  background-color: oklch(87.5% 0.01 264) !important;
+  background: oklch(87.5% 0.01 264) !important;
   color: oklch(0% 0 0) !important;
-  border: 1px solid oklch(85% 0.01 264) !important;
+  border: 1px solid oklch(87.5% 0.01 264) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] button[role="tab"][data-state="active"] * {
   color: oklch(0% 0 0) !important;
@@ -1884,6 +1884,32 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] p {
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] svg {
   color: oklch(95% 0.005 264) !important;
   stroke: oklch(95% 0.005 264) !important;
+}
+/* Dark: left panel detail rows — hover = accent (match sidebar list hover) */
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover *:not([data-avatar-initial]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover span:not([data-avatar-initial]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover p {
+  color: var(--accent) !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover,
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover *:not([data-avatar-initial]),
+html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover *:not([data-avatar-initial]),
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover span:not([data-avatar-initial]),
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover p,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover svg,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover *:not([data-avatar-initial]),
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
 }
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-avatar,
 html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
@@ -2117,6 +2143,32 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] sv
   color: white !important;
   stroke: white !important;
 }
+/* Color: left panel detail rows — hover = accent (match sidebar list hover) */
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover span,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover p {
+  color: var(--accent) !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover *,
+html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover span,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover p,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover svg,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover *,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="AvatarFallback"],
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-avatar-initial] {
@@ -2202,6 +2254,13 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"]
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
   border-left-width: 0 !important;
   border-right-width: 0 !important;
+}
+/* Scheduling dialog: no calendar root/inners padding so both gutters are 40px */
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-months,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 /* Color mode: time slot buttons = same as unselected toggle (34% / 36% hover) */
 html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button,
@@ -2290,6 +2349,14 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
   margin-top: 16px !important;
 }
+/* Body 2 = Regular weight for description and timezone trigger */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
+  font-weight: 400 !important;
+}
+[data-slot="scheduling-timezone-trigger"],
+[data-slot="scheduling-timezone-trigger"] * {
+  font-weight: 400 !important;
+}
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] {
   gap: 0 !important;
   row-gap: 0 !important;
@@ -2334,6 +2401,32 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] svg {
   color: oklch(0% 0 0) !important;
   stroke: oklch(0% 0 0) !important;
+}
+/* Light: left panel detail rows — hover = accent (match sidebar list hover) */
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover *:not([data-avatar-initial]),
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover span:not([data-avatar-initial]),
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover p {
+  color: var(--accent) !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover,
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover *:not([data-avatar-initial]),
+html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover *:not([data-avatar-initial]),
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover span:not([data-avatar-initial]),
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover p,
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row:hover svg,
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover,
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover *:not([data-avatar-initial]),
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-left-panel"] .scheduling-left-detail-row button:hover svg {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-avatar,
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [class*="Avatar"],
@@ -2401,8 +2494,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button,
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~ div button {
   border: none !important;
-  background-color: oklch(91.5% 0.005 264) !important;
-  background: oklch(91.5% 0.005 264) !important;
+  background-color: oklch(93.5% 0.005 264) !important;
+  background: oklch(93.5% 0.005 264) !important;
   color: oklch(0% 0 0) !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] button:hover,
@@ -2432,6 +2525,26 @@ html.dark [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] ~
 }
 /* Color mode time slots: use ~ div button in color block above; selected/disabled there too */
 /* Time slot hover: color mode only (light green) — light/dark use grey hover in their blocks */
+/* Timezone dropdown: list item text flush left with trigger text (viewport has p-1; 1.125rem = 18px) */
+[data-slot="scheduling-timezone-content"] [role="option"] {
+  padding-left: 1.125rem !important;
+}
+/* Timezone dropdown: hover/highlight = same as time slot pill buttons (portaled, so key off html theme) */
+html:not(.color):not(.dark) [data-slot="scheduling-timezone-content"] [role="option"][data-highlighted] {
+  background-color: oklch(85% 0.01 264) !important;
+  background: oklch(85% 0.01 264) !important;
+  color: oklch(0% 0 0) !important;
+}
+html.dark [data-slot="scheduling-timezone-content"] [role="option"][data-highlighted] {
+  background-color: var(--scheduling-unselected-btn-hover) !important;
+  background: var(--scheduling-unselected-btn-hover) !important;
+  color: oklch(100% 0 0) !important;
+}
+html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highlighted] {
+  background-color: oklch(36% 0.048 155) !important;
+  background: oklch(36% 0.048 155) !important;
+  color: oklch(100% 0 0) !important;
+}
 /* Time slot list: hide scrollbar, keep scroll behavior */
 [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] {
   scrollbar-width: none;
@@ -2638,8 +2751,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
 }
 html:not(.dark):not(.color) [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
   border: 1px solid oklch(68.5% 0.015 264) !important;
-  background-color: oklch(91.5% 0.005 264) !important;
-  background: oklch(91.5% 0.005 264) !important;
+  background-color: oklch(93.5% 0.005 264) !important;
+  background: oklch(93.5% 0.005 264) !important;
 }
 
 /* Light mode: toggle switch text uses per-state rules above (no global override here) */

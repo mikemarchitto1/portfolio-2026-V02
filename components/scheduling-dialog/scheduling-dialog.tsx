@@ -14,7 +14,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { getTimezoneOptions, DEFAULT_TIMEZONE } from "@/lib/timezones";
 import { useTheme } from "@/hooks/use-theme";
 
 const COLOR_THEME_BACKGROUND = "oklch(24% 0.035 165)";
@@ -96,6 +103,17 @@ try {
     const { theme } = useTheme();
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [timeFormat, setTimeFormat] = React.useState<"12h" | "24h">("12h");
+    const [timezone, setTimezone] = React.useState(DEFAULT_TIMEZONE);
+    const [timezoneSelectOpen, setTimezoneSelectOpen] = React.useState(false);
+    const timezoneSelectedItemRef = React.useRef<HTMLDivElement>(null);
+    const timezoneOptions = React.useMemo(() => getTimezoneOptions(), []);
+    React.useEffect(() => {
+      if (!timezoneSelectOpen) return;
+      const id = requestAnimationFrame(() => {
+        timezoneSelectedItemRef.current?.scrollIntoView({ block: "center" });
+      });
+      return () => cancelAnimationFrame(id);
+    }, [timezoneSelectOpen]);
     const slots = React.useMemo(
       () => generateTimeSlots(timeFormat === "24h"),
       [timeFormat]
@@ -143,7 +161,7 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[868px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-black",
+              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[960px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-6 text-black",
               theme !== "light" && "shadow-lg",
               theme === "color" && "!bg-[oklch(24%_0.035_165)]"
             )}
@@ -154,9 +172,9 @@ try {
             }
           >
             {/* Stack on mobile/tablet; three columns on desktop */}
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-12">
+            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-10">
               {/* Left column */}
-              <div data-slot="scheduling-left-panel" className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-white w-full lg:w-[168px] pt-1">
+              <div data-slot="scheduling-left-panel" className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-white w-full lg:w-[248px] pt-1">
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-white">
                 <CardHeader className="scheduling-left-header mb-2 gap-0 space-y-0 pb-0 px-0 pt-0">
                   <div className="flex flex-col gap-5">
@@ -167,29 +185,60 @@ try {
                       Michael Marchitto
                     </span>
                   </div>
-                  <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-white/80">
-                    30-minute introduction to discuss potential opportunities.
+                  <p className="scheduling-left-desc mt-4 mb-4 text-body2 font-normal text-white/80">
+                    A 30-minute video call introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
                 <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
-                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80 transition-colors hover:text-accent">
                     <Clock className="h-4 w-4 shrink-0" />
                     <span>30 min</span>
                   </div>
-                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80 transition-colors hover:text-accent">
                     <Video className="h-4 w-4 shrink-0" />
                     <span>Video Call</span>
                   </div>
-                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80">
-                    <Globe className="h-4 w-4 shrink-0" />
-                    <span>America/New York</span>
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-white/80 transition-colors hover:text-accent">
+                    <Select
+                      value={timezone}
+                      onValueChange={setTimezone}
+                      open={timezoneSelectOpen}
+                      onOpenChange={setTimezoneSelectOpen}
+                    >
+                      <SelectTrigger
+                        data-slot="scheduling-timezone-trigger"
+                        leftIcon={<Globe className="h-4 w-4 shrink-0 text-white/80" />}
+                        className="h-auto min-h-0 border-0 bg-transparent p-0 text-left text-body2 font-normal text-white/90 shadow-none focus:ring-0 focus:ring-offset-0 transition-colors hover:bg-white/10 hover:text-accent [&>svg]:text-white/80 hover:[&>svg]:text-accent"
+                      >
+                        <span className="min-w-0 text-left whitespace-nowrap font-normal">
+                          {timezoneOptions.find((o) => o.value === timezone)?.displayName ??
+                            timezone.replace(/_/g, " ")}
+                        </span>
+                      </SelectTrigger>
+                      <SelectContent
+                        side="bottom"
+                        align="start"
+                        data-slot="scheduling-timezone-content"
+                        className="mt-2 max-h-[min(16rem,50vh)] overflow-y-auto py-0"
+                      >
+                        {timezoneOptions.map((opt) => (
+                          <SelectItem
+                            key={opt.value}
+                            value={opt.value}
+                            ref={opt.value === timezone ? timezoneSelectedItemRef : undefined}
+                          >
+                            {opt.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 </CardContent>
               </Card>
             </div>
 
             {/* Center column: calendar */}
-            <div data-slot="scheduling-calendar-wrap" className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full lg:min-w-[384px] lg:max-w-[480px] flex-none lg:flex-1 flex-col bg-transparent overflow-visible">
+            <div data-slot="scheduling-calendar-wrap" className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full lg:w-[384px] flex-none flex-col bg-transparent overflow-visible lg:-ml-3.5">
               <div className="flex min-w-0 flex-1 flex-col overflow-visible pt-0">
                 <Calendar
                   mode="single"
@@ -207,7 +256,7 @@ try {
             </div>
 
             {/* Right column */}
-            <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[168px]">
+            <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[200px]">
               <div data-slot="scheduling-right-header" className="mb-4 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
                 <span className="text-subtitle1 text-black dark:text-white color:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
