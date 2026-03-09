@@ -71,6 +71,10 @@ try {
 
     const [step, setStep] = React.useState<"time" | "details" | "confirm">("time");
     const [selectedTime, setSelectedTime] = React.useState<string | null>(null);
+    const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [notes, setNotes] = React.useState("");
+    const [guests, setGuests] = React.useState<string[]>([]);
 
     const formatDateLong = (d: Date) =>
       d.toLocaleDateString("en-US", {
@@ -123,44 +127,63 @@ try {
             <XIcon className="size-6 shrink-0 text-black dark:text-white color:text-white lg:text-white" />
           </DialogClose>
 
-          <div
-            data-slot="scheduling-panel"
-            data-step={step}
-            data-theme={theme}
-            className={cn(
-              "dialog-frame-container",
-              step === "confirm"
-                ? cn(
-                    "relative flex flex-col w-full max-w-full lg:max-w-[560px] rounded-none lg:rounded-lg text-black",
-                    "max-h-[90vh] lg:max-h-[85vh]",
-                    "px-6 pt-6 pb-6",
-                    theme !== "light" && "shadow-lg",
-                    theme === "color" && "!bg-[oklch(24%_0.035_165)]"
-                  )
-                : cn(
-                    "relative flex w-full max-w-full lg:max-w-[960px] flex-col rounded-none lg:rounded-lg text-black",
-                    "max-h-[90vh] lg:max-h-[85vh] min-h-screen lg:min-h-0 lg:h-fit",
-                    "px-6 pt-6 pb-6",
-                    theme !== "light" && "shadow-lg",
-                    theme === "color" && "!bg-[oklch(24%_0.035_165)]"
-                  )
-            )}
-            style={
-              step === "confirm"
-                ? { backgroundColor: theme === "color" ? COLOR_THEME_BACKGROUND : "var(--background)" }
-                : theme === "color"
+          {step === "confirm" ? (
+            <div
+              data-slot="scheduling-panel"
+              data-step={step}
+              data-theme={theme}
+              className={cn(
+                "dialog-frame-container relative flex flex-col w-full max-w-full lg:max-w-[560px] rounded-none lg:rounded-lg text-black",
+                "max-h-[90vh] lg:max-h-[85vh]",
+                "px-6 pt-6 pb-6 flex justify-center items-center",
+                theme !== "light" && "shadow-lg",
+                theme === "color" && "!bg-[oklch(24%_0.035_165)]"
+              )}
+              style={{
+                backgroundColor: theme === "color" ? COLOR_THEME_BACKGROUND : "var(--background)",
+              }}
+            >
+              <RightPanel
+                date={date}
+                setDate={setDate}
+                timeFormat={timeFormat}
+                setTimeFormat={setTimeFormat}
+                slots={slots}
+                timezone={timezone}
+                theme={theme}
+                step={step}
+                setStep={setStep}
+                selectedTime={selectedTime}
+                setSelectedTime={setSelectedTime}
+                name={name}
+                setName={setName}
+                email={email}
+                setEmail={setEmail}
+                notes={notes}
+                setNotes={setNotes}
+                guests={guests}
+                setGuests={setGuests}
+              />
+            </div>
+          ) : (
+            <div
+              data-slot="scheduling-panel"
+              data-step={step}
+              data-theme={theme}
+              className={cn(
+                "dialog-frame-container relative flex w-full max-w-full lg:max-w-[960px] flex-col rounded-none lg:rounded-lg text-black",
+                "max-h-[90vh] lg:max-h-[85vh] min-h-screen lg:min-h-0 lg:h-fit",
+                "px-6 pt-6 pb-6",
+                theme !== "light" && "shadow-lg",
+                theme === "color" && "!bg-[oklch(24%_0.035_165)]"
+              )}
+              style={
+                theme === "color"
                   ? { backgroundColor: COLOR_THEME_BACKGROUND }
                   : { backgroundColor: "var(--background)" }
-            }
-          >
-            <div
-              className={
-                step === "confirm"
-                  ? "flex justify-center items-center w-full h-full min-h-0 flex-1"
-                  : "flex min-h-0 flex-col gap-10 w-full lg:flex-row items-start lg:items-stretch"
               }
             >
-              {step !== "confirm" && (
+              <div className="flex min-h-0 flex-col gap-10 w-full lg:flex-row items-start lg:items-stretch">
                 <div
                   data-slot="scheduling-left-panel"
                   className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col w-full lg:w-[248px] pt-1"
@@ -175,7 +198,7 @@ try {
                           Michael Marchitto
                         </span>
                       </div>
-                      <div className="scheduling-left-desc-and-datetime flex flex-col">
+                      <div className="scheduling-left-desc-and-datetime flex flex-col gap-4">
                         <p className="scheduling-left-desc text-body2 font-normal">
                           A 30-minute video call introduction to discuss potential opportunities.
                         </p>
@@ -236,23 +259,31 @@ try {
                     </CardContent>
                   </Card>
                 </div>
-              )}
 
-              <RightPanel
-                date={date}
-                setDate={setDate}
-                timeFormat={timeFormat}
-                setTimeFormat={setTimeFormat}
-                slots={slots}
-                timezone={timezone}
-                theme={theme}
-                step={step}
-                setStep={setStep}
-                selectedTime={selectedTime}
-                setSelectedTime={setSelectedTime}
-              />
+                <RightPanel
+                  date={date}
+                  setDate={setDate}
+                  timeFormat={timeFormat}
+                  setTimeFormat={setTimeFormat}
+                  slots={slots}
+                  timezone={timezone}
+                  theme={theme}
+                  step={step}
+                  setStep={setStep}
+                  selectedTime={selectedTime}
+                  setSelectedTime={setSelectedTime}
+                  name={name}
+                  setName={setName}
+                  email={email}
+                  setEmail={setEmail}
+                  notes={notes}
+                  setNotes={setNotes}
+                  guests={guests}
+                  setGuests={setGuests}
+                />
+              </div>
             </div>
-          </div>
+          )}
         </DialogContent>
       </Dialog>
     );

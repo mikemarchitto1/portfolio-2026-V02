@@ -77,6 +77,14 @@ export type RightPanelProps = {
   setStep: (s: SchedulingStep) => void;
   selectedTime: string | null;
   setSelectedTime: (t: string | null) => void;
+  name?: string;
+  setName?: React.Dispatch<React.SetStateAction<string>>;
+  email?: string;
+  setEmail?: React.Dispatch<React.SetStateAction<string>>;
+  notes?: string;
+  setNotes?: React.Dispatch<React.SetStateAction<string>>;
+  guests?: string[];
+  setGuests?: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 export function RightPanel({
@@ -91,11 +99,27 @@ export function RightPanel({
   setStep,
   selectedTime,
   setSelectedTime,
+  name: nameProp,
+  setName: setNameProp,
+  email: emailProp,
+  setEmail: setEmailProp,
+  notes: notesProp,
+  setNotes: setNotesProp,
+  guests: guestsProp,
+  setGuests: setGuestsProp,
 }: RightPanelProps) {
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [notes, setNotes] = React.useState("");
-  const [guests, setGuests] = React.useState<string[]>([]);
+  const [nameLocal, setNameLocal] = React.useState("");
+  const [emailLocal, setEmailLocal] = React.useState("");
+  const [notesLocal, setNotesLocal] = React.useState("");
+  const [guestsLocal, setGuestsLocal] = React.useState<string[]>([]);
+  const name = nameProp ?? nameLocal;
+  const setName = setNameProp ?? setNameLocal;
+  const email = emailProp ?? emailLocal;
+  const setEmail = setEmailProp ?? setEmailLocal;
+  const notes = notesProp ?? notesLocal;
+  const setNotes = setNotesProp ?? setNotesLocal;
+  const guests = guestsProp ?? guestsLocal;
+  const setGuests = setGuestsProp ?? setGuestsLocal;
   const [guestInput, setGuestInput] = React.useState("");
   const [showGuestInput, setShowGuestInput] = React.useState(false);
   const [nameError, setNameError] = React.useState("");
@@ -168,94 +192,67 @@ export function RightPanel({
 
   if (step === "confirm" && date && selectedTime) {
     return (
-      <div className="w-full">
-        <Card className="overflow-hidden rounded-lg border-0 bg-white shadow-none">
-        <CardHeader className="gap-1.5 pb-3">
-          <div className="flex items-center gap-3">
-            <div
-              className={cn(
-                "flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
-                isColor && "bg-green-600/80",
-                !isColor && "bg-green-600"
-              )}
-            >
-              <svg
-                className="h-5 w-5 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <CardTitle className={cn("text-subtitle1 font-semibold", confirmTextClass)}>
-              This meeting is scheduled
-            </CardTitle>
-          </div>
-          <p className={cn("text-body2 font-normal pl-13", confirmMutedClass)}>
-            We sent an email with a calendar invitation with the details to everyone.
-          </p>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-3 pt-0">
-          <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5 items-baseline">
-            <span className={cn("text-body2 font-medium shrink-0", confirmTextClass)}>What</span>
-            <p className={cn("text-body2 font-normal min-w-0 break-words", confirmMutedClass)}>
-              {MEETING_TITLE} between {name || "Guest"} and {HOST_NAME}
+      <Card className="confirmation-card w-full overflow-hidden rounded-lg border-0 bg-white shadow-none p-[64px]">
+        <CardHeader className="gap-0 pb-3 text-left p-0">
+          <div className="flex min-w-0 flex-col gap-1">
+<CardTitle className={cn("text-subtitle1 font-semibold", confirmTextClass)}>
+                This meeting is scheduled
+              </CardTitle>
+            <p className={cn("text-body2 font-normal", confirmMutedClass)}>
+              We sent an email with a calendar invitation with the details to everyone.
             </p>
           </div>
-          <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5 items-baseline">
-            <span className={cn("text-body2 font-medium shrink-0", confirmTextClass)}>When</span>
-            <div className="flex flex-col gap-0.5 min-w-0">
-              <p className={cn("text-body2 font-normal", confirmMutedClass)}>
-                {formatDateLong(date)}
-              </p>
-              <p className={cn("text-body2 font-normal", confirmMutedClass)}>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-6 pt-0 text-left p-0">
+          <div className="flex flex-col gap-1">
+            <span className={cn("confirmation-section-title text-subtitle2 font-medium", confirmTextClass)}>What</span>
+            <span className={cn("confirmation-section-content text-body2 font-normal", confirmMutedClass)}>
+              {MEETING_TITLE} between {name || "Guest"} and {HOST_NAME}
+            </span>
+          </div>
+          <div className="flex flex-col gap-1">
+            <span className={cn("confirmation-section-title text-subtitle2 font-medium", confirmTextClass)}>When</span>
+            <div className="confirmation-section-content flex flex-col gap-0.5">
+              <span className={cn("text-body2 font-normal", confirmMutedClass)}>{formatDateLong(date)}</span>
+              <span className={cn("text-body2 font-normal", confirmMutedClass)}>
                 {formatTimeRange(selectedTime)} ({timezoneDisplayName})
-              </p>
+              </span>
             </div>
           </div>
-          <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5 items-baseline">
-            <span className={cn("text-body2 font-medium shrink-0", confirmTextClass)}>Who</span>
-            <div className="flex flex-col gap-0.5 min-w-0">
+          <div className="flex flex-col gap-1">
+            <span className={cn("confirmation-section-title text-subtitle2 font-medium", confirmTextClass)}>Who</span>
+            <div className="confirmation-section-content flex flex-col gap-0.5">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className={cn("text-body2 font-normal", confirmMutedClass)}>{name || "Guest"}</span>
                 <span className="inline-flex items-center rounded-full bg-sky-400 px-2 py-0.5 text-xs font-medium text-blue-800">
                   Host
                 </span>
               </div>
-              <p className={cn("text-body2 font-normal", confirmMutedClass)}>{email}</p>
-              <p className={cn("text-body2 font-normal", confirmMutedClass)}>{HOST_NAME}</p>
-              <p className={cn("text-body2 font-normal", confirmMutedClass)}>
-                mikemarchitto@gmail.com
-              </p>
+              <span className={cn("text-body2 font-normal", confirmMutedClass)}>{email}</span>
+              <span className={cn("text-body2 font-normal", confirmMutedClass)}>{HOST_NAME}</span>
+              <span className={cn("text-body2 font-normal", confirmMutedClass)}>mikemarchitto@gmail.com</span>
               {guests.map((g, i) => (
-                <p key={i} className={cn("text-body2 font-normal", confirmMutedClass)}>
+                <span key={i} className={cn("text-body2 font-normal", confirmMutedClass)}>
                   {g}
-                </p>
+                </span>
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5 items-baseline">
-            <span className={cn("text-body2 font-medium shrink-0", confirmTextClass)}>Where</span>
-            <div className="flex items-center gap-1.5 min-w-0">
+          <div className="flex flex-col gap-1">
+            <span className={cn("confirmation-section-title text-subtitle2 font-medium", confirmTextClass)}>Where</span>
+            <div className="confirmation-section-content flex items-center gap-1.5">
               <span className={cn("text-body2 font-normal", confirmMutedClass)}>Video Call</span>
               <ExternalLink className="h-4 w-4 shrink-0 text-black" />
             </div>
           </div>
           {notes && (
-            <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0.5 items-baseline">
-              <span className={cn("text-body2 font-medium shrink-0", confirmTextClass)}>Notes</span>
-              <p className={cn("text-body2 font-normal min-w-0 break-words", confirmMutedClass)}>{notes}</p>
+            <div className="flex flex-col gap-1">
+              <span className={cn("confirmation-section-title text-subtitle2 font-medium", confirmTextClass)}>Notes</span>
+              <span className={cn("confirmation-section-content text-body2 font-normal min-w-0 break-words", confirmMutedClass)}>{notes}</span>
             </div>
           )}
         </CardContent>
       </Card>
-      </div>
     );
   }
 
@@ -303,7 +300,7 @@ export function RightPanel({
                 data-slot="scheduling-right-header"
                 className="mb-4 flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
               >
-                <span className={cn("text-subtitle1", textClass)}>{selectedLabel}</span>
+                <span className={cn("text-subtitle1 font-medium", textClass)}>{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                   <div
                     className="rounded-full h-8 overflow-hidden flex box-border w-fit bg-transparent"
@@ -331,12 +328,10 @@ export function RightPanel({
                 </Tabs>
               </div>
               <span
-                className={cn(
-                  "text-subtitle2 font-medium mb-5 shrink-0 block w-full text-center",
-                  textClass
-                )}
+                data-slot="scheduling-time-slots-label"
+                className={cn("scheduling-time-slots-label mb-5 shrink-0 block w-full text-center", textClass)}
               >
-                Time Slot
+                Time Slots
               </span>
               <div
                 className="flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[272px]"
@@ -369,16 +364,17 @@ export function RightPanel({
             transition={{ duration: 0.2 }}
             className="flex min-h-0 w-full flex-1 flex-col"
           >
-            <Card className="border-0 bg-transparent shadow-none">
-              <CardContent className="flex flex-col gap-4 pt-0">
+            <h2 className={cn("text-subtitle2 font-medium pt-1 mb-4 pl-6", textClass)}>Your Details</h2>
+            <Card className="scheduling-details-card border-0 bg-transparent shadow-none py-0">
+              <CardContent className="scheduling-details-content flex flex-col gap-6 pt-0">
                 <div className="flex flex-col gap-2">
                   <label className={cn("scheduling-details-label block", textClass)}>
-                    Your Name <span className="text-destructive">*</span>
+                    Name <span className="text-destructive">*</span>
                   </label>
                   <Input
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Your name"
+                    placeholder="Enter your name"
                     className={cn(nameError && "border-destructive")}
                   />
                   {nameError && (
@@ -393,7 +389,7 @@ export function RightPanel({
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email address"
+                    placeholder="Enter your email address"
                     className={cn(emailError && "border-destructive")}
                   />
                   {emailError && (
@@ -408,18 +404,18 @@ export function RightPanel({
                     placeholder="Please share anything that will help prepare for our meeting."
                     rows={3}
                     className={cn(
-                      "flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-body2 shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-y min-h-[80px]",
+                      "scheduling-notes-field flex w-full rounded-md border border-input bg-transparent px-3 py-2 shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-y min-h-[80px]",
                       "text-black dark:text-white"
                     )}
                   />
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 items-start w-full">
                   <Button
                     type="button"
                     variant="ghost"
                     size="sm"
                     onClick={() => setShowGuestInput(true)}
-                    className="w-fit"
+                    className="scheduling-add-guests-btn w-fit self-start !pl-0 hover:!bg-transparent focus:!bg-transparent active:!bg-transparent"
                   >
                     <UserPlus className="h-4 w-4 mr-2" />
                     Add guests
@@ -444,19 +440,20 @@ export function RightPanel({
                           </Button>
                         </div>
                       ))}
-                      <div className="flex gap-2 items-center">
+                      <div className="flex gap-2 items-center w-full min-w-0">
                         <Input
                           value={guestInput}
                           onChange={(e) => setGuestInput(e.target.value)}
                           placeholder="Email"
                           onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addGuest())}
-                          className="flex-1"
+                          className="flex-1 min-w-0"
                         />
                         <Button
                           type="button"
-                          variant="outline"
+                          variant="ghost"
                           size="sm"
                           onClick={addGuest}
+                          className="scheduling-add-guest-btn hover:!bg-transparent focus:!bg-transparent active:!bg-transparent !pl-0"
                         >
                           Add
                         </Button>

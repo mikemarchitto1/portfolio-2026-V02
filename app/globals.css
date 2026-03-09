@@ -2381,6 +2381,118 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   padding: 0 !important;
 }
 
+/* Time Slots label: Subtitle 2 only (literal values so nothing overrides) */
+[data-slot="scheduling-panel"] [data-slot="scheduling-time-slots-label"],
+[data-slot="scheduling-panel"] span.scheduling-time-slots-label {
+  font-size: 0.875rem !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Add guests button: text/icon hover only (no pill), same as sidebar list buttons */
+[data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:focus,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:focus-visible,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:active {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover,
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg,
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg path,
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg circle,
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg line {
+  color: oklch(51.5% 0.02 264) !important;
+  stroke: oklch(51.5% 0.02 264) !important;
+}
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover,
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg,
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg path,
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg circle,
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg line {
+  color: var(--accent) !important;
+  stroke: var(--accent) !important;
+}
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover,
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg,
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg path,
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg circle,
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg line {
+  color: var(--sidebar-hover) !important;
+  stroke: var(--sidebar-hover) !important;
+}
+
+/* Add guest "Add" button: text-only hover (no pill), same hover colors as Add guests button */
+[data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:focus,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:focus-visible,
+[data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:active {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: color 0.2s ease !important;
+}
+/* Light: hover = gray (same as Add guests) */
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover,
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover {
+  color: oklch(51.5% 0.02 264) !important;
+}
+/* Dark: hover = accent */
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover {
+  color: var(--accent) !important;
+}
+/* Color theme: hover = sidebar-hover */
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover {
+  color: var(--sidebar-hover) !important;
+}
+
+/* Details form: 24px gap between label+field groups; specific selector + row-gap so it wins */
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] [data-slot="card-content"].scheduling-details-content {
+  gap: 24px !important;
+  row-gap: 24px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Details form (Your Name, Email Address, Notes): labels = Subtitle 2, notes field + placeholder = Body 2 — literal values, no vars */
+[data-slot="scheduling-right-panel"] label.scheduling-details-label {
+  font-size: 0.875rem !important;
+  line-height: 20px !important;
+  font-weight: 500 !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-notes-field {
+  font-size: 0.875rem !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-notes-field::placeholder {
+  font-size: 0.875rem !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Confirmation card: no type overrides; section titles = Subtitle 2, body = Body 2 via classes below */
+.confirmation-card .confirmation-section-title {
+  font-size: var(--text-subtitle2) !important;
+  line-height: var(--text-subtitle2-line) !important;
+  font-weight: var(--text-subtitle2-weight) !important;
+}
+.confirmation-card .confirmation-section-content,
+.confirmation-card .confirmation-section-content span:not([class*="rounded-full"]) {
+  font-size: var(--text-body2) !important;
+  line-height: var(--text-body2-line) !important;
+  font-weight: var(--text-body2-weight) !important;
+}
+
 /* ========== LIGHT MODE SCHEDULING (blacks and greys only) ========== */
 html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] {
   background-color: transparent !important;
