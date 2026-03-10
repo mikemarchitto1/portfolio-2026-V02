@@ -1588,6 +1588,8 @@ body > div:has(> [data-slot="dialog-overlay"]) {
   justify-content: center !important;
   background-color: transparent !important;
   background: transparent !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
 }
 /* Scheduling dialog overlay: use class + data-slot so it works regardless of portal DOM structure */
 [data-slot="dialog-overlay"].scheduling-dialog-overlay {
@@ -2343,10 +2345,12 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-name {
+  margin-top: 0 !important;
   padding-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
-  margin-top: 0 !important;
+  margin-top: 4px !important;
 }
 /* Body 2 = Regular weight for description and timezone trigger */
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
@@ -2385,10 +2389,10 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   border-radius: 0 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-date {
-  background-color: oklch(92% 0.08 140) !important;
+  background-color: transparent !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-time {
-  background-color: oklch(92% 0.1 280) !important;
+  background-color: transparent !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-content"] {
   border-radius: 0 !important;
@@ -2403,18 +2407,24 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   gap: 1rem !important;
   row-gap: 1rem !important;
 }
-/* Left panel header: 1rem between title block, desc block, and between desc and datetime */
+/* Time step alignment vars */
+[data-slot="scheduling-panel"][data-step="time"] {
+  --scheduling-baseline-gap: 8px; /* between top row and baseline row */
+  --scheduling-content-top: 16px; /* baseline row → content row */
+}
+
+/* Left panel header: no implicit vertical gaps (baseline grid controls spacing) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"].scheduling-left-header {
-  gap: 1rem !important;
-  row-gap: 1rem !important;
+  gap: 0 !important;
+  row-gap: 0 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] > div:first-child {
-  gap: 1rem !important;
-  row-gap: 1rem !important;
+  gap: var(--scheduling-baseline-gap) !important;
+  row-gap: var(--scheduling-baseline-gap) !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc-and-datetime {
-  gap: 1rem !important;
-  row-gap: 1rem !important;
+  gap: 0 !important;
+  row-gap: 0 !important;
 }
 
 /* Time Slots label: Subtitle 2 only (literal values so nothing overrides) */
@@ -2424,6 +2434,14 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   line-height: 20px !important;
   font-weight: 500 !important;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Time step: align right header → "Time Slots" baseline, and "Time Slots" → buttons top */
+[data-slot="scheduling-panel"][data-step="time"] [data-slot="scheduling-right-header"] {
+  margin-bottom: var(--scheduling-baseline-gap) !important;
+}
+[data-slot="scheduling-panel"][data-step="time"] [data-slot="scheduling-time-slots-label"] {
+  margin-bottom: var(--scheduling-content-top) !important;
 }
 
 /* Add guests button: text/icon hover only (no pill), same as sidebar list buttons */
@@ -2663,19 +2681,17 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:
 .confirmation-card .confirmation-header-block {
   padding: 0 !important;
   margin: 0 !important;
-  gap: 16px !important;
-  row-gap: 16px !important;
+  gap: 8px !important;
+  row-gap: 8px !important;
 }
-.confirmation-card .confirmation-header-block [data-slot="card-title"] {
+.confirmation-card .confirmation-header-block [data-slot="card-title"],
+.confirmation-card .confirmation-header-title {
   margin: 0 !important;
   padding: 0 !important;
 }
 .confirmation-card .confirmation-header-block .confirmation-header-desc {
   padding: 0 !important;
   margin: 0 !important;
-}
-.confirmation-card .confirmation-header-title {
-  margin-bottom: 0 !important;
 }
 .confirmation-card .confirmation-header-desc {
   font-size: var(--text-body2) !important;
@@ -2688,7 +2704,7 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:
   gap: 16px !important;
 }
 .confirmation-card [data-slot="card-header"] + [data-slot="card-content"] {
-  margin-top: 16px !important;
+  margin-top: 40px !important;
 }
 .confirmation-card .confirmation-section {
   gap: 0.25rem;
@@ -2777,7 +2793,8 @@ html:not(.color):not(.dark) [data-slot="scheduling-panel"] [data-slot="schedulin
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  /* 8px space between caption ("March 2026") and days-of-week row */
+  padding-bottom: 8px !important;
 }
 /* Nav: pin to right so arrows don’t overlap caption; keep visible */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
@@ -2905,20 +2922,20 @@ html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highli
  *   Row (.rdp-weekdays): "flex" + "rdp-weekdays" → display: flex only.
  *   Cell (.rdp-weekday): "calendar-weekday text-caption text-muted-foreground font-normal tracking-wide rounded-md flex-1 select-none" + "rdp-weekday".
  * Library adds only class names (rdp-weekdays, rdp-weekday); no built-in CSS. */
-/* 8px between caption and weekdays (grid moved up 8px from previous 16px) */
+/* Calendar layout: 8px above weekdays (padding-top); 8px below weekdays row (padding-bottom = space before grid) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] thead:has(.rdp-weekdays) {
-  padding-top: 0 !important;
-  padding-bottom: 16px !important;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table {
-  margin-top: 8px !important;
+  margin-top: 0 !important;
   width: 100% !important;
 }
-/* Weekdays row: full width, 8px gap to match date grid */
+/* Weekdays row: full width, 8px horizontal gap; 8px margin below row (space before calendar grid) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
   width: 100% !important;
   gap: 8px !important;
-  margin-top: 0 !important;
+  margin-top: 8px !important;
   margin-bottom: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
@@ -2927,7 +2944,7 @@ html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highli
   flex: 1 1 0 !important;
   min-width: 0 !important;
 }
-/* Week rows: full width so date grid fills panel; 8px between rows; first row has 20px margin above */
+/* Week rows: full width so date grid fills panel; 8px between rows; time step aligns first row to baseline grid */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] tbody {
   width: 100% !important;
 }
@@ -2936,8 +2953,9 @@ html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highli
   gap: 8px !important;
   margin-top: 8px !important;
 }
-[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week:first-of-type {
-  margin-top: 20px !important;
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week:first-of-type,
+[data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] tbody tr:first-child {
+  margin-top: 8px !important;
 }
 /* Scheduling panel calendar: no rounded corners on header/weekdays, rounded date boxes */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"],
@@ -3001,6 +3019,24 @@ html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highli
     height: 48px !important;
     min-width: 48px !important;
     min-height: 48px !important;
+  }
+}
+
+/* Desktop: calendar wrapper should hug the 7-column grid width */
+@media (min-width: 1024px) {
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
+    width: fit-content !important;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] thead:has(.rdp-weekdays),
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] tbody,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week {
+    width: fit-content !important;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday {
+    flex: 0 0 48px !important;
+    min-width: 48px !important;
   }
 }
 
@@ -3189,39 +3225,39 @@ html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg
   stroke: var(--sidebar-hover) !important;
 }
 
-/* Pastel background colors per element — at end so they override theme/transparent rules (background only; no padding or border-radius) */
+/* Left panel containers: no colored backgrounds (override any pastel; keep gap/layout) */
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-card {
-  background-color: oklch(92% 0.04 280) !important;
+  background-color: transparent !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-header,
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] {
-  background-color: oklch(90% 0.05 300) !important;
+  background-color: transparent !important;
   gap: 1rem !important;
   row-gap: 1rem !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] > div:first-child,
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc-and-datetime {
-  gap: 1rem !important;
-  row-gap: 1rem !important;
+  gap: 16px !important;      /* 4px more than before */
+  row-gap: 16px !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-content"].scheduling-left-details {
-  background-color: oklch(91% 0.05 200) !important;
+  background-color: transparent !important;
   margin-top: 1rem !important;
   gap: 1rem !important;
   row-gap: 1rem !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
-  background-color: oklch(92% 0.06 160) !important;
+  background-color: transparent !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] {
-  background-color: oklch(93% 0.07 55) !important;
+  background-color: transparent !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots-label"],
 html [data-slot="scheduling-panel"] span.scheduling-time-slots-label {
-  background-color: oklch(94% 0.06 85) !important;
+  background-color: transparent !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] {
-  background-color: oklch(90% 0.05 240) !important;
+  background-color: transparent !important;
   margin-top: -8px !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] h2 {
@@ -3229,17 +3265,17 @@ html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] h2 {
   padding: 0 !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card {
-  background-color: oklch(92% 0.05 350) !important;
+  background-color: transparent !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] [data-slot="card-content"].scheduling-details-content {
-  background-color: oklch(93% 0.04 340) !important;
+  background-color: transparent !important;
   gap: 1rem !important;
   row-gap: 1rem !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-guest-form-block {
-  background-color: oklch(91% 0.04 290) !important;
+  background-color: transparent !important;
   margin-top: 8px !important;
   margin-bottom: 0 !important;
   padding-top: 0 !important;
@@ -3253,7 +3289,7 @@ html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .schedu
   padding-top: 0 !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card [data-slot="card-footer"] {
-  background-color: oklch(90% 0.05 250) !important;
+  background-color: transparent !important;
   margin-top: 0 !important;
   padding-top: 1rem !important;
 }
@@ -3280,7 +3316,7 @@ html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .schedu
 }
 /* Your Details title container: colored background; 1rem below to form */
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-your-details-title-container {
-  background-color: oklch(85% 0.12 260) !important;
+  background-color: transparent !important;
   margin-top: 0 !important;
   margin-bottom: 1rem !important;
   padding: 0 !important;
@@ -3290,7 +3326,7 @@ html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .schedu
 }
 /* Your Details column wrapper: yellow background, no space above title */
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"].scheduling-your-details-column {
-  background-color: oklch(95% 0.12 95) !important;
+  background-color: transparent !important;
   padding-top: 0 !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] label.scheduling-details-label {
@@ -3303,10 +3339,10 @@ html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .schedu
 html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn {
   background-color: white !important;
 }
-/* Left panel date/time containers: different colors (must win over theme transparent) */
+/* Left panel date/time containers: transparent (no colored container backgrounds) */
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-date {
-  background-color: oklch(92% 0.08 140) !important;
+  background-color: transparent !important;
 }
 html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-time {
-  background-color: oklch(92% 0.1 280) !important;
+  background-color: transparent !important;
 }
