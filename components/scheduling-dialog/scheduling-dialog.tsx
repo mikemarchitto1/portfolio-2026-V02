@@ -171,9 +171,9 @@ try {
               data-step={step}
               data-theme={theme}
               className={cn(
-                "dialog-frame-container relative flex w-full max-w-full lg:max-w-[960px] flex-col rounded-none lg:rounded-lg text-black",
+                "dialog-frame-container relative flex w-full max-w-full lg:max-w-[704px] flex-col rounded-none lg:rounded-lg text-black",
                 "max-h-[90vh] lg:max-h-[85vh] min-h-screen lg:min-h-0 lg:h-fit",
-                "px-6 pt-6 pb-6",
+                "pl-6 pr-[24px] pt-6 pb-6",
                 theme !== "light" && "shadow-lg",
                 theme === "color" && "!bg-[oklch(24%_0.035_165)]"
               )}
@@ -183,14 +183,14 @@ try {
                   : { backgroundColor: "var(--background)" }
               }
             >
-              <div className="flex min-h-0 flex-col gap-10 w-full lg:flex-row items-start lg:items-stretch">
+              <div className="flex min-h-0 flex-col gap-10 w-full lg:flex-row items-start lg:items-stretch lg:gap-[40px]">
                 <div
                   data-slot="scheduling-left-panel"
                   className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col w-full lg:w-[248px] pt-1"
                 >
-                  <Card className="scheduling-left-card flex flex-1 flex-col gap-4 border-0 bg-transparent pt-0 pb-0 shadow-none">
-                    <CardHeader className="scheduling-left-header gap-0 pb-0 px-0 pt-0">
-                      <div className="flex flex-col gap-4">
+                  <Card className="scheduling-left-card flex flex-1 flex-col border-0 bg-transparent pt-0 pb-0 shadow-none scheduling-left-card-gap" style={{ backgroundColor: "oklch(92% 0.04 280)", gap: 0 }}>
+                    <CardHeader className="scheduling-left-header gap-0 pb-0 px-0 pt-0" style={{ backgroundColor: "oklch(90% 0.05 300)" }}>
+                      <div className="flex flex-col">
                         <CardTitle className="scheduling-left-title mt-0 shrink-0 text-subtitle1 font-medium">
                           Introduction Call
                         </CardTitle>
@@ -198,21 +198,21 @@ try {
                           Michael Marchitto
                         </span>
                       </div>
-                      <div className="scheduling-left-desc-and-datetime flex flex-col gap-4">
+                      <div className="scheduling-left-desc-and-datetime flex flex-col">
                         <p className="scheduling-left-desc text-body2 font-normal">
                           A 30-minute video call introduction to discuss potential opportunities.
                         </p>
                         {step !== "time" && date && selectedTime && (
-                          <div className="scheduling-left-datetime flex flex-col gap-0.5 text-body2 font-normal">
-                            <span>{formatDateLong(date)}</span>
-                            <span>
+                          <div className="scheduling-left-datetime flex flex-col gap-0 text-body2 font-normal">
+                            <span className="scheduling-left-datetime-date w-fit" style={{ backgroundColor: "oklch(92% 0.08 140)" }}>{formatDateLong(date)}</span>
+                            <span className="scheduling-left-datetime-time w-fit" style={{ backgroundColor: "oklch(92% 0.1 280)" }}>
                               {formatTimeRange(selectedTime)} ({timezoneDisplayName})
                             </span>
                           </div>
                         )}
                       </div>
                     </CardHeader>
-                    <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
+                    <CardContent className="scheduling-left-details flex flex-col pt-0 px-0" style={{ backgroundColor: "oklch(91% 0.05 200)" }}>
                       <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 transition-colors hover:text-accent">
                         <Clock className="h-4 w-4 shrink-0" />
                         <span>30 min</span>
@@ -231,7 +231,7 @@ try {
                           <SelectTrigger
                             data-slot="scheduling-timezone-trigger"
                             leftIcon={<Globe className="h-4 w-4 shrink-0" />}
-                            className="h-auto min-h-0 border-0 bg-transparent p-0 text-left text-body2 font-normal shadow-none focus:ring-0 focus:ring-offset-0 transition-colors hover:bg-black/10 hover:text-accent [&>svg]:hover:text-accent"
+                            className="h-auto min-h-0 w-full border-0 bg-transparent p-0 text-left text-body2 font-normal shadow-none focus:ring-0 focus:ring-offset-0 transition-colors hover:bg-transparent hover:text-accent [&>svg]:hover:text-accent"
                           >
                             <span className="min-w-0 text-left whitespace-nowrap font-normal">
                               {timezoneOptions.find((o) => o.value === timezone)?.displayName ??

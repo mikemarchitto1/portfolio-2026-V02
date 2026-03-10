@@ -2329,8 +2329,6 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-header {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0 !important;
-  row-gap: 0 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-title {
   margin-top: 0 !important;
@@ -2348,7 +2346,7 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   padding-top: 0 !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
-  margin-top: 16px !important;
+  margin-top: 0 !important;
 }
 /* Body 2 = Regular weight for description and timezone trigger */
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc {
@@ -2357,6 +2355,16 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 [data-slot="scheduling-timezone-trigger"],
 [data-slot="scheduling-timezone-trigger"] * {
   font-weight: 400 !important;
+}
+/* Timezone trigger: text-only like detail rows above, no pill/background on hover */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="scheduling-timezone-trigger"],
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="scheduling-timezone-trigger"]:hover,
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="scheduling-timezone-trigger"]:focus,
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="scheduling-timezone-trigger"]:active {
+  background-color: transparent !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] {
   gap: 0 !important;
@@ -2376,9 +2384,37 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
   padding: 0 !important;
   border-radius: 0 !important;
 }
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-date {
+  background-color: oklch(92% 0.08 140) !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-time {
+  background-color: oklch(92% 0.1 280) !important;
+}
 [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-content"] {
   border-radius: 0 !important;
   padding: 0 !important;
+}
+/* Left card: 0 gap so we control space via margin on content; 1rem between header and 30 min row */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-card.scheduling-left-card-gap {
+  gap: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-content"].scheduling-left-details {
+  margin-top: 1rem !important;
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+/* Left panel header: 1rem between title block, desc block, and between desc and datetime */
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"].scheduling-left-header {
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] > div:first-child {
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc-and-datetime {
+  gap: 1rem !important;
+  row-gap: 1rem !important;
 }
 
 /* Time Slots label: Subtitle 2 only (literal values so nothing overrides) */
@@ -2396,9 +2432,15 @@ html.color [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] 
 [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:focus,
 [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:focus-visible,
 [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:active {
-  background-color: transparent !important;
-  background: transparent !important;
+  background-color: white !important;
+  background: white !important;
   box-shadow: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover,
 html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn:hover svg,
@@ -2425,6 +2467,29 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn
   stroke: var(--sidebar-hover) !important;
 }
 
+/* Back button: text-only (no pill), same hover as Add guests button */
+[data-slot="scheduling-right-panel"] button.scheduling-back-btn,
+[data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover,
+[data-slot="scheduling-right-panel"] button.scheduling-back-btn:focus,
+[data-slot="scheduling-right-panel"] button.scheduling-back-btn:focus-visible,
+[data-slot="scheduling-right-panel"] button.scheduling-back-btn:active {
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover,
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover {
+  color: oklch(51.5% 0.02 264) !important;
+}
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover {
+  color: var(--accent) !important;
+}
+html.color [data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-panel"] button.scheduling-back-btn:hover {
+  color: var(--sidebar-hover) !important;
+}
+
 /* Add guest "Add" button: text-only hover (no pill), same hover colors as Add guests button */
 [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn,
 [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover,
@@ -2435,6 +2500,24 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn
   background: transparent !important;
   box-shadow: none !important;
   transition: color 0.2s ease !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+/* Resting state: black in light theme */
+html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn,
+[data-slot="scheduling-panel"][data-theme="light"] [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn {
+  color: black !important;
+}
+/* Resting state: visible in dark/color themes */
+html.dark [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn,
+[data-slot="scheduling-panel"][data-theme="dark"] [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn,
+html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn,
+[data-slot="scheduling-panel"][data-theme="color"] [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn {
+  color: var(--foreground, currentColor) !important;
 }
 /* Light: hover = gray (same as Add guests) */
 html:not(.color):not(.dark) [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:hover,
@@ -2452,12 +2535,100 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:
   color: var(--sidebar-hover) !important;
 }
 
-/* Details form: 24px gap between label+field groups; specific selector + row-gap so it wins */
+/* Details form: strip all spacing, then add only 16px where we want it (see block below) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] [data-slot="card-content"].scheduling-details-content {
-  gap: 24px !important;
-  row-gap: 24px !important;
+  gap: 0 !important;
+  row-gap: 0 !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card {
+  gap: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card [data-slot="card-footer"] {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-your-details-title-container {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+/* Add back exactly 1rem: title→form, between field groups, form→footer; 8px label→input */
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-your-details-title-container {
+  margin-bottom: 1rem !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] [data-slot="card-content"].scheduling-details-content {
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card [data-slot="card-footer"] {
+  padding-top: 1rem !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-field-group {
+  gap: 8px !important;
+  row-gap: 8px !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-add-guests-container {
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-guest-form-block {
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  gap: 1rem !important;
+}
+[data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-guest-form-block > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Name, Email Address, Notes containers: no internal padding or margin; no space around text */
+[data-slot="scheduling-right-panel"] .scheduling-details-field-group {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 8px !important;
+  row-gap: 8px !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-details-field-group .scheduling-details-label {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-add-guests-container {
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  gap: 0 !important;
+  row-gap: 0 !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-guest-form-block {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
+  gap: 1rem !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-guest-form-block > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+[data-slot="scheduling-right-panel"] .scheduling-guest-email-row {
+  height: fit-content !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 /* Details form (Your Name, Email Address, Notes): labels = Subtitle 2, notes field + placeholder = Body 2 — literal values, no vars */
@@ -2466,6 +2637,7 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:
   line-height: 20px !important;
   font-weight: 500 !important;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif !important;
+  background-color: white !important;
 }
 [data-slot="scheduling-right-panel"] .scheduling-notes-field {
   font-size: 0.875rem !important;
@@ -2481,6 +2653,52 @@ html.color [data-slot="scheduling-right-panel"] button.scheduling-add-guest-btn:
 }
 
 /* Confirmation card: no type overrides; section titles = Subtitle 2, body = Body 2 via classes below */
+/* Confirmation card: no default spacing from Card; all spacing via these rules */
+.confirmation-card [data-slot="card-header"] {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+.confirmation-card .confirmation-header-block {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 16px !important;
+  row-gap: 16px !important;
+}
+.confirmation-card .confirmation-header-block [data-slot="card-title"] {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.confirmation-card .confirmation-header-block .confirmation-header-desc {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.confirmation-card .confirmation-header-title {
+  margin-bottom: 0 !important;
+}
+.confirmation-card .confirmation-header-desc {
+  font-size: var(--text-body2) !important;
+  line-height: var(--text-body2-line) !important;
+  font-weight: var(--text-body2-weight) !important;
+}
+.confirmation-card [data-slot="card-content"].confirmation-content {
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 16px !important;
+}
+.confirmation-card [data-slot="card-header"] + [data-slot="card-content"] {
+  margin-top: 16px !important;
+}
+.confirmation-card .confirmation-section {
+  gap: 0.25rem;
+}
+.confirmation-card .confirmation-section-content {
+  gap: 0.125rem;
+}
+.confirmation-card .confirmation-section-content.flex.items-center {
+  gap: 0.375rem;
+}
 .confirmation-card .confirmation-section-title {
   font-size: var(--text-subtitle2) !important;
   line-height: var(--text-subtitle2-line) !important;
@@ -2658,10 +2876,11 @@ html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highli
   background: oklch(36% 0.048 155) !important;
   color: oklch(100% 0 0) !important;
 }
-/* Time slot list: hide scrollbar, keep scroll behavior */
+/* Time slot list: hide scrollbar, keep scroll behavior; move container up 8px */
 [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  margin-top: -8px !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"]::-webkit-scrollbar {
   display: none;
@@ -2686,13 +2905,13 @@ html.color [data-slot="scheduling-timezone-content"] [role="option"][data-highli
  *   Row (.rdp-weekdays): "flex" + "rdp-weekdays" → display: flex only.
  *   Cell (.rdp-weekday): "calendar-weekday text-caption text-muted-foreground font-normal tracking-wide rounded-md flex-1 select-none" + "rdp-weekday".
  * Library adds only class names (rdp-weekdays, rdp-weekday); no built-in CSS. */
-/* 16px between caption and weekdays so weekdays align with "Michael Marchitto" and "Time Slot" (row 2) */
+/* 8px between caption and weekdays (grid moved up 8px from previous 16px) */
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] thead:has(.rdp-weekdays) {
   padding-top: 0 !important;
   padding-bottom: 16px !important;
 }
 [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table {
-  margin-top: 16px !important;
+  margin-top: 8px !important;
   width: 100% !important;
 }
 /* Weekdays row: full width, 8px gap to match date grid */
@@ -2968,4 +3187,126 @@ html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg
 html.color .mobile-menu-sheet .mobile-menu-theme-nav .sidebar-icon-btn:hover svg line {
   color: var(--sidebar-hover) !important;
   stroke: var(--sidebar-hover) !important;
+}
+
+/* Pastel background colors per element — at end so they override theme/transparent rules (background only; no padding or border-radius) */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-card {
+  background-color: oklch(92% 0.04 280) !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-header,
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] {
+  background-color: oklch(90% 0.05 300) !important;
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-header"] > div:first-child,
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-desc-and-datetime {
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] [data-slot="card-content"].scheduling-left-details {
+  background-color: oklch(91% 0.05 200) !important;
+  margin-top: 1rem !important;
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
+  background-color: oklch(92% 0.06 160) !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-header"] {
+  background-color: oklch(93% 0.07 55) !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots-label"],
+html [data-slot="scheduling-panel"] span.scheduling-time-slots-label {
+  background-color: oklch(94% 0.06 85) !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"] {
+  background-color: oklch(90% 0.05 240) !important;
+  margin-top: -8px !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] h2 {
+  background-color: white !important;
+  padding: 0 !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card {
+  background-color: oklch(92% 0.05 350) !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] [data-slot="card-content"].scheduling-details-content {
+  background-color: oklch(93% 0.04 340) !important;
+  gap: 1rem !important;
+  row-gap: 1rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-guest-form-block {
+  background-color: oklch(91% 0.04 290) !important;
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  gap: 1rem !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-guest-form-block > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card [data-slot="card-footer"] {
+  background-color: oklch(90% 0.05 250) !important;
+  margin-top: 0 !important;
+  padding-top: 1rem !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-field-group {
+  gap: 8px !important;
+  row-gap: 8px !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-add-guests-container {
+  gap: 0 !important;
+  row-gap: 0 !important;
+}
+/* Card gap 0; space form→footer is footer padding-top only */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-card {
+  gap: 0 !important;
+}
+/* Subtitle backgrounds: white (must come after pastel block to win) */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] h2 {
+  background-color: white !important;
+}
+/* Details step wrapper: no space above so Your Details title sits at top of yellow */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-details-step {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+/* Your Details title container: colored background; 1rem below to form */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-your-details-title-container {
+  background-color: oklch(85% 0.12 260) !important;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+  padding: 0 !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-your-details-title-container h2 {
+  background-color: transparent !important;
+}
+/* Your Details column wrapper: yellow background, no space above title */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"].scheduling-your-details-column {
+  background-color: oklch(95% 0.12 95) !important;
+  padding-top: 0 !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] label.scheduling-details-label {
+  background-color: white !important;
+}
+/* Add guests band and button: white (must win over pastel) */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] .scheduling-add-guests-container {
+  background-color: white !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-right-panel"] button.scheduling-add-guests-btn {
+  background-color: white !important;
+}
+/* Left panel date/time containers: different colors (must win over theme transparent) */
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-date {
+  background-color: oklch(92% 0.08 140) !important;
+}
+html [data-slot="scheduling-panel"] [data-slot="scheduling-left-panel"] .scheduling-left-datetime-time {
+  background-color: oklch(92% 0.1 280) !important;
 }

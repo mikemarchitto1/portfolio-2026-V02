@@ -33,7 +33,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "bg-background group/calendar p-3 [--cell-size:2.25rem] md:[--cell-size:2.75rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
+        "bg-background group/calendar [--cell-size:2.25rem] md:[--cell-size:2.75rem] [[data-slot=card-content]_&]:bg-transparent [[data-slot=popover-content]_&]:bg-transparent",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className
@@ -50,12 +50,12 @@ function Calendar({
       classNames={{
         root: cn("w-full", defaultClassNames.root),
         months: cn(
-          "flex gap-4 flex-col md:flex-row relative",
+          "flex flex-col md:flex-row relative",
           defaultClassNames.months
         ),
-        month: cn("flex flex-col w-full gap-4", defaultClassNames.month),
+        month: cn("flex flex-col w-full", defaultClassNames.month),
         nav: cn(
-          "flex flex-row items-center gap-2 w-full absolute top-0 inset-x-0 justify-start h-8",
+          "flex flex-row items-center w-full absolute top-0 inset-x-0 justify-start h-8",
           defaultClassNames.nav,
           classNames?.nav
         ),
@@ -74,7 +74,7 @@ function Calendar({
           defaultClassNames.month_caption
         ),
         dropdowns: cn(
-          "flex items-center text-button justify-center h-(--cell-size) gap-1.5 w-auto",
+          "flex items-center text-button justify-center h-(--cell-size) w-auto",
           defaultClassNames.dropdowns
         ),
         dropdown_root: cn(
@@ -89,7 +89,7 @@ function Calendar({
           "select-none text-subtitle1 font-semibold text-foreground leading-8 h-8 flex items-center",
           captionLayout === "label"
             ? ""
-            : "rounded-md pl-2 pr-1 gap-1 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
+            : "rounded-md pl-2 pr-1 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
           defaultClassNames.caption_label
         ),
         table: "w-full border-collapse",
@@ -98,7 +98,7 @@ function Calendar({
           "calendar-weekday text-subtitle2 font-medium text-muted-foreground tracking-wide rounded-md flex-1 select-none",
           defaultClassNames.weekday
         ),
-        week: cn("flex w-full gap-2 mt-2", defaultClassNames.week),
+        week: cn("flex w-full", defaultClassNames.week),
         week_number_header: cn(
           "select-none w-(--cell-size)",
           defaultClassNames.week_number_header
