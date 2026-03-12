@@ -120,12 +120,26 @@ try {
           </SidebarHeader>
           <SidebarContent className="px-4 -mt-[72px]">
             <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2">Clients</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ml-[2px]">Projects</SidebarGroupLabel>
               <SidebarMenu className="gap-0">
-                {SIDEBAR_PROJECTS.map(({ label, href }) => (
+                {SIDEBAR_PROJECTS[0] && (
+                  <SidebarMenuItem key={SIDEBAR_PROJECTS[0].href}>
+                    <SidebarMenuButton variant="text" asChild>
+                      <Link href={SIDEBAR_PROJECTS[0].href} className="text-button text-foreground no-underline w-full">
+                        {SIDEBAR_PROJECTS[0].label}
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                )}
+                <SidebarMenuItem>
+                  <SidebarMenuButton variant="text">
+                    AI Labs
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                {SIDEBAR_PROJECTS.slice(1).map(({ label, href }) => (
                   <SidebarMenuItem key={href}>
                     <SidebarMenuButton variant="text" asChild>
-                      <Link href={href} className="text-button no-underline w-full">
+                      <Link href={href} className="text-button text-foreground no-underline w-full">
                         {label}
                       </Link>
                     </SidebarMenuButton>
@@ -134,26 +148,18 @@ try {
               </SidebarMenu>
             </SidebarGroup>
             <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">Experiments</SidebarGroupLabel>
-              <SidebarMenu className="gap-0">
-                <SidebarMenuItem>
-                  <SidebarMenuButton variant="text">AI Work</SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroup>
-            <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">Connect</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ml-[2px]">Connect</SidebarGroupLabel>
               <SidebarMenu className="gap-0">
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
-                    <a href="mailto:" aria-label="Email Mike" className="text-button no-underline w-full">
+                    <a href="mailto:" aria-label="Email Mike" className="text-button text-foreground no-underline w-full">
                       Email
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
-                    <a href="/resume.pdf" download aria-label="Download Resume" className="text-button no-underline w-full">
+                    <a href="/resume.pdf" download aria-label="Download Resume" className="text-button text-foreground no-underline w-full">
                       Resume
                     </a>
                   </SidebarMenuButton>
@@ -165,7 +171,7 @@ try {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Connect on LinkedIn"
-                      className="text-button no-underline w-full"
+                      className="text-button text-foreground no-underline w-full"
                     >
                       LinkedIn
                     </a>
@@ -188,15 +194,6 @@ try {
               </SidebarMenu>
             </SidebarGroup>
           </SidebarContent>
-          <SidebarFooter className="p-4">
-            <img
-              src="/images/logo-next.svg"
-              alt="Next.js"
-              className="h-8 w-auto shrink-0"
-              width={32}
-              height={32}
-            />
-          </SidebarFooter>
         </Sidebar>
         <div className="flex flex-col w-full min-w-0 overflow-x-clip">
           <Header />

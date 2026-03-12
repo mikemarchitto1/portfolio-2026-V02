@@ -37,7 +37,7 @@ export default function HeroSection() {
                   Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
                 </h1>
                 <h5 className="text-h4 max-w-[528px]">
-                  I design digital experiences for startups and global brands.
+                  I design premium digital experiences for startups and global brands.
                 </h5>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
@@ -64,8 +64,12 @@ export default function HeroSection() {
                   </div>
                   <CardContent className="p-0">
                     <blockquote className="profile-quote text-body2 text-foreground font-light text-center m-0 p-0 mb-8">
-                      <p className="text-body2 italic">"A king is a man who turns hope into action."</p>
-                      <cite className="text-body2 not-italic block opacity-80">— Ralph Waldo Emerson</cite>
+                      <p className="text-body2 italic leading-[24px] text-black">
+                        "A king is a man who turns hope into action."
+                      </p>
+                      <cite className="text-body2 not-italic block leading-[24px] text-black">
+                        — Ralph Waldo Emerson
+                      </cite>
                     </blockquote>
                   </CardContent>
                 </Card>

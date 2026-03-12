@@ -42,7 +42,7 @@ try {
         <SheetContent
           id="chat-panel"
           side="right"
-          className="chat-sheet flex w-full max-w-full flex-col sm:w-full sm:max-w-full md:w-full md:max-w-full lg:max-w-md border-0 bg-sidebar text-sidebar-foreground"
+          className="chat-sheet flex w-full max-w-full flex-col sm:w-full sm:max-w-full md:w-full md:max-w-full lg:max-w-md border-0 bg-sidebar text-sidebar-foreground p-4"
           closeButtonClassName="text-foreground [&_svg]:text-current"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>
@@ -54,7 +54,7 @@ try {
               Hello!
             </p>
           </SheetHeader>
-          <div className="flex-1 overflow-auto px-4 pt-[104px] pb-4 min-w-0">
+          <div className="flex-1 overflow-auto pt-[88px] min-w-0">
             {children ?? (
               <div className="text-foreground">
                 <ChatBubble
@@ -66,15 +66,15 @@ try {
               </div>
             )}
           </div>
-          <div className="shrink-0 px-4 pb-4 min-w-0">
+          <div className="shrink-0 min-w-0">
             <Input
               type="text"
               placeholder="Type a message…"
               aria-label="Chat message"
-              className="chat-input-unified-field h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+              className="chat-input-unified-field h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground outline-none shadow-[0_0_0_1px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
-          <SheetFooter>
+          <SheetFooter className="mt-4">
             <SheetClose asChild>
               <Button variant="outline" className="text-button chat-sheet-close-pill">
                 Close

@@ -9,7 +9,7 @@ const metrics = [
   { value: "10", label: "Years" },
   { value: "4", label: "Products" },
   { value: "27", label: "Testings" },
-  { value: "3", label: "AI Works" },
+  { value: "3", label: "AI Labs" },
 ];
 
 export default function ImpactTechStackSection() {

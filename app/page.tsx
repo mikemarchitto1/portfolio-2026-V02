@@ -14,6 +14,12 @@ const projects = [
     href: "/nutrilucent",
   },
   {
+    title: "AI Labs",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/images/thumb-large-ai experiments.png",
+  },
+  {
     title: "GloriFi",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",

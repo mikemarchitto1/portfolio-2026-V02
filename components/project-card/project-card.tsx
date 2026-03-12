@@ -37,12 +37,7 @@ export default function ProjectCard({
             {description}
           </p>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="project-card-cta w-fit rounded-full border border-border text-foreground hover:bg-muted"
-            asChild
-          >
+          <Button variant="default" size="lg" className="project-card-cta w-fit rounded-full" asChild>
             {href ? <a href={href} className="text-button">See Case Study</a> : <span className="text-button">See Case Study</span>}
           </Button>
         </CardContent>

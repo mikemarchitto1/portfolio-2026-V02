@@ -19,7 +19,7 @@ export default function ClientsSection({ projects }: ClientsSectionProps) {
         <div className="max-w-[1328px] mx-auto flex flex-col min-w-0">
           <div className="w-full min-w-0 px-0 lg:px-16 py-4 mb-0 bg-transparent">
             <h1 className="text-h2 font-light text-left text-foreground m-0 p-0">
-              Clients
+              Projects
             </h1>
           </div>
 

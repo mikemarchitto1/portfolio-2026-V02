@@ -226,19 +226,43 @@ try {
   SidebarMenuButton = React.forwardRef<
     HTMLButtonElement,
     React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean; variant?: "default" | "text" }
-  >(function SidebarMenuButton({ className, asChild = false, variant = "default", ...props }, ref) {
-    const Comp = asChild ? Slot.Root : "button";
+  >(function SidebarMenuButton({ className, asChild = false, variant = "default", children, ...props }, ref) {
+    const baseClasses =
+      "flex w-full -ml-[6px] items-center gap-2 rounded-md border-0 bg-transparent py-2 px-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:transition-colors";
+    const hoverBg =
+      "absolute inset-y-0 -left-1 -right-1 rounded-md bg-sidebar-accent/10 opacity-0 group-hover:opacity-100 transition pointer-events-none";
+
+    if (asChild) {
+      return (
+        <div
+          data-sidebar="menu-button"
+          className={cn("relative group", baseClasses)}
+        >
+          <div className={hoverBg} aria-hidden />
+          <Slot.Root
+            ref={ref as React.Ref<HTMLButtonElement>}
+            className={cn("relative z-10 flex min-w-0 flex-1 items-center gap-2", className)}
+            {...props}
+          >
+            {children}
+          </Slot.Root>
+        </div>
+      );
+    }
+
     return (
-      <Comp
+      <button
         ref={ref as React.Ref<HTMLButtonElement>}
         data-sidebar="menu-button"
-        className={cn(
-          // Stock shadcn-style sidebar menu button (typography kept as `text-button`)
-          "flex w-[calc(100%+0.5rem)] -ml-2 items-center gap-2 overflow-hidden rounded-md border-0 bg-transparent p-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:bg-sidebar-accent/10 hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent/10 active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current",
-          className
-        )}
+        type="button"
+        className={cn("relative group", baseClasses, className)}
         {...props}
-      />
+      >
+        <div className={hoverBg} aria-hidden />
+        <span className="relative z-10 flex min-w-0 flex-1 items-center gap-2">
+          {children}
+        </span>
+      </button>
     );
   });
 

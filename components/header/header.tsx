@@ -125,12 +125,26 @@ function NavItems({
           <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
         </Button>
       )}
-      {!hideAIExploration && (
-        <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
-          {!hideIcons && <BrainCircuit className={navIconClass} />}
-          <span className="text-button">AI Work</span>
-        </Button>
-      )}
+      <Button className="nav-button flex items-center gap-2" variant="outline" asChild>
+        <a href="mailto:hello@carlwalker.com" className="text-button">
+          Email
+        </a>
+      </Button>
+      <Button className="nav-button flex items-center gap-2" variant="outline" asChild>
+        <a href="/resume.pdf" download className="text-button">
+          Resume
+        </a>
+      </Button>
+      <Button className="nav-button flex items-center gap-2" variant="outline" asChild>
+        <a
+          href="https://linkedin.com/in/carlwalker"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-button"
+        >
+          LinkedIn
+        </a>
+      </Button>
       {setScheduleOpen != null &&
         (deferRadixTriggers ? (
           <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar">
@@ -213,7 +227,16 @@ try {
                 >
                   <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
                 </Button>
-                <NavItems hideSidebarToggle hideIcons scheduleOpen={scheduleOpen} setScheduleOpen={setScheduleOpen} chatOpen={chatOpen} setChatOpen={setChatOpen} deferRadixTriggers={!mounted} />
+                <NavItems
+                  hideSidebarToggle
+                  hideAIExploration
+                  hideIcons
+                  scheduleOpen={scheduleOpen}
+                  setScheduleOpen={setScheduleOpen}
+                  chatOpen={chatOpen}
+                  setChatOpen={setChatOpen}
+                  deferRadixTriggers={!mounted}
+                />
               </div>
               <div className="flex lg:hidden items-center gap-2">
                 <button
@@ -242,11 +265,29 @@ try {
                       <MobileMenuThemeSwitcher />
                       <div className="mt-[4px] w-full pl-0 min-w-0">
                         <SidebarGroup>
-                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2">
-                            Clients
+                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ml-[2px]">
+                            Projects
                           </SidebarGroupLabel>
                           <SidebarMenu className="mobile-menu-clients-list gap-0 mt-0 w-full">
-                            {SIDEBAR_PROJECTS.map(({ label, href }) => (
+                            {SIDEBAR_PROJECTS[0] && (
+                              <SidebarMenuItem key={SIDEBAR_PROJECTS[0].href} className="w-full">
+                                <SidebarMenuButton asChild>
+                                  <Link
+                                    href={SIDEBAR_PROJECTS[0].href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="no-underline w-full"
+                                  >
+                                    {SIDEBAR_PROJECTS[0].label}
+                                  </Link>
+                                </SidebarMenuButton>
+                              </SidebarMenuItem>
+                            )}
+                            <SidebarMenuItem className="w-full">
+                              <SidebarMenuButton>
+                                AI Labs
+                              </SidebarMenuButton>
+                            </SidebarMenuItem>
+                            {SIDEBAR_PROJECTS.slice(1).map(({ label, href }) => (
                               <SidebarMenuItem key={href} className="w-full">
                                 <SidebarMenuButton asChild>
                                   <Link
@@ -263,26 +304,7 @@ try {
                         </SidebarGroup>
                       </div>
                       <SidebarGroup>
-                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">
-                          Experiments
-                        </SidebarGroupLabel>
-                        <SidebarMenu
-                          className="mobile-menu-connect-nav gap-0 items-start w-full pl-0 min-w-0"
-                          aria-label="Experiments"
-                        >
-                          <SidebarMenuItem className="w-full">
-                            <SidebarMenuButton
-                              onClick={() => setMobileMenuOpen(false)}
-                              aria-label="Experiments"
-                            >
-                              AI Work
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        </SidebarMenu>
-                      </SidebarGroup>
-
-                      <SidebarGroup>
-                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">
+                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ml-[2px]">
                           Connect
                         </SidebarGroupLabel>
                         <SidebarMenu

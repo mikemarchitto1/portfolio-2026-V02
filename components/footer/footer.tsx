@@ -17,16 +17,16 @@ export default function Footer() {
           <div className="max-w-[1328px] mx-auto">
             {/* 4. CONTENT WRAPPER — 64px padding, visible band */}
             <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
-              {/* Let's Talk band */}
+              {/* Let's Connect band */}
               <div className="w-full bg-transparent py-6 md:py-10 lg:py-16">
                 <div className="w-full min-w-0 text-left flex flex-col">
                   <div className="w-fit p-0 m-0">
                     <h1 className="text-h1 font-light text-foreground p-0 m-0 tracking-[0]">
-                      Let's Talk
+                      Let's Connect
                     </h1>
                   </div>
-                  <div className="max-w-[528px] p-0 m-0 mt-4">
-                    <h5 className="text-h4 max-w-[528px] text-foreground p-0 m-0">
+                  <div className="max-w-[576px] p-0 m-0 mt-4">
+                    <h5 className="text-h4 max-w-[576px] text-foreground p-0 m-0">
                       <span className="tracking-[-0.04em]">I{"'"}m</span> interested in creative partnerships that grow from meaningful work.
                     </h5>
                   </div>
@@ -56,6 +56,14 @@ export default function Footer() {
                       >
                         LinkedIn
                       </a>
+                    </Button>
+
+                    <Button className="nav-button" variant="outline" size="lg">
+                      <span className="text-button">Schedule</span>
+                    </Button>
+
+                    <Button className="nav-button" variant="outline" size="lg">
+                      <span className="text-button">Chat</span>
                     </Button>
                   </div>
                   <img
