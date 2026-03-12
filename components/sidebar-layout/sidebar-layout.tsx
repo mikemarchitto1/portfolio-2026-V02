@@ -1,8 +1,29 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import Link from "next/link";
+import {
+  Sidebar,
+  SidebarProvider,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+} from "@/components/ui/sidebar";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "@/hooks/use-theme";
+import { SIDEBAR_PROJECTS } from "@/lib/projects";
+import { ChatPanel } from "@/components/chat-panel/chat-panel";
+import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
+import { Sun, Moon, Palette } from "lucide-react";
 import Header from "@/components/header/header";
+
+const themeButtonClass =
+  "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border-0 bg-transparent hover:bg-sidebar-accent/10 text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
 
 let SidebarLayout: React.FC<{ children: React.ReactNode }>;
 try {
@@ -13,6 +34,67 @@ try {
     "/images/crown works-up-b.svg",
     "/images/crown works-up-w.svg",
   ];
+
+  function SidebarCrown() {
+    const { theme } = useTheme();
+    const crownSrc =
+      theme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
+    return (
+      <div className="mb-6">
+        <img
+          src={crownSrc}
+          alt=""
+          className="h-10 w-auto shrink-0"
+          width={40}
+          height={40}
+        />
+      </div>
+    );
+  }
+
+  function SidebarThemeSwitcher() {
+    const { theme, setTheme } = useTheme();
+    return (
+      <nav
+        className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8 -ml-1"
+        aria-label="Theme and preferences"
+      >
+        <Button
+          variant="ghost"
+          size="icon"
+          className={themeButtonClass}
+          aria-label="Light mode"
+          aria-pressed={theme === "light"}
+          data-state={theme === "light" ? "on" : "off"}
+          onClick={() => setTheme("light")}
+        >
+          <Sun className="size-5 shrink-0" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className={themeButtonClass}
+          aria-label="Dark mode"
+          aria-pressed={theme === "dark"}
+          data-state={theme === "dark" ? "on" : "off"}
+          onClick={() => setTheme("dark")}
+        >
+          <Moon className="size-5 shrink-0" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className={themeButtonClass}
+          aria-label="Color mode"
+          aria-pressed={theme === "color"}
+          data-state={theme === "color" ? "on" : "off"}
+          onClick={() => setTheme("color")}
+        >
+          <Palette className="size-5 shrink-0" />
+        </Button>
+      </nav>
+    );
+  }
 
   SidebarLayout = function SidebarLayout({
     children,
@@ -31,6 +113,91 @@ try {
     }, []);
     return (
       <SidebarProvider>
+        <Sidebar>
+          <SidebarHeader className="p-4">
+            <SidebarCrown />
+            <SidebarThemeSwitcher />
+          </SidebarHeader>
+          <SidebarContent className="px-4 -mt-[72px]">
+            <SidebarGroup>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2">Clients</SidebarGroupLabel>
+              <SidebarMenu className="gap-0">
+                {SIDEBAR_PROJECTS.map(({ label, href }) => (
+                  <SidebarMenuItem key={href}>
+                    <SidebarMenuButton variant="text" asChild>
+                      <Link href={href} className="text-button no-underline w-full">
+                        {label}
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroup>
+            <SidebarGroup>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">Experiments</SidebarGroupLabel>
+              <SidebarMenu className="gap-0">
+                <SidebarMenuItem>
+                  <SidebarMenuButton variant="text">AI Work</SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroup>
+            <SidebarGroup>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">Connect</SidebarGroupLabel>
+              <SidebarMenu className="gap-0">
+                <SidebarMenuItem>
+                  <SidebarMenuButton variant="text" asChild>
+                    <a href="mailto:" aria-label="Email Mike" className="text-button no-underline w-full">
+                      Email
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton variant="text" asChild>
+                    <a href="/resume.pdf" download aria-label="Download Resume" className="text-button no-underline w-full">
+                      Resume
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton variant="text" asChild>
+                    <a
+                      href="https://linkedin.com/in/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Connect on LinkedIn"
+                      className="text-button no-underline w-full"
+                    >
+                      LinkedIn
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SchedulingDialog
+                    trigger={
+                      <SidebarMenuButton variant="text">Schedule</SidebarMenuButton>
+                    }
+                  />
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <ChatPanel
+                    trigger={
+                      <SidebarMenuButton variant="text">Chat</SidebarMenuButton>
+                    }
+                  />
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroup>
+          </SidebarContent>
+          <SidebarFooter className="p-4">
+            <img
+              src="/images/logo-next.svg"
+              alt="Next.js"
+              className="h-8 w-auto shrink-0"
+              width={32}
+              height={32}
+            />
+          </SidebarFooter>
+        </Sidebar>
         <div className="flex flex-col w-full min-w-0 overflow-x-clip">
           <Header />
           <main className="min-h-screen min-w-0 w-full max-w-full overflow-x-clip flex-1 pt-20">{children}</main>

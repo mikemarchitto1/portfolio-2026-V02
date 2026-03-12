@@ -10,13 +10,20 @@ import { SIDEBAR_PROJECTS } from "@/lib/projects";
 import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import {
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+} from "@/components/ui/sidebar";
 
 console.log("🔥 MODULE LOAD:", "header");
 
 const navIconClass = "h-5 w-5 shrink-0";
 
 const themeButtonClass =
-  "sidebar-icon-btn flex w-auto items-center justify-center gap-2 h-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent [&_svg]:size-5 [&_svg]:text-current";
+  "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border-0 bg-transparent hover:bg-sidebar-accent/10 text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
 
 function MobileMenuCrown() {
   const { theme } = useTheme();
@@ -39,7 +46,7 @@ function MobileMenuThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   return (
     <nav
-      className="mobile-menu-theme-nav flex flex-row gap-6 shrink-0 w-full mb-8"
+      className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8 -ml-1"
       aria-label="Theme and preferences"
     >
       <Button
@@ -121,7 +128,7 @@ function NavItems({
       {!hideAIExploration && (
         <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
           {!hideIcons && <BrainCircuit className={navIconClass} />}
-          <span className="text-button">AI Works</span>
+          <span className="text-button">AI Work</span>
         </Button>
       )}
       {setScheduleOpen != null &&
@@ -146,7 +153,7 @@ function NavItems({
         (deferRadixTriggers ? (
           <Button className="nav-button flex items-center gap-2" variant="outline">
             {!hideIcons && <MessageCircle className={navIconClass} />}
-            <span className="text-button">Let{"\u2019"}s Chat</span>
+            <span className="text-button">Chat</span>
           </Button>
         ) : (
           <ChatPanel
@@ -155,7 +162,7 @@ function NavItems({
             trigger={
               <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
                 {!hideIcons && <MessageCircle className={navIconClass} />}
-                <span className="text-button">Let{"\u2019"}s Chat</span>
+                <span className="text-button">Chat</span>
               </Button>
             }
           />
@@ -227,116 +234,123 @@ try {
           id="mobile-menu-sheet"
           side="left"
           className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-sidebar border-border text-sidebar-foreground"
-          closeButtonClassName="text-foreground [&_svg]:text-current"
+          closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-sidebar-accent/10 text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex flex-col items-start p-4">
                       <MobileMenuCrown />
                       <MobileMenuThemeSwitcher />
-                      <div className="mt-[76px] w-full pl-0 min-w-0">
-                        <p className="text-subtitle1 font-medium mb-2">Clients</p>
-                        <ul className="mobile-menu-clients-list flex flex-col gap-1 m-0 mt-0 w-full">
-                          {SIDEBAR_PROJECTS.map(({ label, href }) => (
-                            <li key={href} className="w-full">
-                              <Button
-                                className="nav-button flex items-center justify-start gap-2 w-full"
-                                variant="outline"
-                                asChild
-                              >
-                                <Link
-                                  href={href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="text-button no-underline"
-                                >
-                                  {label}
-                                </Link>
-                              </Button>
-                            </li>
-                          ))}
-                        </ul>
+                      <div className="mt-[4px] w-full pl-0 min-w-0">
+                        <SidebarGroup>
+                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2">
+                            Clients
+                          </SidebarGroupLabel>
+                          <SidebarMenu className="mobile-menu-clients-list gap-0 mt-0 w-full">
+                            {SIDEBAR_PROJECTS.map(({ label, href }) => (
+                              <SidebarMenuItem key={href} className="w-full">
+                                <SidebarMenuButton asChild>
+                                  <Link
+                                    href={href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="no-underline w-full"
+                                  >
+                                    {label}
+                                  </Link>
+                                </SidebarMenuButton>
+                              </SidebarMenuItem>
+                            ))}
+                          </SidebarMenu>
+                        </SidebarGroup>
                       </div>
-                      <p className="text-subtitle1 font-medium mb-2 mt-6">Experiments</p>
-                      <nav
-                        className="mobile-menu-connect-nav flex flex-col gap-3 items-start w-full pl-0 min-w-0"
-                        aria-label="Experiments"
-                      >
-                        <Button
-                          className="nav-button flex items-center gap-2"
-                          variant="outline"
-                          onClick={() => setMobileMenuOpen(false)}
+                      <SidebarGroup>
+                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">
+                          Experiments
+                        </SidebarGroupLabel>
+                        <SidebarMenu
+                          className="mobile-menu-connect-nav gap-0 items-start w-full pl-0 min-w-0"
+                          aria-label="Experiments"
                         >
-                          <span className="text-button">AI Works</span>
-                        </Button>
-                      </nav>
-                      <p className="text-subtitle1 font-medium mb-2 mt-6">Connect</p>
-                      <nav
-                        className="mobile-menu-connect-nav flex flex-col gap-3 items-start w-full pl-0 min-w-0"
-                        aria-label="Main"
-                      >
-                        <Button
-                          className="nav-button flex items-center gap-2"
-                          variant="outline"
-                          asChild
+                          <SidebarMenuItem className="w-full">
+                            <SidebarMenuButton
+                              onClick={() => setMobileMenuOpen(false)}
+                              aria-label="Experiments"
+                            >
+                              AI Work
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                        </SidebarMenu>
+                      </SidebarGroup>
+
+                      <SidebarGroup>
+                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6">
+                          Connect
+                        </SidebarGroupLabel>
+                        <SidebarMenu
+                          className="mobile-menu-connect-nav gap-0 items-start w-full pl-0 min-w-0"
+                          aria-label="Main"
                         >
-                          <a
-                            href="mailto:"
-                            onClick={() => setMobileMenuOpen(false)}
-                            aria-label="Email Mike"
-                          >
-                            <span className="text-button">Email Mike</span>
-                          </a>
-                        </Button>
-                        <Button
-                          className="nav-button flex items-center gap-2"
-                          variant="outline"
-                          asChild
-                        >
-                          <a
-                            href="/resume.pdf"
-                            download
-                            onClick={() => setMobileMenuOpen(false)}
-                            aria-label="Download Resume"
-                          >
-                            <span className="text-button">Download Resume</span>
-                          </a>
-                        </Button>
-                        <Button
-                          className="nav-button flex items-center gap-2"
-                          variant="outline"
-                          asChild
-                        >
-                          <a
-                            href="https://linkedin.com/in/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMobileMenuOpen(false)}
-                            aria-label="Connect on LinkedIn"
-                          >
-                            <span className="text-button">Connect on LinkedIn</span>
-                          </a>
-                        </Button>
-                        <Button
-                          className="nav-button flex items-center gap-2"
-                          variant="outline"
-                          aria-label="Open calendar"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setScheduleOpen(true);
-                          }}
-                        >
-                          <span className="text-button">Schedule</span>
-                        </Button>
-                        <Button
-                          className="nav-button flex items-center gap-2"
-                          variant="outline"
-                          onClick={() => {
-                            setMobileMenuOpen(false);
-                            setChatOpen(true);
-                          }}
-                        >
-                          <span className="text-button">Let{"\u2019"}s Chat</span>
-                        </Button>
-                      </nav>
+                          <SidebarMenuItem className="w-full">
+                            <SidebarMenuButton asChild>
+                              <a
+                                href="mailto:"
+                                onClick={() => setMobileMenuOpen(false)}
+                                aria-label="Email Mike"
+                                className="no-underline w-full"
+                              >
+                                Email
+                              </a>
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                          <SidebarMenuItem className="w-full">
+                            <SidebarMenuButton asChild>
+                              <a
+                                href="/resume.pdf"
+                                download
+                                onClick={() => setMobileMenuOpen(false)}
+                                aria-label="Download Resume"
+                                className="no-underline w-full"
+                              >
+                                Resume
+                              </a>
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                          <SidebarMenuItem className="w-full">
+                            <SidebarMenuButton asChild>
+                              <a
+                                href="https://linkedin.com/in/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setMobileMenuOpen(false)}
+                                aria-label="Connect on LinkedIn"
+                                className="no-underline w-full"
+                              >
+                                LinkedIn
+                              </a>
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                          <SidebarMenuItem className="w-full">
+                            <SidebarMenuButton
+                              aria-label="Open calendar"
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setScheduleOpen(true);
+                              }}
+                            >
+                              Schedule
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                          <SidebarMenuItem className="w-full">
+                            <SidebarMenuButton
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setChatOpen(true);
+                              }}
+                            >
+                              Chat
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                        </SidebarMenu>
+                      </SidebarGroup>
           </div>
         </SheetContent>
       </Sheet>

@@ -45,6 +45,7 @@ let SidebarMenuItem: React.ForwardRefExoticComponent<
 let SidebarMenuButton: React.ForwardRefExoticComponent<
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     asChild?: boolean;
+    variant?: "default" | "text";
     ref?: React.Ref<HTMLButtonElement>;
   }
 >;
@@ -174,7 +175,7 @@ try {
       <div
         ref={ref}
         data-sidebar="group"
-        className={cn("flex flex-col", className)}
+        className={cn("flex w-full flex-col", className)}
         {...props}
       />
     );
@@ -216,7 +217,7 @@ try {
       <li
         ref={ref}
         data-sidebar="menu-item"
-        className={cn("list-none", className)}
+        className={cn("list-none w-full", className)}
         {...props}
       />
     );
@@ -224,15 +225,16 @@ try {
 
   SidebarMenuButton = React.forwardRef<
     HTMLButtonElement,
-    React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }
-  >(function SidebarMenuButton({ className, asChild = false, ...props }, ref) {
+    React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean; variant?: "default" | "text" }
+  >(function SidebarMenuButton({ className, asChild = false, variant = "default", ...props }, ref) {
     const Comp = asChild ? Slot.Root : "button";
     return (
       <Comp
         ref={ref as React.Ref<HTMLButtonElement>}
         data-sidebar="menu-button"
         className={cn(
-          "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button no-underline transition-colors hover:bg-transparent hover:text-accent [&_svg]:size-5 [&_svg]:text-current",
+          // Stock shadcn-style sidebar menu button (typography kept as `text-button`)
+          "flex w-[calc(100%+0.5rem)] -ml-2 items-center gap-2 overflow-hidden rounded-md border-0 bg-transparent p-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:bg-sidebar-accent/10 hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent/10 active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current",
           className
         )}
         {...props}
