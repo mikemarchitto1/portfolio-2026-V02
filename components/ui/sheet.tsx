@@ -36,7 +36,7 @@ function SheetOverlay({
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-[70] bg-black/50",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-[70] bg-foreground/50",
         className
       )}
       {...props}
@@ -80,7 +80,7 @@ function SheetContent({
         {showCloseButton && (
           <SheetPrimitive.Close
             className={cn(
-              "ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs transition-colors text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400 [&_svg]:text-black dark:[&_svg]:text-white hover:[&_svg]:text-gray-500 dark:hover:[&_svg]:text-gray-400 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none",
+              "ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-xs transition-colors text-foreground hover:text-muted-foreground [&_svg]:text-current focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none",
               closeButtonClassName
             )}
           >

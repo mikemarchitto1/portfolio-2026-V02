@@ -115,7 +115,7 @@ try {
         {...props}
       >
         <aside
-          className="h-full min-w-0 w-full flex flex-col bg-sidebar text-sidebar-foreground overflow-hidden shadow-elevation border-r border-[oklch(92%_0_0)] dark:border-[oklch(62%_0_0)] color:border-[oklch(28%_0.05_155)]"
+          className="h-full min-w-0 w-full flex flex-col bg-sidebar-background text-sidebar-foreground overflow-hidden shadow-elevation border-r border-border"
           style={{ width }}
         >
           {children}
@@ -232,7 +232,7 @@ try {
         ref={ref as React.Ref<HTMLButtonElement>}
         data-sidebar="menu-button"
         className={cn(
-          "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button text-foreground no-underline transition-colors hover:bg-transparent hover:text-accent [&_svg]:size-5 color:hover:text-[oklch(38%_0.065_155)]",
+          "flex w-full items-center gap-2 rounded-none border-0 bg-transparent py-2 text-button no-underline transition-colors hover:bg-transparent hover:text-accent [&_svg]:size-5 [&_svg]:text-current",
           className
         )}
         {...props}

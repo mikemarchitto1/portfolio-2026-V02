@@ -53,7 +53,7 @@ function DialogOverlay({
       data-transparent={transparent ? "" : undefined}
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50",
-        !noDefaultBg && "bg-black/50",
+        !noDefaultBg && "bg-foreground/50",
         className
       )}
       style={transparent ? style : undefined}
@@ -81,13 +81,22 @@ function DialogContent({
   const contentTransparentBackdrop = transparentOverlay || hasCustomOverlay;
   const portalContainer = centerInViewport ? getBody() : undefined;
 
+  const overlayClass = cn(overlayClassName, transparentOverlay && "bg-transparent opacity-100");
+  const contentStyle = contentTransparentBackdrop && propsStyle
+    ? (() => {
+        const { backgroundColor: _bg, ...rest } = propsStyle;
+        return Object.keys(rest).length > 0 ? rest : undefined;
+      })()
+    : contentTransparentBackdrop
+      ? undefined
+      : propsStyle;
+
   return (
     <DialogPortal container={portalContainer}>
       <DialogOverlay
         noDefaultBg={transparentOverlay || hasCustomOverlay}
         transparent={transparentOverlay}
-        className={overlayClassName}
-        style={transparentOverlay ? { backgroundColor: "transparent", opacity: 1 } : undefined}
+        className={overlayClass}
       />
 
       <DialogPrimitive.Content
@@ -98,13 +107,10 @@ function DialogContent({
           centerInViewport
             ? "z-50 p-0 bg-transparent block"
             : "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed inset-0 z-50 flex flex-col w-full h-full max-w-none max-h-none rounded-none shadow-lg duration-200 md:left-[50%] md:top-[50%] md:right-auto md:bottom-auto md:translate-x-[-50%] md:translate-y-[-50%] md:h-auto md:max-w-[500px] md:rounded-lg lg:max-w-[600px]",
+          contentTransparentBackdrop && "bg-transparent",
           className
         )}
-        style={
-          contentTransparentBackdrop
-            ? { ...propsStyle, backgroundColor: "transparent" }
-            : propsStyle
-        }
+        style={contentStyle}
         {...props}
       >
         {children}

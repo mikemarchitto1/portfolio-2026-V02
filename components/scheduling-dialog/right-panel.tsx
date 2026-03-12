@@ -25,16 +25,14 @@ function SchedulingCalendarDayButton({
   ...props
 }: React.ComponentProps<typeof DayButton>) {
   const ref = React.useRef<HTMLButtonElement>(null);
-  const { theme } = useTheme();
   React.useEffect(() => {
     if (modifiers.focused) ref.current?.focus();
   }, [modifiers.focused]);
-  const isOutsideInColorMode = theme === "color" && modifiers.outside;
-  const colorStyle = isOutsideInColorMode ? { color: "#ffffff" as const } : undefined;
   return (
-    <button
+    <Button
       ref={ref}
       type="button"
+      variant="ghost"
       data-day={day.date.toLocaleDateString()}
       data-outside={modifiers.outside}
       data-selected-single={
@@ -46,20 +44,16 @@ function SchedulingCalendarDayButton({
       data-range-start={modifiers.range_start}
       data-range-end={modifiers.range_end}
       data-range-middle={modifiers.range_middle}
-      style={colorStyle}
       className={cn(
-        "rdp-day-button inline-flex items-center justify-center rounded-full transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent color:data-[outside=true]:!text-white data-[selected-single=true]:text-white data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
+        "rdp-day-button inline-flex items-center justify-center rounded-full transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
         className
       )}
       {...props}
     >
-      <span
-        style={colorStyle}
-        className="flex min-h-0 min-w-0 flex-1 items-center justify-center text-center text-button"
-      >
+      <span className="flex min-h-0 min-w-0 flex-1 items-center justify-center text-center text-button">
         {children}
       </span>
-    </button>
+    </Button>
   );
 }
 
@@ -183,16 +177,14 @@ export function RightPanel({
     return `${start} - ${end}`;
   };
 
-  const isColor = theme === "color";
-  const isDark = theme === "dark";
-  const textClass = "text-black dark:text-white color:text-white";
-  const mutedClass = "text-white/80 dark:text-white/80 color:text-white/80";
-  const confirmTextClass = "text-black";
-  const confirmMutedClass = "text-black/80";
+  const textClass = "text-foreground";
+  const mutedClass = "text-muted-foreground";
+  const confirmTextClass = "text-foreground";
+  const confirmMutedClass = "text-muted-foreground";
 
   if (step === "confirm" && date && selectedTime) {
     return (
-      <Card className="confirmation-card w-full overflow-hidden rounded-lg border-0 bg-white shadow-none p-[64px]">
+      <Card className="confirmation-card w-full overflow-hidden rounded-lg border-0 bg-card shadow-none p-[64px]">
         <CardHeader className="text-left">
           <div className="confirmation-header-block flex min-w-0 flex-col m-0 p-0">
             <CardTitle className={cn("confirmation-header-title text-subtitle2 font-medium m-0 p-0", confirmTextClass)}>
@@ -225,7 +217,7 @@ export function RightPanel({
               <div className="flex flex-col">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className={cn("text-body2 font-normal", confirmMutedClass)}>{name || "Guest"}</span>
-                  <span className="inline-flex items-center rounded-full bg-sky-400 px-2 py-0.5 text-xs font-medium text-blue-800">
+                  <span className="inline-flex items-center rounded-full bg-sky-400 px-2 py-0.5 text-caption font-medium text-blue-800">
                     Host
                   </span>
                 </div>
@@ -246,7 +238,7 @@ export function RightPanel({
             <span className={cn("confirmation-section-title text-subtitle2 font-medium", confirmTextClass)}>Where</span>
             <div className="confirmation-section-content flex items-center">
               <span className={cn("text-body2 font-normal", confirmMutedClass)}>Video Call</span>
-              <ExternalLink className="h-4 w-4 shrink-0 text-black" />
+              <ExternalLink className="h-4 w-4 shrink-0 text-foreground" />
             </div>
           </div>
           {notes && (
@@ -264,10 +256,9 @@ export function RightPanel({
     <div
       data-slot="scheduling-right-panel"
       className={cn(
-        "scheduling-your-details-column flex min-h-0 flex-col pt-0 mt-1",
+        "scheduling-your-details-column flex min-h-0 flex-col pt-0 bg-transparent",
         "lg:max-w-[368px] lg:flex-row lg:gap-10"
       )}
-      style={{ backgroundColor: "transparent" }}
     >
       <AnimatePresence mode="wait">
         {step === "time" && (
@@ -283,7 +274,6 @@ export function RightPanel({
             <div
               data-slot="scheduling-calendar-wrap"
               className="flex h-auto min-h-[280px] lg:min-h-0 w-full max-w-full lg:w-fit flex-none flex-col bg-transparent overflow-visible shrink-0"
-              style={{ backgroundColor: "transparent" }}
             >
               <div className="flex flex-1 flex-col overflow-visible pt-0">
                 <Calendar
@@ -301,11 +291,13 @@ export function RightPanel({
               </div>
             </div>
             {/* Time slots */}
-            <div className="flex h-auto min-h-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[200px] lg:min-w-[200px] overflow-hidden box-border pl-1 pr-0">
+            <div
+              data-slot="scheduling-time-slots-column"
+              className="flex h-auto min-h-0 shrink-0 flex-col gap-4 pt-0 w-full lg:w-[200px] lg:min-w-[200px] max-h-[min(400px,60vh)] lg:max-h-none overflow-hidden box-border pl-1 pr-0"
+            >
               <div
                 data-slot="scheduling-right-header"
-                className="mb-3 flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
-                style={{ backgroundColor: "transparent" }}
+                className="flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
               >
                 <span className={cn("text-subtitle1 font-medium", textClass)}>{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
@@ -316,7 +308,7 @@ export function RightPanel({
                     <TabsList
                       noBg
                       data-slot="scheduling-toggle"
-                      className="scheduling-toggle-track h-8 w-full p-0 rounded-full border-0 shadow-none min-w-0 inline-flex flex-1 bg-transparent"
+                      className="scheduling-toggle-track h-8 w-full p-0 gap-0 min-h-0 h-full flex-1 grid grid-cols-2 items-stretch rounded-full border-0 shadow-none min-w-0 bg-transparent"
                     >
                       <TabsTrigger
                         value="12h"
@@ -336,15 +328,13 @@ export function RightPanel({
               </div>
               <span
                 data-slot="scheduling-time-slots-label"
-                className={cn("scheduling-time-slots-label mb-5 shrink-0 block w-full text-center", textClass)}
-                style={{ backgroundColor: "transparent" }}
+                className={cn("scheduling-time-slots-label shrink-0 block w-full text-center pt-0 text-subtitle2 font-medium bg-transparent", textClass)}
               >
-                Time Slots
+                Time Slot
               </span>
               <div
-                className="flex flex-col overflow-y-auto overflow-x-hidden min-w-0 flex-1 min-h-0 lg:max-h-[272px]"
+                className="flex flex-col overflow-y-auto overflow-x-hidden min-w-0 flex-1 min-h-0 lg:max-h-[272px] bg-transparent"
                 data-slot="scheduling-time-slots"
-                style={{ backgroundColor: "transparent" }}
               >
                 <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
                   {slots.map((slot) => (
@@ -371,15 +361,15 @@ export function RightPanel({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.2 }}
-            className="scheduling-details-step flex min-h-0 w-full flex-col pt-0 mt-0 lg:w-[368px] lg:flex-initial"
+            className="scheduling-details-step flex min-h-0 w-full flex-col pt-0 lg:w-[368px] lg:flex-initial"
           >
-            <div className="scheduling-your-details-title-container w-fit" style={{ backgroundColor: "transparent" }}>
-              <h2 className={cn("text-subtitle2 font-medium p-0 m-0", textClass)} style={{ backgroundColor: "transparent" }}>Your Details</h2>
+            <div className="scheduling-your-details-title-container w-fit bg-transparent">
+              <h2 className={cn("text-subtitle2 font-medium p-0 m-0 bg-transparent", textClass)}>Your Details</h2>
             </div>
-            <Card className="scheduling-details-card border-0 bg-transparent shadow-none py-0 pt-0 pb-0 mt-0" style={{ backgroundColor: "transparent", gap: 0 }}>
-              <CardContent className="scheduling-details-content flex flex-col pt-0 pb-0 pr-0 pl-0" style={{ backgroundColor: "transparent" }}>
-                <div className="scheduling-details-field-group flex flex-col gap-0 p-0" style={{ backgroundColor: "transparent" }}>
-                  <label className={cn("scheduling-details-label block", textClass)} style={{ backgroundColor: "white" }}>
+            <Card className="scheduling-details-card border-0 bg-transparent shadow-none py-0 pt-0 pb-0" style={{ gap: 0 }}>
+              <CardContent className="scheduling-details-content flex flex-col gap-4 pt-0 pb-0 pr-0 pl-0 m-0 bg-transparent">
+                <div className="scheduling-details-field-group flex flex-col gap-2 p-0 m-0 bg-transparent">
+                  <label className={cn("scheduling-details-label block text-subtitle2 font-medium bg-background", textClass)}>
                     Name <span className="text-destructive">*</span>
                   </label>
                   <Input
@@ -392,8 +382,8 @@ export function RightPanel({
                     <span className="text-caption text-destructive">{nameError}</span>
                   )}
                 </div>
-                <div className="scheduling-details-field-group flex flex-col gap-0 p-0" style={{ backgroundColor: "transparent" }}>
-                  <label className={cn("scheduling-details-label block", textClass)} style={{ backgroundColor: "white" }}>
+                <div className="scheduling-details-field-group flex flex-col gap-2 p-0 m-0 bg-transparent">
+                  <label className={cn("scheduling-details-label block text-subtitle2 font-medium bg-background", textClass)}>
                     Email Address <span className="text-destructive">*</span>
                   </label>
                   <Input
@@ -407,35 +397,33 @@ export function RightPanel({
                     <span className="text-caption text-destructive">{emailError}</span>
                   )}
                 </div>
-                <div className="scheduling-details-field-group flex flex-col gap-0 p-0" style={{ backgroundColor: "transparent" }}>
-                  <label className={cn("scheduling-details-label block", textClass)} style={{ backgroundColor: "white" }}>Notes</label>
+                <div className="scheduling-details-field-group flex flex-col gap-2 p-0 m-0 bg-transparent">
+                  <label className={cn("scheduling-details-label block text-subtitle2 font-medium bg-background", textClass)}>Notes</label>
                   <textarea
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="Anything helpful to prepare is appreciated."
                     rows={3}
                     className={cn(
-                      "scheduling-notes-field flex w-full rounded-md border border-input bg-transparent px-3 py-2 shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-y min-h-[80px]",
-                      "text-black dark:text-white"
+                      "scheduling-notes-field text-body2 flex w-full rounded-md border border-input bg-background px-3 py-2 text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 resize-y min-h-[80px]"
                     )}
                   />
                 </div>
-                <div className="scheduling-add-guests-container flex flex-col items-start w-full min-w-0 p-0 pt-0 pb-0 m-0" style={{ backgroundColor: "white", gap: 0 }}>
+                <div className="scheduling-add-guests-container flex flex-col gap-0 items-start w-full min-w-0 max-w-full p-0 pt-0 pb-0 m-0 bg-background">
                   <Button
                     type="button"
                     variant="ghost"
                     size="sm"
                     onClick={() => setShowGuestInput(true)}
-                    className="scheduling-add-guests-btn w-fit self-start !pl-0"
-                    style={{ backgroundColor: "white" }}
+                    className="text-button scheduling-add-guests-btn w-fit self-start !pl-0"
                   >
                     <UserPlus className="h-4 w-4 mr-2" />
                     Add guests
                   </Button>
                   {showGuestInput && (
-                    <div className="scheduling-guest-form-block flex flex-col w-full min-w-0 p-0 pt-0 pb-0" style={{ backgroundColor: "transparent" }}>
+                    <div className="scheduling-guest-form-block flex flex-col gap-4 w-full min-w-0 max-w-full p-0 pt-0 pb-0 bg-transparent">
                       {guests.map((g, i) => (
-                        <div key={i} className="flex gap-2 items-center w-full min-w-0" style={{ backgroundColor: "transparent" }}>
+                        <div key={i} className="flex gap-2 items-center w-full min-w-0 bg-transparent">
                           <Input
                             value={g}
                             readOnly
@@ -447,12 +435,13 @@ export function RightPanel({
                             size="sm"
                             onClick={() => removeGuest(i)}
                             aria-label="Remove guest"
+                            className="text-button"
                           >
                             ×
                           </Button>
                         </div>
                       ))}
-                      <div className="scheduling-guest-email-row flex gap-4 items-center w-full min-w-0 max-w-full pt-0 pb-0" style={{ backgroundColor: "transparent" }}>
+                      <div className="scheduling-guest-email-row flex gap-4 items-center w-full min-w-0 max-w-full pt-0 pb-0 bg-transparent">
                         <Input
                           value={guestInput}
                           onChange={(e) => setGuestInput(e.target.value)}
@@ -465,7 +454,7 @@ export function RightPanel({
                           variant="ghost"
                           size="sm"
                           onClick={addGuest}
-                          className="scheduling-add-guest-btn shrink-0 hover:!bg-transparent focus:!bg-transparent active:!bg-transparent !px-0"
+                          className="text-button scheduling-add-guest-btn shrink-0 hover:!bg-transparent focus:!bg-transparent active:!bg-transparent !px-0"
                         >
                           Add
                         </Button>
@@ -474,15 +463,15 @@ export function RightPanel({
                   )}
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-end gap-2 pt-0 pb-0 pr-0 pl-0" style={{ backgroundColor: "transparent" }}>
+              <CardFooter className="flex justify-end gap-2 pt-0 pb-0 pr-0 pl-0 bg-transparent">
                 <Button
                   variant="ghost"
                   onClick={() => setStep("time")}
-                  className="scheduling-back-btn hover:!bg-transparent focus:!bg-transparent active:!bg-transparent"
+                  className="text-button scheduling-back-btn hover:!bg-transparent focus:!bg-transparent active:!bg-transparent"
                 >
                   Back
                 </Button>
-                <Button onClick={handleConfirm}>Confirm</Button>
+                <Button onClick={handleConfirm} className="text-button">Confirm</Button>
               </CardFooter>
             </Card>
           </motion.div>

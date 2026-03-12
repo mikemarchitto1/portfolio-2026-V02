@@ -36,7 +36,12 @@ export default function RootLayout({
 (function() {
   var key = 'theme';
   var stored = localStorage.getItem(key);
-  var theme = stored === 'dark' || stored === 'color' || stored === 'light' ? stored : 'light';
+  var theme;
+  if (stored === 'dark' || stored === 'color' || stored === 'light') {
+    theme = stored;
+  } else {
+    theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
   var html = document.documentElement;
   html.classList.remove('light', 'dark', 'color');
   html.classList.add(theme);
@@ -45,10 +50,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistMono.variable}`}>
-      <body className={`${plusJakartaSans.className} font-sans antialiased bg-white dark:bg-black`}>
-        <script
-          dangerouslySetInnerHTML={{ __html: themeScript }}
-        />
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${plusJakartaSans.className} font-sans antialiased bg-background`}>
         <ThemeProvider>
           <ErrorBoundary>
             <SidebarLayout>{children}</SidebarLayout>

@@ -16,7 +16,7 @@ console.log("🔥 MODULE LOAD:", "header");
 const navIconClass = "h-5 w-5 shrink-0";
 
 const themeButtonClass =
-  "sidebar-icon-btn flex w-auto items-center justify-center gap-2 h-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent dark:hover:bg-transparent [&_svg]:size-5 [&_svg]:text-black dark:[&_svg]:text-white dark:hover:[&_svg]:text-white color:[&_svg]:!text-white color:[&_svg]:stroke-white color:hover:[&_svg]:text-[oklch(38%_0.065_155)] color:hover:text-[#2d5a45]";
+  "sidebar-icon-btn flex w-auto items-center justify-center gap-2 h-auto min-w-0 min-h-0 p-0 rounded-none border-0 bg-transparent hover:bg-transparent [&_svg]:size-5 [&_svg]:text-current";
 
 function MobileMenuCrown() {
   const { theme } = useTheme();
@@ -36,7 +36,7 @@ function MobileMenuCrown() {
 }
 
 function MobileMenuThemeSwitcher() {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   return (
     <nav
       className="mobile-menu-theme-nav flex flex-row gap-6 shrink-0 w-full mb-8"
@@ -47,6 +47,8 @@ function MobileMenuThemeSwitcher() {
         size="icon"
         className={themeButtonClass}
         aria-label="Light mode"
+        aria-pressed={theme === "light"}
+        data-state={theme === "light" ? "on" : "off"}
         onClick={() => setTheme("light")}
       >
         <Sun className="size-5 shrink-0" />
@@ -56,6 +58,8 @@ function MobileMenuThemeSwitcher() {
         size="icon"
         className={themeButtonClass}
         aria-label="Dark mode"
+        aria-pressed={theme === "dark"}
+        data-state={theme === "dark" ? "on" : "off"}
         onClick={() => setTheme("dark")}
       >
         <Moon className="size-5 shrink-0" />
@@ -65,6 +69,8 @@ function MobileMenuThemeSwitcher() {
         size="icon"
         className={themeButtonClass}
         aria-label="Color mode"
+        aria-pressed={theme === "color"}
+        data-state={theme === "color" ? "on" : "off"}
         onClick={() => setTheme("color")}
       >
         <Palette className="size-5 shrink-0" />
@@ -209,7 +215,7 @@ try {
                   className="hamburger-trigger inline-flex h-12 min-h-12 w-12 min-w-12 items-center justify-center rounded-none border-0 bg-transparent p-0 shadow-none outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                   aria-label="Open menu"
                 >
-                  <Menu className="h-6 w-6 shrink-0 text-black dark:text-white color:text-white" />
+                  <Menu className="h-6 w-6 shrink-0 text-foreground" />
                 </button>
               </div>
             </div>
@@ -220,8 +226,8 @@ try {
         <SheetContent
           id="mobile-menu-sheet"
           side="left"
-          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-background dark:border-[oklch(26%_0_0)]"
-          closeButtonClassName="text-black dark:text-white color:text-white [&_svg]:text-black dark:[&_svg]:text-white color:[&_svg]:text-white"
+          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-sidebar border-border text-sidebar-foreground"
+          closeButtonClassName="text-foreground [&_svg]:text-current"
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex flex-col items-start p-4">
@@ -240,7 +246,7 @@ try {
                                 <Link
                                   href={href}
                                   onClick={() => setMobileMenuOpen(false)}
-                                  className="text-button text-foreground no-underline"
+                                  className="text-button no-underline"
                                 >
                                   {label}
                                 </Link>

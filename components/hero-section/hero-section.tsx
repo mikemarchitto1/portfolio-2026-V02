@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTheme } from "@/hooks/use-theme";
-import styles from "./hero-section.module.css";
+import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   const { theme } = useTheme();
@@ -11,7 +11,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className={`${styles.hero} ${isColorMode ? styles.heroWithBg : ""} w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent`}
+      className={cn("hero w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent", isColorMode && "heroWithBg")}
       style={
         isColorMode
           ? {
@@ -23,7 +23,7 @@ export default function HeroSection() {
           : undefined
       }
     >
-      <div className={`${styles.content} w-full px-4 md:px-8 lg:px-16`}>
+      <div className="content w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
 
           {/* OUTER BOX */}
@@ -63,9 +63,9 @@ export default function HeroSection() {
                     </div>
                   </div>
                   <CardContent className="p-0">
-                    <blockquote className="profile-quote text-foreground font-light text-center mb-8">
-                      <p className="italic">"A king is a man who turns hope into action."</p>
-                      <cite className="not-italic block opacity-80">— Ralph Waldo Emerson</cite>
+                    <blockquote className="profile-quote text-body2 text-foreground font-light text-center m-0 p-0 mb-8">
+                      <p className="text-body2 italic">"A king is a man who turns hope into action."</p>
+                      <cite className="text-body2 not-italic block opacity-80">— Ralph Waldo Emerson</cite>
                     </blockquote>
                   </CardContent>
                 </Card>

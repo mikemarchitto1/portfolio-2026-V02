@@ -38,11 +38,11 @@ export default function Footer() {
                 <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
                   <div className="hidden lg:flex flex-col sm:flex-row flex-wrap gap-4">
                     <Button className="nav-button" variant="outline" size="lg" asChild>
-                      <a href="mailto:hello@carlwalker.com">Email Mike</a>
+                      <a href="mailto:hello@carlwalker.com" className="text-button">Email Mike</a>
                     </Button>
 
                     <Button className="nav-button" variant="outline" size="lg" asChild>
-                      <a href="/resume.pdf" download>
+                      <a href="/resume.pdf" download className="text-button">
                         Download Resume
                       </a>
                     </Button>
@@ -52,6 +52,7 @@ export default function Footer() {
                         href="https://linkedin.com/in/carlwalker"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="text-button"
                       >
                         Connect on LinkedIn
                       </a>

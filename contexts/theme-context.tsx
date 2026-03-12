@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 const THEME_KEY = "theme";
+const THEME_TRANSITION_CLASS = "theme-transition";
 
 export type Theme = "light" | "dark" | "color";
 
@@ -13,6 +14,14 @@ function applyTheme(theme: Theme) {
   const html = document.documentElement;
   THEMES.forEach((t) => html.classList.remove(t));
   html.classList.add(theme);
+}
+
+function getThemeFromDOM(): Theme {
+  if (typeof document === "undefined") return "light";
+  const html = document.documentElement;
+  if (html.classList.contains("dark")) return "dark";
+  if (html.classList.contains("color")) return "color";
+  return "light";
 }
 
 function getThemeFromStorage(): Theme {
@@ -32,10 +41,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-    setThemeState(getThemeFromStorage());
+    setThemeState(getThemeFromDOM());
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.add(THEME_TRANSITION_CLASS);
+    }
     applyTheme(next);
     localStorage.setItem(THEME_KEY, next);
     setThemeState(next);
@@ -58,6 +70,9 @@ export function useTheme() {
 
   if (ctx) return ctx;
   const setTheme = useCallback((next: Theme) => {
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.add(THEME_TRANSITION_CLASS);
+    }
     applyTheme(next);
     localStorage.setItem(THEME_KEY, next);
     setFallbackTheme(next);
