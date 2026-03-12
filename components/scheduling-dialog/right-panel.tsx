@@ -81,6 +81,124 @@ export type RightPanelProps = {
   setGuests?: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
+export type CalendarPanelProps = {
+  date: Date | undefined;
+  setDate: (d: Date | undefined) => void;
+};
+
+export type TimeSlotsPanelProps = {
+  date: Date | undefined;
+  timeFormat: "12h" | "24h";
+  setTimeFormat: (f: "12h" | "24h") => void;
+  slots: string[];
+  onTimeSlotClick: (slot: string) => void;
+};
+
+export function CalendarPanel({ date, setDate }: CalendarPanelProps) {
+  return (
+    <div
+      data-slot="scheduling-calendar-panel"
+      className="flex min-h-0 min-w-0 flex-col bg-transparent overflow-visible"
+    >
+      <div
+        data-slot="scheduling-calendar-wrap"
+        className="flex h-auto min-h-[280px] lg:min-h-0 w-full max-w-full flex-none flex-col bg-transparent overflow-visible shrink-0"
+      >
+        <div className="flex flex-1 flex-col overflow-visible pt-0">
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            defaultMonth={date}
+            className="scheduling-calendar-instance rounded-none border-0 p-0 [--cell-size:2.25rem] lg:[--cell-size:3rem]"
+            classNames={{
+              caption_label:
+                "select-none text-subtitle1 text-foreground leading-8 h-8 flex items-center",
+            }}
+            components={{ DayButton: SchedulingCalendarDayButton }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function TimeSlotsPanel({
+  date,
+  timeFormat,
+  setTimeFormat,
+  slots,
+  onTimeSlotClick,
+}: TimeSlotsPanelProps) {
+  const textClass = "text-foreground";
+  const selectedLabel = date
+    ? `${date.toLocaleDateString("en-US", { weekday: "short" })} ${date.getDate()}`
+    : "Select a date";
+
+  return (
+    <div
+      data-slot="scheduling-time-slots-panel"
+      className="flex min-h-0 min-w-0 flex-col gap-4 pt-0 w-full max-h-[min(400px,60vh)] lg:max-h-none overflow-hidden box-border pl-1 pr-0"
+    >
+      <div
+        data-slot="scheduling-right-header"
+        className="flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
+      >
+        <span className={cn("text-subtitle1 font-medium", textClass)}>{selectedLabel}</span>
+        <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
+          <div
+            className="rounded-full h-8 overflow-hidden flex box-border w-fit bg-transparent"
+            data-slot="scheduling-toggle-wrap"
+          >
+            <TabsList
+              noBg
+              data-slot="scheduling-toggle"
+              className="scheduling-toggle-track h-8 w-full p-0 gap-0 min-h-0 h-full flex-1 grid grid-cols-2 items-stretch rounded-full border-0 shadow-none min-w-0 bg-transparent"
+            >
+              <TabsTrigger
+                value="12h"
+                className="text-button px-2.5 py-1 rounded-full transition-colors rounded-l-full"
+              >
+                12h
+              </TabsTrigger>
+              <TabsTrigger
+                value="24h"
+                className="text-button px-2.5 py-1 rounded-full transition-colors rounded-r-full"
+              >
+                24h
+              </TabsTrigger>
+            </TabsList>
+          </div>
+        </Tabs>
+      </div>
+      <span
+        data-slot="scheduling-time-slots-label"
+        className={cn("scheduling-time-slots-label shrink-0 block w-full text-center pt-0 text-subtitle2 font-medium bg-transparent", textClass)}
+      >
+        Time Slot
+      </span>
+      <div
+        className="flex flex-col overflow-y-auto overflow-x-hidden min-w-0 flex-1 min-h-0 lg:max-h-[272px] bg-transparent"
+        data-slot="scheduling-time-slots"
+      >
+        <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
+          {slots.map((slot) => (
+            <Button
+              key={slot}
+              variant="ghost"
+              data-slot="scheduling-time-slot-btn"
+              className="w-full justify-center rounded-full !h-[48px] !min-h-[48px] py-3 text-button"
+              onClick={() => onTimeSlotClick(slot)}
+            >
+              {slot}
+            </Button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function RightPanel({
   date,
   setDate,
@@ -122,15 +240,6 @@ export function RightPanel({
   const timezoneOptions = React.useMemo(() => getTimezoneOptions(), []);
   const timezoneDisplayName =
     timezoneOptions.find((o) => o.value === timezone)?.displayName ?? timezone.replace(/_/g, " ");
-
-  const selectedLabel = date
-    ? `${date.toLocaleDateString("en-US", { weekday: "short" })} ${date.getDate()}`
-    : "Select a date";
-
-  const handleTimeSlotClick = (slot: string) => {
-    setSelectedTime(slot);
-    setStep("details");
-  };
 
   const validate = (): boolean => {
     let ok = true;
@@ -181,6 +290,10 @@ export function RightPanel({
   const mutedClass = "text-muted-foreground";
   const confirmTextClass = "text-foreground";
   const confirmMutedClass = "text-muted-foreground";
+
+  if (step === "time") {
+    return null;
+  }
 
   if (step === "confirm" && date && selectedTime) {
     return (
@@ -256,104 +369,11 @@ export function RightPanel({
     <div
       data-slot="scheduling-right-panel"
       className={cn(
-        "scheduling-your-details-column flex min-h-0 flex-col pt-0 bg-transparent",
-        "lg:max-w-[368px] lg:flex-row lg:gap-10"
+        "scheduling-your-details-column flex min-h-0 min-w-0 flex-1 flex-col pt-0 bg-transparent",
+        "lg:w-full lg:max-w-none lg:gap-6"
       )}
     >
       <AnimatePresence mode="wait">
-        {step === "time" && (
-          <motion.div
-            key="time"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.2 }}
-            className="flex min-h-0 w-full flex-col lg:flex-row lg:gap-[36px] lg:flex-initial lg:w-fit"
-          >
-            {/* Calendar */}
-            <div
-              data-slot="scheduling-calendar-wrap"
-              className="flex h-auto min-h-[280px] lg:min-h-0 w-full max-w-full lg:w-fit flex-none flex-col bg-transparent overflow-visible shrink-0"
-            >
-              <div className="flex flex-1 flex-col overflow-visible pt-0">
-                <Calendar
-                  mode="single"
-                  selected={date}
-                  onSelect={setDate}
-                  defaultMonth={date}
-                  className="scheduling-calendar-instance rounded-none border-0 p-0 [--cell-size:2.25rem] lg:[--cell-size:3rem]"
-                  classNames={{
-                    caption_label:
-                      "select-none text-subtitle1 text-foreground leading-8 h-8 flex items-center",
-                  }}
-                  components={{ DayButton: SchedulingCalendarDayButton }}
-                />
-              </div>
-            </div>
-            {/* Time slots */}
-            <div
-              data-slot="scheduling-time-slots-column"
-              className="flex h-auto min-h-0 shrink-0 flex-col gap-4 pt-0 w-full lg:w-[200px] lg:min-w-[200px] max-h-[min(400px,60vh)] lg:max-h-none overflow-hidden box-border pl-1 pr-0"
-            >
-              <div
-                data-slot="scheduling-right-header"
-                className="flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
-              >
-                <span className={cn("text-subtitle1 font-medium", textClass)}>{selectedLabel}</span>
-                <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
-                  <div
-                    className="rounded-full h-8 overflow-hidden flex box-border w-fit bg-transparent"
-                    data-slot="scheduling-toggle-wrap"
-                  >
-                    <TabsList
-                      noBg
-                      data-slot="scheduling-toggle"
-                      className="scheduling-toggle-track h-8 w-full p-0 gap-0 min-h-0 h-full flex-1 grid grid-cols-2 items-stretch rounded-full border-0 shadow-none min-w-0 bg-transparent"
-                    >
-                      <TabsTrigger
-                        value="12h"
-                        className="text-button px-2.5 py-1 rounded-full transition-colors rounded-l-full"
-                      >
-                        12h
-                      </TabsTrigger>
-                      <TabsTrigger
-                        value="24h"
-                        className="text-button px-2.5 py-1 rounded-full transition-colors rounded-r-full"
-                      >
-                        24h
-                      </TabsTrigger>
-                    </TabsList>
-                  </div>
-                </Tabs>
-              </div>
-              <span
-                data-slot="scheduling-time-slots-label"
-                className={cn("scheduling-time-slots-label shrink-0 block w-full text-center pt-0 text-subtitle2 font-medium bg-transparent", textClass)}
-              >
-                Time Slot
-              </span>
-              <div
-                className="flex flex-col overflow-y-auto overflow-x-hidden min-w-0 flex-1 min-h-0 lg:max-h-[272px] bg-transparent"
-                data-slot="scheduling-time-slots"
-              >
-                <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
-                  {slots.map((slot) => (
-                    <Button
-                      key={slot}
-                      variant="ghost"
-                      data-slot="scheduling-time-slot-btn"
-                      className="w-full justify-center rounded-full !h-[48px] !min-h-[48px] py-3 text-button"
-                      onClick={() => handleTimeSlotClick(slot)}
-                    >
-                      {slot}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-
         {step === "details" && date && selectedTime && (
           <motion.div
             key="details"
@@ -361,7 +381,8 @@ export function RightPanel({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.2 }}
-            className="scheduling-details-step flex min-h-0 w-full flex-col pt-0 lg:w-[368px] lg:flex-initial"
+            // was: lg:w-[368px] lg:flex-initial
+            className="scheduling-details-step flex min-h-0 w-full flex-col pt-0 lg:w-full"
           >
             <div className="scheduling-your-details-title-container w-fit bg-transparent">
               <h2 className={cn("text-subtitle2 font-medium p-0 m-0 bg-transparent", textClass)}>Your Details</h2>

@@ -20,7 +20,11 @@ import {
 import { cn } from "@/lib/utils";
 import { getTimezoneOptions, DEFAULT_TIMEZONE } from "@/lib/timezones";
 import { useTheme } from "@/hooks/use-theme";
-import { RightPanel } from "@/components/scheduling-dialog/right-panel";
+import {
+  RightPanel,
+  CalendarPanel,
+  TimeSlotsPanel,
+} from "@/components/scheduling-dialog/right-panel";
 
 type SchedulingDialogProps = {
   trigger: React.ReactNode;
@@ -108,14 +112,14 @@ const SchedulingDialog: React.FC<SchedulingDialogProps> = ({
         centerInViewport
         overlayClassName="scheduling-dialog-overlay !bg-foreground/50"
         className={cn(
-          // mobile: full-height drawer from right
-          "fixed inset-y-0 right-0 w-full gap-0",
+          // mobile: right-side drawer
+          "fixed top-0 right-0 h-full w-[380px] max-w-full p-0 overflow-y-auto",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
           "max-lg:data-[state=closed]:slide-out-to-right max-lg:data-[state=open]:slide-in-from-right",
           "data-[state=closed]:duration-300 data-[state=open]:duration-500",
 
-          // desktop: fixed overlay, center inner panel
-          "lg:inset-0 lg:flex lg:items-center lg:justify-center lg:p-0 lg:m-0",
+          // desktop: full viewport to center modal, then inner panel has max-w
+          "lg:inset-0 lg:w-full lg:max-w-full lg:flex lg:items-center lg:justify-center lg:p-0 lg:overflow-visible",
           "lg:data-[state=closed]:duration-150 lg:data-[state=open]:duration-200"
         )}
       >
@@ -167,30 +171,28 @@ const SchedulingDialog: React.FC<SchedulingDialogProps> = ({
             />
           </div>
         ) : (
-          // SCHEDULING SCREEN — wide, centered, hugged, 24px padding
+          // SCHEDULING SCREEN — three-panel (time) or two-panel (details/confirm)
           <div
             data-slot="scheduling-panel"
             data-step={step}
             data-theme={theme}
             className={cn(
-              "mx-auto w-full lg:w-fit lg:max-w-[1228px] p-6 bg-background",
-              "dialog-frame-container relative rounded-none lg:rounded-lg text-foreground",
+              "w-full min-h-0 overflow-visible p-4 lg:p-6 bg-background",
+              "dialog-frame-container relative rounded-none text-foreground",
+              "lg:max-w-[1100px] lg:rounded-xl lg:shadow-xl",
               theme !== "light" && "shadow-lg"
             )}
           >
             <div
               className={cn(
-                "flex min-h-0 flex-col gap-10 w-full items-start",
-                step === "time" &&
-                  "scheduling-three-panel-layout lg:flex-row lg:w-fit lg:min-w-[908px] lg:max-w-full lg:items-start lg:gap-[40px]",
-                step === "details" &&
-                  "scheduling-two-panel-layout lg:flex-row lg:w-fit lg:max-w-full lg:items-start lg:gap-[40px]"
+                "flex flex-col gap-6 lg:grid lg:gap-0 lg:min-w-0",
+                step === "time" ? "lg:grid-cols-3" : "lg:grid-cols-2"
               )}
               data-layout={step === "time" ? "three-panel" : "two-panel"}
             >
               <div
                 data-slot="scheduling-left-panel"
-                className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col w-full lg:w-[248px] pt-1"
+                className="flex min-h-0 min-w-0 flex-col w-full pt-1"
               >
                 <Card className="scheduling-left-card flex flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none scheduling-left-card-gap">
                   <CardHeader className="scheduling-left-header gap-0 pb-0 px-0 pt-0">
@@ -265,27 +267,43 @@ const SchedulingDialog: React.FC<SchedulingDialogProps> = ({
                 </Card>
               </div>
 
-              <RightPanel
-                date={date}
-                setDate={setDate}
-                timeFormat={timeFormat}
-                setTimeFormat={setTimeFormat}
-                slots={slots}
-                timezone={timezone}
-                theme={theme}
-                step={step}
-                setStep={setStep}
-                selectedTime={selectedTime}
-                setSelectedTime={setSelectedTime}
-                name={name}
-                setName={setName}
-                email={email}
-                setEmail={setEmail}
-                notes={notes}
-                setNotes={setNotes}
-                guests={guests}
-                setGuests={setGuests}
-              />
+              {step === "time" ? (
+                <>
+                  <CalendarPanel date={date} setDate={setDate} />
+                  <TimeSlotsPanel
+                    date={date}
+                    timeFormat={timeFormat}
+                    setTimeFormat={setTimeFormat}
+                    slots={slots}
+                    onTimeSlotClick={(slot) => {
+                      setSelectedTime(slot);
+                      setStep("details");
+                    }}
+                  />
+                </>
+              ) : (
+                <RightPanel
+                  date={date}
+                  setDate={setDate}
+                  timeFormat={timeFormat}
+                  setTimeFormat={setTimeFormat}
+                  slots={slots}
+                  timezone={timezone}
+                  theme={theme}
+                  step={step}
+                  setStep={setStep}
+                  selectedTime={selectedTime}
+                  setSelectedTime={setSelectedTime}
+                  name={name}
+                  setName={setName}
+                  email={email}
+                  setEmail={setEmail}
+                  notes={notes}
+                  setNotes={setNotes}
+                  guests={guests}
+                  setGuests={setGuests}
+                />
+              )}
             </div>
           </div>
         )}
