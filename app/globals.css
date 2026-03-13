@@ -80,7 +80,6 @@
   --font-size-subtitle2: var(--text-subtitle2);
   --font-size-body1: var(--text-body1);
   --font-size-body2: var(--text-body2);
-  --font-size-button: var(--text-button);
   --font-size-caption: var(--text-caption);
   --font-size-overline: var(--text-overline);
 
@@ -520,7 +519,19 @@
   }
 
   /* DayPicker (rdp) — minimal structural/layout only; typography/color via component classNames */
-  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-months,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] {
+    background: transparent !important;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_grid td,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-day,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table td {
+    overflow: visible !important;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-months {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month {
     display: flex;
     flex-direction: column;
@@ -529,6 +540,7 @@
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-month_caption {
     position: relative;
     z-index: 1;
+    margin-bottom: 8px !important;
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-nav {
     left: auto;
@@ -544,6 +556,13 @@
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table thead,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table tbody {
+    display: contents;
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekdays {
     display: flex;
@@ -553,9 +572,16 @@
     flex: 1 1 0;
     min-width: 0;
   }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday,
+  [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-weekday .calendar-weekday-inner {
+    font-size: var(--text-subtitle2);
+    line-height: var(--line-height-subtitle2);
+    font-weight: var(--font-weight-subtitle2);
+  }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-week {
     display: flex;
     width: 100%;
+    gap: 8px;
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] [class*="rdp-day"]:has(.rdp-day-button) {
     display: flex;
@@ -589,6 +615,10 @@
     border-radius: 0.375rem;
   }
   @media (min-width: 1024px) {
+    [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] table {
+      width: 384px;
+      max-width: 100%;
+    }
     [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] [class*="rdp-day"]:has(.rdp-day-button) {
       flex: 0 0 48px;
       width: 48px;
@@ -609,7 +639,7 @@
     }
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] {
-    overflow: hidden;
+    overflow: visible;
     min-width: 0;
     max-width: 100%;
   }
@@ -619,6 +649,11 @@
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-time-slots"]::-webkit-scrollbar {
     display: none;
+  }
+  [data-slot="scheduling-panel"] [data-slot="scheduling-time-slot-btn"] {
+    font-size: var(--text-button) !important;
+    line-height: var(--line-height-button) !important;
+    font-weight: var(--font-weight-button) !important;
   }
 }
 
@@ -666,5 +701,10 @@
     font-size: var(--font-label);
     line-height: var(--font-label-line);
     font-weight: 500;
+  }
+  .text-button {
+    font-size: var(--text-button);
+    line-height: var(--line-height-button);
+    font-weight: var(--font-weight-button);
   }
 }
