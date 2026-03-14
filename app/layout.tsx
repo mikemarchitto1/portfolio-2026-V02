@@ -1,16 +1,55 @@
 import "./runtime-debug";
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import {
+  Inter,
+  IBM_Plex_Sans,
+  Work_Sans,
+  Plus_Jakarta_Sans,
+  Public_Sans,
+  Source_Sans_3,
+  Geist_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/hooks/use-theme";
 import ErrorBoundary from "./error-boundary";
 import SidebarLayout from "@/components/sidebar-layout/sidebar-layout";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
+  variable: "--font-inter",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-ibm-plex",
+  weight: ["400", "500", "600", "700"],
+});
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-work-sans",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jakarta",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const publicSans = Public_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-public-sans",
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-source-sans",
 });
 
 const geistMono = Geist_Mono({
@@ -49,11 +88,12 @@ export default function RootLayout({
 `;
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${plusJakartaSans.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${geistMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${plusJakartaSans.className} font-sans antialiased bg-background`}>
+      {/* To switch font: use one of inter.variable | ibmPlexSans.variable | workSans.variable | plusJakartaSans.variable | publicSans.variable | sourceSans.variable */}
+      <body className={`${inter.variable} font-sans antialiased bg-background`}>
         <ThemeProvider>
           <ErrorBoundary>
             <SidebarLayout>{children}</SidebarLayout>

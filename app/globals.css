@@ -23,7 +23,13 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-plus-jakarta-sans);
+  /* font-sans: switch by changing to one of the variables below (and use same variable on <body> in layout.tsx) */
+  --font-sans: var(--font-inter);
+  /* --font-sans: var(--font-ibm-plex); */
+  /* --font-sans: var(--font-jakarta); */
+  /* --font-sans: var(--font-work-sans); */
+  /* --font-sans: var(--font-public-sans); */
+  /* --font-sans: var(--font-source-sans); */
   --font-mono: var(--font-geist-mono);
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -162,7 +168,7 @@
   :root.light {
     --radius: 0.625rem;
     --baseline: 4px;
-    --text: oklch(18% 0 0);
+    --text: oklch(0% 0 0);
 
     --palette-white: oklch(100% 0 0);
     --palette-off-white: oklch(96.6% 0.002 286);
@@ -214,9 +220,9 @@
     --sidebar-primary: oklch(20% 0 0);
     --sidebar-primary-foreground: oklch(98.5% 0 0);
     --sidebar-accent: oklch(48% 0 0);
-    --sidebar-accent-foreground: oklch(20% 0 0);
+    --sidebar-accent-foreground: oklch(0% 0 0);
     --sidebar-muted: oklch(97% 0 0);
-    --sidebar-muted-foreground: oklch(45% 0.02 264);
+    --sidebar-muted-foreground: oklch(0% 0 0);
     --sidebar-border: oklch(92% 0 0);
     --sidebar-ring: oklch(70% 0 0);
 

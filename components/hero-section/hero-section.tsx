@@ -36,9 +36,9 @@ export default function HeroSection() {
                 <h1 className="text-h1 font-light tracking-[0] whitespace-nowrap">
                   Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
                 </h1>
-                <h5 className="text-h4 max-w-[528px]">
-                  I design premium digital experiences for startups and global brands.
-                </h5>
+                <h4 className="text-h4 max-w-[528px] text-foreground">
+                  I design modern digital experiences for startups and global brands.
+                </h4>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
                     <span className="tracking-[-0.04em]">I'm</span> from Chicago, where I studied graphic design at UIC, a school rooted in Swiss and International design principles. These studies shaped my early work in visual storytelling. After moving to Seattle, I transitioned into UX design, working across corporations, agencies, and startups. Now based in Miami, I balance my work with AI-driven design exploration and time outdoors cycling.
@@ -64,10 +64,10 @@ export default function HeroSection() {
                   </div>
                   <CardContent className="p-0">
                     <blockquote className="profile-quote text-body2 text-foreground font-light text-center m-0 p-0 mb-8">
-                      <p className="text-body2 italic leading-[24px] text-black">
+                      <p className="text-body2 italic leading-[24px] text-foreground">
                         "A king is a man who turns hope into action."
                       </p>
-                      <cite className="text-body2 not-italic block leading-[24px] text-black">
+                      <cite className="text-body2 not-italic block leading-[24px] text-foreground">
                         — Ralph Waldo Emerson
                       </cite>
                     </blockquote>

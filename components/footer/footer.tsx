@@ -26,9 +26,9 @@ export default function Footer() {
                     </h1>
                   </div>
                   <div className="max-w-[576px] p-0 m-0 mt-4">
-                    <h5 className="text-h4 max-w-[576px] text-foreground p-0 m-0">
+                    <h4 className="text-h4 max-w-[576px] text-foreground p-0 m-0">
                       <span className="tracking-[-0.04em]">I{"'"}m</span> interested in creative partnerships that grow from meaningful work.
-                    </h5>
+                    </h4>
                   </div>
                 </div>
               </div>

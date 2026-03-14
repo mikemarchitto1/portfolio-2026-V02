@@ -173,10 +173,10 @@ try {
 
         {/* Close button: fixed top-right of viewport, above overlay */}
         <DialogClose
-          className="fixed right-4 top-4 z-[100] flex size-12 min-h-12 min-w-12 items-center justify-center rounded-full border-0 bg-transparent text-black dark:text-white color:text-white opacity-90 transition-opacity hover:opacity-100 focus:outline-none focus:ring-0 focus:ring-offset-0 ring-0 ring-offset-0 scheduling-dialog-close lg:text-white"
+          className="fixed right-4 top-4 z-[100] flex size-12 min-h-12 min-w-12 items-center justify-center rounded-full border-0 bg-transparent text-foreground dark:text-white color:text-white opacity-90 transition-opacity hover:opacity-100 focus:outline-none focus:ring-0 focus:ring-offset-0 ring-0 ring-offset-0 scheduling-dialog-close lg:text-white"
           aria-label="Close"
         >
-          <XIcon className="size-6 shrink-0 text-black dark:text-white color:text-white lg:text-white" />
+          <XIcon className="size-6 shrink-0 text-foreground dark:text-white color:text-white lg:text-white" />
         </DialogClose>
 
         {/* Main wrapper: same bg as page. Color mode uses literal value so it works in portal. */}
@@ -184,7 +184,7 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1004px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-black",
+              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1004px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-foreground",
               theme !== "light" && "shadow-lg",
               theme === "color" && "!bg-[oklch(24%_0.035_165)]"
             )}
@@ -200,33 +200,33 @@ try {
               {(step === "select" || step === "details") && (
               <div
                 data-slot="scheduling-left-panel"
-                className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-black w-full lg:w-[236px] pt-1"
+                className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-foreground w-full lg:w-[236px] pt-1"
                 style={
                   theme === "color"
                     ? { backgroundColor: COLOR_THEME_BACKGROUND }
                     : { backgroundColor: "#ffffff" }
                 }
               >
-              <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-black">
+              <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-foreground">
                 <CardHeader className="scheduling-left-header mb-1 gap-0 space-y-0 pb-0 px-0 pt-0.5">
                   <div className="flex flex-col gap-5">
-                    <CardTitle className="scheduling-left-title mt-0 shrink-0 text-subtitle1 font-medium text-black">
+                    <CardTitle className="scheduling-left-title mt-0 shrink-0 text-subtitle1 font-medium text-foreground">
                       Introduction Call
                     </CardTitle>
-                    <span className="scheduling-left-name block text-subtitle2 text-black/90">
+                    <span className="scheduling-left-name block text-subtitle2 text-foreground">
                       Michael Marchitto
                     </span>
                   </div>
-                  <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-black/80">
+                  <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-foreground">
                     A 30-minute video call introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
                 <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
-                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-black/80">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-foreground">
                     <Clock className="h-4 w-4 shrink-0" />
                     <span>30 min</span>
                   </div>
-                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-black/80">
+                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-foreground">
                     <Video className="h-4 w-4 shrink-0" />
                     <span>Video Call</span>
                   </div>
@@ -246,7 +246,7 @@ try {
                     <DropdownMenuTrigger asChild>
                       <button
                         type="button"
-                        className="-ml-2 -mt-1 flex items-center gap-2 rounded-md px-2 py-1 leading-none text-body2 text-black/80 transition-colors hover:bg-[oklch(95%_0_0)]"
+                        className="-ml-2 -mt-1 flex items-center gap-2 rounded-md px-2 py-1 leading-none text-body2 text-foreground transition-colors hover:bg-[oklch(95%_0_0)]"
                       >
                         <Globe className="h-4 w-4 shrink-0" />
                         <span className="max-w-[180px] truncate">{timeZone}</span>
@@ -329,7 +329,7 @@ try {
               {step === "select" && (
                 <>
                   <div data-slot="scheduling-right-header" className="mb-2 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
-                    <span className="text-subtitle1 text-black dark:text-white color:text-white">{selectedLabel}</span>
+                    <span className="text-subtitle1 text-foreground dark:text-white color:text-white">{selectedLabel}</span>
                     <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
                       <div className="scheduling-toggle inline-flex items-center gap-0" data-slot="scheduling-toggle-wrap">
                         <TabsList
@@ -342,7 +342,7 @@ try {
                             className={cn(
                               "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] hover:bg-[oklch(95%_0_0)]",
                               timeFormat === "12h"
-                                ? "bg-[oklch(95%_0_0)] text-[oklch(18%_0_0)]"
+                                ? "bg-[oklch(95%_0_0)] text-[oklch(0%_0_0)]"
                                 : "bg-transparent text-[oklch(55%_0_0)]"
                             )}
                           >
@@ -353,7 +353,7 @@ try {
                             className={cn(
                               "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] hover:bg-[oklch(95%_0_0)]",
                               timeFormat === "24h"
-                                ? "bg-[oklch(95%_0_0)] text-[oklch(18%_0_0)]"
+                                ? "bg-[oklch(95%_0_0)] text-[oklch(0%_0_0)]"
                                 : "bg-transparent text-[oklch(55%_0_0)]"
                             )}
                           >
@@ -363,7 +363,7 @@ try {
                       </div>
                     </Tabs>
                   </div>
-                  <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mt-1.5 mb-5 shrink-0 block w-full text-center">Time Slot</span>
+                  <span className="text-subtitle2 font-medium text-foreground dark:text-white color:text-white mt-1.5 mb-5 shrink-0 block w-full text-center">Time Slot</span>
                   <div className="-mt-3 flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[272px]" data-slot="scheduling-time-slots">
                     <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
                       {slots.map((slot) => (
@@ -394,10 +394,10 @@ try {
               )}
               {step === "details" && (
                 <>
-                  <h2 className="text-subtitle1 font-medium text-black dark:text-white color:text-white mb-4">Your Details</h2>
+                  <h2 className="text-subtitle1 font-medium text-foreground dark:text-white color:text-white mb-4">Your Details</h2>
                   <div className="flex flex-col gap-4">
                     <div>
-                      <label htmlFor="scheduling-name" className="block text-body2 text-black/80 mb-1.5">Name *</label>
+                      <label htmlFor="scheduling-name" className="block text-body2 text-foreground mb-1.5">Name *</label>
                       <Input
                         id="scheduling-name"
                         placeholder="Enter your name"
@@ -407,7 +407,7 @@ try {
                       />
                     </div>
                     <div>
-                      <label htmlFor="scheduling-email" className="block text-body2 text-black/80 mb-1.5">Email Address *</label>
+                      <label htmlFor="scheduling-email" className="block text-body2 text-foreground mb-1.5">Email Address *</label>
                       <Input
                         id="scheduling-email"
                         type="email"
@@ -418,7 +418,7 @@ try {
                       />
                     </div>
                     <div>
-                      <label htmlFor="scheduling-notes" className="block text-body2 text-black/80 mb-1.5">Notes</label>
+                      <label htmlFor="scheduling-notes" className="block text-body2 text-foreground mb-1.5">Notes</label>
                       <Textarea
                         id="scheduling-notes"
                         placeholder="Anything helpful to prepare is appreciated."
@@ -429,7 +429,7 @@ try {
                     </div>
                     <button
                       type="button"
-                      className="flex items-center gap-2 text-body2 text-black/80 hover:text-black dark:hover:text-white color:hover:text-white self-start"
+                      className="flex items-center gap-2 text-body2 text-foreground hover:text-foreground dark:hover:text-white color:hover:text-white self-start"
                       onClick={() => setShowAddGuestInput((v) => !v)}
                     >
                       <UserPlus className="h-4 w-4 shrink-0" />
@@ -464,26 +464,26 @@ try {
                 <>
                   <div className="flex flex-col items-center text-center">
                     <CheckCircle2 className="h-10 w-10 text-green-600 mb-3" aria-hidden />
-                    <h2 className="text-subtitle1 font-semibold text-black dark:text-white color:text-white">This meeting is scheduled</h2>
-                    <p className="text-body2 text-black/80 mt-1">We sent an email with a calendar invitation with the details to everyone.</p>
+                    <h2 className="text-subtitle1 font-semibold text-foreground dark:text-white color:text-white">This meeting is scheduled</h2>
+                    <p className="text-body2 text-foreground mt-1">We sent an email with a calendar invitation with the details to everyone.</p>
                   </div>
                   <div className="border-t border-border my-4" />
                   <dl className="flex flex-col gap-3 text-body2">
                     <div>
-                      <dt className="text-black/60 dark:text-white/60 color:text-white/60 font-medium">What</dt>
-                      <dd className="text-black dark:text-white color:text-white mt-0.5">Introduction Call between {name || "Guest"} and Michael Marchitto</dd>
+                      <dt className="text-foreground dark:text-white/60 color:text-white/60 font-medium">What</dt>
+                      <dd className="text-foreground dark:text-white color:text-white mt-0.5">Introduction Call between {name || "Guest"} and Michael Marchitto</dd>
                     </div>
                     <div>
-                      <dt className="text-black/60 dark:text-white/60 color:text-white/60 font-medium">When</dt>
-                      <dd className="text-black dark:text-white color:text-white mt-0.5">
+                      <dt className="text-foreground dark:text-white/60 color:text-white/60 font-medium">When</dt>
+                      <dd className="text-foreground dark:text-white color:text-white mt-0.5">
                         {date?.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
                         <br />
                         {selectedSlot} ({timeZone.replace("_", " ")})
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-black/60 dark:text-white/60 color:text-white/60 font-medium">Who</dt>
-                      <dd className="text-black dark:text-white color:text-white mt-0.5">
+                      <dt className="text-foreground dark:text-white/60 color:text-white/60 font-medium">Who</dt>
+                      <dd className="text-foreground dark:text-white color:text-white mt-0.5">
                         <span className="inline-flex items-center gap-1">
                           Michael Marchitto <span className="rounded bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5">Host</span>
                         </span>
@@ -498,21 +498,21 @@ try {
                       </dd>
                     </div>
                     <div>
-                      <dt className="text-black/60 dark:text-white/60 color:text-white/60 font-medium">Where</dt>
-                      <dd className="text-black dark:text-white color:text-white mt-0.5 inline-flex items-center gap-1">
+                      <dt className="text-foreground dark:text-white/60 color:text-white/60 font-medium">Where</dt>
+                      <dd className="text-foreground dark:text-white color:text-white mt-0.5 inline-flex items-center gap-1">
                         Cal Video <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                       </dd>
                     </div>
                   </dl>
                   <div className="border-t border-border my-4" />
-                  <p className="text-body2 text-black/80">Need to make a change?</p>
+                  <p className="text-body2 text-foreground">Need to make a change?</p>
                   <div className="flex gap-1 mt-1">
-                    <button type="button" className="text-body2 text-black underline hover:no-underline" onClick={() => setStep("select")}>Reschedule</button>
-                    <span className="text-black/60"> or </span>
-                    <button type="button" className="text-body2 text-black underline hover:no-underline" onClick={() => handleOpenChange(false)}>Cancel</button>
+                    <button type="button" className="text-body2 text-foreground underline hover:no-underline" onClick={() => setStep("select")}>Reschedule</button>
+                    <span className="text-foreground"> or </span>
+                    <button type="button" className="text-body2 text-foreground underline hover:no-underline" onClick={() => handleOpenChange(false)}>Cancel</button>
                   </div>
                   <div className="mt-4">
-                    <p className="text-body2 text-black/80 mb-2">Add to calendar</p>
+                    <p className="text-body2 text-foreground mb-2">Add to calendar</p>
                     <div className="flex gap-2">
                       <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Google Calendar">G</Button>
                       <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Outlook">O</Button>
