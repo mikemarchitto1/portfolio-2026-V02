@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Clock, Video, Globe, XIcon } from "lucide-react";
+import { Clock, Video, Globe, XIcon, ChevronDown, ChevronUp, Check } from "lucide-react";
 import type { DayButton } from "react-day-picker";
 import {
   Dialog,
@@ -14,10 +14,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
 
 const COLOR_THEME_BACKGROUND = "oklch(24% 0.035 165)";
+
+const TIME_ZONES: string[] =
+  typeof Intl !== "undefined" && typeof Intl.supportedValuesOf === "function"
+    ? Intl.supportedValuesOf("timeZone")
+    : ["America/New_York", "America/Los_Angeles", "Europe/London", "UTC"];
 
 type SchedulingDialogProps = {
   trigger: React.ReactNode;
@@ -96,6 +107,13 @@ try {
     const { theme } = useTheme();
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [timeFormat, setTimeFormat] = React.useState<"12h" | "24h">("12h");
+    const [timeZone, setTimeZone] = React.useState<string>(() =>
+      typeof Intl !== "undefined" && typeof Intl.DateTimeFormat !== "undefined"
+        ? Intl.DateTimeFormat().resolvedOptions().timeZone
+        : "America/New_York"
+    );
+    const [timezoneOpen, setTimezoneOpen] = React.useState(false);
+    const selectedRef = React.useRef<HTMLDivElement>(null);
     const slots = React.useMemo(
       () => generateTimeSlots(timeFormat === "24h"),
       [timeFormat]
@@ -140,7 +158,7 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[868px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-16 text-black",
+              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1004px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-black",
               theme !== "light" && "shadow-lg",
               theme === "color" && "!bg-[oklch(24%_0.035_165)]"
             )}
@@ -155,7 +173,7 @@ try {
               {/* Left column */}
               <div
                 data-slot="scheduling-left-panel"
-                className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-black w-full lg:w-[168px] pt-1"
+                className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col text-black w-full lg:w-[236px] pt-1"
                 style={
                   theme === "color"
                     ? { backgroundColor: COLOR_THEME_BACKGROUND }
@@ -163,7 +181,7 @@ try {
                 }
               >
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-black">
-                <CardHeader className="scheduling-left-header mb-2 gap-0 space-y-0 pb-0 px-0 pt-1">
+                <CardHeader className="scheduling-left-header mb-1 gap-0 space-y-0 pb-0 px-0 pt-0.5">
                   <div className="flex flex-col gap-5">
                     <CardTitle className="scheduling-left-title mt-0 shrink-0 text-subtitle1 font-medium text-black">
                       Introduction Call
@@ -173,7 +191,7 @@ try {
                     </span>
                   </div>
                   <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-black/80">
-                    30-minute introduction to discuss potential opportunities.
+                    A 30-minute video call introduction to discuss potential opportunities.
                   </p>
                 </CardHeader>
                 <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
@@ -185,10 +203,57 @@ try {
                     <Video className="h-4 w-4 shrink-0" />
                     <span>Video Call</span>
                   </div>
-                  <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-black/80">
-                    <Globe className="h-4 w-4 shrink-0" />
-                    <span>America/New York</span>
-                  </div>
+                  <DropdownMenu
+                    onOpenChange={(open) => {
+                      setTimezoneOpen(open);
+                      if (open) {
+                        setTimeout(() => {
+                          selectedRef.current?.scrollIntoView({
+                            block: "center",
+                            behavior: "instant",
+                          });
+                        }, 0);
+                      }
+                    }}
+                  >
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        type="button"
+                        className="-ml-2 -mt-1 flex items-center gap-2 rounded-md px-2 py-1 leading-none text-body2 text-black/80 transition-colors hover:bg-[oklch(95%_0_0)]"
+                      >
+                        <Globe className="h-4 w-4 shrink-0" />
+                        <span className="max-w-[180px] truncate">{timeZone}</span>
+                        {timezoneOpen ? (
+                          <ChevronUp className="h-4 w-4 shrink-0" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4 shrink-0" />
+                        )}
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      className="max-h-[280px] overflow-y-auto"
+                    >
+                      {TIME_ZONES.map((tz) => (
+                        <DropdownMenuItem
+                          key={tz}
+                          ref={tz === timeZone ? selectedRef : null}
+                          onSelect={() => setTimeZone(tz)}
+                          className={cn(
+                            "flex items-center gap-2 pl-0.5 hover:bg-[oklch(90%_0_0)] focus:bg-[oklch(90%_0_0)]",
+                            timeZone === tz && "bg-[oklch(95%_0_0)]"
+                          )}
+                        >
+                          <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+                            {timeZone === tz ? (
+                              <Check className="h-4 w-4" />
+                            ) : null}
+                          </span>
+                          <span className="min-w-0 truncate">{tz}</span>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </CardContent>
               </Card>
             </div>
@@ -196,7 +261,7 @@ try {
             {/* Center column: calendar */}
             <div
               data-slot="scheduling-calendar-wrap"
-              className="flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full flex-none lg:w-[384px] flex-col overflow-visible"
+              className="-mt-0.5 flex h-auto min-h-[280px] lg:min-h-0 min-w-0 w-full max-w-full flex-none lg:w-[384px] flex-col overflow-visible"
               style={{ backgroundColor: "transparent" }}
             >
               <div className="flex min-w-0 flex-1 flex-col overflow-visible pt-0">
@@ -221,7 +286,7 @@ try {
 
             {/* Right column */}
             <div
-              className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[168px]"
+              className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[236px]"
               style={
                 theme === "color"
                   ? { backgroundColor: COLOR_THEME_BACKGROUND }
@@ -231,54 +296,39 @@ try {
               <div data-slot="scheduling-right-header" className="mb-2 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
                 <span className="text-subtitle1 text-black dark:text-white color:text-white">{selectedLabel}</span>
                 <Tabs value={timeFormat} onValueChange={(v) => setTimeFormat(v as "12h" | "24h")}>
-                  <div className="scheduling-toggle">
-                    <style jsx>{`
-                      .scheduling-toggle .toggle-left {
-                        border-top-right-radius: 0;
-                        border-bottom-right-radius: 0;
-                      }
-                      .scheduling-toggle .toggle-right {
-                        border-top-left-radius: 0;
-                        border-bottom-left-radius: 0;
-                      }
-                    `}</style>
-                    <div
-                      className="rounded-full h-8 overflow-hidden flex box-border w-fit bg-transparent"
-                      data-slot="scheduling-toggle-wrap"
+                  <div className="scheduling-toggle inline-flex items-center gap-0" data-slot="scheduling-toggle-wrap">
+                    <TabsList
+                      noBg
+                      data-slot="scheduling-toggle"
+                      className="inline-flex items-center gap-0 p-0 border-0 shadow-none min-w-0 h-auto bg-transparent"
                     >
-                      <TabsList
-                        noBg
-                        data-slot="scheduling-toggle"
-                        className="scheduling-toggle-track h-8 w-full p-0 rounded-full border-0 shadow-none min-w-0 inline-flex flex-1 bg-transparent"
+                      <TabsTrigger
+                        value="12h"
+                        className={cn(
+                          "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] hover:bg-[oklch(95%_0_0)]",
+                          timeFormat === "12h"
+                            ? "bg-[oklch(95%_0_0)] text-[oklch(18%_0_0)]"
+                            : "bg-transparent text-[oklch(55%_0_0)]"
+                        )}
                       >
-                        <TabsTrigger
-                          value="12h"
-                          className={cn(
-                            "toggle-left px-2.5 py-1 rounded-l-full transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)]",
-                            timeFormat === "12h"
-                              ? "bg-[oklch(22%_0_0)] text-white"
-                              : "bg-[oklch(95%_0_0)] text-black hover:bg-[oklch(90%_0_0)]"
-                          )}
-                        >
-                          12h
-                        </TabsTrigger>
-                        <TabsTrigger
-                          value="24h"
-                          className={cn(
-                            "toggle-right px-2.5 py-1 rounded-r-full transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)]",
-                            timeFormat === "24h"
-                              ? "bg-[oklch(22%_0_0)] text-white"
-                              : "bg-[oklch(95%_0_0)] text-black hover:bg-[oklch(90%_0_0)]"
-                          )}
-                        >
-                          24h
-                        </TabsTrigger>
-                      </TabsList>
-                    </div>
+                        12h
+                      </TabsTrigger>
+                      <TabsTrigger
+                        value="24h"
+                        className={cn(
+                          "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] hover:bg-[oklch(95%_0_0)]",
+                          timeFormat === "24h"
+                            ? "bg-[oklch(95%_0_0)] text-[oklch(18%_0_0)]"
+                            : "bg-transparent text-[oklch(55%_0_0)]"
+                        )}
+                      >
+                        24h
+                      </TabsTrigger>
+                    </TabsList>
                   </div>
                 </Tabs>
               </div>
-              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mt-1 mb-5 shrink-0 block w-full text-center">Time Slot</span>
+              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mt-1.5 mb-5 shrink-0 block w-full text-center">Time Slot</span>
               <div className="-mt-3 flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[272px]" data-slot="scheduling-time-slots">
                 <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
                   {slots.map((slot) => (
