@@ -60,7 +60,7 @@ try {
         data-range-middle={modifiers.range_middle}
         style={colorStyle}
         className={cn(
-          "rdp-day-button bg-gray-200 hover:bg-gray-300 inline-flex items-center justify-center rounded-md transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent color:data-[outside=true]:!text-white data-[selected-single=true]:bg-black data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-black data-[selected-single=true]:rounded-full data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
+          "rdp-day-button bg-[oklch(95%_0_0)] hover:bg-[oklch(90%_0_0)] inline-flex items-center justify-center rounded-[4px] transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:bg-transparent data-[outside=true]:hover:bg-transparent color:data-[outside=true]:!text-white data-[selected-single=true]:bg-[oklch(22%_0_0)] data-[selected-single=true]:text-white data-[selected-single=true]:hover:bg-[oklch(22%_0_0)] data-[selected-single=true]:rounded-full data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
           className
         )}
         {...props}
@@ -140,7 +140,7 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[868px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-black",
+              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[868px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-16 text-black",
               theme !== "light" && "shadow-lg",
               theme === "color" && "!bg-[oklch(24%_0.035_165)]"
             )}
@@ -163,7 +163,7 @@ try {
                 }
               >
               <Card className="flex flex-1 flex-col gap-0 border-0 bg-transparent pt-0 pb-0 shadow-none text-black">
-                <CardHeader className="scheduling-left-header mb-2 gap-0 space-y-0 pb-0 px-0 pt-0">
+                <CardHeader className="scheduling-left-header mb-2 gap-0 space-y-0 pb-0 px-0 pt-1">
                   <div className="flex flex-col gap-5">
                     <CardTitle className="scheduling-left-title mt-0 shrink-0 text-subtitle1 font-medium text-black">
                       Introduction Call
@@ -203,7 +203,10 @@ try {
                 <Calendar
                   mode="single"
                   selected={date}
-                  onSelect={setDate}
+                  onSelect={(newDate) => {
+                  if (!newDate) return; // prevent unselecting
+                  setDate(newDate);
+                }}
                   defaultMonth={date}
                   className="rounded-none border-0 p-0 [--cell-size:2.25rem] lg:[--cell-size:3rem]"
                   classNames={{
@@ -253,8 +256,8 @@ try {
                           className={cn(
                             "toggle-left px-2.5 py-1 rounded-l-full transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)]",
                             timeFormat === "12h"
-                              ? "bg-black text-white"
-                              : "bg-gray-200 text-black hover:bg-gray-300"
+                              ? "bg-[oklch(22%_0_0)] text-white"
+                              : "bg-[oklch(95%_0_0)] text-black hover:bg-[oklch(90%_0_0)]"
                           )}
                         >
                           12h
@@ -264,8 +267,8 @@ try {
                           className={cn(
                             "toggle-right px-2.5 py-1 rounded-r-full transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)]",
                             timeFormat === "24h"
-                              ? "bg-black text-white"
-                              : "bg-gray-200 text-black hover:bg-gray-300"
+                              ? "bg-[oklch(22%_0_0)] text-white"
+                              : "bg-[oklch(95%_0_0)] text-black hover:bg-[oklch(90%_0_0)]"
                           )}
                         >
                           24h
@@ -275,7 +278,7 @@ try {
                   </div>
                 </Tabs>
               </div>
-              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mb-5 shrink-0 block w-full text-center">Time Slot</span>
+              <span className="text-subtitle2 font-medium text-black dark:text-white color:text-white mt-1 mb-5 shrink-0 block w-full text-center">Time Slot</span>
               <div className="-mt-3 flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[272px]" data-slot="scheduling-time-slots">
                 <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
                   {slots.map((slot) => (
@@ -283,7 +286,7 @@ try {
                       key={slot}
                       variant="muted"
                       data-slot="scheduling-time-slot-btn"
-                      className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)]"
+                      className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(95%_0_0)] hover:bg-[oklch(90%_0_0)]"
                     >
                       {slot}
                     </Button>

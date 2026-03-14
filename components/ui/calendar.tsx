@@ -60,13 +60,11 @@ function Calendar({
           classNames?.nav
         ),
         button_previous: cn(
-          buttonVariants({ variant: buttonVariant }),
-          "ml-auto size-8 shrink-0 aria-disabled:opacity-50 p-0 select-none text-muted-foreground hover:text-foreground inline-flex items-center justify-center",
+          "ml-auto size-8 shrink-0 rounded-full inline-flex items-center justify-center transition-colors hover:bg-black/10 dark:hover:bg-white/10 color:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-0 aria-disabled:opacity-50 p-0 select-none text-muted-foreground hover:text-foreground",
           defaultClassNames.button_previous
         ),
         button_next: cn(
-          buttonVariants({ variant: buttonVariant }),
-          "size-8 shrink-0 aria-disabled:opacity-50 p-0 select-none text-muted-foreground hover:text-foreground inline-flex items-center justify-center",
+          "size-8 shrink-0 rounded-full inline-flex items-center justify-center transition-colors hover:bg-black/10 dark:hover:bg-white/10 color:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-0 aria-disabled:opacity-50 p-0 select-none text-muted-foreground hover:text-foreground",
           defaultClassNames.button_next
         ),
         month_caption: cn(
