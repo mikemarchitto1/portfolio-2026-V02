@@ -34,10 +34,10 @@ const SelectStep = React.memo(function SelectStep({
               <TabsTrigger
                 value="12h"
                 className={cn(
-                  "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] hover:bg-[oklch(95%_0_0)]",
+                  "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border",
                   timeFormat === "12h"
-                    ? "bg-[oklch(95%_0_0)] text-[oklch(0%_0_0)]"
-                    : "bg-transparent text-[oklch(55%_0_0)]"
+                    ? "bg-[oklch(96%_0_0)] text-[oklch(0%_0_0)] border-input"
+                    : "bg-transparent text-[oklch(55%_0_0)] border-transparent hover:bg-[oklch(91%_0_0)]"
                 )}
               >
                 12h
@@ -45,10 +45,10 @@ const SelectStep = React.memo(function SelectStep({
               <TabsTrigger
                 value="24h"
                 className={cn(
-                  "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] hover:bg-[oklch(95%_0_0)]",
+                  "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border",
                   timeFormat === "24h"
-                    ? "bg-[oklch(95%_0_0)] text-[oklch(0%_0_0)]"
-                    : "bg-transparent text-[oklch(55%_0_0)]"
+                    ? "bg-[oklch(96%_0_0)] text-[oklch(0%_0_0)] border-input"
+                    : "bg-transparent text-[oklch(55%_0_0)] border-transparent hover:bg-[oklch(91%_0_0)]"
                 )}
               >
                 24h
@@ -63,9 +63,9 @@ const SelectStep = React.memo(function SelectStep({
           {slots.map((slot) => (
             <Button
               key={slot}
-              variant="muted"
+              variant="ghost"
               data-slot="scheduling-time-slot-btn"
-              className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(95%_0_0)] hover:bg-[oklch(90%_0_0)]"
+              className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-input bg-[oklch(96%_0_0)] hover:bg-[oklch(91%_0_0)]"
               onClick={() => onSlotSelect(slot)}
             >
               {slot}

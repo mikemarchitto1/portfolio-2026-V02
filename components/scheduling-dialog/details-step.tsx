@@ -72,7 +72,7 @@ const DetailsStep = React.memo(function DetailsStep({
         </div>
         <button
           type="button"
-          className="flex items-center gap-2 text-body2 text-foreground hover:text-foreground dark:hover:text-white color:hover:text-white self-start"
+          className="flex items-center gap-2 text-body2 text-foreground transition-colors hover:text-[oklch(50%_0_0)] self-start"
           onClick={onToggleAddGuest}
         >
           <UserPlus className="h-4 w-4 shrink-0" />

@@ -13,6 +13,7 @@ export type ConfirmStepProps = {
   formattedDate: string;
   selectedSlot: string | null;
   formattedTimeZone: string;
+  notes?: string;
   onReschedule: () => void;
   onCancel: () => void;
 };
@@ -24,6 +25,7 @@ const ConfirmStep = React.memo(function ConfirmStep({
   formattedDate,
   selectedSlot,
   formattedTimeZone,
+  notes,
   onReschedule,
   onCancel,
 }: ConfirmStepProps) {
@@ -70,11 +72,17 @@ const ConfirmStep = React.memo(function ConfirmStep({
               Video Call <ExternalLink className="h-3.5 w-3.5 shrink-0" />
             </dd>
           </div>
+          {notes != null && notes.trim() !== "" && (
+            <div className="w-full">
+              <dt className="text-foreground dark:text-white color:text-white font-medium">Notes</dt>
+              <dd className="text-foreground dark:text-white color:text-white mt-0.5 whitespace-pre-wrap">{notes.trim()}</dd>
+            </div>
+          )}
         </dl>
         <div className="flex flex-wrap items-center justify-start gap-2 mt-14">
-          <button type="button" className="text-body2 text-foreground underline hover:no-underline mr-4" onClick={onReschedule}>Reschedule</button>
-          <button type="button" className="text-body2 text-foreground underline hover:no-underline" onClick={onCancel}>Cancel</button>
-          <div className="flex items-center gap-1 ml-12">
+          <button type="button" className="text-body2 text-foreground no-underline mr-4 transition-colors hover:text-[oklch(50%_0_0)]" onClick={onReschedule}>Reschedule</button>
+          <button type="button" className="text-body2 text-foreground no-underline transition-colors hover:text-[oklch(50%_0_0)]" onClick={onCancel}>Cancel</button>
+          <div className="flex items-center gap-1 ml-[88px]">
             <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(90%_0_0)] transition-colors" aria-label="Google Calendar">
               <SiGooglecalendar className="h-4 w-4" />
             </Button>
