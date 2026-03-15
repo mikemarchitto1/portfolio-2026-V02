@@ -1,7 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Clock, Video, Globe, XIcon, ChevronDown, ChevronUp, Check, CheckCircle2, UserPlus, ExternalLink } from "lucide-react";
+import { Clock, Video, Globe, XIcon, ChevronDown, ChevronUp, Check, CheckCircle2, UserPlus, ExternalLink, Calendar as CalendarIcon, Mail, CalendarPlus } from "lucide-react";
+import { SiGooglecalendar } from "react-icons/si";
+import { FiDownload } from "react-icons/fi";
 import type { DayButton } from "react-day-picker";
 import {
   Dialog,
@@ -110,6 +112,8 @@ try {
     const [step, setStep] = React.useState<"select" | "details" | "confirm">("select");
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [selectedSlot, setSelectedSlot] = React.useState<string | null>(null);
+    const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
+    const [selectedTime, setSelectedTime] = React.useState<string | null>(null);
     const [timeFormat, setTimeFormat] = React.useState<"12h" | "24h">("12h");
     const [timeZone, setTimeZone] = React.useState<string>(() =>
       typeof Intl !== "undefined" && typeof Intl.DateTimeFormat !== "undefined"
@@ -129,6 +133,8 @@ try {
         if (!next) {
           setStep("select");
           setSelectedSlot(null);
+          setSelectedDate(null);
+          setSelectedTime(null);
           setName("");
           setEmail("");
           setNotes("");
@@ -148,6 +154,16 @@ try {
     const selectedLabel = date
       ? `${date.toLocaleDateString("en-US", { weekday: "short" })} ${date.getDate()}`
       : "Select a date";
+
+    const formattedDateAtTime =
+      selectedDate && selectedTime
+        ? `${selectedDate.toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })} at ${selectedTime.replace(/(\d)(am|pm)/i, "$1 $2")}`
+        : null;
 
     return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -184,9 +200,11 @@ try {
             data-slot="scheduling-panel"
             data-theme={theme}
             className={cn(
-              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1004px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-foreground",
+              "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 pb-[64px] text-foreground",
               theme !== "light" && "shadow-lg",
-              theme === "color" && "!bg-[oklch(24%_0.035_165)]"
+              theme === "color" && "!bg-[oklch(24%_0.035_165)]",
+              step === "details" && "lg:w-fit",
+              step === "confirm" && "lg:max-w-[500px]"
             )}
             style={
               theme === "color"
@@ -195,7 +213,12 @@ try {
             }
           >
             {/* Stack on mobile/tablet; three columns on desktop */}
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-12">
+            <div
+              className={cn(
+                "flex min-h-0 flex-none lg:flex-1 lg:min-h-0 lg:flex-row flex-col items-start lg:items-stretch gap-12",
+                step === "details" && "lg:w-fit"
+              )}
+            >
               {/* Left column */}
               {(step === "select" || step === "details") && (
               <div
@@ -222,6 +245,12 @@ try {
                   </p>
                 </CardHeader>
                 <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
+                  {step === "details" && formattedDateAtTime && (
+                    <div className="scheduling-left-detail-row flex items-start gap-2 text-body2 text-foreground">
+                      <CalendarIcon className="h-4 w-4 shrink-0 mt-[2px]" />
+                      <span>{formattedDateAtTime}</span>
+                    </div>
+                  )}
                   <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-foreground">
                     <Clock className="h-4 w-4 shrink-0" />
                     <span>30 min</span>
@@ -230,57 +259,65 @@ try {
                     <Video className="h-4 w-4 shrink-0" />
                     <span>Video Call</span>
                   </div>
-                  <DropdownMenu
-                    onOpenChange={(open) => {
-                      setTimezoneOpen(open);
-                      if (open) {
-                        setTimeout(() => {
-                          selectedRef.current?.scrollIntoView({
-                            block: "center",
-                            behavior: "instant",
-                          });
-                        }, 0);
-                      }
-                    }}
-                  >
-                    <DropdownMenuTrigger asChild>
-                      <button
-                        type="button"
-                        className="-ml-2 -mt-1 flex items-center gap-2 rounded-md px-2 py-1 leading-none text-body2 text-foreground transition-colors hover:bg-[oklch(95%_0_0)]"
-                      >
-                        <Globe className="h-4 w-4 shrink-0" />
-                        <span className="max-w-[180px] truncate">{timeZone}</span>
-                        {timezoneOpen ? (
-                          <ChevronUp className="h-4 w-4 shrink-0" />
-                        ) : (
-                          <ChevronDown className="h-4 w-4 shrink-0" />
-                        )}
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      align="start"
-                      className="max-h-[280px] overflow-y-auto"
+                  {step === "details" ? (
+                    <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-foreground pointer-events-none">
+                      <Globe className="h-4 w-4 shrink-0" />
+                      <span className="max-w-[180px] truncate">{timeZone}</span>
+                    </div>
+                  ) : (
+                    <DropdownMenu
+                      onOpenChange={(open) => {
+                        setTimezoneOpen(open);
+                        if (open) {
+                          setTimeout(() => {
+                            selectedRef.current?.scrollIntoView({
+                              block: "center",
+                              behavior: "instant",
+                            });
+                          }, 0);
+                        }
+                      }}
                     >
-                      {TIME_ZONES.map((tz) => (
-                        <DropdownMenuItem
-                          key={tz}
-                          ref={tz === timeZone ? selectedRef : null}
-                          onSelect={() => setTimeZone(tz)}
-                          className={cn(
-                            "flex items-center gap-2 pl-0.5 hover:bg-[oklch(90%_0_0)] focus:bg-[oklch(90%_0_0)]",
-                            timeZone === tz && "bg-[oklch(95%_0_0)]"
-                          )}
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          type="button"
+                          style={{ paddingTop: 8, paddingBottom: 8 }}
+                          className="-ml-2 -mt-[6px] flex items-center gap-2 rounded-[4px] px-2 leading-none text-body2 text-foreground transition-colors hover:bg-[oklch(95%_0_0)]"
                         >
-                          <span className="flex h-4 w-4 shrink-0 items-center justify-center">
-                            {timeZone === tz ? (
-                              <Check className="h-4 w-4" />
-                            ) : null}
-                          </span>
-                          <span className="min-w-0 truncate">{tz}</span>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
+                          <Globe className="h-4 w-4 shrink-0" />
+                          <span className="max-w-[180px] truncate">{timeZone}</span>
+                          {timezoneOpen ? (
+                            <ChevronUp className="h-4 w-4 shrink-0" />
+                          ) : (
+                            <ChevronDown className="h-4 w-4 shrink-0" />
+                          )}
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align="start"
+                        className="max-h-[280px] overflow-y-auto"
+                      >
+                        {TIME_ZONES.map((tz) => (
+                          <DropdownMenuItem
+                            key={tz}
+                            ref={tz === timeZone ? selectedRef : null}
+                            onSelect={() => setTimeZone(tz)}
+                            className={cn(
+                              "flex items-center gap-2 rounded-[4px] pl-0.5 hover:bg-[oklch(90%_0_0)] focus:bg-[oklch(90%_0_0)]",
+                              timeZone === tz && "bg-[oklch(95%_0_0)]"
+                            )}
+                          >
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+                              {timeZone === tz ? (
+                                <Check className="h-4 w-4" />
+                              ) : null}
+                            </span>
+                            <span className="min-w-0 truncate">{tz}</span>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -300,6 +337,7 @@ try {
                   onSelect={(newDate) => {
                   if (!newDate) return; // prevent unselecting
                   setDate(newDate);
+                  setSelectedDate(newDate);
                 }}
                   defaultMonth={date}
                   className="rounded-none border-0 p-0 [--cell-size:2.25rem] lg:[--cell-size:3rem]"
@@ -317,7 +355,9 @@ try {
             {/* Right column */}
             <div
               className={cn(
-                "flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full lg:w-[236px]",
+                "flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 mt-1 lg:mt-0 w-full px-0",
+                step === "select" && "lg:w-[236px]",
+                step === "details" && "lg:w-[384px] pt-[2px]",
                 step === "confirm" && "lg:flex-1"
               )}
               style={
@@ -375,7 +415,10 @@ try {
                             "w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(95%_0_0)] hover:bg-[oklch(90%_0_0)]",
                             selectedSlot === slot && "bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(22%_0_0)]"
                           )}
-                          onClick={() => setSelectedSlot(slot)}
+                          onClick={() => {
+                            setSelectedSlot(slot);
+                            setSelectedTime(slot);
+                          }}
                         >
                           {slot}
                         </Button>
@@ -385,7 +428,11 @@ try {
                   {date && selectedSlot && (
                     <Button
                       className="mt-2 w-full rounded-full h-[48px] bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(28%_0_0)]"
-                      onClick={() => setStep("details")}
+                      onClick={() => {
+                        setSelectedDate(date);
+                        setSelectedTime(selectedSlot);
+                        setStep("details");
+                      }}
                     >
                       Next
                     </Button>
@@ -395,9 +442,9 @@ try {
               {step === "details" && (
                 <>
                   <h2 className="text-subtitle1 font-medium text-foreground dark:text-white color:text-white mb-4">Your Details</h2>
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-6">
                     <div>
-                      <label htmlFor="scheduling-name" className="block text-body2 text-foreground mb-1.5">Name *</label>
+                      <label htmlFor="scheduling-name" className="block text-subtitle2 text-foreground mb-1.5">Name *</label>
                       <Input
                         id="scheduling-name"
                         placeholder="Enter your name"
@@ -407,21 +454,21 @@ try {
                       />
                     </div>
                     <div>
-                      <label htmlFor="scheduling-email" className="block text-body2 text-foreground mb-1.5">Email Address *</label>
+                      <label htmlFor="scheduling-email" className="block text-subtitle2 text-foreground mb-1.5">Email *</label>
                       <Input
                         id="scheduling-email"
                         type="email"
-                        placeholder="Enter your email address"
+                        placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full"
                       />
                     </div>
                     <div>
-                      <label htmlFor="scheduling-notes" className="block text-body2 text-foreground mb-1.5">Notes</label>
+                      <label htmlFor="scheduling-notes" className="block text-subtitle2 text-foreground mb-1.5">Notes</label>
                       <Textarea
                         id="scheduling-notes"
-                        placeholder="Anything helpful to prepare is appreciated."
+                        placeholder="Please share anything that would be helpful for our meeting, like context or topics to focus on."
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
                         className="w-full min-h-[80px]"
@@ -433,7 +480,7 @@ try {
                       onClick={() => setShowAddGuestInput((v) => !v)}
                     >
                       <UserPlus className="h-4 w-4 shrink-0" />
-                      + Add guests
+                      Add guests
                     </button>
                     {showAddGuestInput && (
                       <div>
@@ -446,10 +493,10 @@ try {
                       </div>
                     )}
                   </div>
-                  <div className="flex gap-2 mt-6 justify-end">
-                    <Button variant="outline" onClick={() => setStep("select")}>Back</Button>
+                  <div className="flex gap-2 mt-8 justify-end">
+                    <Button variant="outline" className="text-button flex-1 min-w-0" onClick={() => setStep("select")}>Back</Button>
                     <Button
-                      className="bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(28%_0_0)]"
+                      className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(28%_0_0)]"
                       onClick={() => {
                         if (!name.trim() || !email.trim()) return;
                         setStep("confirm");
@@ -462,13 +509,12 @@ try {
               )}
               {step === "confirm" && (
                 <>
-                  <div className="flex flex-col items-center text-center">
+                  <div className="flex flex-col items-start text-left">
                     <CheckCircle2 className="h-10 w-10 text-green-600 mb-3" aria-hidden />
-                    <h2 className="text-subtitle1 font-semibold text-foreground dark:text-white color:text-white">This meeting is scheduled</h2>
-                    <p className="text-body2 text-foreground mt-1">We sent an email with a calendar invitation with the details to everyone.</p>
+                    <h2 className="text-subtitle1 text-foreground dark:text-white color:text-white">This meeting is scheduled</h2>
+                    <p className="text-body2 text-foreground mt-1">We sent a calendar invite with the details to everyone.</p>
                   </div>
-                  <div className="border-t border-border my-4" />
-                  <dl className="flex flex-col gap-3 text-body2">
+                  <dl className="flex flex-col gap-3 text-body2 mt-4">
                     <div>
                       <dt className="text-foreground dark:text-white/60 color:text-white/60 font-medium">What</dt>
                       <dd className="text-foreground dark:text-white color:text-white mt-0.5">Introduction Call between {name || "Guest"} and Michael Marchitto</dd>
@@ -500,12 +546,11 @@ try {
                     <div>
                       <dt className="text-foreground dark:text-white/60 color:text-white/60 font-medium">Where</dt>
                       <dd className="text-foreground dark:text-white color:text-white mt-0.5 inline-flex items-center gap-1">
-                        Cal Video <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                        Video Call <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                       </dd>
                     </div>
                   </dl>
-                  <div className="border-t border-border my-4" />
-                  <p className="text-body2 text-foreground">Need to make a change?</p>
+                  <p className="text-body2 text-foreground mt-4">Need to make a change?</p>
                   <div className="flex gap-1 mt-1">
                     <button type="button" className="text-body2 text-foreground underline hover:no-underline" onClick={() => setStep("select")}>Reschedule</button>
                     <span className="text-foreground"> or </span>
@@ -514,10 +559,18 @@ try {
                   <div className="mt-4">
                     <p className="text-body2 text-foreground mb-2">Add to calendar</p>
                     <div className="flex gap-2">
-                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Google Calendar">G</Button>
-                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Outlook">O</Button>
-                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Office 365">O</Button>
-                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="ICS">ICS</Button>
+                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Google Calendar">
+                        <SiGooglecalendar className="h-4 w-4" />
+                      </Button>
+                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Outlook">
+                        <Mail className="h-4 w-4" />
+                      </Button>
+                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="Office 365">
+                        <CalendarPlus className="h-4 w-4" />
+                      </Button>
+                      <Button variant="outline" size="icon" className="h-9 w-9 shrink-0" aria-label="ICS">
+                        <FiDownload className="h-4 w-4" />
+                      </Button>
                     </div>
                   </div>
                 </>
