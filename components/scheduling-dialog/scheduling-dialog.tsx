@@ -26,8 +26,59 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/hooks/use-theme";
+import { TransitionWrapper } from "./transition-wrapper";
 
 const COLOR_THEME_BACKGROUND = "oklch(24% 0.035 165)";
+
+/** IANA timezone → short abbreviation for display. Stored value remains IANA. */
+const TIMEZONE_ABBR: Record<string, string> = {
+  "America/New_York": "ET",
+  "America/Chicago": "CT",
+  "America/Denver": "MT",
+  "America/Los_Angeles": "PT",
+  "America/Phoenix": "MST",
+  "America/Anchorage": "AKT",
+  "America/Toronto": "ET",
+  "America/Vancouver": "PT",
+  "America/Edmonton": "MT",
+  "America/Winnipeg": "CT",
+  "America/Halifax": "AT",
+  "America/St_Johns": "NT",
+  "Europe/London": "GMT",
+  "Europe/Paris": "CET",
+  "Europe/Berlin": "CET",
+  "Europe/Amsterdam": "CET",
+  "Europe/Brussels": "CET",
+  "Europe/Madrid": "CET",
+  "Europe/Rome": "CET",
+  "Europe/Stockholm": "CET",
+  "Europe/Vienna": "CET",
+  "Europe/Zurich": "CET",
+  "Europe/Moscow": "MSK",
+  "Asia/Tokyo": "JST",
+  "Asia/Seoul": "KST",
+  "Asia/Shanghai": "CST",
+  "Asia/Hong_Kong": "HKT",
+  "Asia/Singapore": "SGT",
+  "Asia/Kolkata": "IST",
+  "Asia/Dubai": "GST",
+  "Australia/Sydney": "AEST",
+  "Australia/Melbourne": "AEST",
+  "Australia/Perth": "AWST",
+  "Pacific/Auckland": "NZST",
+  UTC: "UTC",
+};
+
+/**
+ * Format IANA timezone for display only. Value stored and passed remains IANA.
+ * Returns "City (ABBR)" when abbr is in map, else "City".
+ */
+function formatTimezoneLabel(iana: string): string {
+  const parts = iana.split("/");
+  const city = parts[parts.length - 1]?.replace(/_/g, " ") ?? iana;
+  const abbr = TIMEZONE_ABBR[iana];
+  return abbr ? `${city} (${abbr})` : city;
+}
 
 const TIME_ZONES: string[] =
   typeof Intl !== "undefined" && typeof Intl.supportedValuesOf === "function"
@@ -262,7 +313,7 @@ try {
                   {step === "details" ? (
                     <div className="scheduling-left-detail-row flex items-center gap-2 text-body2 text-foreground pointer-events-none">
                       <Globe className="h-4 w-4 shrink-0" />
-                      <span className="max-w-[180px] truncate">{timeZone}</span>
+                      <span className="max-w-[180px] truncate">{formatTimezoneLabel(timeZone)}</span>
                     </div>
                   ) : (
                     <DropdownMenu
@@ -282,10 +333,10 @@ try {
                         <button
                           type="button"
                           style={{ paddingTop: 8, paddingBottom: 8 }}
-                          className="-ml-2 -mt-[6px] flex items-center gap-2 rounded-[4px] px-2 leading-none text-body2 text-foreground transition-colors hover:bg-[oklch(95%_0_0)]"
+                          className="-ml-2 -mt-[6px] flex items-center gap-2 rounded-[4px] px-2 leading-normal text-body2 text-foreground transition-colors hover:bg-[oklch(95%_0_0)]"
                         >
                           <Globe className="h-4 w-4 shrink-0" />
-                          <span className="max-w-[180px] truncate">{timeZone}</span>
+                          <span className="max-w-[180px] truncate">{formatTimezoneLabel(timeZone)}</span>
                           {timezoneOpen ? (
                             <ChevronUp className="h-4 w-4 shrink-0" />
                           ) : (
@@ -295,7 +346,7 @@ try {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
                         align="start"
-                        className="max-h-[280px] overflow-y-auto"
+                        className="w-[var(--radix-dropdown-menu-trigger-width)] max-w-[var(--radix-dropdown-menu-trigger-width)] max-h-[280px] overflow-y-auto shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_0_2px_rgba(0,0,0,0.03)]"
                       >
                         {TIME_ZONES.map((tz) => (
                           <DropdownMenuItem
@@ -303,7 +354,7 @@ try {
                             ref={tz === timeZone ? selectedRef : null}
                             onSelect={() => setTimeZone(tz)}
                             className={cn(
-                              "flex items-center gap-2 rounded-[4px] pl-0.5 hover:bg-[oklch(90%_0_0)] focus:bg-[oklch(90%_0_0)]",
+                              "flex items-center gap-2 rounded-[4px] py-2 pl-0.5 leading-normal hover:bg-[oklch(90%_0_0)] focus:bg-[oklch(90%_0_0)]",
                               timeZone === tz && "bg-[oklch(95%_0_0)]"
                             )}
                           >
@@ -312,7 +363,7 @@ try {
                                 <Check className="h-4 w-4" />
                               ) : null}
                             </span>
-                            <span className="min-w-0 truncate">{tz}</span>
+                            <span className="min-w-0 truncate">{formatTimezoneLabel(tz)}</span>
                           </DropdownMenuItem>
                         ))}
                       </DropdownMenuContent>
@@ -367,6 +418,7 @@ try {
               }
             >
               {step === "select" && (
+                <TransitionWrapper>
                 <>
                   <div data-slot="scheduling-right-header" className="mb-2 flex items-center justify-between gap-2 rounded-none bg-transparent p-0">
                     <span className="text-subtitle1 text-foreground dark:text-white color:text-white">{selectedLabel}</span>
@@ -375,7 +427,7 @@ try {
                         <TabsList
                           noBg
                           data-slot="scheduling-toggle"
-                          className="inline-flex items-center gap-0 p-0 border-0 shadow-none min-w-0 h-auto bg-transparent"
+                          className="inline-flex items-center gap-1 p-0 border-0 shadow-none min-w-0 h-auto bg-transparent"
                         >
                           <TabsTrigger
                             value="12h"
@@ -411,13 +463,14 @@ try {
                           key={slot}
                           variant="muted"
                           data-slot="scheduling-time-slot-btn"
-                          className={cn(
-                            "w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(95%_0_0)] hover:bg-[oklch(90%_0_0)]",
-                            selectedSlot === slot && "bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(22%_0_0)]"
-                          )}
+                          className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(95%_0_0)] hover:bg-[oklch(90%_0_0)]"
                           onClick={() => {
                             setSelectedSlot(slot);
                             setSelectedTime(slot);
+                            if (date) {
+                              setSelectedDate(date);
+                              setStep("details");
+                            }
                           }}
                         >
                           {slot}
@@ -425,21 +478,11 @@ try {
                       ))}
                     </div>
                   </div>
-                  {date && selectedSlot && (
-                    <Button
-                      className="mt-2 w-full rounded-full h-[48px] bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(28%_0_0)]"
-                      onClick={() => {
-                        setSelectedDate(date);
-                        setSelectedTime(selectedSlot);
-                        setStep("details");
-                      }}
-                    >
-                      Next
-                    </Button>
-                  )}
                 </>
+                </TransitionWrapper>
               )}
               {step === "details" && (
+                <TransitionWrapper>
                 <>
                   <h2 className="text-subtitle1 font-medium text-foreground dark:text-white color:text-white mb-4">Your Details</h2>
                   <div className="flex flex-col gap-6">
@@ -506,8 +549,10 @@ try {
                     </Button>
                   </div>
                 </>
+                </TransitionWrapper>
               )}
               {step === "confirm" && (
+                <TransitionWrapper>
                 <>
                   <div className="flex flex-col items-start text-left">
                     <CheckCircle2 className="h-10 w-10 text-green-600 mb-3" aria-hidden />
@@ -524,7 +569,7 @@ try {
                       <dd className="text-foreground dark:text-white color:text-white mt-0.5">
                         {date?.toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
                         <br />
-                        {selectedSlot} ({timeZone.replace("_", " ")})
+                        {selectedSlot} ({formatTimezoneLabel(timeZone)})
                       </dd>
                     </div>
                     <div>
@@ -574,6 +619,7 @@ try {
                     </div>
                   </div>
                 </>
+                </TransitionWrapper>
               )}
             </div>
           </div>

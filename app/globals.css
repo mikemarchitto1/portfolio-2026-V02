@@ -560,6 +560,8 @@
     min-width: 5rem;
     z-index: 2;
     pointer-events: auto;
+    display: flex;
+    gap: 4px;
   }
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_previous,
   [data-slot="scheduling-panel"] [data-slot="scheduling-calendar-wrap"] [data-slot="calendar"] .rdp-button_next {

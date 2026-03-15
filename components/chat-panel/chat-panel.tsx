@@ -74,7 +74,7 @@ try {
               className="chat-input-unified-field h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground outline-none shadow-[0_0_0_1px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
-          <SheetFooter className="mt-4">
+          <SheetFooter className="mt-10">
             <SheetClose asChild>
               <Button variant="outline" className="text-button chat-sheet-close-pill">
                 Close
