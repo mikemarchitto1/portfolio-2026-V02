@@ -64,7 +64,7 @@ const DetailsStep = React.memo(function DetailsStep({
           <label htmlFor="scheduling-notes" className="block text-subtitle2 text-foreground mb-1.5">Notes</label>
           <Textarea
             id="scheduling-notes"
-            placeholder="Please share anything that would be helpful for our meeting, like context or topics to focus on."
+            placeholder="Please share anything that would be helpful for our meeting like context or topics to focus on."
             value={notes}
             onChange={onNotesChange}
             className="w-full min-h-[80px]"
@@ -89,7 +89,7 @@ const DetailsStep = React.memo(function DetailsStep({
           </div>
         )}
       </div>
-      <div className="flex gap-2 mt-6 justify-end">
+      <div className="flex gap-2 mt-8 justify-end">
         <Button variant="outline" className="text-button flex-1 min-w-0" onClick={onBack}>Back</Button>
         <Button
           className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(28%_0_0)]"

@@ -317,13 +317,12 @@ try {
           data-slot="scheduling-panel"
           data-theme={theme}
           className={cn(
-            "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg px-6 pt-6 text-foreground",
-            step === "select" ? "pb-[118px]" : step === "details" ? "pb-6" : "pb-[54px]",
+            "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[952px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg p-6 text-foreground",
+            step === "select" && "pb-[48px]",
             theme !== "light" && "shadow-lg",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]",
             step === "details" && "lg:w-fit",
-            step === "confirm" && "lg:max-w-[500px]",
-            step === "confirm" && "p-[56px]"
+            step === "confirm" && "lg:max-w-[500px]"
           )}
           style={
             theme === "color"
@@ -346,7 +345,7 @@ try {
             </div>
           ) : step === "select" ? (
             /* Stage 1: left panel | calendar | time slots */
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row max-w-full">
+            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-6 max-w-full">
               <div
                 data-slot="scheduling-left-panel"
                 className="flex h-auto min-h-0 w-full flex-col text-foreground pt-1 lg:w-[236px] shrink-0"
@@ -366,8 +365,8 @@ try {
                         Michael Marchitto
                       </span>
                     </div>
-                    <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-foreground">
-                      A 30-minute video call introduction to discuss potential opportunities.
+                    <p className="scheduling-left-desc mt-2 mb-4 text-body2 text-foreground">
+                      A 30‑minute video call designed to introduce ourselves and explore where our work might align.
                     </p>
                   </CardHeader>
                   <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
@@ -471,7 +470,7 @@ try {
             </div>
           ) : (
             /* Stage 2: left panel | details form */
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row max-w-full">
+            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-6 max-w-full">
               <div
                 data-slot="scheduling-left-panel"
                 className="flex h-auto min-h-0 w-full flex-col text-foreground pt-1 lg:w-[236px] shrink-0"
@@ -491,8 +490,8 @@ try {
                         Michael Marchitto
                       </span>
                     </div>
-                    <p className="scheduling-left-desc mt-4 mb-4 text-body2 text-foreground">
-                      A 30-minute video call introduction to discuss potential opportunities.
+                    <p className="scheduling-left-desc mt-2 mb-4 text-body2 text-foreground">
+                      A 30‑minute video call designed to introduce ourselves and explore where our work might align.
                     </p>
                   </CardHeader>
                   <CardContent className="scheduling-left-details flex flex-col gap-4 pt-0 px-0">
