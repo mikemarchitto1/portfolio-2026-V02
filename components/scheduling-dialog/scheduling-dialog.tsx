@@ -317,7 +317,7 @@ try {
           data-slot="scheduling-panel"
           data-theme={theme}
           className={cn(
-            "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[968px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg p-6 px-6 text-foreground",
+            "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg p-6 px-6 text-foreground",
             step === "select" && "pb-[88px]",
             theme !== "light" && "shadow-lg",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]",
@@ -346,7 +346,7 @@ try {
             </div>
           ) : step === "select" ? (
             /* Stage 1: left panel | calendar | time slots */
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-8 max-w-full">
+            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-12 max-w-full">
               <div
                 data-slot="scheduling-left-panel"
                 className="flex h-auto min-h-0 w-full flex-col text-foreground pt-1 lg:w-[236px] shrink-0"
@@ -471,7 +471,7 @@ try {
             </div>
           ) : (
             /* Stage 2: left panel | details form */
-            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-8 max-w-full">
+            <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-12 max-w-full">
               <div
                 data-slot="scheduling-left-panel"
                 className="flex h-auto min-h-0 w-full flex-col text-foreground pt-1 lg:w-[236px] shrink-0"

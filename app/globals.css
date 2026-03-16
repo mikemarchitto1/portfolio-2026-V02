@@ -225,6 +225,7 @@
     --sidebar-muted-foreground: oklch(0% 0 0);
     --sidebar-border: oklch(92% 0 0);
     --sidebar-ring: oklch(70% 0 0);
+    --sidebar-hover: oklch(97% 0 0);
 
     --cta-bg: oklch(0% 0 0);
     --cta-bg-hover: oklch(28% 0 0);
@@ -354,6 +355,7 @@
     --sidebar-accent-foreground: oklch(96% 0.005 264);
     --sidebar-border: oklch(22% 0.015 264);
     --sidebar-ring: oklch(55% 0.2 252);
+    --sidebar-hover: oklch(30% 0 0);
 
     --cta-bg: oklch(100% 0 0);
     --cta-bg-hover: oklch(85% 0 0);

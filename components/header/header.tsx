@@ -23,7 +23,7 @@ console.log("🔥 MODULE LOAD:", "header");
 const navIconClass = "h-5 w-5 shrink-0";
 
 const themeButtonClass =
-  "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border-0 bg-transparent hover:bg-sidebar-accent/10 text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
+  "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
 
 function MobileMenuCrown() {
   const { theme } = useTheme();
@@ -113,7 +113,7 @@ function NavItems({
     <>
       {!hideSidebarToggle && (
         <Button
-          className="nav-button"
+          className="nav-button hover:bg-[var(--sidebar-hover)]"
           variant="outline"
           size="icon"
           onClick={() => {
@@ -122,20 +122,24 @@ function NavItems({
           }}
           aria-label="Toggle sidebar"
         >
-          <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
+          <img
+            src="/images/panel-left.svg"
+            alt=""
+            className="h-5 w-5 dark:[filter:invert(1)]"
+          />
         </Button>
       )}
-      <Button className="nav-button flex items-center gap-2" variant="outline" asChild>
+      <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline" asChild>
         <a href="mailto:hello@carlwalker.com" className="text-button">
           Email
         </a>
       </Button>
-      <Button className="nav-button flex items-center gap-2" variant="outline" asChild>
+      <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline" asChild>
         <a href="/resume.pdf" download className="text-button">
           Resume
         </a>
       </Button>
-      <Button className="nav-button flex items-center gap-2" variant="outline" asChild>
+      <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline" asChild>
         <a
           href="https://linkedin.com/in/carlwalker"
           target="_blank"
@@ -147,7 +151,7 @@ function NavItems({
       </Button>
       {setScheduleOpen != null &&
         (deferRadixTriggers ? (
-          <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar">
+          <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline" aria-label="Open calendar">
             {!hideIcons && <Calendar className={navIconClass} />}
             <span className="text-button">Schedule</span>
           </Button>
@@ -156,7 +160,7 @@ function NavItems({
             open={scheduleOpen}
             onOpenChange={setScheduleOpen}
             trigger={
-              <Button className="nav-button flex items-center gap-2" variant="outline" aria-label="Open calendar" onClick={onItemClick}>
+              <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline" aria-label="Open calendar" onClick={onItemClick}>
                 {!hideIcons && <Calendar className={navIconClass} />}
                 <span className="text-button">Schedule</span>
               </Button>
@@ -165,7 +169,7 @@ function NavItems({
         ))}
       {setChatOpen != null &&
         (deferRadixTriggers ? (
-          <Button className="nav-button flex items-center gap-2" variant="outline">
+          <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline">
             {!hideIcons && <MessageCircle className={navIconClass} />}
             <span className="text-button">Chat</span>
           </Button>
@@ -174,7 +178,7 @@ function NavItems({
             open={chatOpen}
             onOpenChange={setChatOpen}
             trigger={
-              <Button className="nav-button flex items-center gap-2" variant="outline" onClick={onItemClick}>
+              <Button className="nav-button flex items-center gap-2 hover:bg-[var(--sidebar-hover)]" variant="outline" onClick={onItemClick}>
                 {!hideIcons && <MessageCircle className={navIconClass} />}
                 <span className="text-button">Chat</span>
               </Button>
@@ -221,11 +225,15 @@ try {
                 <Button
                   type="button"
                   variant="outline"
-                  className="nav-button h-12 min-h-12 px-6 py-0"
+                  className="nav-button h-12 min-h-12 px-6 py-0 hover:bg-[var(--sidebar-hover)]"
                   onClick={() => setMobileMenuOpen(true)}
                   aria-label="Open menu"
                 >
-                  <img src="/images/panel-left.svg" alt="" className="h-5 w-5" />
+                  <img
+                    src="/images/panel-left.svg"
+                    alt=""
+                    className="h-5 w-5 dark:[filter:invert(1)]"
+                  />
                 </Button>
                 <NavItems
                   hideSidebarToggle
@@ -257,7 +265,7 @@ try {
           id="mobile-menu-sheet"
           side="left"
           className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-sidebar border-border text-sidebar-foreground"
-          closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-sidebar-accent/10 text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
+          closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex flex-col items-start p-4">
