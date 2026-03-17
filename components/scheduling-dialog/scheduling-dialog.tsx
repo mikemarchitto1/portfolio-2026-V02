@@ -123,7 +123,7 @@ try {
         data-range-middle={modifiers.range_middle}
         style={colorStyle}
         className={cn(
-          "rdp-day-button border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] bg-[oklch(100%_0.002_286)] hover:bg-[oklch(100%_0.002_286)] dark:bg-[oklch(26%_0.01_264)] dark:hover:bg-[oklch(30%_0.01_264)] color:bg-[oklch(38%_0.035_165)] color:hover:bg-[oklch(42%_0.035_165)] data-[selected-single=true]:border-[oklch(22%_0_0)] inline-flex items-center justify-center rounded-[6px] transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:!border-transparent data-[outside=true]:!bg-transparent data-[outside=true]:!hover:bg-transparent color:data-[outside=true]:!text-white data-[selected-single=true]:!bg-white data-[selected-single=true]:!text-black data-[selected-single=true]:hover:!bg-white data-[selected-single=true]:dark:!bg-white data-[selected-single=true]:dark:!text-black data-[selected-single=true]:color:!bg-white data-[selected-single=true]:color:!text-black data-[selected-single=true]:rounded-full data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
+          "rdp-day-button border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] bg-muted hover:bg-[oklch(92%_0_0)] dark:bg-[oklch(26%_0.01_264)] dark:hover:bg-[oklch(30%_0.01_264)] color:bg-[oklch(38%_0.035_165)] color:hover:bg-[oklch(48%_0.035_165)] data-[selected-single=true]:border-[oklch(22%_0_0)] inline-flex items-center justify-center rounded-[6px] transition-all disabled:pointer-events-none disabled:opacity-50 focus-visible:border-0 focus-visible:ring-0 focus-visible:outline-none text-button text-foreground data-[outside=true]:!border-transparent data-[outside=true]:!bg-transparent data-[outside=true]:!hover:bg-transparent color:data-[outside=true]:!text-white data-[selected-single=true]:!bg-black data-[selected-single=true]:!text-white data-[selected-single=true]:hover:!bg-black data-[selected-single=true]:dark:!bg-white data-[selected-single=true]:dark:!text-black data-[selected-single=true]:color:!bg-white data-[selected-single=true]:color:!text-black data-[selected-single=true]:rounded-full data-[range-middle=true]:text-foreground data-[range-start=true]:text-white data-[range-end=true]:text-white group-data-[focused=true]/day:border-0 group-data-[focused=true]/day:ring-0 flex aspect-square size-auto w-full min-w-(--cell-size) leading-none group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10 data-[range-end=true]:rounded-full data-[range-end=true]:rounded-r-full data-[range-middle=true]:rounded-none data-[range-start=true]:rounded-full data-[range-start=true]:rounded-l-full px-0 py-0",
           className
         )}
         {...props}
@@ -317,7 +317,7 @@ try {
           data-slot="scheduling-panel"
           data-theme={theme}
           className={cn(
-            "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] p-6 px-6 text-foreground",
+            "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] p-6 px-6 text-foreground",
             step === "select" && "pb-[88px]",
             theme !== "light" && "shadow-lg",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]",
@@ -398,7 +398,7 @@ try {
                         <button
                           type="button"
                           style={{ paddingTop: 8, paddingBottom: 8 }}
-                          className="-ml-2 -mt-[6px] flex items-center gap-2 rounded-[6px] px-2 leading-normal text-body2 text-foreground transition-colors hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)]"
+                          className="-ml-2 -mt-[6px] flex items-center gap-2 rounded-[6px] px-2 leading-normal text-body2 text-foreground transition-colors hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)]"
                         >
                           <Globe className="h-4 w-4 shrink-0" />
                           <span className="max-w-[180px] truncate">{formatTimezoneLabel(timeZone)}</span>
@@ -411,7 +411,7 @@ try {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
                         align="start"
-                        className="w-[var(--radix-dropdown-menu-trigger-width)] max-w-[var(--radix-dropdown-menu-trigger-width)] max-h-[280px] overflow-y-auto shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_0_2px_rgba(0,0,0,0.03)]"
+                        className="w-[var(--radix-dropdown-menu-trigger-width)] max-w-[var(--radix-dropdown-menu-trigger-width)] max-h-[280px] overflow-y-auto shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_0_2px_rgba(0,0,0,0.03)] color:bg-[oklch(24%_0.035_165)]"
                       >
                         {TIME_ZONES.map((tz) => (
                           <DropdownMenuItem
@@ -419,8 +419,8 @@ try {
                             ref={tz === timeZone ? selectedRef : null}
                             onSelect={() => setTimeZone(tz)}
                             className={cn(
-                              "flex items-center gap-2 rounded-[4px] py-2 pl-0.5 leading-normal hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] focus:bg-[oklch(100%_0.002_286)] dark:focus:bg-[oklch(30%_0.01_264)] color:focus:bg-[oklch(42%_0.035_165)]",
-                              timeZone === tz && "!bg-white !text-black dark:!bg-white dark:!text-black color:!bg-white color:!text-black"
+                              "flex items-center gap-2 rounded-[4px] py-2 pl-0.5 leading-normal hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] focus:bg-[oklch(92%_0_0)] dark:focus:bg-[oklch(30%_0.01_264)] color:focus:bg-[oklch(48%_0.035_165)]",
+                              timeZone === tz && "!bg-white !text-black dark:!bg-transparent dark:!text-white color:!bg-white color:!text-black"
                             )}
                           >
                             <span className="flex h-4 w-4 shrink-0 items-center justify-center">

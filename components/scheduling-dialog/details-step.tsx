@@ -46,7 +46,7 @@ const DetailsStep = React.memo(function DetailsStep({
             placeholder="Enter your name"
             value={name}
             onChange={onNameChange}
-            className="w-full dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
+            className="w-full border border-[oklch(92%_0_0)] color:border-[oklch(48%_0.035_165)] bg-muted color:bg-[oklch(38%_0.035_165)] text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] focus-visible:ring-0 focus-visible:ring-offset-0"
           />
         </div>
         <div>
@@ -57,7 +57,7 @@ const DetailsStep = React.memo(function DetailsStep({
             placeholder="Enter your email"
             value={email}
             onChange={onEmailChange}
-            className="w-full dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
+            className="w-full border border-[oklch(92%_0_0)] color:border-[oklch(48%_0.035_165)] bg-muted color:bg-[oklch(38%_0.035_165)] text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] focus-visible:ring-0 focus-visible:ring-offset-0"
           />
         </div>
         <div>
@@ -67,7 +67,7 @@ const DetailsStep = React.memo(function DetailsStep({
             placeholder="Please share anything that would be helpful for our meeting like context or topics to focus on."
             value={notes}
             onChange={onNotesChange}
-            className="w-full min-h-[80px] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
+            className="w-full min-h-[80px] border border-[oklch(92%_0_0)] color:border-[oklch(48%_0.035_165)] bg-muted color:bg-[oklch(38%_0.035_165)] text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] focus-visible:ring-0 focus-visible:ring-offset-0"
           />
         </div>
         <button
@@ -84,15 +84,15 @@ const DetailsStep = React.memo(function DetailsStep({
               placeholder="Enter email"
               value={guestEmail}
               onChange={onGuestEmailChange}
-              className="w-full dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
+              className="w-full border border-[oklch(92%_0_0)] color:border-[oklch(48%_0.035_165)] bg-muted color:bg-[oklch(38%_0.035_165)] text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] focus-visible:ring-0 focus-visible:ring-offset-0"
             />
           </div>
         )}
       </div>
       <div className="flex gap-2 mt-8 justify-end">
-        <Button variant="outline" className="text-button flex-1 min-w-0 border-0 hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)]" onClick={onBack}>Back</Button>
+        <Button variant="outline" className="text-button flex-1 min-w-0 border-0 hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)]" onClick={onBack}>Back</Button>
         <Button
-          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] bg-[oklch(100%_0.002_286)] hover:bg-[oklch(100%_0.002_286)] dark:bg-[oklch(64%_0.01_264)] dark:hover:bg-[oklch(68%_0.01_264)] color:bg-[oklch(76%_0.035_165)] color:hover:bg-[oklch(80%_0.035_165)] !text-black"
+          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] bg-primary hover:bg-primary dark:bg-[oklch(64%_0.01_264)] dark:hover:bg-[oklch(68%_0.01_264)] color:bg-[oklch(76%_0.035_165)] color:hover:bg-[oklch(80%_0.035_165)] !text-white dark:!text-black color:!text-[oklch(24%_0.035_165)]"
           onClick={onConfirm}
         >
           Confirm

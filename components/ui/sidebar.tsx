@@ -230,7 +230,7 @@ try {
     const baseClasses =
       "flex w-full -ml-[6px] items-center gap-2 rounded-md border-0 bg-transparent py-2 px-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:transition-colors";
     const hoverBg =
-      "absolute inset-y-0 -left-1 -right-1 rounded-md bg-[var(--sidebar-hover)] opacity-0 group-hover:opacity-100 transition pointer-events-none";
+      "absolute inset-y-0 -left-1 -right-1 rounded-md bg-[var(--sidebar-hover)] color:bg-[oklch(42%_0.035_165)] opacity-0 group-hover:opacity-100 transition pointer-events-none";
 
     if (asChild) {
       return (
