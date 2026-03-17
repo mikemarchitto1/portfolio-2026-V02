@@ -225,7 +225,7 @@
     --sidebar-muted-foreground: oklch(0% 0 0);
     --sidebar-border: oklch(92% 0 0);
     --sidebar-ring: oklch(70% 0 0);
-    --sidebar-hover: oklch(97% 0 0);
+    --sidebar-hover: oklch(94% 0 0);
 
     --cta-bg: oklch(0% 0 0);
     --cta-bg-hover: oklch(28% 0 0);
@@ -355,7 +355,7 @@
     --sidebar-accent-foreground: oklch(96% 0.005 264);
     --sidebar-border: oklch(22% 0.015 264);
     --sidebar-ring: oklch(55% 0.2 252);
-    --sidebar-hover: oklch(30% 0 0);
+    --sidebar-hover: oklch(30% 0.01 264);
 
     --cta-bg: oklch(100% 0 0);
     --cta-bg-hover: oklch(85% 0 0);
@@ -402,7 +402,7 @@
     --sidebar-primary: oklch(28% 0.055 155);
     --sidebar-primary-foreground: oklch(98% 0 0);
     --sidebar-accent: oklch(62% 0.08 155);
-    --sidebar-accent-foreground: oklch(18% 0.02 140);
+    --sidebar-accent-foreground: oklch(96% 0.01 140);
     --sidebar-border: oklch(11% 0.03 165);
     --sidebar-ring: oklch(28% 0.055 155);
     --sidebar-hover: oklch(38% 0.065 155);
@@ -411,6 +411,34 @@
     --cta-bg: oklch(100% 0 0);
     --cta-bg-hover: oklch(85% 0 0);
     --cta-color: oklch(0% 0 0);
+
+    /* Keep sidebar text/icons white on hover in color mode */
+    [data-sidebar="menu-button"],
+    [data-sidebar="menu-button"] svg {
+      color: var(--sidebar-foreground);
+    }
+
+    [data-sidebar="menu-button"]:hover,
+    [data-sidebar="menu-button"]:hover svg {
+      color: var(--sidebar-foreground);
+    }
+
+    .sidebar-icon-btn,
+    .sidebar-icon-btn svg {
+      color: var(--sidebar-foreground);
+    }
+
+    .sidebar-icon-btn:hover,
+    .sidebar-icon-btn:hover svg {
+      color: var(--sidebar-foreground);
+    }
+
+  }
+
+  /* sidebar theme icon buttons: no border in any theme */
+  .sidebar-icon-btn {
+    border-width: 0 !important;
+    border-color: transparent !important;
   }
 
   html {

@@ -2,27 +2,10 @@
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { useTheme } from "@/hooks/use-theme";
-import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
-  const { theme } = useTheme();
-  const isColorMode = theme === "color";
-
   return (
-    <section
-      className={cn("hero w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent", isColorMode && "heroWithBg")}
-      style={
-        isColorMode
-          ? {
-              backgroundImage: 'url("/images/forest-6.png?v=21")',
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-            }
-          : undefined
-      }
-    >
+    <section className="hero w-full min-w-0 py-6 md:py-9 lg:py-12 bg-transparent">
       <div className="content w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
 

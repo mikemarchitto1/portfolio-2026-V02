@@ -46,7 +46,7 @@ const DetailsStep = React.memo(function DetailsStep({
             placeholder="Enter your name"
             value={name}
             onChange={onNameChange}
-            className="w-full"
+            className="w-full dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
           />
         </div>
         <div>
@@ -57,7 +57,7 @@ const DetailsStep = React.memo(function DetailsStep({
             placeholder="Enter your email"
             value={email}
             onChange={onEmailChange}
-            className="w-full"
+            className="w-full dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
           />
         </div>
         <div>
@@ -67,7 +67,7 @@ const DetailsStep = React.memo(function DetailsStep({
             placeholder="Please share anything that would be helpful for our meeting like context or topics to focus on."
             value={notes}
             onChange={onNotesChange}
-            className="w-full min-h-[80px]"
+            className="w-full min-h-[80px] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
           />
         </div>
         <button
@@ -84,15 +84,15 @@ const DetailsStep = React.memo(function DetailsStep({
               placeholder="Enter email"
               value={guestEmail}
               onChange={onGuestEmailChange}
-              className="w-full"
+              className="w-full dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)]"
             />
           </div>
         )}
       </div>
       <div className="flex gap-2 mt-8 justify-end">
-        <Button variant="outline" className="text-button flex-1 min-w-0" onClick={onBack}>Back</Button>
+        <Button variant="outline" className="text-button flex-1 min-w-0 border-0 hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)]" onClick={onBack}>Back</Button>
         <Button
-          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] bg-[oklch(22%_0_0)] text-white hover:bg-[oklch(28%_0_0)]"
+          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] bg-[oklch(100%_0.002_286)] hover:bg-[oklch(100%_0.002_286)] dark:bg-[oklch(64%_0.01_264)] dark:hover:bg-[oklch(68%_0.01_264)] color:bg-[oklch(76%_0.035_165)] color:hover:bg-[oklch(80%_0.035_165)] !text-black"
           onClick={onConfirm}
         >
           Confirm

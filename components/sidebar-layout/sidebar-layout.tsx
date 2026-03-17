@@ -23,7 +23,7 @@ import { Sun, Moon, Palette } from "lucide-react";
 import Header from "@/components/header/header";
 
 const themeButtonClass =
-  "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
+  "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md !border-0 !border-transparent !outline-none bg-transparent hover:bg-[var(--sidebar-hover)] text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
 
 let SidebarLayout: React.FC<{ children: React.ReactNode }>;
 try {
@@ -52,6 +52,13 @@ try {
     );
   }
 
+  const themeBtnNoBorderStyle: React.CSSProperties = {
+    border: "none",
+    outline: "none",
+    outlineOffset: 0,
+    boxShadow: "none",
+  };
+
   function SidebarThemeSwitcher() {
     const { theme, setTheme } = useTheme();
     return (
@@ -63,6 +70,7 @@ try {
           variant="ghost"
           size="icon"
           className={themeButtonClass}
+          style={themeBtnNoBorderStyle}
           aria-label="Light mode"
           aria-pressed={theme === "light"}
           data-state={theme === "light" ? "on" : "off"}
@@ -74,6 +82,7 @@ try {
           variant="ghost"
           size="icon"
           className={themeButtonClass}
+          style={themeBtnNoBorderStyle}
           aria-label="Dark mode"
           aria-pressed={theme === "dark"}
           data-state={theme === "dark" ? "on" : "off"}
@@ -85,6 +94,7 @@ try {
           variant="ghost"
           size="icon"
           className={themeButtonClass}
+          style={themeBtnNoBorderStyle}
           aria-label="Color mode"
           aria-pressed={theme === "color"}
           data-state={theme === "color" ? "on" : "off"}

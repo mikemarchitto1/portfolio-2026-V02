@@ -36,8 +36,8 @@ const SelectStep = React.memo(function SelectStep({
                 className={cn(
                   "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border",
                   timeFormat === "12h"
-                    ? "bg-[oklch(96%_0_0)] text-[oklch(0%_0_0)] border-input"
-                    : "bg-transparent text-[oklch(55%_0_0)] border-transparent hover:bg-[oklch(91%_0_0)]"
+                    ? "border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] bg-[oklch(100%_0.002_286)] dark:bg-[oklch(26%_0.01_264)] color:bg-[oklch(38%_0.035_165)] text-foreground dark:text-white color:text-white"
+                    : "bg-transparent text-[oklch(55%_0_0)] border-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)]"
                 )}
               >
                 12h
@@ -47,8 +47,8 @@ const SelectStep = React.memo(function SelectStep({
                 className={cn(
                   "rounded-full px-2.5 py-1 transition-colors text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border",
                   timeFormat === "24h"
-                    ? "bg-[oklch(96%_0_0)] text-[oklch(0%_0_0)] border-input"
-                    : "bg-transparent text-[oklch(55%_0_0)] border-transparent hover:bg-[oklch(91%_0_0)]"
+                    ? "border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] bg-[oklch(100%_0.002_286)] dark:bg-[oklch(26%_0.01_264)] color:bg-[oklch(38%_0.035_165)] text-foreground dark:text-white color:text-white"
+                    : "bg-transparent text-[oklch(55%_0_0)] border-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)]"
                 )}
               >
                 24h
@@ -65,7 +65,7 @@ const SelectStep = React.memo(function SelectStep({
               key={slot}
               variant="ghost"
               data-slot="scheduling-time-slot-btn"
-              className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-input bg-[oklch(96%_0_0)] hover:bg-[oklch(91%_0_0)]"
+              className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] bg-[oklch(100%_0.002_286)] hover:bg-[oklch(100%_0.002_286)] dark:bg-[oklch(26%_0.01_264)] dark:hover:bg-[oklch(30%_0.01_264)] color:bg-[oklch(38%_0.035_165)] color:hover:bg-[oklch(42%_0.035_165)]"
               onClick={() => onSlotSelect(slot)}
             >
               {slot}

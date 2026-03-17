@@ -19,12 +19,13 @@ function ChatBubble({
       data-slot="chat-bubble"
       data-variant={variant}
       className={cn(
-        "relative max-w-[85%] min-w-0 min-h-12 rounded-2xl border px-0 py-0 gap-0 border-border shadow-none",
+        "relative max-w-[85%] min-w-0 min-h-12 rounded-2xl border px-0 py-0 gap-0 border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] shadow-none",
         variant === "received" &&
-          "rounded-bl-md bg-muted text-muted-foreground",
+          "rounded-bl-md bg-[oklch(100%_0.002_286)] dark:bg-[oklch(26%_0.01_264)] color:bg-[oklch(38%_0.035_165)] text-foreground",
         variant === "sent" &&
           "ml-auto rounded-br-md bg-primary text-primary-foreground",
-        variant === "default" && "bg-muted text-muted-foreground",
+        variant === "default" &&
+          "bg-[oklch(100%_0.002_286)] dark:bg-[oklch(26%_0.01_264)] color:bg-[oklch(38%_0.035_165)] text-foreground",
         className
       )}
       {...rest}

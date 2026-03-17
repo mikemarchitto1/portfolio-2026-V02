@@ -43,7 +43,7 @@ try {
           id="chat-panel"
           side="right"
           className="chat-sheet flex w-full max-w-full flex-col sm:w-full sm:max-w-full md:w-full md:max-w-full lg:max-w-md border-0 bg-sidebar text-sidebar-foreground p-4"
-          closeButtonClassName="text-foreground [&_svg]:text-current"
+          closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>
           <SheetHeader className="gap-6">
@@ -59,7 +59,7 @@ try {
               <div className="text-foreground">
                 <ChatBubble
                   variant="received"
-                  className="bg-muted text-muted-foreground border border-border"
+                  className="border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)]"
                 >
                   <ChatBubbleMessage>Hello. What are you curious about today?</ChatBubbleMessage>
                 </ChatBubble>
@@ -71,12 +71,12 @@ try {
               type="text"
               placeholder="Type a message…"
               aria-label="Chat message"
-              className="chat-input-unified-field h-12 w-full rounded-md border border-input bg-background px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground outline-none shadow-[0_0_0_1px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+              className="chat-input-unified-field h-12 w-full rounded-md border border-input bg-[oklch(97%_0_0)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground outline-none shadow-[0_0_0_1px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
           <SheetFooter className="mt-10">
             <SheetClose asChild>
-              <Button variant="outline" className="text-button chat-sheet-close-pill">
+              <Button variant="outline" className="text-button chat-sheet-close-pill bg-transparent border border-[oklch(100%_0.002_286)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(42%_0.035_165)] hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)]">
                 Close
               </Button>
             </SheetClose>

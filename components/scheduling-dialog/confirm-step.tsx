@@ -54,7 +54,7 @@ const ConfirmStep = React.memo(function ConfirmStep({
             <dt className="text-foreground dark:text-white color:text-white font-medium">Who</dt>
             <dd className="text-foreground dark:text-white color:text-white mt-0.5">
               <span className="inline-flex items-center gap-1">
-                Michael Marchitto <span className="rounded bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5">Host</span>
+                Michael Marchitto <span className="rounded bg-[oklch(100%_0.002_286)] dark:bg-[oklch(78%_0.01_264)] color:bg-[oklch(92%_0.035_165)] text-black text-xs px-1.5 py-0.5">Host</span>
               </span>
               <br />
               {email}
@@ -83,16 +83,16 @@ const ConfirmStep = React.memo(function ConfirmStep({
           <button type="button" className="text-body2 text-foreground no-underline mr-4 transition-colors hover:text-[oklch(50%_0_0)]" onClick={onReschedule}>Reschedule</button>
           <button type="button" className="text-body2 text-foreground no-underline transition-colors hover:text-[oklch(50%_0_0)]" onClick={onCancel}>Cancel</button>
           <div className="flex items-center gap-1 ml-[88px]">
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(90%_0_0)] transition-colors" aria-label="Google Calendar">
+            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] transition-colors" aria-label="Google Calendar">
               <SiGooglecalendar className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(90%_0_0)] transition-colors" aria-label="Outlook">
+            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] transition-colors" aria-label="Outlook">
               <Mail className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(90%_0_0)] transition-colors" aria-label="Office 365">
+            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] transition-colors" aria-label="Office 365">
               <CalendarPlus className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(90%_0_0)] transition-colors" aria-label="ICS">
+            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(100%_0.002_286)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] transition-colors" aria-label="ICS">
               <FiDownload className="h-4 w-4" />
             </Button>
           </div>
