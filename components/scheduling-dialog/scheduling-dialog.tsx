@@ -322,7 +322,7 @@ try {
             theme !== "light" && "shadow-lg",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]",
             step === "details" && "lg:w-fit",
-            step === "confirm" && "lg:max-w-[552px] pr-[56px]"
+            step === "confirm" && "!p-0 lg:max-w-[464px] pr-[56px]"
           )}
           style={
             theme === "color"
@@ -333,7 +333,7 @@ try {
           }
         >
           {step === "confirm" ? (
-            <div className="flex min-h-0 w-full flex-none lg:flex-1 lg:min-h-0 flex-col items-start">
+            <div className="flex min-h-0 w-full flex-none lg:flex-1 lg:min-h-0 flex-col items-start p-[24px]">
               <ConfirmStep
                 name={name}
                 email={email}
