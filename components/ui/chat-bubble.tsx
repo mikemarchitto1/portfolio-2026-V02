@@ -19,13 +19,13 @@ function ChatBubble({
       data-slot="chat-bubble"
       data-variant={variant}
       className={cn(
-        "relative max-w-[85%] min-w-0 min-h-12 rounded-2xl border px-0 py-0 gap-0 border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] shadow-none",
+        "relative max-w-[85%] min-w-0 min-h-12 rounded-2xl border px-0 py-0 gap-0 border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)] shadow-none",
         variant === "received" &&
-          "rounded-bl-md bg-[oklch(94%_0_0)] text-muted-foreground dark:bg-[oklch(26%_0.01_264)] color:bg-[oklch(38%_0.035_165)] dark:text-foreground color:text-foreground",
+          "rounded-bl-md bg-[oklch(94%_0_0)] text-muted-foreground dark:bg-[oklch(22%_0.01_264)] color:bg-[oklch(30%_0.035_165)] dark:text-foreground color:text-foreground",
         variant === "sent" &&
           "ml-auto rounded-br-md bg-primary text-primary-foreground",
         variant === "default" &&
-          "bg-[oklch(94%_0_0)] text-muted-foreground dark:bg-[oklch(26%_0.01_264)] color:bg-[oklch(38%_0.035_165)] dark:text-foreground color:text-foreground",
+          "bg-[oklch(94%_0_0)] text-muted-foreground dark:bg-[oklch(22%_0.01_264)] color:bg-[oklch(30%_0.035_165)] dark:text-foreground color:text-foreground",
         className
       )}
       {...rest}

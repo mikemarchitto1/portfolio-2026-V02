@@ -59,7 +59,7 @@ try {
               <div className="text-foreground">
                 <ChatBubble
                   variant="received"
-                  className="border border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)]"
+                  className="border border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)]"
                 >
                   <ChatBubbleMessage>Hello. What are you curious about today?</ChatBubbleMessage>
                 </ChatBubble>
@@ -71,12 +71,12 @@ try {
               type="text"
               placeholder="Type a message…"
               aria-label="Chat message"
-              className="chat-input-unified-field h-12 w-full rounded-md border border-[oklch(92%_0_0)] color:border-[oklch(48%_0.035_165)] bg-[oklch(94%_0_0)] color:bg-[oklch(38%_0.035_165)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] outline-none shadow-[0_0_0_1px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(92%_0_0)] color:focus-visible:ring-[oklch(48%_0.035_165)] dark:focus-visible:ring-[oklch(30%_0.01_264)] focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
+              className="chat-input-unified-field h-12 w-full rounded-md border border-[oklch(92%_0_0)] color:border-[oklch(44%_0.035_165)] bg-[oklch(94%_0_0)] color:bg-[oklch(30%_0.035_165)] dark:bg-[oklch(22%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] outline-none shadow-[0_0_0_1px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(92%_0_0)] color:focus-visible:ring-[oklch(44%_0.035_165)] dark:focus-visible:ring-[oklch(30%_0.01_264)] focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
             />
           </div>
           <SheetFooter className="mt-10">
             <SheetClose asChild>
-              <Button variant="outline" className="text-button chat-sheet-close-pill bg-transparent border border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)]">
+              <Button variant="outline" className="text-button chat-sheet-close-pill bg-transparent border border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]">
                 Close
               </Button>
             </SheetClose>
