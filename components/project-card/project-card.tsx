@@ -16,7 +16,7 @@ export default function ProjectCard({
   href?: string;
 }) {
   const content = (
-    <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden shadow-elevation bg-[oklch(100%_0_0)]">
+    <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden bg-[oklch(100%_0_0)]">
       <div className="relative w-full h-full min-h-[240px] md:min-h-[320px] overflow-hidden rounded-t-2xl md:rounded-t-none md:rounded-l-2xl bg-[oklch(100%_0_0)]">
         <Image
           src={image}

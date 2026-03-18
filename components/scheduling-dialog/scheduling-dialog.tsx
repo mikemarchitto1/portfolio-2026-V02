@@ -319,7 +319,6 @@ try {
           className={cn(
             "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(28%_0.035_165)] p-6 px-6 text-foreground",
             step === "select" && "pb-[88px]",
-            theme !== "light" && "shadow-lg",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]",
             step === "details" && "lg:w-fit",
             step === "confirm" && "!p-0 lg:max-w-[464px] pr-[56px]"
@@ -411,7 +410,7 @@ try {
                       </DropdownMenuTrigger>
                       <DropdownMenuContent
                         align="start"
-                        className="w-[var(--radix-dropdown-menu-trigger-width)] max-w-[var(--radix-dropdown-menu-trigger-width)] max-h-[280px] overflow-y-auto shadow-[0_0_0_1px_rgba(0,0,0,0.02),0_0_2px_rgba(0,0,0,0.03)] color:bg-[oklch(24%_0.035_165)]"
+                        className="w-[var(--radix-dropdown-menu-trigger-width)] max-w-[var(--radix-dropdown-menu-trigger-width)] max-h-[280px] overflow-y-auto color:bg-[oklch(24%_0.035_165)]"
                       >
                         {TIME_ZONES.map((tz) => (
                           <DropdownMenuItem

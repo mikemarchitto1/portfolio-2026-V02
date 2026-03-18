@@ -116,7 +116,7 @@ try {
         {...props}
       >
         <aside
-          className="h-full min-w-0 w-full flex flex-col bg-sidebar-background text-sidebar-foreground overflow-hidden shadow-elevation border-r border-border"
+          className="h-full min-w-0 w-full flex flex-col bg-sidebar-background text-sidebar-foreground overflow-hidden border-r border-border"
           style={{ width }}
         >
           {children}
