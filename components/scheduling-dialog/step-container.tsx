@@ -10,7 +10,7 @@ export type StepContainerProps = {
 export function StepContainer({ step, children }: StepContainerProps) {
   const isSelectOrDetails = step === "select" || step === "details";
   /** Fill row height (set by dialog) so no grow/shrink pop; overflow hidden for slide animation. */
-  const style: React.CSSProperties =
+  const style: React.CSSProperties | undefined =
     isSelectOrDetails
       ? { height: "100%", minHeight: 0, overflow: "hidden" }
       : undefined;

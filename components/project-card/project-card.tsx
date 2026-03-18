@@ -38,9 +38,9 @@ export default function ProjectCard({
           </p>
 
           <Button
-            variant="default"
+            variant="black"
             size="lg"
-            className="project-card-cta w-fit rounded-full bg-[oklch(0%_0_0)] text-[oklch(100%_0_0)] hover:bg-[oklch(20%_0_0)]"
+            className="project-card-cta w-fit rounded-full"
             asChild
           >
             {href ? (

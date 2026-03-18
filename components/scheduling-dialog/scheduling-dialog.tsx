@@ -420,7 +420,7 @@ try {
                             onSelect={() => setTimeZone(tz)}
                             className={cn(
                               "flex items-center gap-2 rounded-[4px] py-2 pl-0.5 leading-normal hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] focus:bg-[oklch(92%_0_0)] dark:focus:bg-[oklch(30%_0.01_264)] color:focus:bg-[oklch(48%_0.035_165)]",
-                              timeZone === tz && "!bg-white !text-black dark:!bg-transparent dark:!text-white color:!bg-white color:!text-black"
+                              timeZone === tz && "!bg-white !text-black dark:!bg-transparent dark:!text-white color:!bg-transparent color:!text-white"
                             )}
                           >
                             <span className="flex h-4 w-4 shrink-0 items-center justify-center">

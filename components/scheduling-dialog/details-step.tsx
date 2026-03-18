@@ -92,7 +92,8 @@ const DetailsStep = React.memo(function DetailsStep({
       <div className="flex gap-2 mt-8 justify-end">
         <Button variant="outline" className="text-button flex-1 min-w-0 border-0 hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)]" onClick={onBack}>Back</Button>
         <Button
-          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] bg-primary hover:bg-primary dark:bg-[oklch(64%_0.01_264)] dark:hover:bg-[oklch(68%_0.01_264)] color:bg-[oklch(76%_0.035_165)] color:hover:bg-[oklch(80%_0.035_165)] !text-white dark:!text-black color:!text-[oklch(24%_0.035_165)]"
+          variant="black"
+          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(48%_0.035_165)] dark:bg-white dark:hover:bg-[oklch(92%_0_0)] color:bg-[oklch(76%_0.035_165)] color:hover:bg-[oklch(80%_0.035_165)] dark:!text-black color:!text-[oklch(24%_0.035_165)]"
           onClick={onConfirm}
         >
           Confirm
