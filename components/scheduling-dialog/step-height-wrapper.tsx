@@ -40,7 +40,7 @@ export function StepHeightWrapper({ step, children }: StepHeightWrapperProps) {
     return () => clearTimeout(t);
   }, [step]);
 
-  const style: React.CSSProperties =
+  const style: React.CSSProperties | undefined =
     isLocked && lockedHeight != null && lockedHeight > 0
       ? { height: lockedHeight, overflow: "hidden" }
       : undefined;
