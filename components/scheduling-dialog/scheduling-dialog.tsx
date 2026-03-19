@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Clock, Video, Globe, XIcon, ChevronDown, ChevronUp, Check, Calendar as CalendarIcon } from "lucide-react";
+import { Clock, Video, Globe, XIcon, ChevronDown, ChevronUp, Check, Loader2, Calendar as CalendarIcon } from "lucide-react";
 import type { DayButton } from "react-day-picker";
 import {
   Dialog,
@@ -11,7 +11,6 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
   DropdownMenu,
@@ -138,30 +137,142 @@ try {
     );
   }
 
-  function generateTimeSlots(use24h: boolean): string[] {
-    const slots: string[] = [];
-    for (let h = 12; h <= 19; h++) {
-      for (const m of [0, 30]) {
-        if (h === 19 && m === 30) break;
-        if (use24h) {
-          slots.push(`${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`);
-        } else {
-          const hour12 = h === 12 ? 12 : h > 12 ? h - 12 : h;
-          const ampm = h < 12 ? "am" : "pm";
-          slots.push(`${hour12}:${m.toString().padStart(2, "0")}${ampm}`);
-        }
+  function pad2(n: number): string {
+    return n.toString().padStart(2, "0");
+  }
+
+  function formatYmdLocal(d: Date): string {
+    return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+  }
+
+  function formatStartTimeLabel(start: string, fmt: "12h" | "24h"): string {
+    const parsed = new Date(start);
+    if (Number.isNaN(parsed.getTime())) return start;
+
+    const hours = parsed.getHours();
+    const minutes = parsed.getMinutes();
+
+    if (fmt === "24h") return `${pad2(hours)}:${pad2(minutes)}`;
+
+    const hour12 = hours % 12 === 0 ? 12 : hours % 12;
+    const ampm = hours < 12 ? "am" : "pm";
+    return `${hour12}:${pad2(minutes)}${ampm}`;
+  }
+
+  function formatCalendarDateUtc(dt: string): string | null {
+    const parsed = new Date(dt);
+    if (Number.isNaN(parsed.getTime())) return null;
+    const yyyy = parsed.getUTCFullYear();
+    const mm = pad2(parsed.getUTCMonth() + 1);
+    const dd = pad2(parsed.getUTCDate());
+    const hh = pad2(parsed.getUTCHours());
+    const mi = pad2(parsed.getUTCMinutes());
+    const ss = pad2(parsed.getUTCSeconds());
+    return `${yyyy}${mm}${dd}T${hh}${mi}${ss}Z`;
+  }
+
+  function getByPath(obj: unknown, path: string): unknown {
+    return path.split(".").reduce<unknown>((acc, key) => {
+      if (acc && typeof acc === "object" && key in acc) {
+        return (acc as Record<string, unknown>)[key];
+      }
+      return undefined;
+    }, obj);
+  }
+
+  function pickFirstString(obj: unknown, paths: string[]): string | null {
+    for (const p of paths) {
+      const v = getByPath(obj, p);
+      if (typeof v === "string" && v.trim()) return v.trim();
+    }
+    return null;
+  }
+
+  function pickFirstUrlString(obj: unknown, paths: string[]): string | null {
+    for (const p of paths) {
+      const v = getByPath(obj, p);
+      if (typeof v === "string") {
+        const trimmed = v.trim();
+        if (trimmed && /^https?:\/\//i.test(trimmed)) return trimmed;
       }
     }
-    return slots;
+    return null;
+  }
+
+  function extractAvailabilityStartValues(data: unknown, requestedDateYmd?: string): string[] {
+    const rawItems: unknown[] = [];
+
+    if (Array.isArray(data)) {
+      rawItems.push(...data);
+    } else if (data && typeof data === "object") {
+      const obj = data as Record<string, unknown>;
+
+      // Common shapes: { [date]: [..] }, { slots: { [date]: [..] } }, { availableTimes: [...] }
+      if (requestedDateYmd && Array.isArray(obj[requestedDateYmd])) {
+        rawItems.push(...(obj[requestedDateYmd] as unknown[]));
+      }
+
+      const slotsObj = obj.slots;
+      if (!rawItems.length && slotsObj && typeof slotsObj === "object") {
+        const slotsRec = slotsObj as Record<string, unknown>;
+        const dateKey =
+          requestedDateYmd && Array.isArray(slotsRec[requestedDateYmd])
+            ? requestedDateYmd
+            : Object.keys(slotsRec)[0];
+        const arr = dateKey && Array.isArray(slotsRec[dateKey]) ? (slotsRec[dateKey] as unknown[]) : null;
+        if (arr) rawItems.push(...arr);
+      }
+
+      const innerData = obj.data && typeof obj.data === "object" ? (obj.data as Record<string, unknown>) : null;
+      const arrayCandidates = [
+        obj.availableTimes,
+        obj.availableSlots,
+        obj.collection,
+        obj.slots,
+        innerData?.availableTimes,
+        innerData?.availableSlots,
+      ].filter((v): v is unknown[] => Array.isArray(v));
+
+      for (const arr of arrayCandidates) rawItems.push(...arr);
+    }
+
+    const starts: string[] = [];
+    for (const item of rawItems) {
+      if (typeof item === "string") {
+        starts.push(item);
+        continue;
+      }
+      if (!item || typeof item !== "object") continue;
+
+      const start =
+        pickFirstString(item, ["start", "startTime", "time", "value"]) ??
+        pickFirstString(item, ["timeZoneStart", "slot", "slotStart", "start_time"]);
+
+      if (start) starts.push(start);
+    }
+
+    // De-dupe while keeping order.
+    const seen = new Set<string>();
+    return starts.filter((s) => {
+      if (seen.has(s)) return false;
+      seen.add(s);
+      return true;
+    });
   }
 
   SchedulingDialog = function SchedulingDialog({ trigger, open, onOpenChange }: SchedulingDialogProps) {
     const { theme } = useTheme();
-    const [step, setStep] = React.useState<"select" | "details" | "confirm">("select");
+    const [step, setStep] = React.useState<"date" | "time" | "details" | "confirm">("date");
     const [date, setDate] = React.useState<Date | undefined>(new Date());
-    const [selectedSlot, setSelectedSlot] = React.useState<string | null>(null);
     const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
+    const [availableStarts, setAvailableStarts] = React.useState<string[]>([]);
+    const [availabilityLoading, setAvailabilityLoading] = React.useState(false);
+    const [availabilityError, setAvailabilityError] = React.useState<string | null>(null);
     const [selectedTime, setSelectedTime] = React.useState<string | null>(null);
+    const [selectedTimeLabel, setSelectedTimeLabel] = React.useState<string | null>(null);
+    const [bookingLoading, setBookingLoading] = React.useState(false);
+    const [bookingError, setBookingError] = React.useState<string | null>(null);
+    const [confirmation, setConfirmation] = React.useState<unknown | null>(null);
     const [timeFormat, setTimeFormat] = React.useState<"12h" | "24h">("12h");
     const [timeZone, setTimeZone] = React.useState<string>(() =>
       typeof Intl !== "undefined" && typeof Intl.DateTimeFormat !== "undefined"
@@ -179,10 +290,16 @@ try {
     const handleOpenChange = React.useCallback(
       (next: boolean) => {
         if (!next) {
-          setStep("select");
-          setSelectedSlot(null);
+          setStep("date");
           setSelectedDate(null);
+          setAvailableStarts([]);
+          setAvailabilityLoading(false);
+          setAvailabilityError(null);
           setSelectedTime(null);
+          setSelectedTimeLabel(null);
+          setBookingLoading(false);
+          setBookingError(null);
+          setConfirmation(null);
           setName("");
           setEmail("");
           setNotes("");
@@ -194,9 +311,13 @@ try {
       [onOpenChange]
     );
 
-    const slots = React.useMemo(
-      () => generateTimeSlots(timeFormat === "24h"),
-      [timeFormat]
+    const timeSlots = React.useMemo(
+      () =>
+        availableStarts.map((start) => ({
+          value: start,
+          label: formatStartTimeLabel(start, timeFormat),
+        })),
+      [availableStarts, timeFormat]
     );
 
     const selectedLabel = React.useMemo(
@@ -208,26 +329,26 @@ try {
     );
 
     const formattedDateAtTime =
-      selectedDate && selectedTime
+      selectedDate && selectedTimeLabel
         ? `${selectedDate.toLocaleDateString("en-US", {
             weekday: "long",
             year: "numeric",
             month: "long",
             day: "numeric",
-          })} at ${selectedTime.replace(/(\d)(am|pm)/i, "$1 $2")}`
+          })} at ${selectedTimeLabel}`
         : null;
 
     const formattedDateConfirm = React.useMemo(
       () =>
-        date
-          ? date.toLocaleDateString("en-US", {
+        selectedDate
+          ? selectedDate.toLocaleDateString("en-US", {
               weekday: "long",
               year: "numeric",
               month: "long",
               day: "numeric",
             })
           : "",
-      [date]
+      [selectedDate]
     );
 
     const formattedTimeZone = React.useMemo(
@@ -239,16 +360,62 @@ try {
       setTimeFormat(v);
     }, []);
 
-    const onSlotSelect = React.useCallback(
-      (slot: string) => {
-        setSelectedSlot(slot);
-        setSelectedTime(slot);
-        if (date) {
-          setSelectedDate(date);
-          setStep("details");
+    const handleDateSelect = React.useCallback((newDate: Date | undefined) => {
+      const doFetch = async () => {
+        if (!newDate) return;
+
+        setDate(newDate);
+        setSelectedDate(newDate);
+        setSelectedTime(null);
+        setSelectedTimeLabel(null);
+        setAvailableStarts([]);
+        setAvailabilityError(null);
+        setConfirmation(null);
+        setBookingError(null);
+        setBookingLoading(false);
+
+        setAvailabilityLoading(true);
+        setStep("time");
+
+        const dateYmd = formatYmdLocal(newDate);
+
+        try {
+          const res = await fetch("/api/schedule/availability", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ date: dateYmd }),
+          });
+
+          const json: unknown = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            throw new Error(pickFirstString(json, ["error", "message"]) ?? "Failed to load availability");
+          }
+
+          const starts = extractAvailabilityStartValues(json, dateYmd);
+          setAvailableStarts(starts);
+
+          if (starts.length === 0) {
+            setAvailabilityError("No available times for this date.");
+          }
+        } catch (err) {
+          setAvailabilityError(err instanceof Error ? err.message : "Failed to load availability");
+        } finally {
+          setAvailabilityLoading(false);
         }
+      };
+
+      void doFetch();
+    }, []);
+
+    const handleTimeSelect = React.useCallback(
+      (timeValue: string) => {
+        setSelectedTime(timeValue);
+        setSelectedTimeLabel(formatStartTimeLabel(timeValue, timeFormat));
+        setStep("details");
       },
-      [date]
+      [timeFormat]
     );
 
     const onNameChange = React.useCallback(
@@ -271,16 +438,208 @@ try {
       []
     );
     const onBack = React.useCallback(() => {
-      setStep("select");
+      setStep("time");
     }, []);
-    const onConfirm = React.useCallback(() => {
-      if (!name.trim() || !email.trim()) return;
-      setStep("confirm");
-    }, [name, email]);
-    const onReschedule = React.useCallback(() => setStep("select"), []);
-    const onCancel = React.useCallback(() => {
-      handleOpenChange(false);
-    }, [handleOpenChange]);
+
+    const handleSubmit = React.useCallback(() => {
+      const submit = async () => {
+        if (!selectedTime) return;
+        if (!name.trim() || !email.trim()) return;
+
+        setBookingLoading(true);
+        setBookingError(null);
+        try {
+          const res = await fetch("/api/schedule/book", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              start: selectedTime,
+              name: name.trim(),
+              email: email.trim(),
+              notes,
+              timeZone,
+            }),
+          });
+
+          const json: unknown = await res.json().catch(() => ({}));
+          if (!res.ok) {
+            throw new Error(pickFirstString(json, ["error", "message"]) ?? "Booking failed");
+          }
+
+          setConfirmation(json);
+          setStep("confirm");
+        } catch (err) {
+          setBookingError(err instanceof Error ? err.message : "Booking failed");
+        } finally {
+          setBookingLoading(false);
+        }
+      };
+
+      void submit();
+    }, [selectedTime, name, email, notes]);
+
+    const confirmationMeetingUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      return pickFirstUrlString(confirmation, [
+        "videoCallUrl",
+        "references.0.meetingUrl",
+        "references.0.videoCallUrl",
+        "references.0.url",
+        "meetingUrl",
+        "booking.meetingUrl",
+        "booking.location.value",
+        "booking.location.url",
+        "booking.locationUrl",
+        "location.value",
+        "location.url",
+        "locationUrl",
+      ]);
+    }, [confirmation]);
+
+    const confirmationRescheduleUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      const uid = pickFirstString(confirmation, ["uid", "booking.uid"]);
+      const eventTypeSlug =
+        pickFirstString(confirmation, ["eventType.slug", "eventTypeSlug", "booking.eventTypeSlug"]) ?? "30min";
+      const username =
+        pickFirstString(confirmation, ["user.username", "booking.user.username"]) ??
+        "michael-marchitto-po60ed";
+      const rescheduledBy =
+        email.trim() ||
+        pickFirstString(confirmation, ["responses.email", "booking.responses.email", "attendees.0.email"]) ||
+        "mikemarchitto@gmail.com";
+
+      return uid
+        ? `https://cal.com/${encodeURIComponent(username)}/${encodeURIComponent(
+            eventTypeSlug
+          )}?rescheduleUid=${encodeURIComponent(uid)}&rescheduledBy=${encodeURIComponent(
+            rescheduledBy
+          )}&overlayCalendar=true`
+        : null;
+    }, [confirmation, email]);
+
+    const confirmationCancelUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      const uid = pickFirstString(confirmation, ["uid", "booking.uid"]);
+      const cancelledByEmail = email.trim() || pickFirstString(confirmation, ["responses.email", "booking.responses.email"]) || "";
+      return uid
+        ? `https://cal.com/booking/${encodeURIComponent(uid)}?cancel=true&cancelledBy=${encodeURIComponent(cancelledByEmail)}`
+        : null;
+    }, [confirmation]);
+
+    const confirmationIcsUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      const title = pickFirstString(confirmation, ["title", "booking.title"]) ?? "Meeting";
+      const startTime = pickFirstString(confirmation, ["startTime", "booking.startTime", "start"]) ?? "";
+      const endTime = pickFirstString(confirmation, ["endTime", "booking.endTime", "end"]) ?? "";
+      const uid = pickFirstString(confirmation, ["uid", "booking.uid"]) ?? "";
+      const meetingUrl =
+        pickFirstUrlString(confirmation, ["videoCallUrl", "references.0.meetingUrl", "meetingUrl"]) ?? "";
+
+      if (!startTime || !endTime) return null;
+
+      const qs = new URLSearchParams({
+        uid,
+        title,
+        startTime,
+        endTime,
+        meetingUrl,
+      });
+      return `/api/schedule/ics?${qs.toString()}`;
+    }, [confirmation]);
+
+    const confirmationGoogleCalendarUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      const title = pickFirstString(confirmation, ["title", "booking.title"]) ?? "Meeting";
+      const startTime = pickFirstString(confirmation, ["startTime", "booking.startTime", "start"]) ?? "";
+      const endTime = pickFirstString(confirmation, ["endTime", "booking.endTime", "end"]) ?? "";
+      const meetingUrl =
+        pickFirstUrlString(confirmation, ["videoCallUrl", "references.0.meetingUrl", "meetingUrl"]) ?? "";
+      const startGoogle = formatCalendarDateUtc(startTime);
+      const endGoogle = formatCalendarDateUtc(endTime);
+      if (!startGoogle || !endGoogle) return null;
+
+      const detailsParts: string[] = [];
+      if (typeof notes === "string" && notes.trim()) detailsParts.push(notes.trim());
+      if (meetingUrl) detailsParts.push(`Join meeting: ${meetingUrl}`);
+      const details = detailsParts.join("\n\n");
+
+      const qs = new URLSearchParams({
+        action: "TEMPLATE",
+        text: title,
+        dates: `${startGoogle}/${endGoogle}`,
+        details,
+        location: meetingUrl || "Video Call",
+      });
+      return `https://calendar.google.com/calendar/render?${qs.toString()}`;
+    }, [confirmation, notes]);
+
+    const confirmationOutlookCalendarUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      const title = pickFirstString(confirmation, ["title", "booking.title"]) ?? "Meeting";
+      const startTime = pickFirstString(confirmation, ["startTime", "booking.startTime", "start"]) ?? "";
+      const endTime = pickFirstString(confirmation, ["endTime", "booking.endTime", "end"]) ?? "";
+      if (!startTime || !endTime) return null;
+      const meetingUrl =
+        pickFirstUrlString(confirmation, ["videoCallUrl", "references.0.meetingUrl", "meetingUrl"]) ?? "";
+
+      const bodyParts: string[] = [];
+      if (typeof notes === "string" && notes.trim()) bodyParts.push(notes.trim());
+      if (meetingUrl) bodyParts.push(`Join meeting: ${meetingUrl}`);
+      const body = bodyParts.join("\n\n");
+
+      const qs = new URLSearchParams({
+        path: "/calendar/action/compose",
+        rru: "addevent",
+        subject: title,
+        startdt: startTime,
+        enddt: endTime,
+        body,
+        location: meetingUrl || "Video Call",
+      });
+      return `https://outlook.live.com/calendar/0/deeplink/compose?${qs.toString()}`;
+    }, [confirmation, notes]);
+
+    const confirmationOffice365CalendarUrl = React.useMemo(() => {
+      if (!confirmation) return null;
+      const title = pickFirstString(confirmation, ["title", "booking.title"]) ?? "Meeting";
+      const startTime = pickFirstString(confirmation, ["startTime", "booking.startTime", "start"]) ?? "";
+      const endTime = pickFirstString(confirmation, ["endTime", "booking.endTime", "end"]) ?? "";
+      if (!startTime || !endTime) return null;
+      const meetingUrl =
+        pickFirstUrlString(confirmation, ["videoCallUrl", "references.0.meetingUrl", "meetingUrl"]) ?? "";
+
+      const bodyParts: string[] = [];
+      if (typeof notes === "string" && notes.trim()) bodyParts.push(notes.trim());
+      if (meetingUrl) bodyParts.push(`Join meeting: ${meetingUrl}`);
+      const body = bodyParts.join("\n\n");
+
+      const qs = new URLSearchParams({
+        path: "/calendar/action/compose",
+        rru: "addevent",
+        subject: title,
+        startdt: startTime,
+        enddt: endTime,
+        body,
+        location: meetingUrl || "Video Call",
+      });
+      return `https://outlook.office.com/calendar/0/deeplink/compose?${qs.toString()}`;
+    }, [confirmation, notes]);
+
+    const confirmationStartTimeLabel = React.useMemo(() => {
+      if (!confirmation) return selectedTimeLabel ?? "";
+      const startRaw =
+        pickFirstString(confirmation, [
+          "startTime",
+          "booking.startTime",
+          "booking.start_time",
+          "start",
+          "booking.start",
+        ]) ?? null;
+      return startRaw ? formatStartTimeLabel(startRaw, timeFormat) : selectedTimeLabel ?? "";
+    }, [confirmation, selectedTimeLabel, timeFormat]);
 
     return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -318,7 +677,7 @@ try {
           data-theme={theme}
           className={cn(
             "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(28%_0.035_165)] p-6 px-6 text-foreground",
-            step === "select" && "pb-[88px]",
+            (step === "date" || step === "time") && "pb-[88px]",
             theme === "color" && "!bg-[oklch(24%_0.035_165)]",
             step === "details" && "lg:w-fit",
             step === "confirm" && "!p-0 lg:max-w-[464px] pr-[56px]"
@@ -338,14 +697,19 @@ try {
                 email={email}
                 guestEmail={guestEmail}
                 formattedDate={formattedDateConfirm}
-                selectedSlot={selectedSlot}
-                formattedTimeZone={formattedTimeZone}
                 notes={notes}
-                onReschedule={onReschedule}
-                onCancel={onCancel}
+                formattedTimeZone={formattedTimeZone}
+                startTimeLabel={confirmationStartTimeLabel}
+                meetingUrl={confirmationMeetingUrl}
+                rescheduleUrl={confirmationRescheduleUrl}
+                cancelUrl={confirmationCancelUrl}
+                googleCalendarUrl={confirmationGoogleCalendarUrl}
+                outlookCalendarUrl={confirmationOutlookCalendarUrl}
+                office365CalendarUrl={confirmationOffice365CalendarUrl}
+                icsUrl={confirmationIcsUrl}
               />
             </div>
-          ) : step === "select" ? (
+          ) : step === "date" || step === "time" ? (
             /* Stage 1: left panel | calendar | time slots */
             <div className="flex min-h-0 flex-none lg:flex-1 lg:min-h-0 flex-col gap-12 lg:flex-row lg:gap-12 max-w-full">
               <div
@@ -444,11 +808,7 @@ try {
                   <Calendar
                     mode="single"
                     selected={date}
-                    onSelect={(newDate) => {
-                      if (!newDate) return;
-                      setDate(newDate);
-                      setSelectedDate(newDate);
-                    }}
+                    onSelect={(newDate) => handleDateSelect(newDate)}
                     defaultMonth={date}
                     className="rounded-none border-0 p-0 [--cell-size:2.25rem] lg:[--cell-size:3rem]"
                     classNames={{
@@ -461,13 +821,58 @@ try {
                 </div>
               </div>
               <div className="flex h-auto min-h-0 min-w-0 shrink-0 flex-col pt-0 w-full lg:w-[236px]">
-                <SelectStep
-                  selectedLabel={selectedLabel}
-                  timeFormat={timeFormat}
-                  onTimeFormatChange={onTimeFormatChange}
-                  slots={slots}
-                  onSlotSelect={onSlotSelect}
-                />
+                {step === "time" ? (
+                  availabilityLoading ? (
+                    <div className="flex flex-col min-h-0">
+                      <div
+                        data-slot="scheduling-right-header"
+                        className="mb-2 flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
+                      >
+                        <span className="text-subtitle1 text-foreground dark:text-white color:text-white">
+                          {selectedLabel}
+                        </span>
+                      </div>
+                      <div className="text-body2 text-foreground flex items-center gap-2 mt-8 justify-center">
+                        <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                        Loading available times...
+                      </div>
+                    </div>
+                  ) : availabilityError ? (
+                    <div className="flex flex-col min-h-0">
+                      <div
+                        data-slot="scheduling-right-header"
+                        className="mb-2 flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
+                      >
+                        <span className="text-subtitle1 text-foreground dark:text-white color:text-white">
+                          {selectedLabel}
+                        </span>
+                      </div>
+                      <p className="text-body2 text-red-500 mt-[38px]">{availabilityError}</p>
+                    </div>
+                  ) : (
+                    <SelectStep
+                      selectedLabel={selectedLabel}
+                      timeFormat={timeFormat}
+                      onTimeFormatChange={onTimeFormatChange}
+                      slots={timeSlots}
+                      onSlotSelect={handleTimeSelect}
+                    />
+                  )
+                ) : (
+                  <div className="flex flex-col min-h-0">
+                    <div
+                      data-slot="scheduling-right-header"
+                      className="mb-2 flex items-center justify-between gap-2 rounded-none bg-transparent p-0"
+                    >
+                      <span className="text-subtitle1 text-foreground dark:text-white color:text-white">
+                        {selectedLabel}
+                      </span>
+                    </div>
+                    <p className="text-body2 text-foreground mt-[38px]">
+                      Select a date to see available times.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           ) : (
@@ -531,7 +936,9 @@ try {
                   guestEmail={guestEmail}
                   onGuestEmailChange={onGuestEmailChange}
                   onBack={onBack}
-                  onConfirm={onConfirm}
+                  onConfirm={handleSubmit}
+                  isSubmitting={bookingLoading}
+                  submitError={bookingError}
                 />
               </div>
             </div>

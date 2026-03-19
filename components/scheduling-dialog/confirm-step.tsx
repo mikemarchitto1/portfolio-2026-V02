@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { CheckCircle2, ExternalLink, Mail, CalendarPlus } from "lucide-react";
-import { SiGooglecalendar } from "react-icons/si";
 import { FiDownload } from "react-icons/fi";
+import { SiGooglecalendar } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 
 export type ConfirmStepProps = {
@@ -11,11 +11,16 @@ export type ConfirmStepProps = {
   email: string;
   guestEmail: string;
   formattedDate: string;
-  selectedSlot: string | null;
+  startTimeLabel: string;
   formattedTimeZone: string;
   notes?: string;
-  onReschedule: () => void;
-  onCancel: () => void;
+  meetingUrl?: string | null;
+  rescheduleUrl?: string | null;
+  cancelUrl?: string | null;
+  googleCalendarUrl?: string | null;
+  outlookCalendarUrl?: string | null;
+  office365CalendarUrl?: string | null;
+  icsUrl?: string | null;
 };
 
 const ConfirmStep = React.memo(function ConfirmStep({
@@ -23,11 +28,16 @@ const ConfirmStep = React.memo(function ConfirmStep({
   email,
   guestEmail,
   formattedDate,
-  selectedSlot,
+  startTimeLabel,
   formattedTimeZone,
   notes,
-  onReschedule,
-  onCancel,
+  meetingUrl,
+  rescheduleUrl,
+  cancelUrl,
+  googleCalendarUrl,
+  outlookCalendarUrl,
+  office365CalendarUrl,
+  icsUrl,
 }: ConfirmStepProps) {
   return (
     <div className="flex w-full flex-col text-left">
@@ -47,7 +57,7 @@ const ConfirmStep = React.memo(function ConfirmStep({
 <dd className="text-foreground dark:text-white color:text-white mt-0.5">
             {formattedDate}
               <br />
-              {selectedSlot} ({formattedTimeZone})
+              {startTimeLabel} ({formattedTimeZone})
             </dd>
           </div>
           <div className="w-full">
@@ -68,8 +78,20 @@ const ConfirmStep = React.memo(function ConfirmStep({
           </div>
           <div className="w-full">
             <dt className="text-foreground dark:text-white color:text-white font-medium">Where</dt>
-            <dd className="text-foreground dark:text-white color:text-white mt-0.5 inline-flex items-center gap-1">
-              Video Call <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+            <dd className="text-foreground dark:text-white color:text-white mt-0.5 inline-flex items-center gap-2">
+              <span>Video Call</span>
+              {meetingUrl ? (
+                <a
+                  href={meetingUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-foreground no-underline underline-offset-2 hover:underline"
+                >
+                  Meeting link <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                </a>
+              ) : (
+                <span className="opacity-70">(provided after booking)</span>
+              )}
             </dd>
           </div>
           {notes != null && notes.trim() !== "" && (
@@ -80,20 +102,103 @@ const ConfirmStep = React.memo(function ConfirmStep({
           )}
         </dl>
         <div className="flex flex-nowrap items-center justify-start gap-2 mt-[48px]">
-          <button type="button" className="text-body2 text-foreground no-underline mr-4 transition-colors hover:text-[oklch(50%_0_0)] color:hover:text-[oklch(48%_0.035_165)]" onClick={onReschedule}>Reschedule</button>
-          <button type="button" className="text-body2 text-foreground no-underline transition-colors hover:text-[oklch(50%_0_0)] color:hover:text-[oklch(48%_0.035_165)]" onClick={onCancel}>Cancel</button>
+          {rescheduleUrl ? (
+            <a
+              href={rescheduleUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-body2 text-foreground no-underline mr-4 transition-colors hover:text-[oklch(50%_0_0)] color:hover:text-[oklch(48%_0.035_165)]"
+            >
+              Reschedule
+            </a>
+          ) : (
+            <span className="text-body2 text-foreground opacity-70 mr-4">Reschedule</span>
+          )}
+
+          {cancelUrl ? (
+            <a
+              href={cancelUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-body2 text-foreground no-underline transition-colors hover:text-[oklch(50%_0_0)] color:hover:text-[oklch(48%_0.035_165)]"
+            >
+              Cancel
+            </a>
+          ) : (
+            <span className="text-body2 text-foreground opacity-70">Cancel</span>
+          )}
+
           <div className="flex items-center gap-1 ml-[72px]">
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors" aria-label="Google Calendar">
-              <SiGooglecalendar className="h-4 w-4" />
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors"
+              aria-label="Google Calendar"
+            >
+              {googleCalendarUrl ? (
+                <a href={googleCalendarUrl} target="_blank" rel="noreferrer">
+                  <SiGooglecalendar className="h-4 w-4" />
+                </a>
+              ) : (
+                <span className="opacity-60">
+                  <SiGooglecalendar className="h-4 w-4" />
+                </span>
+              )}
             </Button>
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors" aria-label="Outlook">
-              <Mail className="h-4 w-4" />
+
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors"
+              aria-label="Outlook"
+            >
+              {outlookCalendarUrl ? (
+                <a href={outlookCalendarUrl} target="_blank" rel="noreferrer">
+                  <Mail className="h-4 w-4" />
+                </a>
+              ) : (
+                <span className="opacity-60">
+                  <Mail className="h-4 w-4" />
+                </span>
+              )}
             </Button>
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors" aria-label="Office 365">
-              <CalendarPlus className="h-4 w-4" />
+
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors"
+              aria-label="Office 365"
+            >
+              {office365CalendarUrl ? (
+                <a href={office365CalendarUrl} target="_blank" rel="noreferrer">
+                  <CalendarPlus className="h-4 w-4" />
+                </a>
+              ) : (
+                <span className="opacity-60">
+                  <CalendarPlus className="h-4 w-4" />
+                </span>
+              )}
             </Button>
-            <Button variant="ghost" size="icon" className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors" aria-label="ICS">
-              <FiDownload className="h-4 w-4" />
+
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="!h-11 !min-h-11 !w-11 !min-w-11 !p-3.5 shrink-0 rounded-md border-0 bg-transparent hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)] transition-colors"
+              aria-label="ICS"
+            >
+              {icsUrl ? (
+                <a href={icsUrl} target="_blank" rel="noreferrer" download>
+                  <FiDownload className="h-4 w-4" />
+                </a>
+              ) : (
+                <span className="opacity-60">
+                  <FiDownload className="h-4 w-4" />
+                </span>
+              )}
             </Button>
           </div>
         </div>

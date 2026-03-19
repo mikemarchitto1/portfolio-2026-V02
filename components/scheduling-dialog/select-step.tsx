@@ -9,8 +9,11 @@ export type SelectStepProps = {
   selectedLabel: string;
   timeFormat: "12h" | "24h";
   onTimeFormatChange: (v: "12h" | "24h") => void;
-  slots: string[];
-  onSlotSelect: (slot: string) => void;
+  slots: Array<{
+    value: string;
+    label: string;
+  }>;
+  onSlotSelect: (timeValue: string) => void;
 };
 
 const SelectStep = React.memo(function SelectStep({
@@ -60,15 +63,15 @@ const SelectStep = React.memo(function SelectStep({
       <span className="text-subtitle2 font-medium text-foreground dark:text-white color:text-white mt-1.5 mb-5 shrink-0 block w-full text-center">Time Slot</span>
       <div className="-mt-3 flex flex-col overflow-y-auto min-w-0 flex-1 min-h-0 lg:max-h-[272px]" data-slot="scheduling-time-slots">
         <div className="flex flex-col gap-2 pt-0 pb-4 lg:pb-6">
-          {slots.map((slot) => (
+          {slots.map(({ value, label }) => (
             <Button
-              key={slot}
+              key={value}
               variant="ghost"
               data-slot="scheduling-time-slot-btn"
               className="w-full justify-center rounded-full h-[48px] min-h-[48px] py-3 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)] bg-muted hover:bg-[oklch(92%_0_0)] dark:bg-[oklch(26%_0.01_264)] dark:hover:bg-[oklch(30%_0.01_264)] color:bg-[oklch(38%_0.035_165)] color:hover:bg-[oklch(48%_0.035_165)]"
-              onClick={() => onSlotSelect(slot)}
+              onClick={() => onSlotSelect(value)}
             >
-              {slot}
+              {label}
             </Button>
           ))}
         </div>

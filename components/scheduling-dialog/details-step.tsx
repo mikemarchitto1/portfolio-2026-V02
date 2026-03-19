@@ -19,6 +19,8 @@ export type DetailsStepProps = {
   onGuestEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBack: () => void;
   onConfirm: () => void;
+  isSubmitting?: boolean;
+  submitError?: string | null;
 };
 
 const DetailsStep = React.memo(function DetailsStep({
@@ -34,6 +36,8 @@ const DetailsStep = React.memo(function DetailsStep({
   onGuestEmailChange,
   onBack,
   onConfirm,
+  isSubmitting = false,
+  submitError = null,
 }: DetailsStepProps) {
   return (
     <div className="flex flex-col">
@@ -90,15 +94,29 @@ const DetailsStep = React.memo(function DetailsStep({
         )}
       </div>
       <div className="flex gap-2 mt-8 justify-end">
-        <Button variant="outline" className="text-button flex-1 min-w-0 border-0 hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)]" onClick={onBack}>Back</Button>
+        <Button
+          variant="outline"
+          className="text-button flex-1 min-w-0 border-0 hover:bg-[oklch(92%_0_0)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(48%_0.035_165)]"
+          onClick={onBack}
+          disabled={isSubmitting}
+        >
+          Back
+        </Button>
         <Button
           variant="black"
           className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)] dark:bg-white dark:hover:bg-[oklch(92%_0_0)] color:bg-white color:hover:bg-[oklch(94%_0.03_160)] dark:!text-black color:!text-[oklch(24%_0.035_165)]"
           onClick={onConfirm}
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
         >
-          Confirm
+          {isSubmitting ? "Confirming..." : "Confirm"}
         </Button>
       </div>
+      {submitError ? (
+        <p className="text-body2 text-red-500 mt-3" role="alert">
+          {submitError}
+        </p>
+      ) : null}
     </div>
   );
 });
