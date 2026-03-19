@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
           optionValue: "",
         },
       },
-      title: `Introduction Call between ${name} and Michael Marchitto`,
+      title: `Introduction Call between ${name} and Mike Marchitto`,
       description: notes && notes.trim() ? notes.trim() : null,
     };
 

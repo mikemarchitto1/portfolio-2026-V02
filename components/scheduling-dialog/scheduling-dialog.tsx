@@ -728,7 +728,7 @@ try {
                         Introduction Call
                       </CardTitle>
                       <span className="scheduling-left-name block text-subtitle2 text-foreground">
-                        Michael Marchitto
+                        Mike Marchitto
                       </span>
                     </div>
                     <p className="scheduling-left-desc mt-2 mb-4 text-body2 text-foreground">
@@ -894,7 +894,7 @@ try {
                         Introduction Call
                       </CardTitle>
                       <span className="scheduling-left-name block text-subtitle2 text-foreground">
-                        Michael Marchitto
+                        Mike Marchitto
                       </span>
                     </div>
                     <p className="scheduling-left-desc mt-2 mb-4 text-body2 text-foreground">

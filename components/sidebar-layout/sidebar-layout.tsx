@@ -177,7 +177,7 @@ try {
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
                     <a
-                      href="https://linkedin.com/in/"
+                      href="https://www.linkedin.com/in/mikemarchitto/"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Connect on LinkedIn"

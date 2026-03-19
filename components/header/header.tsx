@@ -141,7 +141,7 @@ function NavItems({
       </Button>
       <Button className="nav-button flex items-center gap-2 bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" asChild>
         <a
-          href="https://linkedin.com/in/carlwalker"
+          href="https://www.linkedin.com/in/mikemarchitto/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-button"
@@ -347,7 +347,7 @@ try {
                           <SidebarMenuItem className="w-full">
                             <SidebarMenuButton asChild>
                               <a
-                                href="https://linkedin.com/in/"
+                                href="https://www.linkedin.com/in/mikemarchitto/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => setMobileMenuOpen(false)}

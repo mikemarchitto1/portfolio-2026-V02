@@ -50,7 +50,7 @@ const ConfirmStep = React.memo(function ConfirmStep({
         <dl className="flex flex-col gap-4 text-body2 mt-[32px] items-start">
           <div className="w-full">
             <dt className="text-foreground dark:text-white color:text-white font-medium">What</dt>
-            <dd className="text-foreground dark:text-white color:text-white mt-0.5">Introduction Call between {name || "Guest"} and Michael Marchitto</dd>
+            <dd className="text-foreground dark:text-white color:text-white mt-0.5">Introduction Call between {name || "Guest"} and Mike Marchitto</dd>
           </div>
           <div className="w-full">
             <dt className="text-foreground dark:text-white color:text-white font-medium">When</dt>
@@ -64,7 +64,7 @@ const ConfirmStep = React.memo(function ConfirmStep({
             <dt className="text-foreground dark:text-white color:text-white font-medium">Who</dt>
             <dd className="text-foreground dark:text-white color:text-white mt-0.5">
               <span className="inline-flex items-center gap-1">
-                Michael Marchitto <span className="rounded border border-border dark:border-white color:border-white bg-transparent text-black dark:text-white color:text-white text-xs px-1.5 py-0.5">Host</span>
+                Mike Marchitto <span className="rounded border border-border dark:border-white color:border-white bg-transparent text-black dark:text-white color:text-white text-xs px-1.5 py-0.5">Host</span>
               </span>
               <br />
               {email}
