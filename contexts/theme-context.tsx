@@ -38,7 +38,9 @@ const ThemeContext = React.createContext<{
 } | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
+  // Initialize from the <html> class set by the pre-hydration script in `app/layout.tsx`,
+  // so the initial render matches the user's saved preference (and avoids flash).
+  const [theme, setThemeState] = useState<Theme>(() => getThemeFromDOM());
 
   useEffect(() => {
     setThemeState(getThemeFromDOM());

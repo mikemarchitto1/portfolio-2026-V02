@@ -79,7 +79,6 @@ const ConfirmStep = React.memo(function ConfirmStep({
           <div className="w-full">
             <dt className="text-foreground dark:text-white color:text-white font-medium">Where</dt>
             <dd className="text-foreground dark:text-white color:text-white mt-0.5 inline-flex items-center gap-2">
-              <span>Video Call</span>
               {meetingUrl ? (
                 <a
                   href={meetingUrl}

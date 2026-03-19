@@ -67,6 +67,7 @@ export default function Footer() {
                     </Button>
                   </div>
                   <img
+                    suppressHydrationWarning
                     src={
                       theme === "light"
                         ? "/images/crown works-up-b.svg"

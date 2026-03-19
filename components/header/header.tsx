@@ -32,6 +32,7 @@ function MobileMenuCrown() {
   return (
     <div className="mb-6">
       <img
+        suppressHydrationWarning
         src={crownSrc}
         alt=""
         className="h-10 w-auto shrink-0"
@@ -56,6 +57,7 @@ function MobileMenuThemeSwitcher() {
         aria-label="Light mode"
         aria-pressed={theme === "light"}
         data-state={theme === "light" ? "on" : "off"}
+          suppressHydrationWarning
         onClick={() => setTheme("light")}
       >
         <Sun className="size-5 shrink-0" />
@@ -67,6 +69,7 @@ function MobileMenuThemeSwitcher() {
         aria-label="Dark mode"
         aria-pressed={theme === "dark"}
         data-state={theme === "dark" ? "on" : "off"}
+          suppressHydrationWarning
         onClick={() => setTheme("dark")}
       >
         <Moon className="size-5 shrink-0" />
@@ -78,6 +81,7 @@ function MobileMenuThemeSwitcher() {
         aria-label="Color mode"
         aria-pressed={theme === "color"}
         data-state={theme === "color" ? "on" : "off"}
+          suppressHydrationWarning
         onClick={() => setTheme("color")}
       >
         <Palette className="size-5 shrink-0" />
