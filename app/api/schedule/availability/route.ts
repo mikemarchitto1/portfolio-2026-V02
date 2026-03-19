@@ -2,6 +2,20 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
+function getCalEnv() {
+  const env = {
+    calApiUrl: process.env.CAL_API_URL,
+    calApiKey: process.env.CAL_API_KEY,
+    eventTypeId: process.env.CAL_EVENT_TYPE_ID,
+  };
+
+  const missing: string[] = [];
+  if (!env.calApiUrl) missing.push("CAL_API_URL");
+  if (!env.calApiKey) missing.push("CAL_API_KEY");
+  if (!env.eventTypeId) missing.push("CAL_EVENT_TYPE_ID");
+  return { ...env, missing };
+}
+
 function addDaysYmd(dateYmd: string, days: number): string | null {
   const d = new Date(`${dateYmd}T00:00:00.000Z`);
   if (Number.isNaN(d.getTime())) return null;
@@ -23,19 +37,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Read env vars directly — Next.js loads .env.local automatically
-    const calApiUrl = process.env.CAL_API_URL;
-    const calApiKey = process.env.CAL_API_KEY;
-    const eventTypeId = process.env.CAL_EVENT_TYPE_ID;
-
-    if (!calApiUrl || !calApiKey || !eventTypeId) {
+    const { calApiUrl, calApiKey, eventTypeId, missing } = getCalEnv();
+    if (missing.length > 0) {
       return NextResponse.json(
         {
-          error:
-            "Missing required env vars: CAL_API_URL, CAL_API_KEY, CAL_EVENT_TYPE_ID",
+          error: `Missing required env vars: ${missing.join(", ")}`,
+          missingEnvVars: missing,
         },
         { status: 500 }
       );
+    }
+    if (!calApiUrl || !calApiKey || !eventTypeId) {
+      return NextResponse.json({ error: "Missing required env vars." }, { status: 500 });
     }
 
     // Cal.com v1 slots endpoint expects a datetime range.

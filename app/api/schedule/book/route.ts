@@ -1,66 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 export const runtime = "nodejs";
 
-let cachedFileEnv: Record<string, string> | null = null;
-const ENV_FILE_NAME = ".env.local";
+function getCalEnv() {
+  const env = {
+    calApiUrl: process.env.CAL_API_URL,
+    calApiKey: process.env.CAL_API_KEY,
+    eventTypeId: process.env.CAL_EVENT_TYPE_ID,
+  };
 
-function parseEnvFile(contents: string): Record<string, string> {
-  const out: Record<string, string> = {};
-  const lines = contents.split(/\r?\n/);
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (!trimmed || trimmed.startsWith("#")) continue;
-    const eq = trimmed.indexOf("=");
-    if (eq === -1) continue;
-    const key = trimmed.slice(0, eq).trim();
-    const value = trimmed.slice(eq + 1).trim();
-    out[key] = value;
-  }
-  return out;
-}
-
-async function getEnvFromFile(key: string): Promise<string | undefined> {
-  if (cachedFileEnv == null) {
-    try {
-      const tryRead = async (envPath: string): Promise<string | null> => {
-        try {
-          return await fs.readFile(envPath, "utf8");
-        } catch {
-          return null;
-        }
-      };
-
-      // Try from cwd first (common case).
-      let raw = await tryRead(path.resolve(process.cwd(), ENV_FILE_NAME));
-
-      // If Next executed this from a compiled `.next/server/...` path, climb up
-      // until we find `.env.local`.
-      if (!raw) {
-        let dir = path.dirname(fileURLToPath(import.meta.url));
-        for (let i = 0; i < 50; i++) {
-          const candidate = path.resolve(dir, ENV_FILE_NAME);
-          raw = await tryRead(candidate);
-          if (raw) break;
-          const parent = path.dirname(dir);
-          if (parent === dir) break;
-          dir = parent;
-        }
-      }
-
-      if (!raw) throw new Error("No .env.local found");
-      const parsed = parseEnvFile(raw);
-      if (Object.keys(parsed).length === 0) throw new Error("Empty .env.local");
-      cachedFileEnv = parsed;
-    } catch {
-      // Don't cache failures; Next dev may start before `.env.local` is available.
-      cachedFileEnv = null;
-    }
-  }
-  return cachedFileEnv ? cachedFileEnv[key] : undefined;
+  const missing: string[] = [];
+  if (!env.calApiUrl) missing.push("CAL_API_URL");
+  if (!env.calApiKey) missing.push("CAL_API_KEY");
+  if (!env.eventTypeId) missing.push("CAL_EVENT_TYPE_ID");
+  return { ...env, missing };
 }
 
 export async function POST(req: NextRequest) {
@@ -84,16 +37,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required field: email" }, { status: 400 });
     }
 
-    const calApiUrl = process.env.CAL_API_URL ?? (await getEnvFromFile("CAL_API_URL"));
-    const calApiKey = process.env.CAL_API_KEY ?? (await getEnvFromFile("CAL_API_KEY"));
-    const eventTypeId =
-      process.env.CAL_EVENT_TYPE_ID ?? (await getEnvFromFile("CAL_EVENT_TYPE_ID"));
-
-    if (!calApiUrl || !calApiKey || !eventTypeId) {
+    const { calApiUrl, calApiKey, eventTypeId, missing } = getCalEnv();
+    if (missing.length > 0) {
       return NextResponse.json(
-        { error: "Missing required env vars: CAL_API_URL, CAL_API_KEY, CAL_EVENT_TYPE_ID" },
+        {
+          error: `Missing required env vars: ${missing.join(", ")}`,
+          missingEnvVars: missing,
+        },
         { status: 500 }
       );
+    }
+    if (!calApiUrl || !calApiKey || !eventTypeId) {
+      return NextResponse.json({ error: "Missing required env vars." }, { status: 500 });
     }
 
     // Cal.com v1 expects apiKey as a query param.
