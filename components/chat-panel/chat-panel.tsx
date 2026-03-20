@@ -11,9 +11,8 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ChatBubble, ChatBubbleMessage } from "@/components/ui/chat-bubble";
 import { MessageCircle } from "lucide-react";
+import { ChatKitProvider, Chat, Composer } from "./chatkit-provider";
 
 console.log("🔥 MODULE LOAD:", "chat-panel");
 
@@ -54,25 +53,13 @@ try {
               Hello!
             </p>
           </SheetHeader>
-          <div className="flex-1 overflow-auto pt-[88px] min-w-0">
+          <div className="flex min-h-0 flex-1 flex-col overflow-hidden pt-[88px] min-w-0">
             {children ?? (
-              <div className="text-foreground">
-                <ChatBubble
-                  variant="received"
-                  className="border border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)]"
-                >
-                  <ChatBubbleMessage>Hello. What are you curious about today?</ChatBubbleMessage>
-                </ChatBubble>
-              </div>
+              <ChatKitProvider>
+                <Chat className="h-full min-h-[280px] w-full flex-1" />
+                <Composer />
+              </ChatKitProvider>
             )}
-          </div>
-          <div className="shrink-0 min-w-0">
-            <Input
-              type="text"
-              placeholder="Type a message…"
-              aria-label="Chat message"
-              className="chat-input-unified-field h-12 w-full rounded-md border border-[oklch(92%_0_0)] color:border-[oklch(44%_0.035_165)] bg-muted color:bg-[oklch(30%_0.035_165)] dark:bg-[oklch(26%_0.01_264)] dark:border-[oklch(30%_0.01_264)] dark:text-white dark:placeholder:text-[oklch(70%_0.01_264)] px-4 py-3 text-body2 text-foreground placeholder:text-muted-foreground color:text-[oklch(66%_0.035_165)] color:placeholder:text-[oklch(66%_0.035_165)] outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[oklch(92%_0_0)] color:focus-visible:ring-[oklch(44%_0.035_165)] dark:focus-visible:ring-[oklch(30%_0.01_264)] focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
-            />
           </div>
           <SheetFooter className="mt-10">
             <SheetClose asChild>

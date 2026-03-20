@@ -86,7 +86,7 @@ const ConfirmStep = React.memo(function ConfirmStep({
                   rel="noreferrer"
                   className="inline-flex items-center gap-1 text-foreground no-underline underline-offset-2 hover:underline"
                 >
-                  Meeting link <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                  Cal video <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                 </a>
               ) : (
                 <span className="opacity-70">(provided after booking)</span>
