@@ -12,7 +12,8 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-import { ChatKitProvider, Chat, Composer } from "./chatkit-provider";
+import { useTheme } from "@/hooks/use-theme";
+import { ChatKitProvider, Chat } from "./chatkit-provider";
 
 console.log("🔥 MODULE LOAD:", "chat-panel");
 
@@ -33,6 +34,7 @@ try {
   );
 
   ChatPanel = function ChatPanel({ trigger = defaultTrigger, children, open, onOpenChange }: ChatPanelProps) {
+    const { theme } = useTheme();
     console.log("🔥 COMPONENT RENDER:", "ChatPanel");
     console.log("MOUNT:", "ChatPanel");
     return (
@@ -41,11 +43,11 @@ try {
         <SheetContent
           id="chat-panel"
           side="right"
-          className="chat-sheet flex w-full max-w-full flex-col sm:w-full sm:max-w-full md:w-full md:max-w-full lg:max-w-md border-0 bg-card color:bg-sidebar-background text-sidebar-foreground p-4"
-          closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
+          className="chat-sheet flex h-full w-full max-w-full flex-col p-0 sm:w-full sm:max-w-full md:w-full md:max-w-full lg:max-w-md border-0 bg-background color:bg-sidebar-background text-sidebar-foreground"
+          closeButtonClassName="absolute top-6 right-6 h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(42%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
         >
           <SheetTitle className="sr-only">Chat</SheetTitle>
-          <SheetHeader className="gap-6">
+          <SheetHeader className="shrink-0 gap-6 px-6 pt-6 pr-14">
             <h6 className="text-subtitle1 font-medium text-foreground font-sans">
               Chat Assistant
             </h6>
@@ -53,15 +55,19 @@ try {
               Hello!
             </p>
           </SheetHeader>
-          <div className="flex min-h-0 flex-1 flex-col overflow-hidden pt-[88px] min-w-0">
+          {/* Full-bleed horizontally so ChatKit iframe aligns with sheet edges; chrome uses 24px (px-6) */}
+          <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden">
             {children ?? (
-              <ChatKitProvider>
-                <Chat className="h-full min-h-[280px] w-full flex-1" />
-                <Composer />
-              </ChatKitProvider>
+              <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col px-4">
+                <ChatKitProvider key={theme}>
+                  <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden">
+                    <Chat className="min-h-0 min-w-0 w-full flex-1" />
+                  </div>
+                </ChatKitProvider>
+              </div>
             )}
           </div>
-          <SheetFooter className="mt-10">
+          <SheetFooter className="mt-10 shrink-0 px-6 pb-6">
             <SheetClose asChild>
               <Button variant="outline" className="text-button chat-sheet-close-pill bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]">
                 Close

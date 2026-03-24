@@ -435,6 +435,32 @@
 
   }
 
+  /* ChatKit message bubbles (color mode only): only override bubble-related CSS variables. */
+  .color openai-chatkit,
+  [data-theme="color"] openai-chatkit {
+    --chat-message-user-background: #0d2a1f;
+    --chat-message-user-foreground: #ffffff;
+    --chat-message-assistant-background: #0d2a1f;
+    --chat-message-assistant-foreground: #ffffff;
+    --chat-message-border-color: #4b6459;
+    --chat-message-radius: 16px;
+  }
+
+  /* ChatKit message bubbles (light mode only): strong chip + text contrast; vars on html + host for inheritance. */
+  html.light,
+  html:not(.dark):not(.color),
+  [data-theme="light"],
+  html.light openai-chatkit,
+  html:not(.dark):not(.color) openai-chatkit,
+  [data-theme="light"] openai-chatkit {
+    --chat-message-user-background: #d4d4d8;
+    --chat-message-user-foreground: #09090b;
+    --chat-message-assistant-background: #f4f4f5;
+    --chat-message-assistant-foreground: #18181b;
+    --chat-message-border-color: #71717a;
+    --chat-message-radius: 16px;
+  }
+
   /* sidebar theme icon buttons: no border in any theme */
   .sidebar-icon-btn {
     border-width: 0 !important;
@@ -780,4 +806,47 @@
     line-height: var(--line-height-button);
     font-weight: var(--font-weight-button);
   }
+}
+
+/* ChatKit host (`openai-chatkit`): transparent shell so sheet / sidebar background shows through.
+   Inner surfaces use `theme` in chatkit-provider.tsx. */
+openai-chatkit {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+/* Light mode only: match main page `--background`; host/iframe chrome before inner theme paints. */
+html.light openai-chatkit,
+html:not(.dark):not(.color) openai-chatkit,
+[data-theme="light"] openai-chatkit {
+  background: var(--background) !important;
+  /* Prefer light UA styling for the embedded browsing context when the page is light. */
+  color-scheme: light;
+}
+
+html.light openai-chatkit iframe.ck-iframe,
+html:not(.dark):not(.color) openai-chatkit iframe.ck-iframe,
+[data-theme="light"] openai-chatkit iframe.ck-iframe {
+  background-color: var(--background) !important;
+  color-scheme: light;
+}
+
+/* Dark mode: same as light — host/iframe chrome uses page `--background` before ChatKit theme paints. */
+html.dark openai-chatkit,
+[data-theme="dark"] openai-chatkit {
+  background: var(--background) !important;
+  color-scheme: dark;
+}
+
+html.dark openai-chatkit iframe.ck-iframe,
+[data-theme="dark"] openai-chatkit iframe.ck-iframe {
+  background-color: var(--background) !important;
+  color-scheme: dark;
 }

@@ -93,7 +93,10 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       {/* To switch font: use one of inter.variable | ibmPlexSans.variable | workSans.variable | plusJakartaSans.variable | publicSans.variable | sourceSans.variable */}
-      <body className={`${inter.variable} font-sans antialiased bg-background`}>
+      <body
+        className={`${inter.variable} font-sans antialiased bg-background`}
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           <ErrorBoundary>
             <SidebarLayout>{children}</SidebarLayout>
