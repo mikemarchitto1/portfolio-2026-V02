@@ -27,7 +27,7 @@ export default function Work() {
       <main className="min-h-screen min-w-0">
         <div className="w-full px-4 md:px-8 lg:px-16">
           <div className="max-w-[1328px] mx-auto">
-            <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
+            <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
               <ProjectHero
                 title="GloriFi ipsum dolor sit amet consectegtur."
                 tags={["Fintech", "Mobile app", "Website", "2022", "UX Design"]}
@@ -49,7 +49,7 @@ export default function Work() {
 
               <ProjectSectionHeader title="Research" className="mt-32" />
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
+              <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                   <p className="text-body1 text-foreground">
@@ -88,9 +88,9 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Design System" className="mt-40" />
+              <ProjectSectionHeader title="Design System" className="mt-[128px]" />
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
+              <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Branding</h3>
                   <p className="text-body1 text-foreground">
@@ -110,9 +110,9 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Information Architecture" className="mt-40" />
+              <ProjectSectionHeader title="Information Architecture" className="mt-32" />
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
+              <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
                   <p className="text-body1 text-foreground">
@@ -132,9 +132,9 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="UI Explorations" className="mt-20" />
+              <ProjectSectionHeader title="UI Explorations" className="mt-32" />
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
+              <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Mockups</h3>
                   <p className="text-body1 text-foreground">
@@ -154,10 +154,10 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Features" className="mt-40" />
+              <ProjectSectionHeader title="Features" className="mt-[128px]" />
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
-                <div className="col-span-12 text-left min-w-0">
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Today</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     This news feed presents global and financial news with a TikTok-style
@@ -175,8 +175,8 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
-                <div className="col-span-12 text-left min-w-0">
+              <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     This dashboard helps you view income, expenses, investments, and
@@ -194,8 +194,8 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
-                <div className="col-span-12 text-left min-w-0">
+              <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     We redesigned and reskinned the vendor loyalty feature so users get
@@ -212,8 +212,8 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-16">
-                <div className="col-span-12 text-left min-w-0">
+              <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     Reusable marketing cards and user flow screens simplify banking
@@ -231,14 +231,14 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[72px]">
+              <div className="grid grid-cols-12 gap-8 mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">
                   <div className="w-full">
                     <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
                   </div>
                 </div>
 
-                <div className="col-span-12 lg:col-span-7 pb-40 min-w-0">
+                <div className="col-span-12 lg:col-span-7 pb-0 min-w-0">
                   {nextProject ? <ProjectCard {...nextProject} layout="vertical" /> : null}
                 </div>
               </div>

@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="text-foreground w-full">
       {/* 1. SECTION — full bleed */}
-      <section className="w-full py-6 md:py-9 lg:py-12 bg-transparent">
+      <section className="w-full py-6 md:py-9 lg:pt-0 lg:pb-12 bg-transparent">
         {/* 2. GUTTER */}
         <div className="w-full px-4 md:px-8 lg:px-16">
           {/* 3. MAX-WIDTH */}
@@ -18,7 +18,7 @@ export default function Footer() {
             {/* 4. CONTENT WRAPPER — 64px padding, visible band */}
             <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
               {/* Let's Connect band */}
-              <div className="w-full bg-transparent py-6 md:py-10 lg:py-16">
+              <div className="w-full bg-transparent pt-6 pb-2 md:pt-10 md:pb-6 lg:pt-16 lg:pb-12">
                 <div className="w-full min-w-0 text-left flex flex-col">
                   <div className="w-fit p-0 m-0">
                     <h1 className="text-h1 font-light text-foreground p-0 m-0 tracking-[0]">
@@ -34,7 +34,7 @@ export default function Footer() {
               </div>
 
               {/* Buttons band */}
-              <div className="w-full bg-transparent py-4 md:py-8 lg:py-12">
+              <div className="w-full bg-transparent pt-0 pb-4 md:pt-4 md:pb-8 lg:pt-8 lg:pb-12">
                 <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
                   <div className="hidden lg:flex flex-col sm:flex-row flex-wrap gap-4">
                     <Button className="nav-button bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" size="lg" asChild>
