@@ -18,7 +18,7 @@ export default function Footer() {
             {/* 4. CONTENT WRAPPER — 64px padding, visible band */}
             <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
               {/* Let's Connect band */}
-              <div className="w-full bg-transparent pt-6 pb-2 md:pt-10 md:pb-6 lg:pt-16 lg:pb-12">
+              <div className="w-full bg-transparent pt-6 pb-2 md:pt-10 md:pb-6 lg:pt-0 lg:pb-12">
                 <div className="w-full min-w-0 text-left flex flex-col">
                   <div className="w-fit p-0 m-0">
                     <h1 className="text-h1 font-light text-foreground p-0 m-0 tracking-[0]">

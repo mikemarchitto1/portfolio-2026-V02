@@ -26,15 +26,16 @@ function Work() {
         <>
         <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
-        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
+        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
 
             <ProjectHero
-              title="Eddie Bauer dolor sit amet consectegtur."
+              title="An ecommerce experience to modernize the brand"
+              subtitle="A redesigned Eddie Bauer platform that enhances product discovery, strengthens brand identity, and improves the overall shopping experience."
               tags={[
                 "Ecommerce",
                 "Website Redesign",
                 "2018",
-                "UI/UX Designer",
+                "Product Design",
               ]}
             />
 
@@ -60,6 +61,7 @@ function Work() {
             <ProjectOverview
               situation="Eddie Bauer aims to revamp their Ecommerce platform with new features and brand aesthetics within six months, in order to enhance their marketing strategy and generate more leads."
               task="Build a stronger contemporary brand with current signature technologies, engage the outdoor apparel community, and create a product description page and branded design system that cater to the users' interests."
+              intro="This project centered on elevating Eddie Bauer’s digital presence through improved UX patterns, updated brand visuals, and a more intuitive product journey."
               result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control over the narrative of their reports."
             />
 
@@ -69,7 +71,11 @@ function Work() {
 
 
 
-            <ProjectSectionHeader title="Research" className="mt-32" />
+            <ProjectSectionHeader
+              title="Research"
+              intro="I analyzed customer behavior, ecommerce patterns, and outdoor retail trends to identify opportunities for a more engaging and conversion‑friendly experience."
+              className="mt-32"
+            />
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
@@ -102,7 +108,11 @@ function Work() {
 
 
 
-            <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
+            <ProjectSectionHeader
+              title="Information Architecture"
+              intro="I refined the site structure and product hierarchy to make browsing easier and ensure customers could quickly find relevant gear and apparel."
+              className="mt-[128px]"
+            />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -118,7 +128,11 @@ function Work() {
             </div>
 
 
-            <ProjectSectionHeader title="Visual Design" className="mt-[128px]" />
+            <ProjectSectionHeader
+              title="Visual Design"
+              intro="I developed updated visual styles and UI components that modernized the brand while maintaining its heritage and outdoor identity."
+              className="mt-[128px]"
+            />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -150,7 +164,11 @@ function Work() {
             </div>
 
 
-            <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
+            <ProjectSectionHeader
+              title="Product Shipped"
+              intro="The final experience delivered a cleaner, more cohesive ecommerce platform with reusable components that support ongoing marketing and merchandising needs."
+              className="mt-[128px]"
+            />
 
 
             <div className="grid grid-cols-12 gap-4 pt-[128px]">

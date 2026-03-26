@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 
 const DEFAULT_INTRO =
-  "Lorem ipsum dolor sit amet consectetur. Sed at tincidunt tempor sagittis erat congue ut rhoncus.";
+  "This redesign focused on elevating the legacy tool into a modern, intuitive platform that supports researchers, analysts, and cross‑functional teams.";
 
 export type ProjectOverviewProps = {
   situation: string;

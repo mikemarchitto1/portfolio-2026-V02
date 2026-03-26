@@ -228,25 +228,18 @@ try {
     React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean; variant?: "default" | "text" }
   >(function SidebarMenuButton({ className, asChild = false, variant = "default", children, ...props }, ref) {
     const baseClasses =
-      "flex w-full -ml-[6px] items-center gap-2 rounded-md border-0 bg-transparent py-2 px-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:transition-colors";
-    const hoverBg =
-      "absolute inset-y-0 -left-1 -right-1 rounded-md bg-[var(--sidebar-hover)] color:bg-[oklch(42%_0.035_165)] opacity-0 group-hover:opacity-100 transition pointer-events-none";
+      "flex w-full -ml-[6px] items-center gap-2 rounded-md border-0 bg-transparent py-2 px-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:bg-[var(--sidebar-hover)] color:hover:bg-[oklch(42%_0.035_165)] hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:transition-colors";
 
     if (asChild) {
       return (
-        <div
+        <Slot.Root
+          ref={ref as React.Ref<HTMLButtonElement>}
           data-sidebar="menu-button"
-          className={cn("relative group", baseClasses)}
+          className={cn(baseClasses, className)}
+          {...props}
         >
-          <div className={hoverBg} aria-hidden />
-          <Slot.Root
-            ref={ref as React.Ref<HTMLButtonElement>}
-            className={cn("relative z-10 flex min-w-0 flex-1 items-center gap-2", className)}
-            {...props}
-          >
-            {children}
-          </Slot.Root>
-        </div>
+          {children}
+        </Slot.Root>
       );
     }
 
@@ -255,13 +248,10 @@ try {
         ref={ref as React.Ref<HTMLButtonElement>}
         data-sidebar="menu-button"
         type="button"
-        className={cn("relative group", baseClasses, className)}
+        className={cn(baseClasses, className)}
         {...props}
       >
-        <div className={hoverBg} aria-hidden />
-        <span className="relative z-10 flex min-w-0 flex-1 items-center gap-2">
-          {children}
-        </span>
+        {children}
       </button>
     );
   });

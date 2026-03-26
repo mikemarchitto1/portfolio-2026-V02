@@ -1,11 +1,12 @@
 "use client";
+import React from "react";
 
 import Tag from "@/components/ui/tag";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_TITLE = "Lorem ipsum dolor sit amet consectegtur.";
 const DEFAULT_SUBTITLE =
-  "Lorem ipsum dolor sit amet consectetur. Sed at tincidunt tempor sagittis erat congue ut rhoncus.";
+  "A refreshed experience that streamlines research ingestion, improves navigation, and introduces a consistent visual system for internal teams.";
 
 export type ProjectHeroProps = {
   tags: string[];
@@ -31,7 +32,14 @@ export default function ProjectHero({
         {title}
       </h1>
       <h4 className="text-h4 text-foreground mt-4 max-w-3xl">
-        {subtitle}
+        {subtitle.includes("\n")
+          ? subtitle.split("\n").map((line, idx, arr) => (
+              <React.Fragment key={idx}>
+                {line}
+                {idx < arr.length - 1 ? <br /> : null}
+              </React.Fragment>
+            ))
+          : subtitle}
       </h4>
       <div
         className="project-hero-metadata mt-[48px] flex flex-row flex-wrap items-center gap-2"

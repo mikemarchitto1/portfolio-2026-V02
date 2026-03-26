@@ -27,7 +27,7 @@ export default function Work() {
       <main className="min-h-screen min-w-0">
         <div className="w-full px-4 md:px-8 lg:px-16">
           <div className="max-w-[1328px] mx-auto">
-            <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
+            <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
               <ProjectHero
                 title="A financial wellness platform to simplify banking"
                 subtitle="GloriFi is a unified experience that blends financial education, real‑time insights, and secure account management into a modern, intuitive interface."

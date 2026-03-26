@@ -26,15 +26,16 @@ function Work() {
         <>
         <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
-        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
+        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
 
             <ProjectHero
-              title="Microsoft Hits dolor sit amet consectegtur."
+              title="A redesigned internal research platform build"
+              subtitle="A refreshed Microsoft HITS experience that streamlines research ingestion, improves navigation, and introduces a consistent visual system for internal teams."
               tags={[
                 "Infotech",
-                "UX Research Repository",
+                "Repository",
                 "2019",
-                "UI/UX Designer",
+                "Product Design",
               ]}
             />
 
@@ -93,11 +94,15 @@ function Work() {
 
             <ProjectOverview
               situation="The objective of the Microsoft HITS team is to enhance the usability and functionality of the legacy system within a six-month timeline. The team plans to achieve this goal by implementing a new design system and style guide in the redesign and reskinning of the system."
-              task="Create an enhanced web tool software that utilizes Microsofts branding standards to help attract and engage more users within the organization."
-              result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control over the narrative of their reports."
+              task="Create an enhanced web‑tool software that utilizes Microsoft’s branding standards to help attract and engage significantly more users throughout the organization, improving overall visibility and adoption, and long‑term internal product success."
+              result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control."
             />
 
-            <ProjectSectionHeader title="Research" className="mt-32" />
+            <ProjectSectionHeader
+              title="Research"
+              intro="I conducted foundational research to understand how teams interacted with the legacy system, identifying friction points and opportunities for improvement."
+              className="mt-32"
+            />
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
@@ -142,7 +147,11 @@ function Work() {
             </div>
 
 
-            <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
+            <ProjectSectionHeader
+              title="Information Architecture"
+              intro="I restructured the navigation and content hierarchy to reduce cognitive load and make key workflows easier to discover and complete."
+              className="mt-[128px]"
+            />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -164,7 +173,11 @@ function Work() {
             </div>
 
 
-            <ProjectSectionHeader title="Visual Design" className="mt-32" />
+            <ProjectSectionHeader
+              title="Visual Design"
+              intro="I applied Microsoft’s design principles to create a cleaner, more accessible interface that supports clarity, consistency, and long‑term scalability."
+              className="mt-32"
+            />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -229,7 +242,11 @@ function Work() {
 
 
 
-            <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
+            <ProjectSectionHeader
+              title="Product Shipped"
+              intro="The final release delivered a modernized research platform that improved usability, reduced friction, and enabled teams to work more efficiently."
+              className="mt-[128px]"
+            />
 
             <div className="grid grid-cols-12 gap-4 pt-[128px]">
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
