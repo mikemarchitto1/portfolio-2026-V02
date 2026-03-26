@@ -14,7 +14,7 @@ export type ClientsSectionProps = {
 
 export default function ClientsSection({ projects }: ClientsSectionProps) {
   return (
-    <section className="w-full min-w-0 flex flex-col py-6 md:py-9 lg:pt-12 lg:pb-0 bg-transparent">
+    <section className="w-full min-w-0 flex flex-col py-6 md:py-9 lg:pt-28 lg:pb-0 bg-transparent">
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto flex flex-col min-w-0">
           <div className="w-full min-w-0 px-0 lg:px-16 py-4 mb-0 lg:pb-0 bg-transparent">

@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function HeroSection() {
   return (
-    <section className="hero w-full min-w-0 pt-6 pb-6 md:pt-9 md:pb-9 lg:pt-0 lg:pb-0 bg-transparent">
+    <section className="hero w-full min-w-0 pt-6 pb-6 md:pt-9 md:pb-9 lg:pt-16 lg:pb-0 bg-transparent">
       <div className="content w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
 
@@ -47,10 +47,10 @@ export default function HeroSection() {
                   </div>
                   <CardContent className="p-0">
                     <blockquote className="profile-quote text-body2 text-foreground font-light text-center m-0 p-0 mb-8">
-                      <p className="text-body2 italic leading-[24px] text-foreground">
+                      <p className="italic text-foreground [font-size:var(--text-body2)] [line-height:24px]">
                         "A king is a man who turns hope into action."
                       </p>
-                      <cite className="text-body2 not-italic block leading-[24px] text-foreground">
+                      <cite className="not-italic block text-foreground [font-size:var(--text-body2)] [line-height:24px]">
                         — Ralph Waldo Emerson
                       </cite>
                     </blockquote>
