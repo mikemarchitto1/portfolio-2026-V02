@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function HeroSection() {
   return (
-    <section className="hero w-full min-w-0 pt-6 pb-6 md:pt-9 md:pb-9 lg:pt-0 lg:pb-12 bg-transparent">
+    <section className="hero w-full min-w-0 pt-6 pb-6 md:pt-9 md:pb-9 lg:pt-0 lg:pb-0 bg-transparent">
       <div className="content w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
 
