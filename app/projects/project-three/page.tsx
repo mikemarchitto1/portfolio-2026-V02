@@ -1,14 +1,5 @@
 "use client";
 
-import {
-  Box,
-  CssBaseline,
-  Grid,
-  ThemeProvider,
-  Typography,
-  createTheme,
-} from "@/components/project-three/mui-compat";
-
 import ActionAreaCard from "@/components/project-three/ActionAreaCard";
 import ProjectCard from "@/components/project-card/project-card";
 import ProjectHero from "@/components/project-hero/project-hero";
@@ -28,14 +19,11 @@ const image_promo = "/assets/project_three/eddiebauer_promo.png";
 const image_icons = "/assets/project_three/eddiebauer_icons.png";
 const image_finaldesign = "/assets/project_three/eddiebauer_pdp.png";
 
-const muiTheme = createTheme();
-
 function Work() {
     const nextProject = getNextCaseStudyHomeCard("/projects/project-three");
 
     return (
-        <ThemeProvider theme={muiTheme}>
-        <CssBaseline />
+        <>
         <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
         <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
@@ -50,10 +38,10 @@ function Work() {
               ]}
             />
 
-            <Grid container spacing={2} sx={{ paddingBottom: 10, }}>
+            <div className="grid grid-cols-12 gap-4 pb-[80px]">
 
-                <Grid item xs={12} >
-                    <Box sx={{ height: 520, borderRadius: '16px', overflow: 'hidden' }}>
+                <div className="col-span-12">
+                    <div className="h-[520px] rounded-[16px] overflow-hidden">
                         <ActionAreaCard
                             thumbnail={image_hero}
                             thumbHeight={"520"}
@@ -61,11 +49,11 @@ function Work() {
                         // descriptions={'GloriFi is a fintech startup offering banking and credit cards with a focus on financial wellness information via their mobile and web application.'}
                         // route={'/designSystem'} 
                         />
-                    </Box>
-                </Grid>
+                    </div>
+                </div>
 
 
-            </Grid>
+            </div>
 
 
 
@@ -84,169 +72,154 @@ function Work() {
             <ProjectSectionHeader title="Research" className="mt-32" />
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                    Workshops
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
+                    <p className="text-body1 text-foreground">
                     I carefully reviewed several outdoor clothing and ecommerce experiences, evaluating patterns, content structure, and usability gaps to identify opportunities for improvement.
-                     </Typography>
-                </Grid>
+                    </p>
+                </div>
 
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_compaudit} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_compaudit} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
+            </div>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_compaudit} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_compaudit} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
 
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                    Competitive Audit
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
-                    In order to gain a deeper understanding for designs in the context of outdoor clothing websites, I conducted an audit and examined patterns and strategies to engage customers.                   
-                     </Typography>
-                </Grid>
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                    <p className="text-body1 text-foreground">
+                    In order to gain a deeper understanding for designs in the context of outdoor clothing websites, I conducted an audit and examined patterns and strategies to engage customers.
+                    </p>
+                </div>
 
-            </Grid>
+            </div>
 
 
 
             <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
 
-            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                        Wireframe Flows
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
-                    I collaborated closely with our UX designers to audit wireframes with the aim of gaining valuable insight into the user experience and to identify any areas that required improvement.                    </Typography>
-                </Grid>
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                    <p className="text-body1 text-foreground">
+                    I collaborated closely with our UX designers to audit wireframes with the aim of gaining valuable insight into the user experience and to identify any areas that required improvement.
+                    </p>
+                </div>
 
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_wireframe} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_wireframe} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
+            </div>
 
 
             <ProjectSectionHeader title="Visual Design" className="mt-[128px]" />
 
-            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                        Design System
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
-                    In order to ensure that the user experience remained consistent, I made styles and UI components that could be handed off to the development team, resulting in a more polished and user-friendly end result.                    </Typography>
-                </Grid>
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                    <p className="text-body1 text-foreground">
+                    In order to ensure that the user experience remained consistent, I made styles and UI components that could be handed off to the development team, resulting in a more polished and user-friendly end result.
+                    </p>
+                </div>
 
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_designsystem} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_designsystem} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
+            </div>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_uiexplore} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_uiexplore} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
 
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                        UI Exploration
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
+                    <p className="text-body1 text-foreground">
                     To create appealing mockups, I invented brand styles and design components to inform and bring the wireframes to life, reflecting the brand's values and aesthetic.
-                    </Typography>
-                </Grid>
+                    </p>
+                </div>
 
 
-            </Grid>
+            </div>
 
 
             <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
 
 
-            <Grid container spacing={2} sx={{ paddingTop: 8, }}>
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
-                    Promotions Carousel
-                    </Typography>
-                </Grid>
+            <div className="grid grid-cols-12 gap-4 pt-[64px]">
+                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+                    <h3 className="text-h3 text-foreground mb-0">Promotions Carousel</h3>
+                </div>
 
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="body1" component="p" color="text.primary">
-                    Various reusable components were created for this carousel module so that customers can browse promotions.                
-                        </Typography>
-                </Grid>
+                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+                    <p className="text-body1 text-foreground">
+                    Various reusable components were created for this carousel module so that customers can browse promotions.
+                    </p>
+                </div>
 
-                <Grid item xs={12}>
-                    <img src={image_promo} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
+                <div className="col-span-12">
+                    <img src={image_promo} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
+            </div>
 
 
-            <Grid container spacing={2} sx={{ paddingTop: 8, }}>
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
-                    System Iconography
-                    </Typography>
-                </Grid>
+            <div className="grid grid-cols-12 gap-4 pt-[64px]">
+                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+                    <h3 className="text-h3 text-foreground mb-0">System Iconography</h3>
+                </div>
 
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="body1" component="p" color="text.primary">
-                    To unify the brand's image, I created custom system icons that matched the brand's aesthetic.                       
-                     </Typography>
-                </Grid>
+                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+                    <p className="text-body1 text-foreground">
+                    To unify the brand's image, I created custom system icons that matched the brand's aesthetic.
+                    </p>
+                </div>
 
-                <Grid item xs={12}>
-                    <img src={image_icons} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
+                <div className="col-span-12">
+                    <img src={image_icons} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
+            </div>
 
 
-            <Grid container spacing={2} sx={{ paddingTop: 8, }}>
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
-                    Product Details Page
-                    </Typography>
-                </Grid>
+            <div className="grid grid-cols-12 gap-4 pt-[64px]">
+                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+                    <h3 className="text-h3 text-foreground mb-0">Product Details Page</h3>
+                </div>
 
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="body1" component="p" color="text.primary">
-                    The product page's modern and minimalistic design gives a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.                        </Typography>
-                </Grid>
+                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+                    <p className="text-body1 text-foreground">
+                    The product page's modern and minimalistic design gives a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
+                    </p>
+                </div>
 
-                <Grid item xs={12}>
-                    <img src={image_finaldesign} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
+                <div className="col-span-12">
+                    <img src={image_finaldesign} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                </div>
+            </div>
 
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 9, }}>
+            <div className="grid grid-cols-12 gap-8 pt-[72px]">
 
-                <Grid item xs={12} lg={5} sx={{ marginTop: 0, paddingBottom: 0}}>
-                    <Box sx={{ width: '100%', }}>
-                        <Typography variant="h2" color="text.primary" mb={2}>Next Project</Typography>
-                    </Box>
-                </Grid>
+                <div className="col-span-12 lg:col-span-5">
+                    <div className="w-full">
+                        <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
+                    </div>
+                </div>
 
-                <Grid item xs={12} lg={7} sx={{ marginTop: 0, paddingBottom: 0 }}>
-                    <Box sx={{ width: '100%', minWidth: 0 }}>
-                        {nextProject ? (
-                            <ProjectCard {...nextProject} layout="vertical" />
-                        ) : null}
-                    </Box>
-                </Grid>
+                <div className="col-span-12 lg:col-span-7 min-w-0">
+                    <div className="w-full min-w-0">
+                        {nextProject ? <ProjectCard {...nextProject} layout="vertical" /> : null}
+                    </div>
+                </div>
 
-            </Grid>
+            </div>
 
 
 
@@ -255,7 +228,7 @@ function Work() {
         </div>
         </div>
         <Footer />
-        </ThemeProvider>
+        </>
     );
 }
 

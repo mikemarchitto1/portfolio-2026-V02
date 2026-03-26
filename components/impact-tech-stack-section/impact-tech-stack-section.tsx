@@ -149,7 +149,7 @@ export default function ImpactTechStackSection() {
                       <div className="flex h-full w-full items-center justify-center gap-x-[16px]">
                         <img
                           src="/images/logo-material.svg"
-                          alt="Material UI"
+                          alt="Material"
                           className="w-full max-w-[27px] h-auto object-contain object-center shrink-0"
                         />
                         <img
