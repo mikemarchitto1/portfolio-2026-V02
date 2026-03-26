@@ -25,20 +25,27 @@ const navIconClass = "h-5 w-5 shrink-0";
 const themeButtonClass =
   "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border bg-transparent border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
 
-function MobileMenuCrown() {
+function MobileMenuCrown({ onNavigate }: { onNavigate?: () => void }) {
   const { theme } = useTheme();
   const crownSrc =
     theme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
   return (
     <div className="mb-6">
-      <img
-        suppressHydrationWarning
-        src={crownSrc}
-        alt=""
-        className="h-10 w-auto shrink-0"
-        width={40}
-        height={40}
-      />
+      <Link
+        href="/"
+        onClick={onNavigate}
+        className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+        aria-label="Home"
+      >
+        <img
+          suppressHydrationWarning
+          src={crownSrc}
+          alt=""
+          className="h-10 w-auto shrink-0"
+          width={40}
+          height={40}
+        />
+      </Link>
     </div>
   );
 }
@@ -273,7 +280,7 @@ try {
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex flex-col items-start p-4">
-                      <MobileMenuCrown />
+                      <MobileMenuCrown onNavigate={() => setMobileMenuOpen(false)} />
                       <MobileMenuThemeSwitcher />
                       <div className="mt-[4px] w-full pl-0 min-w-0">
                         <SidebarGroup>

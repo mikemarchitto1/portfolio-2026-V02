@@ -4,57 +4,7 @@ import HeroSection from "@/components/hero-section/hero-section";
 import ImpactTechStackSection from "@/components/impact-tech-stack-section/impact-tech-stack-section";
 import ClientsSection from "@/components/clients-section/clients-section";
 import Footer from "@/components/footer/footer";
-
-const projects = [
-  {
-    title: "Nutrilucent",
-    description:
-      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-large-nutrilucent.png",
-    href: "/nutrilucent",
-  },
-  {
-    title: "AI Labs",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/images/thumb-large-ai experiments.png",
-  },
-  {
-    title: "GloriFi",
-    description:
-      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-large-glorifi.png",
-    href: "/glorifi",
-  },
-  {
-    title: "National Restaurant Association",
-    description:
-      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-large-nationalrestaurantassociation.png",
-    href: "/nra",
-  },
-  {
-    title: "Microsoft Admin",
-    description:
-      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-large-microsoftadmin.png",
-    href: "/microsoft-admin",
-  },
-  {
-    title: "Microsoft Hits",
-    description:
-      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-large-microsofthits.png",
-    href: "/microsoft-hits",
-  },
-  {
-    title: "Eddie Bauer",
-    description:
-      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-large-eddiebauer.png",
-    href: "/eddiebauer",
-  },
-];
+import { HOME_PROJECT_CARDS } from "@/lib/portfolio-projects";
 
 export default function Home() {
   return (
@@ -67,7 +17,7 @@ export default function Home() {
         <ImpactTechStackSection />
 
         {/* Clients */}
-        <ClientsSection projects={projects} />
+        <ClientsSection projects={HOME_PROJECT_CARDS} />
       </main>
 
       <Footer />

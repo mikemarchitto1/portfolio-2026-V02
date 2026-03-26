@@ -41,14 +41,20 @@ try {
       theme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
     return (
       <div className="mb-6">
-        <img
-          suppressHydrationWarning
-          src={crownSrc}
-          alt=""
-          className="h-10 w-auto shrink-0"
-          width={40}
-          height={40}
-        />
+        <Link
+          href="/"
+          className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring rounded-md"
+          aria-label="Home"
+        >
+          <img
+            suppressHydrationWarning
+            src={crownSrc}
+            alt=""
+            className="h-10 w-auto shrink-0"
+            width={40}
+            height={40}
+          />
+        </Link>
       </div>
     );
   }
