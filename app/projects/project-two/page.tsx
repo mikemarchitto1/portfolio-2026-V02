@@ -232,13 +232,12 @@ function Work() {
             <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
 
             <div className="grid grid-cols-12 gap-4 pt-[128px]">
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
-                    <h3 className="text-h3 text-foreground mb-0">Content Ingestion Editor</h3>
-                </div>
-
-                <div className="col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6">
-                    <p className="text-body1 text-foreground mb-8">
-                    This customizable tool facilitates the ingestion, editing, and collaborative management of UX research content for Microsoft, providing valuable insights and data to the organization.
+                <div className="col-span-12 lg:col-span-6 text-left min-w-0">
+                    <h3 className="text-h3 text-foreground mb-0">
+                      Content Ingestion Editor
+                    </h3>
+                    <p className="text-body1 text-foreground mt-4 mb-8">
+                      This customizable tool facilitates the ingestion, editing, and collaborative management of UX research content for Microsoft, providing valuable insights and data to the organization.
                     </p>
                 </div>
 

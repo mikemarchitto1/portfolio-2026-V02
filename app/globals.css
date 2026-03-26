@@ -801,6 +801,11 @@
     line-height: var(--font-label-line);
     font-weight: 500;
   }
+  .text-body2 {
+    font-size: var(--text-body2);
+    line-height: var(--line-height-body2);
+    font-weight: var(--font-weight-body2);
+  }
   .text-button {
     font-size: var(--text-button);
     line-height: var(--line-height-button);

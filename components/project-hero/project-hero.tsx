@@ -1,5 +1,6 @@
 "use client";
 
+import Tag from "@/components/ui/tag";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_TITLE = "Lorem ipsum dolor sit amet consectegtur.";
@@ -37,12 +38,7 @@ export default function ProjectHero({
         aria-label="Project metadata"
       >
         {tags.map((label, i) => (
-          <span
-            key={`${label}-${i}`}
-            className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-normal text-foreground"
-          >
-            {label}
-          </span>
+          <Tag key={`${label}-${i}`}>{label}</Tag>
         ))}
       </div>
     </section>

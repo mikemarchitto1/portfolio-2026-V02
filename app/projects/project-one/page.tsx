@@ -29,7 +29,8 @@ export default function Work() {
           <div className="max-w-[1328px] mx-auto">
             <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
               <ProjectHero
-                title="GloriFi ipsum dolor sit amet consectegtur."
+                title="A financial wellness platform to simplify banking"
+                subtitle="GloriFi is a unified experience that blends financial education, real‑time insights, and secure account management into a modern, intuitive interface."
                 tags={["Fintech", "Mobile app", "Website", "2022", "UX Design"]}
               />
 
@@ -43,11 +44,16 @@ export default function Work() {
 
               <ProjectOverview
                 situation="GloriFi’s goal is to offer a functional financial banking app that focuses on financial wellness information via their mobile and web application. The timeline is to launch a beta and MVP application in eight months to validate market interest and secure more funding."
-                task="Design a global financial news feed and financial data insights hub that engages the U.S. cultural and financial communities by building trust, security, and privacy when opening bank accounts."
+                task="Design a global financial news feed and financial data insights hub that meaningfully engages U.S. cultural and financial communities by strengthening trust, security, and privacy throughout the entire modern bank‑account‑opening experience."
+                intro="This project focused on creating a cohesive financial ecosystem that supports users through clear information architecture, personalized insights, and a secure onboarding experience."
                 result="Following the initial release, which involved a successful launch of the app, it was reported that more than 40,000 individuals had downloaded the application, which was a significant achievement, as it ranked 11th among all financial apps available on the market."
               />
 
-              <ProjectSectionHeader title="Research" className="mt-32" />
+              <ProjectSectionHeader
+                title="Research"
+                intro="I conducted a series of qualitative and competitive research activities to understand user expectations around financial literacy, mobile banking, and trust‑building patterns."
+                className="mt-32"
+              />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -88,7 +94,11 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
+              <ProjectSectionHeader
+                title="Information Architecture"
+                intro="I mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
+                className="mt-[128px]"
+              />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -110,11 +120,15 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Design System" className="mt-32" />
+              <ProjectSectionHeader
+                title="Visual Design"
+                intro="I contributed to a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
+                className="mt-32"
+              />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Branding</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
                   <p className="text-body1 text-foreground">
                     This UI framework saved time and effort for the team by providing
                     pre-built components and promoting best UI practices. The framework
@@ -132,11 +146,9 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="UI Exploration" className="mt-32" />
-
-              <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Mockups</h3>
+              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
+                  <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
                     I used our brand styles and design system components to create
                     consistent and visually appealing mockups. This approach ensured
@@ -145,7 +157,7 @@ export default function Work() {
                   </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
                   <img
                     src={image_uiexplore}
                     className="w-full h-[504px] rounded-[16px] object-cover"
@@ -154,7 +166,11 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
+              <ProjectSectionHeader
+                title="Product Shipped"
+                intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
+                className="mt-[128px]"
+              />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 text-left min-w-0 mb-4">

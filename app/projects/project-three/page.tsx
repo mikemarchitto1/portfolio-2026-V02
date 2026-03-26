@@ -81,14 +81,14 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_compaudit} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_compaudit} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
                 </div>
             </div>
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_compaudit} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_compaudit} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -113,7 +113,7 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_wireframe} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_wireframe} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
                 </div>
             </div>
 
@@ -129,14 +129,14 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_designsystem} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_designsystem} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
                 </div>
             </div>
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_uiexplore} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_uiexplore} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -153,14 +153,11 @@ function Work() {
             <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
 
 
-            <div className="grid grid-cols-12 gap-4 pt-[64px]">
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+            <div className="grid grid-cols-12 gap-4 pt-[128px]">
+                <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">Promotions Carousel</h3>
-                </div>
-
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
-                    <p className="text-body1 text-foreground">
-                    Various reusable components were created for this carousel module so that customers can browse promotions.
+                    <p className="text-body1 text-foreground mt-4 mb-8">
+                      Various reusable components were created for this carousel module so that customers can browse promotions.
                     </p>
                 </div>
 
@@ -170,14 +167,11 @@ function Work() {
             </div>
 
 
-            <div className="grid grid-cols-12 gap-4 pt-[64px]">
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+            <div className="grid grid-cols-12 gap-4 pt-[128px]">
+                <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">System Iconography</h3>
-                </div>
-
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
-                    <p className="text-body1 text-foreground">
-                    To unify the brand's image, I created custom system icons that matched the brand's aesthetic.
+                    <p className="text-body1 text-foreground mt-4 mb-8">
+                      To unify the brand's image, I created custom system icons that matched the brand's aesthetic.
                     </p>
                 </div>
 
@@ -187,14 +181,11 @@ function Work() {
             </div>
 
 
-            <div className="grid grid-cols-12 gap-4 pt-[64px]">
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
+            <div className="grid grid-cols-12 gap-4 pt-[128px]">
+                <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">Product Details Page</h3>
-                </div>
-
-                <div className="col-span-12 sm:col-span-6 md:col-span-6">
-                    <p className="text-body1 text-foreground">
-                    The product page's modern and minimalistic design gives a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
+                    <p className="text-body1 text-foreground mt-4 mb-8">
+                      The product page's modern and minimalistic design gives a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
                     </p>
                 </div>
 
@@ -205,7 +196,7 @@ function Work() {
 
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[72px]">
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
 
                 <div className="col-span-12 lg:col-span-5">
                     <div className="w-full">
