@@ -70,8 +70,8 @@ export default function Footer() {
                     suppressHydrationWarning
                     src={
                       theme === "light"
-                        ? "/images/crown works-up-b.svg"
-                        : "/images/crown works-up-w.svg"
+                        ? "/images/crown-black.svg"
+                        : "/images/crown-white.svg"
                     }
                     alt="Crown Works"
                     className="hidden h-[76px] w-auto shrink-0 object-contain object-right translate-y-[6px]"

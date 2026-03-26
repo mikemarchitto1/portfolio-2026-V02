@@ -8,7 +8,7 @@ import ProjectOverview from "@/components/project-overview/project-overview";
 import ProjectSectionHeader from "@/components/project-section-header/project-section-header";
 import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 
-const image_hero = "/assets/project_one/hero.png";
+const image_hero = "/images/glorifi-hero.png";
 const image_compaudit = "/assets/project_one/glorifi_compaudit.png";
 const image_designsystem = "/assets/project_one/glorifi_designsystem.png";
 const image_personas = "/assets/project_one/glorifi_personas.png";
@@ -67,8 +67,8 @@ export default function Work() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src={image_compaudit}
-                    className="w-full h-[504px] rounded-[16px] object-cover"
+                    src="/images/glorifi-workshops.png"
+                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%+50px)]"
                     alt="Workshop synthesis"
                   />
                 </div>
@@ -77,8 +77,8 @@ export default function Work() {
               <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src={image_personas}
-                    className="w-full h-[504px] rounded-[16px] object-cover"
+                    src="/images/glorifi-competitiveaudit.png"
+                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%+16px)]"
                     alt="Personas"
                   />
                 </div>
@@ -113,8 +113,8 @@ export default function Work() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src={image_wireframe}
-                    className="w-full h-[504px] rounded-[16px] object-cover"
+                    src="/images/glorifi-wireframeflows.png"
+                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%+26px)]"
                     alt="Wireframes"
                   />
                 </div>
@@ -139,8 +139,8 @@ export default function Work() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src={image_designsystem}
-                    className="w-full h-[504px] rounded-[16px] object-cover"
+                    src="/images/glorifi-designsystem.png"
+                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%-18px)]"
                     alt="Design system"
                   />
                 </div>
@@ -159,8 +159,8 @@ export default function Work() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
                   <img
-                    src={image_uiexplore}
-                    className="w-full h-[504px] rounded-[16px] object-cover"
+                    src="/images/glorifi-uiexploration.png"
+                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%-16px)]"
                     alt="UI explorations"
                   />
                 </div>
@@ -184,7 +184,7 @@ export default function Work() {
 
                 <div className="col-span-12">
                   <img
-                    src={image_today}
+                    src="/images/glorifi-today.png"
                     className="w-full h-auto rounded-[16px]"
                     alt="Today feature"
                   />
@@ -203,7 +203,7 @@ export default function Work() {
 
                 <div className="col-span-12">
                   <img
-                    src={image_snapshot}
+                    src="/images/glorifi-snapshot.png"
                     className="w-full h-auto rounded-[16px]"
                     alt="Snapshot feature"
                   />

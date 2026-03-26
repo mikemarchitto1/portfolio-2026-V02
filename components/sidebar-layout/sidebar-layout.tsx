@@ -31,8 +31,6 @@ try {
     "/images/panel-left.svg",
     "/images/crown-black.svg",
     "/images/crown-white.svg",
-    "/images/crown works-up-b.svg",
-    "/images/crown works-up-w.svg",
   ];
 
   function SidebarCrown() {

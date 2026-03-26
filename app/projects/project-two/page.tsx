@@ -30,7 +30,7 @@ function Work() {
 
             <ProjectHero
               title="A redesigned internal research platform build"
-              subtitle="A refreshed Microsoft HITS experience that streamlines research ingestion, improves navigation, and introduces a consistent visual system for internal teams."
+              subtitle="A refreshed Microsoft HITS experience that streamlines research ingestion, improves navigation, and introduces a consistent visual system."
               tags={[
                 "Infotech",
                 "Repository",
