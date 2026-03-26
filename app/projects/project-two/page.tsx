@@ -38,7 +38,7 @@ function Work() {
         <CssBaseline />
         <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
-        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
+        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
 
             <ProjectHero
               title="Microsoft Hits dolor sit amet consectegtur."
@@ -112,29 +112,30 @@ function Work() {
             <ProjectSectionHeader title="Research" className="mt-32" />
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={4} md={4} >
                     <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                    Empathy Mapping
+                    Workshops
                     </Typography>
                     <Typography variant="body1" component="p" color="text.primary">
                     To enhance our user experience, I engaged in empathy mapping workshops which gave me an immersive opportunity to gain a deeper understanding of our target audience.                    </Typography>
                 </Grid>
 
                 <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_empathy} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                    <img src={image_empathy} className="w-full h-[504px] rounded-[16px] object-cover" width={'100%'} height={'100%'} alt='Large Pizza' />
                 </Grid>
             </Grid>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_audit} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                    <img src={image_audit} className="w-full h-[504px] rounded-[16px] object-cover" width={'100%'} height={'100%'} alt='Large Pizza' />
                 </Grid>
 
                 <Grid item xs={12} sm={4} md={4} >
                     <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                    Legacy Build Audit                    </Typography>
+                    Legacy Audit
+                    </Typography>
                     <Typography variant="body1" component="p" color="text.primary">
                     To comply with the new design direction, I audited the HITS legacy version to identify areas where changes could be made.                    
                     </Typography>
@@ -144,11 +145,27 @@ function Work() {
             </Grid>
 
 
-            <Box sx={{ width: '100%', marginTop: 20 }}>
-                <Typography variant="h2" color="text.primary" mb={2}>Define</Typography>
-            </Box>
+            <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
+                <Grid item xs={12} sm={4} md={4} >
+                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                        Wireframe Flows
+                    </Typography>
+                    <Typography variant="body1" component="p" color="text.primary">
+                    Collaborating with stakeholders, I created low to medium-fidelity wireframes as a strategic tool to extract valuable insights and better understand the intricacies of the design goals.
+                    </Typography>
+                </Grid>
+
+                <Grid item xs={12} sm={8} md={8}>
+                    <img src={image_wireframe} className="w-full h-[504px] rounded-[16px] object-cover" width={'100%'} height={'100%'} alt='Large Pizza' />
+                </Grid>
+            </Grid>
+
+
+            <ProjectSectionHeader title="Visual Design" className="mt-32" />
+
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={4} md={4} >
                     <Typography variant="h3" component="h3" color="text.primary" mb={2}>
                         Design System
@@ -159,34 +176,14 @@ function Work() {
                 </Grid>
 
                 <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_designsystem} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                    <img src={image_designsystem} className="w-full h-[504px] rounded-[16px] object-cover" width={'100%'} height={'100%'} alt='Large Pizza' />
                 </Grid>
             </Grid>
 
 
-            <Box sx={{ width: '100%', marginTop: 20 }}>
-                <Typography variant="h2" color="text.primary" mb={2}>Ideate</Typography>
-            </Box>
-
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                        Wireframe Evaluation
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
-                    Collaborating with stakeholders, I created low to medium-fidelity wireframes as a strategic tool to extract valuable insights and better understand the intricacies of the design goals.
-                    </Typography>
-                </Grid>
-
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_wireframe} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
-
-
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_uiexplore} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                    <img src={image_uiexplore} className="w-full h-[504px] rounded-[16px] object-cover" width={'100%'} height={'100%'} alt='Large Pizza' />
                 </Grid>
 
                 <Grid item xs={12} sm={4} md={4} >
@@ -202,10 +199,10 @@ function Work() {
             </Grid>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={4} md={4} >
                     <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                    User Interface Specs
+                    UI Specs
                     </Typography>
                     <Typography variant="body1" component="p" color="text.primary">
                     In order to promote smooth and efficient teamwork during the implementation of the design system, the team decided to use Redline documentation as a way of communicating important information about the structure and functionality of all the components within the system.             
@@ -213,26 +210,23 @@ function Work() {
                 </Grid>
 
                 <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_redlines} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                    <img src={image_redlines} className="w-full h-[504px] rounded-[16px] object-cover" width={'100%'} height={'100%'} alt='Large Pizza' />
                 </Grid>
             </Grid>
 
 
 
-            <Box sx={{ width: '100%', marginTop: 20 }}>
-                <Typography variant="h2" color="text.primary" mb={2}>Design</Typography>
-            </Box>
+            <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
 
-
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={2} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
                     Content Ingestion Editor
                     </Typography>
                 </Grid>
 
-                <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="body1" component="p" color="text.primary">
+                <Grid item xs={12} sm={6} md={6} lg={6} >
+                    <Typography variant="body1" component="p" color="text.primary" className="mb-8">
                     This customizable tool facilitates the ingestion, editing, and collaborative management of UX research content for Microsoft,  providing valuable insights and data to the organization.
                                             </Typography>
                 </Grid>
@@ -243,7 +237,7 @@ function Work() {
             </Grid>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 9, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
 
                 <Grid item xs={12} lg={5} sx={{ marginTop: 0, paddingBottom: 0 }}>
                     <Box sx={{ width: '100%', }}>
@@ -251,7 +245,7 @@ function Work() {
                     </Box>
                 </Grid>
 
-                <Grid item xs={12} lg={7} sx={{ marginTop: 0, paddingBottom: 20 }}>
+                <Grid item xs={12} lg={7} sx={{ marginTop: 0, paddingBottom: 0 }}>
                     <Box sx={{ width: '100%', minWidth: 0 }}>
                         {nextProject ? (
                             <ProjectCard {...nextProject} layout="vertical" />

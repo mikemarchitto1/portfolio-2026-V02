@@ -38,7 +38,7 @@ function Work() {
         <CssBaseline />
         <div className="w-full px-4 md:px-8 lg:px-16">
         <div className="max-w-[1328px] mx-auto">
-        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
+        <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-0 px-0 lg:px-16 bg-transparent">
 
             <ProjectHero
               title="Eddie Bauer dolor sit amet consectegtur."
@@ -84,13 +84,13 @@ function Work() {
             <ProjectSectionHeader title="Research" className="mt-32" />
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={4} md={4} >
                     <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                    Competitive Audit
+                    Workshops
                     </Typography>
                     <Typography variant="body1" component="p" color="text.primary">
-                    In order to gain a deeper understanding for designs in the context of outdoor clothing websites, I conducted an audit and examined patterns and strategies to engage customers.                   
+                    I carefully reviewed several outdoor clothing and ecommerce experiences, evaluating patterns, content structure, and usability gaps to identify opportunities for improvement.
                      </Typography>
                 </Grid>
 
@@ -100,12 +100,44 @@ function Work() {
             </Grid>
 
 
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
+                <Grid item xs={12} sm={8} md={8}>
+                    <img src={image_compaudit} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                </Grid>
 
-            <Box sx={{ width: '100%', marginTop: 20 }}>
-                <Typography variant="h2" color="text.primary" mb={2}>Define</Typography>
-            </Box>
+                <Grid item xs={12} sm={4} md={4} >
+                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                    Competitive Audit
+                    </Typography>
+                    <Typography variant="body1" component="p" color="text.primary">
+                    In order to gain a deeper understanding for designs in the context of outdoor clothing websites, I conducted an audit and examined patterns and strategies to engage customers.                   
+                     </Typography>
+                </Grid>
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            </Grid>
+
+
+
+            <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
+
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
+                <Grid item xs={12} sm={4} md={4} >
+                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                        Wireframe Flows
+                    </Typography>
+                    <Typography variant="body1" component="p" color="text.primary">
+                    I collaborated closely with our UX designers to audit wireframes with the aim of gaining valuable insight into the user experience and to identify any areas that required improvement.                    </Typography>
+                </Grid>
+
+                <Grid item xs={12} sm={8} md={8}>
+                    <img src={image_wireframe} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
+                </Grid>
+            </Grid>
+
+
+            <ProjectSectionHeader title="Visual Design" className="mt-[128px]" />
+
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={4} md={4} >
                     <Typography variant="h3" component="h3" color="text.primary" mb={2}>
                         Design System
@@ -120,26 +152,7 @@ function Work() {
             </Grid>
 
 
-            <Box sx={{ width: '100%', marginTop: 20 }}>
-                <Typography variant="h2" color="text.primary" mb={2}>Ideate</Typography>
-            </Box>
-
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
-                <Grid item xs={12} sm={4} md={4} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
-                        Wireframe Evaluation
-                    </Typography>
-                    <Typography variant="body1" component="p" color="text.primary">
-                    I collaborated closely with our UX designers to audit wireframes with the aim of gaining valuable insight into the user experience and to identify any areas that required improvement.                    </Typography>
-                </Grid>
-
-                <Grid item xs={12} sm={8} md={8}>
-                    <img src={image_wireframe} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
-                </Grid>
-            </Grid>
-
-
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={4} sx={{ paddingTop: 16, }}>
                 <Grid item xs={12} sm={8} md={8}>
                     <img src={image_uiexplore} className="w-full rounded-[16px]" width={'100%'} height={'100%'} alt='Large Pizza' />
                 </Grid>
@@ -157,14 +170,12 @@ function Work() {
             </Grid>
 
 
-            <Box sx={{ width: '100%', marginTop: 20 }}>
-                <Typography variant="h2" color="text.primary" mb={2}>Design</Typography>
-            </Box>
+            <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={2} sx={{ paddingTop: 8, }}>
                 <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
                     Promotions Carousel
                     </Typography>
                 </Grid>
@@ -181,9 +192,9 @@ function Work() {
             </Grid>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={2} sx={{ paddingTop: 8, }}>
                 <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
                     System Iconography
                     </Typography>
                 </Grid>
@@ -200,9 +211,9 @@ function Work() {
             </Grid>
 
 
-            <Grid container spacing={4} sx={{ paddingTop: 8, }}>
+            <Grid container spacing={2} sx={{ paddingTop: 8, }}>
                 <Grid item xs={12} sm={6} md={6} >
-                    <Typography variant="h3" component="h3" color="text.primary" mb={2}>
+                    <Typography variant="h3" component="h3" color="text.primary" mb={0}>
                     Product Details Page
                     </Typography>
                 </Grid>
@@ -227,7 +238,7 @@ function Work() {
                     </Box>
                 </Grid>
 
-                <Grid item xs={12} lg={7} sx={{ marginTop: 0, paddingBottom: 20 }}>
+                <Grid item xs={12} lg={7} sx={{ marginTop: 0, paddingBottom: 0 }}>
                     <Box sx={{ width: '100%', minWidth: 0 }}>
                         {nextProject ? (
                             <ProjectCard {...nextProject} layout="vertical" />

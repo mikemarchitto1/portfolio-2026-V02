@@ -35,7 +35,7 @@ export default function Work() {
 
               <div className="grid grid-cols-12 gap-4 pb-20">
                 <div className="col-span-12">
-                  <div className="h-[520px] overflow-hidden rounded-[16px]">
+                  <div className="h-[504px] overflow-hidden rounded-[16px]">
                     <ActionAreaCard thumbnail={image_hero} thumbHeight={"520"} />
                   </div>
                 </div>
@@ -62,7 +62,7 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src={image_compaudit}
-                    className="w-full h-[520px] rounded-[16px] object-cover"
+                    className="w-full h-[504px] rounded-[16px] object-cover"
                     alt="Workshop synthesis"
                   />
                 </div>
@@ -72,7 +72,7 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src={image_personas}
-                    className="w-full h-[520px] rounded-[16px] object-cover"
+                    className="w-full h-[504px] rounded-[16px] object-cover"
                     alt="Personas"
                   />
                 </div>
@@ -88,29 +88,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Design System" className="mt-[128px]" />
-
-              <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Branding</h3>
-                  <p className="text-body1 text-foreground">
-                    This UI framework saved time and effort for the team by providing
-                    pre-built components and promoting best UI practices. The framework
-                    also allowed for easier maintenance and updates without compromising
-                    the site's integrity.
-                  </p>
-                </div>
-
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                  <img
-                    src={image_designsystem}
-                    className="w-full h-[520px] rounded-[16px] object-cover"
-                    alt="Design system"
-                  />
-                </div>
-              </div>
-
-              <ProjectSectionHeader title="Information Architecture" className="mt-32" />
+              <ProjectSectionHeader title="Information Architecture" className="mt-[128px]" />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -126,13 +104,35 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src={image_wireframe}
-                    className="w-full h-[520px] rounded-[16px] object-cover"
+                    className="w-full h-[504px] rounded-[16px] object-cover"
                     alt="Wireframes"
                   />
                 </div>
               </div>
 
-              <ProjectSectionHeader title="UI Explorations" className="mt-32" />
+              <ProjectSectionHeader title="Design System" className="mt-32" />
+
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Branding</h3>
+                  <p className="text-body1 text-foreground">
+                    This UI framework saved time and effort for the team by providing
+                    pre-built components and promoting best UI practices. The framework
+                    also allowed for easier maintenance and updates without compromising
+                    the site's integrity.
+                  </p>
+                </div>
+
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                  <img
+                    src={image_designsystem}
+                    className="w-full h-[504px] rounded-[16px] object-cover"
+                    alt="Design system"
+                  />
+                </div>
+              </div>
+
+              <ProjectSectionHeader title="UI Exploration" className="mt-32" />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -148,13 +148,13 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src={image_uiexplore}
-                    className="w-full h-[520px] rounded-[16px] object-cover"
+                    className="w-full h-[504px] rounded-[16px] object-cover"
                     alt="UI explorations"
                   />
                 </div>
               </div>
 
-              <ProjectSectionHeader title="Features" className="mt-[128px]" />
+              <ProjectSectionHeader title="Product Shipped" className="mt-[128px]" />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 text-left min-w-0 mb-4">
