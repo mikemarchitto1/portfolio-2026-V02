@@ -10,8 +10,8 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
   {
     title: "Nutrilucent",
     description:
-      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/nutrilucent-thumb.png",
+      "Led UX for Nutrilucent, driving research, UI design and build to shape packaging, product architecture, and visual systems that express clinical trust and luminous vitality.",
+    image: "/images/nutrilucent-thumb-v3.png",
     href: "/nutrilucent",
   },
   {
@@ -31,7 +31,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "National Restaurant Association",
     description:
       "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-large-nationalrestaurantassociation.png",
+    image: "/images/nationalrestaurantassociation-thumb.png",
     href: "/nra",
   },
   {

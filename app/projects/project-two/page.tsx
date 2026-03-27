@@ -11,13 +11,13 @@ import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 import "../../styles/App.css";
 
 const image_hero = "/images/microsofthits-hero.png";
-const image_redlines = "/assets/project_two/microsoft_redline.png";
-const image_designsystem = "/assets/project_two/microsoft_designsystem.png";
+const image_redlines = "/images/microsofthits_uispecs.png";
+const image_designsystem = "/images/microsofthits_designsystem.png";
 const image_audit = "/images/microsofthits_systemaudit.png";
-const image_uiexplore = "/assets/project_two/microsoft_uiexplore.png";
-const image_wireframe = "/assets/project_two/microsoft_wireframe.png";
+const image_uiexplore = "/images/microsofthits_uiexploration.png";
+const image_wireframe = "/images/microsofthits_wireframeflows.png";
 const image_empathy = "/images/microsofthits_workshops.png";
-const image_finaldesign = "/assets/project_two/microsoft_cie.png";
+const image_finaldesign = "/images/microsofthits_contentingestioneditor.png";
 
 function Work() {
     const nextProject = getNextCaseStudyHomeCard("/projects/project-two");
@@ -116,7 +116,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_empathy}
-                      className="w-full h-[504px] rounded-[16px] object-cover"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
                       alt="Large Pizza"
@@ -129,7 +129,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_audit}
-                      className="w-full h-[504px] rounded-[16px] object-cover"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
                       alt="Large Pizza"
@@ -164,7 +164,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_wireframe}
-                      className="w-full h-[504px] rounded-[16px] object-cover"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
                       alt="Large Pizza"
@@ -190,7 +190,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_designsystem}
-                      className="w-full h-[504px] rounded-[16px] object-cover"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
                       alt="Large Pizza"
@@ -203,7 +203,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_uiexplore}
-                      className="w-full h-[504px] rounded-[16px] object-cover"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
                       alt="Large Pizza"
@@ -232,7 +232,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_redlines}
-                      className="w-full h-[504px] rounded-[16px] object-cover"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
                       alt="Large Pizza"
