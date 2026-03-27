@@ -31,7 +31,7 @@ export default function ProjectHero({
       <h1 className="text-h1 font-light tracking-[0] text-foreground min-w-0">
         {title}
       </h1>
-      <h4 className="text-h4 text-foreground mt-4 max-w-3xl">
+      <h4 className="text-h4 text-foreground mt-4 max-w-[800px]">
         {subtitle.includes("\n")
           ? subtitle.split("\n").map((line, idx, arr) => (
               <React.Fragment key={idx}>
@@ -42,7 +42,7 @@ export default function ProjectHero({
           : subtitle}
       </h4>
       <div
-        className="project-hero-metadata mt-[48px] flex flex-row flex-wrap items-center gap-2"
+        className="project-hero-metadata mt-[48px] flex flex-row flex-wrap items-center gap-4"
         aria-label="Project metadata"
       >
         {tags.map((label, i) => (

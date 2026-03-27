@@ -45,7 +45,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "Microsoft Hits",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-large-microsofthits.png",
+    image: "/images/microsofthits-thumb.png",
     href: "/projects/project-two",
   },
   {

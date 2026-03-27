@@ -33,9 +33,10 @@ function Work() {
               subtitle="A redesigned Eddie Bauer platform that enhances product discovery, strengthens brand identity, and improves the overall shopping experience."
               tags={[
                 "Ecommerce",
-                "Website Redesign",
-                "2018",
+                "Website Design",
                 "Product Design",
+                "Cross Platform",
+                "Conversion",
               ]}
             />
 

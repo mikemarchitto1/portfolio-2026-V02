@@ -231,8 +231,8 @@
     --cta-bg-hover: oklch(28% 0 0);
     --cta-color: oklch(100% 0 0);
 
-    --text-h1-fluid: clamp(2.5rem, 1.253rem + 5.12vw, calc(5.5rem - 8px));
-    --text-h1-line: clamp(48px, calc(48px + 56 * (100vw - 390px) / 938), calc(104px - 8px));
+    --text-h1-fluid: clamp(2.5rem, 1.253rem + 5.12vw, calc(5.5rem - 10px));
+    --text-h1-line: clamp(48px, calc(48px + 56 * (100vw - 390px) / 938), calc(104px - 10px));
     --text-h1-weight: 400;
 
     --text-h2-fluid: clamp(1.75rem, 0.918rem + 3.41vw, 3.75rem);

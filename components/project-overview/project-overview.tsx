@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 
 const DEFAULT_INTRO =
-  "This redesign focused on elevating the legacy tool into a modern, intuitive platform that supports researchers, analysts, and cross‑functional teams.";
+  "This design focused on elevating the legacy tool into a modern, intuitive platform that supports researchers, analysts, and cross‑functional teams.";
 
 export type ProjectOverviewProps = {
   situation: string;
@@ -23,7 +23,7 @@ export default function ProjectOverview({
   return (
     <section className={cn("w-full pt-12 text-left min-w-0", className)}>
       <h2 className="text-h2 font-light text-foreground">Overview</h2>
-      <h4 className="text-h4 text-foreground mt-4 max-w-4xl">{intro}</h4>
+      <h4 className="text-h4 text-foreground mt-4 max-w-[800px]">{intro}</h4>
       <div className="mt-[128px] md:mt-[128px] grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10 lg:gap-12">
         <div className="min-w-0">
           <h3 className="text-h3 text-foreground mb-3">Situation</h3>

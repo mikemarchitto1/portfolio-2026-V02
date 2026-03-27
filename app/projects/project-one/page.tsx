@@ -31,7 +31,14 @@ export default function Work() {
               <ProjectHero
                 title="A financial wellness platform to simplify banking"
                 subtitle="GloriFi is a unified experience that blends financial education, real‑time insights, and secure account management into a modern, intuitive interface."
-                tags={["Fintech", "Mobile app", "Website", "2022", "UX Design"]}
+                tags={[
+                  "Fintech",
+                  "Mobile App",
+                  "Website",
+                  "UX Design",
+                  "Product Strategy",
+                  "Design System",
+                ]}
               />
 
               <div className="grid grid-cols-12 gap-4 pb-20">
@@ -55,9 +62,9 @@ export default function Work() {
                 className="mt-32"
               />
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
                   <p className="text-body1 text-foreground">
                     I carefully reviewed several banking and financial apps, evaluating
                     their features and identifying areas for improvement. This helped me
@@ -67,26 +74,26 @@ export default function Work() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-workshops.png"
-                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%+50px)]"
-                    alt="Workshop synthesis"
+                    src="/images/glorifi-competitiveaudit.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Personas"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-32">
+              <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-competitiveaudit.png"
-                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%+16px)]"
-                    alt="Personas"
+                    src="/images/glorifi-workshops.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Workshop synthesis"
                   />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                   <p className="text-body1 text-foreground">
-                    I joined empathy mapping workshops to comprehend our users better.
+                    I conducted empathy mapping workshops to comprehend our users better.
                     The workshops aided me in creating personas that reflect their
                     distinct qualities and motivations, revealing areas for improvement
                     and leading to a better user experience.
@@ -104,17 +111,17 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
                   <p className="text-body1 text-foreground">
-                    I worked with UX designers to review user flows and wireframes,
-                    examining the design process and identifying areas for improvement.
-                    We discussed potential issues and brainstormed solutions to ensure
-                    a seamless and user-friendly experience.
+                    I created user flows and wireframes, examining the design process
+                    and identifying areas for improvement. We discussed potential
+                    issues and brainstormed solutions to ensure a seamless and
+                    user-friendly experience.
                   </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src="/images/glorifi-wireframeflows.png"
-                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%+26px)]"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="Wireframes"
                   />
                 </div>
@@ -122,7 +129,7 @@ export default function Work() {
 
               <ProjectSectionHeader
                 title="Visual Design"
-                intro="I contributed to a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
+                intro="I created a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
                 className="mt-32"
               />
 
@@ -140,7 +147,7 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src="/images/glorifi-designsystem.png"
-                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%-18px)]"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="Design system"
                   />
                 </div>
@@ -160,14 +167,14 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
                   <img
                     src="/images/glorifi-uiexploration.png"
-                    className="w-full h-[504px] rounded-[16px] object-cover [object-position:center_calc(50%-16px)]"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="UI explorations"
                   />
                 </div>
               </div>
 
               <ProjectSectionHeader
-                title="Product Shipped"
+                title="Product Features"
                 intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
                 className="mt-[128px]"
               />
@@ -185,7 +192,7 @@ export default function Work() {
                 <div className="col-span-12">
                   <img
                     src="/images/glorifi-today.png"
-                    className="w-full h-auto rounded-[16px]"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="Today feature"
                   />
                 </div>
@@ -204,7 +211,7 @@ export default function Work() {
                 <div className="col-span-12">
                   <img
                     src="/images/glorifi-snapshot.png"
-                    className="w-full h-auto rounded-[16px]"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="Snapshot feature"
                   />
                 </div>
@@ -221,8 +228,8 @@ export default function Work() {
 
                 <div className="col-span-12">
                   <img
-                    src={image_rewards}
-                    className="w-full h-auto rounded-[16px]"
+                    src="/images/glorifi-rewards.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="Rewards feature"
                   />
                 </div>
@@ -240,8 +247,8 @@ export default function Work() {
 
                 <div className="col-span-12">
                   <img
-                    src={image_accounts}
-                    className="w-full h-auto rounded-[16px]"
+                    src="/images/glorifi-accounts.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
                     alt="Accounts feature"
                   />
                 </div>

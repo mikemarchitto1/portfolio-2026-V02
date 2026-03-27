@@ -10,13 +10,13 @@ import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 
 import "../../styles/App.css";
 
-const image_hero = "/assets/project_two/hero.png";
+const image_hero = "/images/microsofthits-hero.png";
 const image_redlines = "/assets/project_two/microsoft_redline.png";
 const image_designsystem = "/assets/project_two/microsoft_designsystem.png";
-const image_audit = "/assets/project_two/microsoft_audit.png";
+const image_audit = "/images/microsofthits_systemaudit.png";
 const image_uiexplore = "/assets/project_two/microsoft_uiexplore.png";
 const image_wireframe = "/assets/project_two/microsoft_wireframe.png";
-const image_empathy = "/assets/project_two/microsoft_empathymap.png";
+const image_empathy = "/images/microsofthits_workshops.png";
 const image_finaldesign = "/assets/project_two/microsoft_cie.png";
 
 function Work() {
@@ -29,13 +29,13 @@ function Work() {
         <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
 
             <ProjectHero
-              title="A redesigned internal research platform build"
-              subtitle="A refreshed Microsoft HITS experience that streamlines research ingestion, improves navigation, and introduces a consistent visual system."
+              title="A research repository built to streamline discovery"
+              subtitle="The Microsoft HITS experience enhances research ingestion, improves navigation, and introduces a consistent visual system."
               tags={[
-                "Infotech",
-                "Repository",
-                "2019",
-                "Product Design",
+                "Internal Tools",
+                "Enterprise UX",
+                "Research Ops",
+                "Design System",
               ]}
             />
 
@@ -93,7 +93,7 @@ function Work() {
 
 
             <ProjectOverview
-              situation="The objective of the Microsoft HITS team is to enhance the usability and functionality of the legacy system within a six-month timeline. The team plans to achieve this goal by implementing a new design system and style guide in the redesign and reskinning of the system."
+              situation="The objective of the Microsoft HITS team is to enhance the usability and functionality of the system within a six-month timeline. The team plans to achieve this goal by implementing a new design system and style guide in the redesign and reskinning of the system."
               task="Create an enhanced web‑tool software that utilizes Microsoft’s branding standards to help attract and engage significantly more users throughout the organization, improving overall visibility and adoption, and long‑term internal product success."
               result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control."
             />
@@ -137,9 +137,9 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Legacy Audit</h3>
+                    <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
                     <p className="text-body1 text-foreground">
-                    To comply with the new design direction, I audited the HITS legacy version to identify areas where changes could be made.
+                    To comply with the new design direction HITS was audited to identify areas where changes could be made.
                     </p>
                 </div>
 
