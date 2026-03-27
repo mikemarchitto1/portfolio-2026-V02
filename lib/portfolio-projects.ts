@@ -11,7 +11,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "Nutrilucent",
     description:
       "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-large-nutrilucent.png",
+    image: "/images/nutrilucent-thumb.png",
     href: "/nutrilucent",
   },
   {
@@ -24,7 +24,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "GloriFi",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-large-glorifi.png",
+    image: "/images/glorifi-thumb.png",
     href: "/projects/project-one",
   },
   {
@@ -52,7 +52,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "Eddie Bauer",
     description:
       "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
-    image: "/images/thumb-large-eddiebauer.png",
+    image: "/images/eddiebauer-thumb.png",
     href: "/projects/project-three",
   },
 ];
