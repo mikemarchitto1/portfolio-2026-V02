@@ -35,13 +35,6 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     href: "/nra",
   },
   {
-    title: "Microsoft Admin Center",
-    description:
-      "Architect enterprise cart functionality driving research, wireframes, prototypes, usability testing, and iterative collaboration with developers to optimize workflows.",
-    image: "/images/microsoftadmin-thumb.png",
-    href: "/microsoft-admin",
-  },
-  {
     title: "Microsoft HITS",
     description:
       "Internal repository platform focused on streamlining operational workflows, improving clarity, usability, and interaction patterns to help teams work more efficiently.",
