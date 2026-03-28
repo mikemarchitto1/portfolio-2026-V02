@@ -177,7 +177,12 @@ try {
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
-                    <a href="/resume.pdf" download aria-label="Download Resume" className="text-button text-foreground no-underline w-full">
+                    <a
+                      href="/images/mikemarchitto_cv.pdf"
+                      download="mikemarchitto_cv.pdf"
+                      aria-label="Download Resume"
+                      className="text-button text-foreground no-underline w-full"
+                    >
                       Resume
                     </a>
                   </SidebarMenuButton>
