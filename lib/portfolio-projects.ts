@@ -10,48 +10,48 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
   {
     title: "Nutrilucent",
     description:
-      "Led UX for Nutrilucent, driving research, UI design and build to shape packaging, product architecture, and visual systems that express clinical trust and luminous vitality.",
-    image: "/images/nutrilucent-thumb-v3.png",
+      "UX Founder driving research, UI design and build to shape packaging, product architecture, and visual systems that express clinical trust and luminous vitality.",
+    image: "/images/nutrilucent-thumb.png",
     href: "/nutrilucent",
   },
   {
     title: "AI Labs",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Dedicated space for exploring emerging AI technologies, experimenting with new creative workflows, and documenting studies that expand modern design.",
     image: "/images/thumb-large-ai experiments.png",
   },
   {
     title: "GloriFi",
     description:
-      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
+      "Fintech startup focused on modernizing mobile and web banking product experiences that clarify financial information and strengthen the brand's digital presence.",
     image: "/images/glorifi-thumb.png",
     href: "/projects/project-one",
   },
   {
     title: "National Restaurant Association",
     description:
-      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
+      "ServSafe products improve learning flows, refine usability, and shape clearer interfaces that help restaurant professionals complete essential food‑safety training.",
     image: "/images/nationalrestaurantassociation-thumb.png",
     href: "/nra",
   },
   {
-    title: "Microsoft Admin",
+    title: "Microsoft Admin Center",
     description:
-      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
+      "Architect enterprise cart functionality driving research, wireframes, prototypes, usability testing, and iterative collaboration with developers to optimize workflows.",
     image: "/images/microsoftadmin-thumb.png",
     href: "/microsoft-admin",
   },
   {
-    title: "Microsoft Hits",
+    title: "Microsoft HITS",
     description:
-      "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
+      "Internal repository platform focused on streamlining operational workflows, improving clarity, usability, and interaction patterns to help teams work more efficiently.",
     image: "/images/microsofthits-thumb.png",
     href: "/projects/project-two",
   },
   {
     title: "Eddie Bauer",
     description:
-      "Created an internal research repository by leading end-to-end UX work from foundation of research through UI design and agile handoff.",
+      "Ecommerce experience design for product pages, interaction patterns, and design‑system to create a cohesive and effective shopping journey.",
     image: "/images/eddiebauer-thumb.png",
     href: "/projects/project-three",
   },
@@ -69,7 +69,7 @@ function normalizePath(path: string) {
   return p;
 }
 
-/** Next case study in rotation (GloriFi → Microsoft Hits → Eddie Bauer → GloriFi). */
+/** Next case study in rotation (GloriFi → Microsoft HITS → Eddie Bauer → GloriFi). */
 export function getNextCaseStudyHomeCard(currentHref: string): HomeProjectCard | undefined {
   const key = normalizePath(currentHref);
   const order = CASE_STUDY_HREFS as readonly string[];

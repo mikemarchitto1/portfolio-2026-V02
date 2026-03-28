@@ -23,7 +23,7 @@ export default function ClientsSection({ projects }: ClientsSectionProps) {
             </h2>
           </div>
 
-          <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 gap-32 bg-transparent">
+          <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 gap-48 bg-transparent">
             {projects.map((project, i) => (
               <ProjectCard
                 key={i}

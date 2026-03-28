@@ -10,7 +10,7 @@ import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 
 import "../../styles/App.css";
 
-const image_hero = "/assets/project_three/hero.png";
+const image_hero = "/images/eddiebauer-hero.png";
 const image_workshops = "/images/eddiebauer-workshops.png";
 const image_compaudit = "/images/eddiebauer-competitiveaudit.png";
 const image_wireframe = "/images/eddiebauer_wireframeflows.png";
@@ -30,7 +30,7 @@ function Work() {
 
             <ProjectHero
               title="An ecommerce experience to modernize the brand"
-              subtitle="A redesigned Eddie Bauer platform that enhances product discovery, strengthens brand identity, and improves the overall shopping experience."
+              subtitle="An Eddie Bauer platform design that enhances product discovery, strengthens brand identity, and improves the overall shopping experience."
               tags={[
                 "Ecommerce",
                 "Website Design",
@@ -60,10 +60,10 @@ function Work() {
 
 
             <ProjectOverview
-              situation="Eddie Bauer aims to revamp their Ecommerce platform with new features and brand aesthetics within six months, in order to enhance their marketing strategy and generate more leads."
-              task="Build a stronger contemporary brand with current signature technologies, engage the outdoor apparel community, and create a product description page and branded design system that cater to the users' interests."
+              situation="Eddie Bauer aims to revamp their Ecommerce platform with new features and brand aesthetics within six months, in order to enhance their marketing strategy and generate more leads while strengthening long‑term customer engagement across channels."
+              task="Build a stronger contemporary brand with current signature technologies, engage the outdoor apparel community, and create a product description page and branded design system that cater to the users' interests while reinforcing long‑term loyalty and trust."
               intro="This project centered on elevating Eddie Bauer’s digital presence through improved UX patterns, updated brand visuals, and a more intuitive product journey."
-              result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control over the narrative of their reports."
+              result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control over the narrative."
             />
 
 
@@ -119,7 +119,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
                     <p className="text-body1 text-foreground">
-                    I collaborated closely with our UX designers to audit wireframes with the aim of gaining valuable insight into the user experience and to identify any areas that required improvement.
+                    I created wireframes with the aim of gaining valuable insight into the user experience of customers and to identify any areas that required improvement.
                     </p>
                 </div>
 
@@ -173,7 +173,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">System Icons</h3>
                     <p className="text-body1 text-foreground">
-                    In order to ensure that the user experience remained consistent, I made styles and UI components that could be handed off to the development team, resulting in a more polished and user-friendly end result.
+                    Crafting a custom icon set strengthened the brand’s visual language, ensured consistent interaction patterns across the product, and provided development with a unified, scalable asset library that supports a clearer and more intuitive user experience.
                     </p>
                 </div>
 
@@ -194,7 +194,7 @@ function Work() {
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">Product Details</h3>
                     <p className="text-body1 text-foreground mt-4 mb-8">
-                      The product page's modern and minimalistic design gives a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
+                      The product details page now has a modern and minimalistic design giving a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
                     </p>
                 </div>
 

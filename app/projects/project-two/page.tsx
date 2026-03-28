@@ -17,7 +17,7 @@ const image_audit = "/images/microsofthits_systemaudit.png";
 const image_uiexplore = "/images/microsofthits_uiexploration.png";
 const image_wireframe = "/images/microsofthits_wireframeflows.png";
 const image_empathy = "/images/microsofthits_workshops.png";
-const image_finaldesign = "/images/microsofthits_contentingestioneditor.png";
+const image_finaldesign = "/images/microsofthits-contentingestioneditor.png";
 
 function Work() {
     const nextProject = getNextCaseStudyHomeCard("/projects/project-two");
@@ -225,7 +225,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">UI Specs</h3>
                     <p className="text-body1 text-foreground">
-                    In order to promote smooth and efficient teamwork during the implementation of the design system, the team decided to use Redline documentation as a way of communicating important information about the structure and functionality of all the components within the system.
+                    To promote smooth and efficient teamwork during the implementation of the design system we decided to use Redline documentation as a way of communicating important information about the structure and functionality of all components.
                     </p>
                 </div>
 
