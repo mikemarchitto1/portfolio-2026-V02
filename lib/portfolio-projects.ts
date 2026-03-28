@@ -38,7 +38,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "Microsoft Admin",
     description:
       "Redesigned website with custom iconography, product focused visuals, and a more intuitive shopping experience.",
-    image: "/images/thumb-large-microsoftadmin.png",
+    image: "/images/microsoftadmin-thumb.png",
     href: "/microsoft-admin",
   },
   {

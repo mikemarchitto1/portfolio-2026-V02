@@ -11,13 +11,13 @@ import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 import "../../styles/App.css";
 
 const image_hero = "/assets/project_three/hero.png";
-const image_compaudit = "/assets/project_three/eddiebauer_audit.png";
-const image_designsystem = "/assets/project_three/eddiebauer_designsystem.png";
-const image_uiexplore = "/assets/project_three/eddiebauer_uiexplore.png";
-const image_wireframe = "/assets/project_three/eddiebauer_wireframe.png";
-const image_promo = "/assets/project_three/eddiebauer_promo.png";
-const image_icons = "/assets/project_three/eddiebauer_icons.png";
-const image_finaldesign = "/assets/project_three/eddiebauer_pdp.png";
+const image_workshops = "/images/eddiebauer-workshops.png";
+const image_compaudit = "/images/eddiebauer-competitiveaudit.png";
+const image_wireframe = "/images/eddiebauer_wireframeflows.png";
+const image_designsystem = "/images/eddiebauer-designsystem.png";
+const image_uiexplore = "/images/eddiebauer-uiexploration.png";
+const image_systemicons = "/images/eddiebauer-systemiconography.png";
+const image_productdetails = "/images/eddiebauer-productdetails.png";
 
 function Work() {
     const nextProject = getNextCaseStudyHomeCard("/projects/project-three");
@@ -88,14 +88,14 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_compaudit} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_workshops} className="w-full h-auto rounded-[16px] object-contain" alt="Workshops" />
                 </div>
             </div>
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_compaudit} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_compaudit} className="w-full h-auto rounded-[16px] object-contain" alt="Competitive audit" />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -124,7 +124,7 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_wireframe} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_wireframe} className="w-full h-auto rounded-[16px] object-contain" alt="Wireframe flows" />
                 </div>
             </div>
 
@@ -143,15 +143,19 @@ function Work() {
                     </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_designsystem} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 h-[636px] overflow-hidden rounded-[16px]">
+                    <img
+                      src={image_designsystem}
+                      className="h-full w-full object-cover object-[center_calc(50%-18px)]"
+                      alt="Design system"
+                    />
                 </div>
             </div>
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_uiexplore} className="w-full h-[540px] rounded-[16px] object-cover" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_uiexplore} className="w-full h-auto rounded-[16px] object-contain" alt="UI exploration" />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
@@ -165,6 +169,20 @@ function Work() {
             </div>
 
 
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">System Icons</h3>
+                    <p className="text-body1 text-foreground">
+                    In order to ensure that the user experience remained consistent, I made styles and UI components that could be handed off to the development team, resulting in a more polished and user-friendly end result.
+                    </p>
+                </div>
+
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_systemicons} className="w-full h-auto rounded-[16px] object-contain" alt="System icons" />
+                </div>
+            </div>
+
+
             <ProjectSectionHeader
               title="Product Shipped"
               intro="The final experience delivered a cleaner, more cohesive ecommerce platform with reusable components that support ongoing marketing and merchandising needs."
@@ -174,42 +192,14 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-4 pt-[128px]">
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
-                    <h3 className="text-h3 text-foreground mb-0">Promotions Carousel</h3>
-                    <p className="text-body1 text-foreground mt-4 mb-8">
-                      Various reusable components were created for this carousel module so that customers can browse promotions.
-                    </p>
-                </div>
-
-                <div className="col-span-12">
-                    <img src={image_promo} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
-                </div>
-            </div>
-
-
-            <div className="grid grid-cols-12 gap-4 pt-[128px]">
-                <div className="col-span-12 lg:col-span-6 text-left min-w-0">
-                    <h3 className="text-h3 text-foreground mb-0">System Iconography</h3>
-                    <p className="text-body1 text-foreground mt-4 mb-8">
-                      To unify the brand's image, I created custom system icons that matched the brand's aesthetic.
-                    </p>
-                </div>
-
-                <div className="col-span-12">
-                    <img src={image_icons} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
-                </div>
-            </div>
-
-
-            <div className="grid grid-cols-12 gap-4 pt-[128px]">
-                <div className="col-span-12 lg:col-span-6 text-left min-w-0">
-                    <h3 className="text-h3 text-foreground mb-0">Product Details Page</h3>
+                    <h3 className="text-h3 text-foreground mb-0">Product Details</h3>
                     <p className="text-body1 text-foreground mt-4 mb-8">
                       The product page's modern and minimalistic design gives a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
                     </p>
                 </div>
 
                 <div className="col-span-12">
-                    <img src={image_finaldesign} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
+                    <img src={image_productdetails} className="w-full rounded-[16px]" width={"100%"} height={"100%"} alt="Large Pizza" />
                 </div>
             </div>
 
