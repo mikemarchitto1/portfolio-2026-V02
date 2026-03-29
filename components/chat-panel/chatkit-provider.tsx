@@ -181,10 +181,24 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
               error?: unknown;
             } | null;
             if (!res.ok || !data?.client_secret) {
+              if (process.env.NODE_ENV === "development") {
+                console.error(
+                  "[ChatKit] /api/chatkit/session failed:",
+                  res.status,
+                  data ?? "(no JSON body)"
+                );
+              }
+              const errField = data?.error;
               const msg =
-                typeof data?.error === "string"
-                  ? data.error
-                  : "Could not start ChatKit session";
+                typeof errField === "string"
+                  ? errField
+                  : errField &&
+                      typeof errField === "object" &&
+                      errField !== null &&
+                      "message" in errField &&
+                      typeof (errField as { message?: unknown }).message === "string"
+                    ? (errField as { message: string }).message
+                    : "Could not start ChatKit session";
               throw new Error(msg);
             }
             return data.client_secret;

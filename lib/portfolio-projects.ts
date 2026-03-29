@@ -37,7 +37,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
   {
     title: "Microsoft HITS",
     description:
-      "Internal repository platform focused on streamlining operational workflows, improving clarity, usability, and interaction patterns to help teams work more efficiently.",
+      "Research repository platform focused on streamlining operational workflows, improving clarity, usability, and interaction patterns to help teams work more efficiently.",
     image: "/images/microsofthits-thumb.png",
     href: "/projects/project-two",
   },

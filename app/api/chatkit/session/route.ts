@@ -46,7 +46,8 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         user,
         workflow: { id: workflowId },
-        expires_after: { anchor: "created_at", seconds: 3600 },
+        // API allows max 600 seconds (10 min); larger values return 400 (often with empty `{}` body).
+        expires_after: { anchor: "created_at", seconds: 600 },
       }),
     });
   } catch (err) {
@@ -69,8 +70,31 @@ export async function POST(req: NextRequest) {
   }
 
   if (!upstream.ok) {
+    if (process.env.NODE_ENV === "development") {
+      console.error(
+        "[/api/chatkit/session] OpenAI error:",
+        upstream.status,
+        text || "(empty body)"
+      );
+    }
+    const payload =
+      data && typeof data === "object" && !Array.isArray(data)
+        ? (data as Record<string, unknown>)
+        : {};
+    const extracted =
+      typeof payload.error === "string"
+        ? payload.error
+        : payload.error &&
+            typeof payload.error === "object" &&
+            payload.error !== null &&
+            "message" in payload.error
+          ? String((payload.error as { message?: unknown }).message)
+          : null;
     return NextResponse.json(
-      data && typeof data === "object" ? data : { error: text || upstream.statusText },
+      {
+        ...payload,
+        error: extracted ?? (text?.trim() || `OpenAI returned ${upstream.status}`),
+      },
       { status: upstream.status }
     );
   }

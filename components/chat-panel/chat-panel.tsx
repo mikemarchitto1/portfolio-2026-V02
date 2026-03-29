@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-import { useTheme } from "@/hooks/use-theme";
 import { ChatKitProvider, Chat } from "./chatkit-provider";
 
 console.log("🔥 MODULE LOAD:", "chat-panel");
@@ -34,7 +33,6 @@ try {
   );
 
   ChatPanel = function ChatPanel({ trigger = defaultTrigger, children, open, onOpenChange }: ChatPanelProps) {
-    const { theme } = useTheme();
     console.log("🔥 COMPONENT RENDER:", "ChatPanel");
     console.log("MOUNT:", "ChatPanel");
     return (
@@ -59,7 +57,8 @@ try {
           <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden">
             {children ?? (
               <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col px-4">
-                <ChatKitProvider key={theme}>
+                {/* Avoid key={theme}: remounting the provider destroyed the embed when the sheet opened or theme hydrated. */}
+                <ChatKitProvider>
                   <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col overflow-hidden">
                     <Chat className="min-h-0 min-w-0 w-full flex-1" />
                   </div>
