@@ -26,15 +26,14 @@ export default function NutrilucentCaseStudy() {
           <div className="max-w-[1328px] mx-auto">
             <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
               <ProjectHero
-                title="A luminous product system for clinical nutrition"
-                subtitle="Nutrilucent unifies packaging, product architecture, and digital experience to express clinical trust and luminous vitality."
+                title="A unified system for modern nutrition solutions"
+                subtitle="Nutrilucent integrates product systems, brand identity, and digital experience through clear structure and thoughtful design."
                 tags={[
-                  "Health & Wellness",
-                  "Packaging",
-                  "Product Design",
-                  "UX Design",
-                  "Brand",
-                  "Design System",
+                  "Research",
+                  "Strategy",
+                  "Architecture",
+                  "Design",
+                  "Development",
                 ]}
               />
 
@@ -47,15 +46,15 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <ProjectOverview
-                situation="Nutrilucent’s goal is to shape a cohesive product and packaging story that resonates with clinical audiences and retail partners. This case study documents research, Information Architecture and visual systems used to align the brand with its science-forward positioning."
-                task="I guided research, User Interface direction, and early build decisions to clarify packaging hierarchy, product architecture, and interface patterns, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
-                intro="This project is an active work in progress, focused for now on early research and initial brand identity. Future phases will expand the full Nutrilucent ecosystem."
-                result="This placeholder section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into its next phase, allowing the full experience to be evaluated and measured against the goals defined in discovery."
+                situation="Nutrilucent’s goal is to shape a cohesive product story that resonates with consumers and retail partners. This case study documents research, information architecture, branding and visual systems used to align the brand with its science driven positioning."
+                task="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
+                intro="This project is an active work in progress currently focusing on research and brand identity. Future phases will expand the full Nutrilucent ecosystem."
+                result="This section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into later phases, allowing the full experience to be evaluated and thoroughly measured against the goals defined in the discovery phase."
               />
 
               <ProjectSectionHeader
                 title="Discovery"
-                intro="I led qualitative and competitive research to understand expectations around clinical nutrition, retail packaging, and digital discovery in the wellness category."
+                intro="Conducted research to understand user needs for the wellness landscape. These insights shaped the foundation for Nutrilucent’s emerging identity."
                 className="mt-32"
               />
 
@@ -63,9 +62,10 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Research Plan</h3>
                   <p className="text-body1 text-foreground">
-                    I reviewed adjacent brands and packaging systems to identify patterns,
-                    opportunities, and gaps Nutrilucent could own. This established a baseline
-                    for differentiation and informed later IA and visual decisions.
+                    Outlined a focused discovery process grounding the CBGenius to
+                    Nutrilucent design in real user needs. Through interviews, personas,
+                    journey mapping, competitive analysis, and design goals, it builds a clear
+                    foundation for aligning the experience with user and business priorities.
                   </p>
                 </div>
 
@@ -90,9 +90,10 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview</h3>
                   <p className="text-body1 text-foreground">
-                    I reviewed adjacent brands and packaging systems to identify patterns,
-                    opportunities, and gaps Nutrilucent could own. This established a baseline
-                    for differentiation and informed later IA and visual decisions.
+                    Clarified core business goals, target audiences, and the strategic
+                    challenges shaping the design. Surfaced priorities around modernizing the
+                    site, integrating AI support, strengthening credibility, and positioning
+                    Nutrilucent as the hero product, creating a clear baseline for UX direction.
                   </p>
                 </div>
               </div>
@@ -101,9 +102,12 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Insights Matrix</h3>
                   <p className="text-body1 text-foreground">
-                    I facilitated workshops to align stakeholders on audience needs, brand
-                    voice, and success metrics. Synthesis informed personas, journey maps,
-                    and prioritized experience pillars for Nutrilucent.
+                    Distill patterns across roles, product strategy, brand positioning,
+                    operations, and customer behavior, revealing founder-centric workflows, a
+                    fragmented product line, compliance-sensitive messaging, and underdeveloped
+                    marketing. Together, these insights define the strategic focus needed to
+                    stabilize the business, clarify the brand, and guide Nutrilucent’s next
+                    phase.
                   </p>
                 </div>
 
@@ -128,9 +132,11 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Empathy Map</h3>
                   <p className="text-body1 text-foreground">
-                    I reviewed adjacent brands and packaging systems to identify patterns,
-                    opportunities, and gaps Nutrilucent could own. This established a baseline
-                    for differentiation and informed later IA and visual decisions.
+                    Founder is weighed down by an outdated site, compliance issues, and limited
+                    resources. Thinking about regulatory constraints and the need for education.
+                    Acts through hands on but inconsistent marketing and operations. Feels
+                    anxious about technical debt and unclear branding, pointing to the need for a
+                    simpler platform and clearer direction.
                   </p>
                 </div>
               </div>
@@ -139,9 +145,11 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview Debrief</h3>
                   <p className="text-body1 text-foreground">
-                    I facilitated workshops to align stakeholders on audience needs, brand
-                    voice, and success metrics. Synthesis informed personas, journey maps,
-                    and prioritized experience pillars for Nutrilucent.
+                    Consolidate the findings into a clear narrative of the business direction.
+                    Emphasize the priorities ahead by modernizing the digital experience,
+                    elevating Chromene, clarifying the Nutrilucent brand, and preparing for
+                    expansion beyond CBD. Present these as the strategic drivers for the next
+                    phase of work.
                   </p>
                 </div>
 
@@ -166,9 +174,11 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
                   <p className="text-body1 text-foreground">
-                    I reviewed adjacent brands and packaging systems to identify patterns,
-                    opportunities, and gaps Nutrilucent could own. This established a baseline
-                    for differentiation and informed later IA and visual decisions.
+                    Distilled competitive, persona, and platform research across the CBD space
+                    to understand how trust, simplicity, and compliance shape user behavior.
+                    Studying leading brands, provisional personas, and Shopify benchmarks
+                    revealed UX opportunities around trust signals, guided product selection, and
+                    scalable e-commerce foundations that informed the project’s direction.
                   </p>
                 </div>
               </div>
@@ -177,9 +187,10 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
                   <p className="text-body1 text-foreground">
-                    I facilitated workshops to align stakeholders on audience needs, brand
-                    voice, and success metrics. Synthesis informed personas, journey maps,
-                    and prioritized experience pillars for Nutrilucent.
+                    Evaluated five leading CBD brands across key UX categories to identify
+                    strengths and gaps. Scoring 100+ features revealed consistent weaknesses in
+                    accessibility, personalization, trust signals, and compliance, highlighting
+                    clear opportunities to differentiate and guide CBGenius’s UX direction.
                   </p>
                 </div>
 
