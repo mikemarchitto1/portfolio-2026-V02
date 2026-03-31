@@ -34,9 +34,9 @@ try {
   ];
 
   function SidebarCrown() {
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     const crownSrc =
-      theme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
+      resolvedTheme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
     return (
       <div className="mb-6">
         <Link
@@ -65,7 +65,7 @@ try {
   };
 
   function SidebarThemeSwitcher() {
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
     return (
       <nav
         className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8 -ml-1"
@@ -77,8 +77,8 @@ try {
           className={themeButtonClass}
           style={themeBtnNoBorderStyle}
           aria-label="Light mode"
-          aria-pressed={theme === "light"}
-          data-state={theme === "light" ? "on" : "off"}
+          aria-pressed={resolvedTheme === "light"}
+          data-state={resolvedTheme === "light" ? "on" : "off"}
           suppressHydrationWarning
           onClick={() => setTheme("light")}
         >
@@ -90,8 +90,8 @@ try {
           className={themeButtonClass}
           style={themeBtnNoBorderStyle}
           aria-label="Dark mode"
-          aria-pressed={theme === "dark"}
-          data-state={theme === "dark" ? "on" : "off"}
+          aria-pressed={resolvedTheme === "dark"}
+          data-state={resolvedTheme === "dark" ? "on" : "off"}
           suppressHydrationWarning
           onClick={() => setTheme("dark")}
         >
@@ -103,8 +103,8 @@ try {
           className={themeButtonClass}
           style={themeBtnNoBorderStyle}
           aria-label="Color mode"
-          aria-pressed={theme === "color"}
-          data-state={theme === "color" ? "on" : "off"}
+          aria-pressed={resolvedTheme === "color"}
+          data-state={resolvedTheme === "color" ? "on" : "off"}
           suppressHydrationWarning
           onClick={() => setTheme("color")}
         >

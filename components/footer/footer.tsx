@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 
 export default function Footer() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <footer className="text-foreground w-full">
@@ -73,7 +73,7 @@ export default function Footer() {
                   <img
                     suppressHydrationWarning
                     src={
-                      theme === "light"
+                      resolvedTheme === "light"
                         ? "/images/crown-black.svg"
                         : "/images/crown-white.svg"
                     }

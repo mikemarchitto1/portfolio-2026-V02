@@ -24,7 +24,7 @@ export default function ProjectCard({
   const imageArea = (
     <div
       className={cn(
-        "relative w-full overflow-hidden bg-[oklch(100%_0_0)]",
+        "relative w-full overflow-hidden bg-transparent",
         layout === "vertical"
           ? "min-h-[240px] aspect-[16/10] shrink-0 rounded-t-2xl"
           : "h-full min-h-[240px] md:min-h-[320px] rounded-t-2xl md:rounded-t-none md:rounded-l-2xl",
@@ -79,7 +79,7 @@ export default function ProjectCard({
 
   if (layout === "vertical") {
     return (
-      <div className="w-full min-w-0 rounded-2xl overflow-hidden bg-[oklch(100%_0_0)] flex flex-col">
+      <div className="w-full min-w-0 rounded-2xl overflow-hidden bg-transparent flex flex-col">
         {imageArea}
         {textCard}
       </div>
@@ -88,7 +88,7 @@ export default function ProjectCard({
 
   return (
     <div className="w-full min-w-0">
-      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden bg-[oklch(100%_0_0)]">
+      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden bg-transparent">
         {imageArea}
         {textCard}
       </div>

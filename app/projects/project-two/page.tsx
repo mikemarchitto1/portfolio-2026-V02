@@ -99,7 +99,7 @@ function Work() {
             />
 
             <ProjectSectionHeader
-              title="Research"
+              title="Discovery"
               intro="I conducted foundational research to understand how teams interacted with the legacy system, identifying friction points and opportunities for improvement."
               className="mt-32"
             />
@@ -107,15 +107,15 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
+                    <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
                     <p className="text-body1 text-foreground">
-                    To enhance our user experience, I engaged in empathy mapping workshops which gave me an immersive opportunity to gain a deeper understanding of our target audience.
+                    To comply with the new design direction HITS was audited to identify areas where changes could be made.
                     </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
-                      src={image_empathy}
+                      src={image_audit}
                       className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
@@ -128,7 +128,7 @@ function Work() {
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
-                      src={image_audit}
+                      src={image_empathy}
                       className="w-full h-auto rounded-[16px] object-contain"
                       width={"100%"}
                       height={"100%"}
@@ -137,13 +137,11 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
+                    <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                     <p className="text-body1 text-foreground">
-                    To comply with the new design direction HITS was audited to identify areas where changes could be made.
+                    To enhance our user experience, I engaged in empathy mapping workshops which gave me an immersive opportunity to gain a deeper understanding of our target audience.
                     </p>
                 </div>
-
-
             </div>
 
 

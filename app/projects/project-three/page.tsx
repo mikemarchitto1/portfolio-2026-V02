@@ -73,7 +73,7 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Research"
+              title="Discovery"
               intro="I analyzed customer behavior, ecommerce patterns, and outdoor retail trends to identify opportunities for a more engaging and conversion‑friendly experience."
               className="mt-32"
             />
@@ -81,30 +81,29 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
-                    <p className="text-body1 text-foreground">
-                    I carefully reviewed several outdoor clothing and ecommerce experiences, evaluating patterns, content structure, and usability gaps to identify opportunities for improvement.
-                    </p>
-                </div>
-
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_workshops} className="w-full h-auto rounded-[16px] object-contain" alt="Workshops" />
-                </div>
-            </div>
-
-
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_compaudit} className="w-full h-auto rounded-[16px] object-contain" alt="Competitive audit" />
-                </div>
-
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
                     <p className="text-body1 text-foreground">
                     In order to gain a deeper understanding for designs in the context of outdoor clothing websites, I conducted an audit and examined patterns and strategies to engage customers.
                     </p>
                 </div>
 
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_compaudit} className="w-full h-auto rounded-[16px] object-contain" alt="Competitive audit" />
+                </div>
+            </div>
+
+
+            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_workshops} className="w-full h-auto rounded-[16px] object-contain" alt="Workshops" />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                    <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
+                    <p className="text-body1 text-foreground">
+                    I carefully reviewed several outdoor clothing and ecommerce experiences, evaluating patterns, content structure, and usability gaps to identify opportunities for improvement.
+                    </p>
+                </div>
             </div>
 
 

@@ -97,12 +97,12 @@ try {
     ...props
   }: React.ComponentProps<typeof DayButton>) {
     const ref = React.useRef<HTMLButtonElement>(null);
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     React.useEffect(() => {
       if (modifiers.focused) ref.current?.focus();
     }, [modifiers.focused]);
 
-    const isOutsideInColorMode = theme === "color" && modifiers.outside;
+    const isOutsideInColorMode = resolvedTheme === "color" && modifiers.outside;
     const colorStyle = isOutsideInColorMode ? { color: "#ffffff" as const } : undefined;
 
     return (
@@ -261,7 +261,7 @@ try {
   }
 
   SchedulingDialog = function SchedulingDialog({ trigger, open, onOpenChange }: SchedulingDialogProps) {
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     const [step, setStep] = React.useState<"date" | "time" | "details" | "confirm">("date");
     const [date, setDate] = React.useState<Date | undefined>(new Date());
     const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
@@ -649,9 +649,9 @@ try {
         centerInViewport
         overlayClassName={cn(
           "scheduling-dialog-overlay",
-          theme === "light" && "!bg-black/25",
-          theme === "dark" && "!bg-black/60",
-          theme === "color" && "!bg-black/40"
+          resolvedTheme === "light" && "!bg-black/25",
+          resolvedTheme === "dark" && "!bg-black/60",
+          resolvedTheme === "color" && "!bg-black/40"
         )}
         className={cn(
           "scheduling-dialog-shell gap-0 fixed inset-y-0 right-0 w-full",
@@ -674,18 +674,18 @@ try {
         {/* Main wrapper: same bg as page. Color mode uses literal value so it works in portal. */}
         <div
           data-slot="scheduling-panel"
-          data-theme={theme}
+          data-theme={resolvedTheme}
           className={cn(
             "relative flex min-h-screen max-h-[90vh] lg:min-h-0 lg:h-fit lg:max-h-[85vh] w-full max-w-full lg:max-w-[1000px] flex-col overflow-y-auto lg:overflow-x-visible lg:overflow-y-auto rounded-none lg:rounded-lg border border-border dark:border-[oklch(30%_0.01_264)] color:border-[oklch(28%_0.035_165)] p-6 px-6 text-foreground",
             (step === "date" || step === "time") && "pb-[88px]",
-            theme === "color" && "!bg-[oklch(24%_0.035_165)]",
+            resolvedTheme === "color" && "!bg-[oklch(24%_0.035_165)]",
             step === "details" && "lg:w-fit",
             step === "confirm" && "!p-0 lg:max-w-[464px] pr-[56px]"
           )}
           style={
-            theme === "color"
+            resolvedTheme === "color"
               ? { backgroundColor: COLOR_THEME_BACKGROUND }
-              : theme === "dark"
+              : resolvedTheme === "dark"
                 ? { backgroundColor: "oklch(20% 0.01 264)" }
                 : { backgroundColor: "#ffffff" }
           }
@@ -716,7 +716,7 @@ try {
                 data-slot="scheduling-left-panel"
                 className="flex h-auto min-h-0 w-full flex-col text-foreground pt-1 lg:w-[236px] shrink-0"
                 style={
-                  theme === "color"
+                  resolvedTheme === "color"
                     ? { backgroundColor: COLOR_THEME_BACKGROUND }
                     : { backgroundColor: "transparent" }
                 }
@@ -882,7 +882,7 @@ try {
                 data-slot="scheduling-left-panel"
                 className="flex h-auto min-h-0 w-full flex-col text-foreground pt-1 lg:w-[236px] shrink-0"
                 style={
-                  theme === "color"
+                  resolvedTheme === "color"
                     ? { backgroundColor: COLOR_THEME_BACKGROUND }
                     : { backgroundColor: "transparent" }
                 }

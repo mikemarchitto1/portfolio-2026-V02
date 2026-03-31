@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Nutrilucent case study — structure cloned from GloriFi (`/projects/project-one`).
+ * Replace copy and image paths with Nutrilucent-specific assets when ready.
+ */
+
 import ActionAreaCard from "@/components/project-three/ActionAreaCard";
 import Footer from "@/components/footer/footer";
 import ProjectCard from "@/components/project-card/project-card";
@@ -8,19 +13,11 @@ import ProjectOverview from "@/components/project-overview/project-overview";
 import ProjectSectionHeader from "@/components/project-section-header/project-section-header";
 import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 
-const image_hero = "/images/glorifi-hero.png";
-const image_compaudit = "/assets/project_one/glorifi_compaudit.png";
-const image_designsystem = "/assets/project_one/glorifi_designsystem.png";
-const image_personas = "/assets/project_one/glorifi_personas.png";
-const image_uiexplore = "/assets/project_one/glorifi_uiexplore.png";
-const image_wireframe = "/assets/project_one/glorifi_wireframe.png";
-const image_today = "/assets/project_one/glorifi_today.png";
-const image_snapshot = "/assets/project_one/glorifi_snapshot.png";
-const image_rewards = "/assets/project_one/glorifi_rewards.png";
-const image_accounts = "/assets/project_one/glorifi_accounts.png";
+/** Template: same GloriFi asset paths until Nutrilucent imagery is added. */
+const image_hero = "/images/nutrilucent-hero.png";
 
-export default function Work() {
-  const nextProject = getNextCaseStudyHomeCard("/projects/project-one");
+export default function NutrilucentCaseStudy() {
+  const nextProject = getNextCaseStudyHomeCard("/nutrilucent");
 
   return (
     <>
@@ -29,54 +26,54 @@ export default function Work() {
           <div className="max-w-[1328px] mx-auto">
             <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
               <ProjectHero
-                title="A financial wellness platform to simplify banking"
-                subtitle="GloriFi is a unified experience that blends financial education, real‑time insights, and secure account management into a modern, intuitive interface."
+                title="A luminous product system for clinical nutrition"
+                subtitle="Nutrilucent unifies packaging, product architecture, and digital experience to express clinical trust and luminous vitality."
                 tags={[
-                  "Fintech",
-                  "Mobile App",
-                  "Website",
+                  "Health & Wellness",
+                  "Packaging",
+                  "Product Design",
                   "UX Design",
-                  "Product Strategy",
+                  "Brand",
                   "Design System",
                 ]}
               />
 
               <div className="grid grid-cols-12 gap-4 pb-20">
                 <div className="col-span-12">
-                  <div className="h-[504px] overflow-hidden rounded-[16px]">
+                  <div className="h-[520px] overflow-hidden rounded-[16px]">
                     <ActionAreaCard thumbnail={image_hero} thumbHeight={"520"} />
                   </div>
                 </div>
               </div>
 
               <ProjectOverview
-                situation="GloriFi’s goal is to offer a functional financial banking app that focuses on financial wellness information via their mobile and web application. The timeline is to launch a beta and MVP application in eight months to validate market interest and secure more funding."
-                task="Design a global financial news feed and financial data insights hub that meaningfully engages U.S. cultural and financial communities by strengthening trust, security, and privacy throughout the entire modern bank‑account‑opening experience."
-                intro="This project focused on creating a cohesive financial ecosystem that supports users through clear information architecture, personalized insights, and a secure onboarding experience."
-                result="Following the initial release, which involved a successful launch of the app, it was reported that more than 40,000 individuals had downloaded the application, which was a significant achievement, as it ranked 11th among all financial apps available on the market."
+                situation="Nutrilucent’s goal is to shape a cohesive product and packaging story that resonates with clinical audiences and retail partners. This case study documents research, IA, and visual systems used to align the brand with its science-forward positioning."
+                task="Drive research, UI design, and build decisions that clarify packaging hierarchy, product architecture, and interface patterns—so every touchpoint reinforces trust and vitality."
+                intro="This project focused on building a coherent Nutrilucent ecosystem through clear information architecture, expressive visuals, and a scalable design system."
+                result="Placeholder outcome copy—replace with launch metrics, research outcomes, or adoption highlights when Nutrilucent content is finalized."
               />
 
               <ProjectSectionHeader
                 title="Discovery"
-                intro="I conducted a series of qualitative and competitive research activities to understand user expectations around financial literacy, mobile banking, and trust‑building patterns."
+                intro="I led qualitative and competitive research to understand expectations around clinical nutrition, retail packaging, and digital discovery in the wellness category."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Research Plan</h3>
                   <p className="text-body1 text-foreground">
-                    I carefully reviewed several banking and financial apps, evaluating
-                    their features and identifying areas for improvement. This helped me
-                    gain a comprehensive understanding of the app landscape.
+                    I reviewed adjacent brands and packaging systems to identify patterns,
+                    opportunities, and gaps Nutrilucent could own. This established a baseline
+                    for differentiation and informed later IA and visual decisions.
                   </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-competitiveaudit.png"
+                    src="/images/nutrilucent-researchplan.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Personas"
+                    alt="Nutrilucent research plan"
                   />
                 </div>
               </div>
@@ -84,26 +81,63 @@ export default function Work() {
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-workshops.png"
+                    src="/images/nutrilucent-stakeint.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Workshop synthesis"
+                    alt="Nutrilucent stakeholder interview"
                   />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview</h3>
                   <p className="text-body1 text-foreground">
-                    I conducted empathy mapping workshops to comprehend our users better.
-                    The workshops aided me in creating personas that reflect their
-                    distinct qualities and motivations, revealing areas for improvement
-                    and leading to a better user experience.
+                    I reviewed adjacent brands and packaging systems to identify patterns,
+                    opportunities, and gaps Nutrilucent could own. This established a baseline
+                    for differentiation and informed later IA and visual decisions.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Insights Matrix</h3>
+                  <p className="text-body1 text-foreground">
+                    I facilitated workshops to align stakeholders on audience needs, brand
+                    voice, and success metrics. Synthesis informed personas, journey maps,
+                    and prioritized experience pillars for Nutrilucent.
+                  </p>
+                </div>
+
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                  <img
+                    src="/images/nutrilucent-stakeobservinsight.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Nutrilucent workshops"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                  <img
+                    src="/images/nutrilucent-empathymap.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Nutrilucent empathy map"
+                  />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Empathy Map</h3>
+                  <p className="text-body1 text-foreground">
+                    I reviewed adjacent brands and packaging systems to identify patterns,
+                    opportunities, and gaps Nutrilucent could own. This established a baseline
+                    for differentiation and informed later IA and visual decisions.
                   </p>
                 </div>
               </div>
 
               <ProjectSectionHeader
                 title="Information Architecture"
-                intro="I mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
+                intro="I mapped navigation, content hierarchy, and flows so customers and partners can find the right Nutrilucent story quickly—online and at shelf."
                 className="mt-[128px]"
               />
 
@@ -111,10 +145,9 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
                   <p className="text-body1 text-foreground">
-                    I created user flows and wireframes, examining the design process
-                    and identifying areas for improvement. We discussed potential
-                    issues and brainstormed solutions to ensure a seamless and
-                    user-friendly experience.
+                    I created flows and wireframes to validate structure, reduce friction,
+                    and iterate with stakeholders before higher-fidelity design. Replace
+                    this copy with Nutrilucent-specific narrative when assets are ready.
                   </p>
                 </div>
 
@@ -122,14 +155,14 @@ export default function Work() {
                   <img
                     src="/images/glorifi-wireframeflows.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Wireframes"
+                    alt="Nutrilucent wireframes"
                   />
                 </div>
               </div>
 
               <ProjectSectionHeader
                 title="Visual Design"
-                intro="I created a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
+                intro="I defined a scalable system for typography, color, spacing, and components—aligned to Nutrilucent’s luminous, clinical brand language."
                 className="mt-32"
               />
 
@@ -137,10 +170,9 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Design System</h3>
                   <p className="text-body1 text-foreground">
-                    This UI framework saved time and effort for the team by providing
-                    pre-built components and promoting best UI practices. The framework
-                    also allowed for easier maintenance and updates without compromising
-                    the site's integrity.
+                    A shared UI framework accelerates delivery and keeps experiences
+                    consistent across web and collateral touchpoints. Replace with
+                    Nutrilucent system details when finalized.
                   </p>
                 </div>
 
@@ -148,7 +180,7 @@ export default function Work() {
                   <img
                     src="/images/glorifi-designsystem.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Design system"
+                    alt="Nutrilucent design system"
                   />
                 </div>
               </div>
@@ -157,10 +189,8 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
                   <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
-                    I used our brand styles and design system components to create
-                    consistent and visually appealing mockups. This approach ensured
-                    that our final product was effective and aligned with our brand's
-                    guidelines and design principles.
+                    Explorations applied brand and system components to key screens—
+                    validating hierarchy, density, and accessibility before build.
                   </p>
                 </div>
 
@@ -168,14 +198,14 @@ export default function Work() {
                   <img
                     src="/images/glorifi-uiexploration.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="UI explorations"
+                    alt="Nutrilucent UI exploration"
                   />
                 </div>
               </div>
 
               <ProjectSectionHeader
                 title="Product Features"
-                intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
+                intro="Placeholder feature narrative for Nutrilucent—replace with product-specific highlights when content and imagery are ready."
                 className="mt-[128px]"
               />
 
@@ -183,9 +213,8 @@ export default function Work() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Today</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    This news feed presents global and financial news with a TikTok-style
-                    swipe interface. It's easy to browse and visually engaging for both
-                    casual readers and investors who want to stay informed.
+                    Placeholder section—replace with Nutrilucent feature copy and imagery
+                    (e.g. hero campaign, daily digest, or retail moment).
                   </p>
                 </div>
 
@@ -193,7 +222,7 @@ export default function Work() {
                   <img
                     src="/images/glorifi-today.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Today feature"
+                    alt="Nutrilucent feature"
                   />
                 </div>
               </div>
@@ -202,9 +231,8 @@ export default function Work() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    This dashboard helps you view income, expenses, investments, and
-                    debts. You can monitor progress, identify improvement areas, and
-                    make informed decisions.
+                    Placeholder section—replace with Nutrilucent dashboard or summary
+                    experience description.
                   </p>
                 </div>
 
@@ -212,7 +240,7 @@ export default function Work() {
                   <img
                     src="/images/glorifi-snapshot.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Snapshot feature"
+                    alt="Nutrilucent feature"
                   />
                 </div>
               </div>
@@ -221,8 +249,8 @@ export default function Work() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    We redesigned and reskinned the vendor loyalty feature so users get
-                    rewards and discounts from their favorite service providers.
+                    Placeholder section—replace with loyalty, community, or partner program
+                    story for Nutrilucent.
                   </p>
                 </div>
 
@@ -230,7 +258,7 @@ export default function Work() {
                   <img
                     src="/images/glorifi-rewards.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Rewards feature"
+                    alt="Nutrilucent feature"
                   />
                 </div>
               </div>
@@ -239,9 +267,8 @@ export default function Work() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    Reusable marketing cards and user flow screens simplify banking
-                    account opening. This approach helps users select the right account
-                    and quickly complete the task.
+                    Placeholder section—replace with account, subscription, or commerce
+                    flow narrative for Nutrilucent.
                   </p>
                 </div>
 
@@ -249,7 +276,7 @@ export default function Work() {
                   <img
                     src="/images/glorifi-accounts.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Accounts feature"
+                    alt="Nutrilucent feature"
                   />
                 </div>
               </div>

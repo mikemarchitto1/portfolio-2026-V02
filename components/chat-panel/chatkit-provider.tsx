@@ -97,7 +97,7 @@ export function useChatKitControl(): ChatKitControl {
  * ChatKit `surface.background` + shadow iframe need this — guessed hex/oklch often won’t match pixels.
  */
 function useResolvedChatPanelBackground(): string | null {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [resolved, setResolved] = React.useState<string | null>(null);
 
   React.useLayoutEffect(() => {
@@ -116,7 +116,7 @@ function useResolvedChatPanelBackground(): string | null {
     if (bg && bg !== "transparent" && bg !== "rgba(0, 0, 0, 0)") {
       setResolved(bg);
     }
-  }, [theme]);
+  }, [resolvedTheme]);
 
   return resolved;
 }
@@ -150,14 +150,14 @@ function getCustomChatApiUrl(): string {
  * `Chat` / `Composer` here are thin layout wrappers; Composer is a no-op slot.
  */
 export function ChatKitProvider({ children }: { children: React.ReactNode }) {
-  const { theme: siteTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const domainKey =
     process.env.NEXT_PUBLIC_CHATKIT_DOMAIN_KEY?.trim() ?? "";
   const customApiUrl = getCustomChatApiUrl();
   const resolvedPanelBg = useResolvedChatPanelBackground();
 
   const options: UseChatKitOptions = React.useMemo(() => {
-    const base = CHATKIT_THEME_BY_SITE_THEME[siteTheme];
+    const base = CHATKIT_THEME_BY_SITE_THEME[resolvedTheme];
 
     const themeOption = base;
 
@@ -220,7 +220,7 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
         feedback: false,
       },
     };
-  }, [customApiUrl, domainKey, siteTheme]);
+  }, [customApiUrl, domainKey, resolvedTheme]);
 
   const kit = useChatKit(options);
 
@@ -276,7 +276,7 @@ const CHATKIT_SHADOW_IFRAME_STYLE_ID = "chatkit-host-iframe-bg";
 
 export function Chat(props: ChatProps) {
   const control = useChatKitControl();
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const resolvedPanelBg = React.useContext(ResolvedChatPanelBgContext);
   const hostRef = useRef<OpenAIChatKit | null>(null);
   const { className, style, ...rest } = props;
@@ -285,7 +285,7 @@ export function Chat(props: ChatProps) {
   useLayoutEffect(() => {
     const iframeBg =
       resolvedPanelBg ??
-      (theme === "color" ? "var(--sidebar-background)" : "var(--background)");
+      (resolvedTheme === "color" ? "var(--sidebar-background)" : "var(--background)");
 
     const apply = () => {
       const el = hostRef.current;
@@ -312,11 +312,11 @@ export function Chat(props: ChatProps) {
       apply();
     });
     return () => cancelAnimationFrame(id);
-  }, [theme, resolvedPanelBg]);
+  }, [resolvedTheme, resolvedPanelBg]);
 
   const hostBackground =
     resolvedPanelBg ??
-    (theme === "color" ? "var(--sidebar-background)" : "var(--background)");
+    (resolvedTheme === "color" ? "var(--sidebar-background)" : "var(--background)");
 
   return (
     <ChatKit

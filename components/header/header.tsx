@@ -26,9 +26,9 @@ const themeButtonClass =
   "sidebar-icon-btn flex h-8 w-8 min-h-8 min-w-8 items-center justify-center gap-2 p-0 rounded-md border bg-transparent border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground transition-colors hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:size-5 [&_svg]:text-current [&_svg]:transition-colors";
 
 function MobileMenuCrown({ onNavigate }: { onNavigate?: () => void }) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const crownSrc =
-    theme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
+    resolvedTheme === "light" ? "/images/crown-black.svg" : "/images/crown-white.svg";
   return (
     <div className="mb-6">
       <Link
@@ -51,7 +51,7 @@ function MobileMenuCrown({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 function MobileMenuThemeSwitcher() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   return (
     <nav
       className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8 -ml-1"
@@ -62,8 +62,8 @@ function MobileMenuThemeSwitcher() {
         size="icon"
         className={themeButtonClass}
         aria-label="Light mode"
-        aria-pressed={theme === "light"}
-        data-state={theme === "light" ? "on" : "off"}
+        aria-pressed={resolvedTheme === "light"}
+        data-state={resolvedTheme === "light" ? "on" : "off"}
           suppressHydrationWarning
         onClick={() => setTheme("light")}
       >
@@ -74,8 +74,8 @@ function MobileMenuThemeSwitcher() {
         size="icon"
         className={themeButtonClass}
         aria-label="Dark mode"
-        aria-pressed={theme === "dark"}
-        data-state={theme === "dark" ? "on" : "off"}
+        aria-pressed={resolvedTheme === "dark"}
+        data-state={resolvedTheme === "dark" ? "on" : "off"}
           suppressHydrationWarning
         onClick={() => setTheme("dark")}
       >
@@ -86,8 +86,8 @@ function MobileMenuThemeSwitcher() {
         size="icon"
         className={themeButtonClass}
         aria-label="Color mode"
-        aria-pressed={theme === "color"}
-        data-state={theme === "color" ? "on" : "off"}
+        aria-pressed={resolvedTheme === "color"}
+        data-state={resolvedTheme === "color" ? "on" : "off"}
           suppressHydrationWarning
         onClick={() => setTheme("color")}
       >

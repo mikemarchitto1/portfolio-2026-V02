@@ -51,6 +51,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
 ];
 
 const CASE_STUDY_HREFS = [
+  "/nutrilucent",
   "/projects/project-one",
   "/projects/project-two",
   "/projects/project-three",
@@ -62,7 +63,7 @@ function normalizePath(path: string) {
   return p;
 }
 
-/** Next case study in rotation (GloriFi → Microsoft HITS → Eddie Bauer → GloriFi). */
+/** Next case study in rotation (Nutrilucent → GloriFi → Microsoft HITS → Eddie Bauer → Nutrilucent). */
 export function getNextCaseStudyHomeCard(currentHref: string): HomeProjectCard | undefined {
   const key = normalizePath(currentHref);
   const order = CASE_STUDY_HREFS as readonly string[];

@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import type { Theme } from "@/lib/theme-types";
+import { resolveThemeForRoute } from "@/lib/theme-route";
+
+export type { Theme };
 
 const THEME_KEY = "theme";
 const THEME_TRANSITION_CLASS = "theme-transition";
-
-export type Theme = "light" | "dark" | "color";
 
 const THEMES: Theme[] = ["light", "dark", "color"];
 
@@ -14,14 +17,6 @@ function applyTheme(theme: Theme) {
   const html = document.documentElement;
   THEMES.forEach((t) => html.classList.remove(t));
   html.classList.add(theme);
-}
-
-function getThemeFromDOM(): Theme {
-  if (typeof document === "undefined") return "light";
-  const html = document.documentElement;
-  if (html.classList.contains("dark")) return "dark";
-  if (html.classList.contains("color")) return "color";
-  return "light";
 }
 
 function getThemeFromStorage(): Theme {
@@ -34,29 +29,35 @@ function getThemeFromStorage(): Theme {
 
 const ThemeContext = React.createContext<{
   theme: Theme;
+  resolvedTheme: Theme;
   setTheme: (theme: Theme) => void;
 } | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize from the <html> class set by the pre-hydration script in `app/layout.tsx`,
-  // so the initial render matches the user's saved preference (and avoids flash).
-  const [theme, setThemeState] = useState<Theme>(() => getThemeFromDOM());
+  const pathname = usePathname();
+  const [theme, setThemeState] = useState<Theme>(() =>
+    typeof window === "undefined" ? "light" : getThemeFromStorage()
+  );
 
-  useEffect(() => {
-    setThemeState(getThemeFromDOM());
-  }, []);
+  const resolvedTheme = useMemo(
+    () => resolveThemeForRoute(theme, pathname),
+    [theme, pathname]
+  );
+
+  useLayoutEffect(() => {
+    applyTheme(resolvedTheme);
+  }, [resolvedTheme]);
 
   const setTheme = useCallback((next: Theme) => {
     if (typeof document !== "undefined") {
       document.documentElement.classList.add(THEME_TRANSITION_CLASS);
     }
-    applyTheme(next);
     localStorage.setItem(THEME_KEY, next);
     setThemeState(next);
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, resolvedTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -64,20 +65,33 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const ctx = React.useContext(ThemeContext);
-  const [fallbackTheme, setFallbackTheme] = useState<Theme>("light");
+  const pathname = usePathname();
+  const [fallbackTheme, setFallbackTheme] = useState<Theme>(() =>
+    typeof window === "undefined" ? "light" : getThemeFromStorage()
+  );
 
   useEffect(() => {
     if (!ctx) setFallbackTheme(getThemeFromStorage());
   }, [ctx]);
 
-  if (ctx) return ctx;
+  const resolvedFallback = useMemo(
+    () => resolveThemeForRoute(fallbackTheme, pathname),
+    [fallbackTheme, pathname]
+  );
+
+  useLayoutEffect(() => {
+    if (ctx) return;
+    applyTheme(resolvedFallback);
+  }, [ctx, resolvedFallback]);
+
   const setTheme = useCallback((next: Theme) => {
     if (typeof document !== "undefined") {
       document.documentElement.classList.add(THEME_TRANSITION_CLASS);
     }
-    applyTheme(next);
     localStorage.setItem(THEME_KEY, next);
     setFallbackTheme(next);
   }, []);
-  return { theme: fallbackTheme, setTheme };
+
+  if (ctx) return ctx;
+  return { theme: fallbackTheme, resolvedTheme: resolvedFallback, setTheme };
 }

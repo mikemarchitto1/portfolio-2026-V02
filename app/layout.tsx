@@ -81,6 +81,13 @@ export default function RootLayout({
   } else {
     theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+  var path = window.location.pathname || '';
+  var onProjects = path === '/projects' || path.indexOf('/projects/') === 0;
+  var onNutrilucent = path === '/nutrilucent';
+  var onCaseStudies = onProjects || onNutrilucent;
+  if (onCaseStudies && theme === 'color') {
+    theme = 'light';
+  }
   var html = document.documentElement;
   html.classList.remove('light', 'dark', 'color');
   html.classList.add(theme);
