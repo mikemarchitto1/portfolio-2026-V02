@@ -47,10 +47,10 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <ProjectOverview
-                situation="Nutrilucent’s goal is to shape a cohesive product and packaging story that resonates with clinical audiences and retail partners. This case study documents research, IA, and visual systems used to align the brand with its science-forward positioning."
-                task="Drive research, UI design, and build decisions that clarify packaging hierarchy, product architecture, and interface patterns—so every touchpoint reinforces trust and vitality."
-                intro="This project focused on building a coherent Nutrilucent ecosystem through clear information architecture, expressive visuals, and a scalable design system."
-                result="Placeholder outcome copy—replace with launch metrics, research outcomes, or adoption highlights when Nutrilucent content is finalized."
+                situation="Nutrilucent’s goal is to shape a cohesive product and packaging story that resonates with clinical audiences and retail partners. This case study documents research, Information Architecture and visual systems used to align the brand with its science-forward positioning."
+                task="I guided research, User Interface direction, and early build decisions to clarify packaging hierarchy, product architecture, and interface patterns, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
+                intro="This project is an active work in progress, focused for now on early research and initial brand identity. Future phases will expand the full Nutrilucent ecosystem."
+                result="This placeholder section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into its next phase, allowing the full experience to be evaluated and measured against the goals defined in discovery."
               />
 
               <ProjectSectionHeader
@@ -135,33 +135,65 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <ProjectSectionHeader
-                title="Information Architecture"
-                intro="I mapped navigation, content hierarchy, and flows so customers and partners can find the right Nutrilucent story quickly—online and at shelf."
-                className="mt-[128px]"
-              />
-
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview Debrief</h3>
                   <p className="text-body1 text-foreground">
-                    I created flows and wireframes to validate structure, reduce friction,
-                    and iterate with stakeholders before higher-fidelity design. Replace
-                    this copy with Nutrilucent-specific narrative when assets are ready.
+                    I facilitated workshops to align stakeholders on audience needs, brand
+                    voice, and success metrics. Synthesis informed personas, journey maps,
+                    and prioritized experience pillars for Nutrilucent.
                   </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-wireframeflows.png"
+                    src="/images/nutrilucent-stakedebrief.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent wireframes"
+                    alt="Nutrilucent stakeholder interview debrief"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                  <img
+                    src="/images/nutrilucent-snapshot.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Nutrilucent snapshot"
+                  />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
+                  <p className="text-body1 text-foreground">
+                    I reviewed adjacent brands and packaging systems to identify patterns,
+                    opportunities, and gaps Nutrilucent could own. This established a baseline
+                    for differentiation and informed later IA and visual decisions.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                  <p className="text-body1 text-foreground">
+                    I facilitated workshops to align stakeholders on audience needs, brand
+                    voice, and success metrics. Synthesis informed personas, journey maps,
+                    and prioritized experience pillars for Nutrilucent.
+                  </p>
+                </div>
+
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                  <img
+                    src="/images/nutrilucent-compaudit.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Nutrilucent competitive audit"
                   />
                 </div>
               </div>
 
               <ProjectSectionHeader
-                title="Visual Design"
+                title="Branding"
                 intro="I defined a scalable system for typography, color, spacing, and components—aligned to Nutrilucent’s luminous, clinical brand language."
                 className="mt-32"
               />
