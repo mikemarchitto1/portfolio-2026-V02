@@ -180,21 +180,21 @@ function CompaniesTechStackLogos() {
         <img
           src="/images/logo-starbucks.png"
           alt="Starbucks"
-          className="max-h-[40px] md:max-h-[56px] lg:max-h-[64px] w-full max-w-[133px] h-auto object-contain object-center shrink-0"
+          className="max-h-[104px] md:max-h-[120px] lg:max-h-[128px] w-full max-w-[197px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className={cell}>
         <img
           src="/images/logo-microsoft.png"
           alt="Microsoft"
-          className="max-h-[40px] md:max-h-[56px] lg:max-h-[64px] w-full max-w-[108px] h-auto object-contain object-center shrink-0"
+          className="max-h-[104px] md:max-h-[120px] lg:max-h-[128px] w-full max-w-[172px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className={cell}>
         <img
           src="/images/logo-eddiebauer.png"
           alt="Eddie Bauer"
-          className="max-h-[40px] md:max-h-[56px] lg:max-h-[64px] w-full max-w-[147px] h-auto object-contain object-center shrink-0 translate-y-1"
+          className="max-h-[104px] md:max-h-[120px] lg:max-h-[128px] w-full max-w-[211px] h-auto object-contain object-center shrink-0 translate-y-1"
         />
       </div>
 
@@ -202,21 +202,21 @@ function CompaniesTechStackLogos() {
         <img
           src="/images/logo-morningstar.png"
           alt="Morningstar"
-          className="w-full max-w-[127px] h-auto object-contain object-center shrink-0"
+          className="w-full max-w-[191px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className={cell}>
         <img
           src="/images/logo-siff.png"
           alt="SIFF"
-          className="w-full max-w-[148px] h-auto object-contain object-center shrink-0"
+          className="w-full max-w-[212px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className={cell}>
         <img
           src="/images/logo-fermilab.png"
           alt="Fermilab"
-          className="w-[116px] h-auto object-contain object-center shrink-0"
+          className="w-[180px] h-auto object-contain object-center shrink-0"
         />
       </div>
     </>

@@ -102,12 +102,11 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Insights Matrix</h3>
                   <p className="text-body1 text-foreground">
-                    Distill patterns across roles, product strategy, brand positioning,
-                    operations, and customer behavior, revealing founder-centric workflows, a
-                    fragmented product line, compliance-sensitive messaging, and underdeveloped
-                    marketing. Together, these insights define the strategic focus needed to
-                    stabilize the business, clarify the brand, and guide Nutrilucent’s next
-                    phase.
+                    I analyzed patterns across roles, product strategy, brand positioning,
+                    operations and customer behavior. The work revealed founder driven workflows,
+                    a scattered product line, sensitive compliance needs and weak marketing.
+                    These insights show where the business must focus to stabilize operations,
+                    strengthen the brand and guide Nutrilucent’s next phase.
                   </p>
                 </div>
 
@@ -205,7 +204,7 @@ export default function NutrilucentCaseStudy() {
 
               <ProjectSectionHeader
                 title="Branding"
-                intro="This brand system is still evolving, but the goal is consistent: to build a clear, cohesive identity that feels modern, credible, and scalable across every touchpoint."
+                intro="This brand system is still evolving and the goal is to build a clear and cohesive identity that feels modern, credible and scalable across every touchpoint."
                 className="mt-32"
               />
 
