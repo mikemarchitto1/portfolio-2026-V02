@@ -240,14 +240,14 @@ export default function ImpactTechStackSection({
     <section
       className={cn(
         "w-full min-w-0 min-h-0 py-6 md:py-9 lg:pt-16 lg:pb-0 bg-transparent",
-        !hideStats && "md:min-h-[520px]"
+        !hideStats && "md:min-h-[480px]"
       )}
     >
       <div className="w-full px-4 md:px-8 lg:px-16">
         <div
           className={cn(
             "max-w-[1328px] mx-auto min-h-0",
-            !hideStats && "md:min-h-[520px]"
+            !hideStats && "md:min-h-[480px]"
           )}
         >
           <div className="w-full mb-0 py-4 px-0 lg:px-16 lg:pb-0 bg-transparent">
@@ -265,8 +265,8 @@ export default function ImpactTechStackSection({
             >
               {/* Metrics */}
               {!hideStats && (
-                <div className="p-0 flex flex-col min-h-0 bg-transparent">
-                  <Card className="border-0 shadow-none bg-transparent p-0 gap-0 w-full flex-1 flex flex-col min-h-0">
+                <div className="p-0 flex flex-col min-h-0 bg-transparent md:min-h-[480px]">
+                  <Card className="border-0 shadow-none bg-transparent p-0 gap-0 w-full flex-1 flex flex-col min-h-0 md:min-h-[480px] md:h-full">
                     <CardContent className="p-0 flex flex-col min-h-0 flex-1">
                       <div
                         ref={statsTriggerRef}
@@ -292,15 +292,16 @@ export default function ImpactTechStackSection({
               <div
                 className={cn(
                   "p-0 flex flex-col min-h-0 w-full min-w-0",
-                  hideStats && "h-full self-stretch"
+                  hideStats && "h-full self-stretch",
+                  !hideStats && "md:min-h-[480px]"
                 )}
               >
                 <Card
                   className={cn(
                     "rounded-2xl w-full min-w-0 flex-1 flex flex-col overflow-hidden bg-[oklch(100%_0_0)] border-0 gap-0",
                     hideStats
-                      ? "py-4 px-4 md:py-8 md:px-8 lg:py-12 lg:px-12 min-h-0 md:min-h-[448px]"
-                      : "pt-4 px-4 pb-4 md:pt-8 md:px-8 md:pb-8 lg:pt-[72px] lg:px-12 lg:pb-12 min-h-0"
+                      ? "py-4 px-4 md:py-8 md:px-8 lg:py-12 lg:px-12 min-h-0 md:min-h-[480px]"
+                      : "pt-4 px-4 pb-4 md:pt-8 md:px-8 md:pb-8 lg:pt-[72px] lg:px-12 lg:pb-12 min-h-0 md:min-h-[480px]"
                   )}
                 >
                   <CardContent

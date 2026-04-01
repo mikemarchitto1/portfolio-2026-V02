@@ -3,6 +3,8 @@ export type HomeProjectCard = {
   description: string;
   image: string;
   href?: string;
+  /** Overrides default “See Case Study” CTA (e.g. Coming Soon when no case study yet). */
+  ctaLabel?: string;
 };
 
 /** Same list as the home page Projects section — single source of truth. */
@@ -19,6 +21,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     description:
       "Dedicated space for exploring emerging AI technologies, experimenting with new creative workflows, and documenting studies that expand modern design.",
     image: "/images/thumb-large-ai experiments.png",
+    ctaLabel: "Coming Soon",
   },
   {
     title: "GloriFi",
@@ -28,9 +31,9 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     href: "/projects/project-one",
   },
   {
-    title: "National Restaurant Association",
+    title: "ServSafe",
     description:
-      "ServSafe products improve learning flows, refine usability, and shape clearer interfaces that help restaurant professionals complete essential food‑safety training.",
+      "Industry standard food safety training and certification platform strengthened through clearer learning flows, improved usability and more intuitive training experiences.",
     image: "/images/nationalrestaurantassociation-thumb.png",
     href: "/nra",
   },

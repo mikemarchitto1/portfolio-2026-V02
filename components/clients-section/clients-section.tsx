@@ -9,6 +9,7 @@ export type ClientsSectionProps = {
     description: string;
     image: string;
     href?: string;
+    ctaLabel?: string;
   }>;
 };
 
@@ -31,6 +32,7 @@ export default function ClientsSection({ projects }: ClientsSectionProps) {
                 description={project.description}
                 image={project.image}
                 href={project.href}
+                ctaLabel={project.ctaLabel}
               />
             ))}
           </div>

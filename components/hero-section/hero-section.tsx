@@ -34,7 +34,7 @@ export default function HeroSection() {
                 <Card className="flex flex-col flex-1 gap-0 border-0 bg-transparent p-0 shadow-none">
                   {/* Image area: same min-height and rounding as original */}
                   <div className="w-full flex-1 min-h-0 rounded-2xl overflow-hidden mb-6">
-                    <div className="w-full h-full min-h-[376px] relative rounded-2xl overflow-hidden">
+                    <div className="w-full h-full min-h-[376px] md:min-h-[480px] relative rounded-2xl overflow-hidden">
                       <Image
                         src="/images/knight-wide.png"
                         alt="Mike profile"

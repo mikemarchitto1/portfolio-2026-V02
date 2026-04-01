@@ -94,14 +94,14 @@ function Work() {
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img src={image_workshops} className="w-full h-auto rounded-[16px] object-contain" alt="Workshops" />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                     <p className="text-body1 text-foreground">
-                    I carefully reviewed several outdoor clothing and ecommerce experiences, evaluating patterns, content structure, and usability gaps to identify opportunities for improvement.
+                    Facilitated a series of cross-functional workshops guiding teams through pattern reviews, content evaluation, and usability discussions to uncover opportunities for a more cohesive and intuitive product experience.
                     </p>
                 </div>
             </div>
@@ -138,14 +138,14 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Design System</h3>
                     <p className="text-body1 text-foreground">
-                    In order to ensure that the user experience remained consistent, I made styles and UI components that could be handed off to the development team, resulting in a more polished and user-friendly end result.
+                    To maintain a consistent user experience, styles and UI components were established and documented for seamless handoff to development, resulting in a polished and cohesive interface.
                     </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 h-[636px] overflow-hidden rounded-[16px]">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
                     <img
                       src={image_designsystem}
-                      className="h-full w-full object-cover object-[center_calc(50%-18px)]"
+                      className="w-full h-auto rounded-[16px] object-contain"
                       alt="Design system"
                     />
                 </div>
@@ -153,14 +153,14 @@ function Work() {
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img src={image_uiexplore} className="w-full h-auto rounded-[16px] object-contain" alt="UI exploration" />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                     <p className="text-body1 text-foreground">
-                    To create appealing mockups, I invented brand styles and design components to inform and bring the wireframes to life, reflecting the brand's values and aesthetic.
+                    Brand styles and design components were developed to bring the wireframes to life, ensuring the mockups reflected a cohesive visual system aligned with the brand’s values and aesthetic.
                     </p>
                 </div>
 

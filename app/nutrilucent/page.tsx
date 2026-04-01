@@ -48,7 +48,7 @@ export default function NutrilucentCaseStudy() {
               <ProjectOverview
                 situation="Nutrilucent’s goal is to shape a cohesive product story that resonates with consumers and retail partners. This case study documents research, information architecture, branding and visual systems used to align the brand with its science driven positioning."
                 task="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
-                intro="This project is an active work in progress currently focusing on research and brand identity. Future phases will expand the full Nutrilucent ecosystem."
+                intro="This project is a work in progress currently focusing on research and brand identity. All deliverables were created with an AI-forward workflow. Future phases will expand the full Nutrilucent ecosystem."
                 result="This section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into later phases, allowing the full experience to be evaluated and thoroughly measured against the goals defined in the discovery phase."
               />
 
@@ -63,9 +63,10 @@ export default function NutrilucentCaseStudy() {
                   <h3 className="text-h3 text-foreground mb-4">Research Plan</h3>
                   <p className="text-body1 text-foreground">
                     Outlined a focused discovery process grounding the CBGenius to
-                    Nutrilucent design in real user needs. Through interviews, personas,
-                    journey mapping, competitive analysis, and design goals, it builds a clear
-                    foundation for aligning the experience with user and business priorities.
+                    Nutrilucent design migration in real user needs. Through interviews,
+                    personas, journey mapping, competitive analysis, and design goals, it
+                    builds a clear foundation for aligning the experience with business
+                    priorities.
                   </p>
                 </div>
 
@@ -79,7 +80,7 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-stakeint.png"
                     className="w-full h-auto rounded-[16px] object-contain"
@@ -87,7 +88,7 @@ export default function NutrilucentCaseStudy() {
                   />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview</h3>
                   <p className="text-body1 text-foreground">
                     Clarified core business goals, target audiences, and the strategic
@@ -102,7 +103,7 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Insights Matrix</h3>
                   <p className="text-body1 text-foreground">
-                    I analyzed patterns across roles, product strategy, brand positioning,
+                    Analyzed patterns across roles, product strategy, brand positioning,
                     operations and customer behavior. The work revealed founder driven workflows,
                     a scattered product line, sensitive compliance needs and weak marketing.
                     These insights show where the business must focus to stabilize operations,
@@ -120,7 +121,7 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-empathymap.png"
                     className="w-full h-auto rounded-[16px] object-contain"
@@ -128,10 +129,10 @@ export default function NutrilucentCaseStudy() {
                   />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Empathy Map</h3>
                   <p className="text-body1 text-foreground">
-                    Founder is weighed down by an outdated site, compliance issues, and limited
+                    The founder is weighed down by an outdated site, compliance issues, and limited
                     resources. Thinking about regulatory constraints and the need for education.
                     Acts through hands on but inconsistent marketing and operations. Feels
                     anxious about technical debt and unclear branding, pointing to the need for a
@@ -144,11 +145,11 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview Debrief</h3>
                   <p className="text-body1 text-foreground">
-                    Consolidate the findings into a clear narrative of the business direction.
-                    Emphasize the priorities ahead by modernizing the digital experience,
+                    Consolidated the findings into a clear narrative of the business direction.
+                    Emphasized the priorities ahead by modernizing the digital experience,
                     elevating Chromene, clarifying the Nutrilucent brand, and preparing for
-                    expansion beyond CBD. Present these as the strategic drivers for the next
-                    phase of work.
+                    expansion beyond CBD. These are the strategic drivers for the next phase of
+                    work.
                   </p>
                 </div>
 
@@ -162,7 +163,7 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-snapshot.png"
                     className="w-full h-auto rounded-[16px] object-contain"
@@ -170,12 +171,12 @@ export default function NutrilucentCaseStudy() {
                   />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
                   <p className="text-body1 text-foreground">
                     Distilled competitive, persona, and platform research across the CBD space
                     to understand how trust, simplicity, and compliance shape user behavior.
-                    Studying leading brands, provisional personas, and Shopify benchmarks
+                    Studying leading brands, provisional personas, and industry benchmarks
                     revealed UX opportunities around trust signals, guided product selection, and
                     scalable e-commerce foundations that informed the project’s direction.
                   </p>
@@ -189,7 +190,7 @@ export default function NutrilucentCaseStudy() {
                     Evaluated five leading CBD brands across key UX categories to identify
                     strengths and gaps. Scoring 100+ features revealed consistent weaknesses in
                     accessibility, personalization, trust signals, and compliance, highlighting
-                    clear opportunities to differentiate and guide CBGenius’s UX direction.
+                    clear opportunities to differentiate and guide Nutrilucent’s UX direction.
                   </p>
                 </div>
 
@@ -204,7 +205,7 @@ export default function NutrilucentCaseStudy() {
 
               <ProjectSectionHeader
                 title="Branding"
-                intro="This brand system is still evolving and the goal is to build a clear and cohesive identity that feels modern, credible and scalable across every touchpoint."
+                intro="The Nutrilucent brand system is still evolving. The goal is to build a clear and cohesive identity that feels modern, credible and scalable across every touchpoint."
                 className="mt-32"
               />
 
@@ -228,7 +229,7 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Inspiration</h3>
                   <p className="text-body1 text-foreground">
                     I explored visual themes from science, wellness, and technology to shape a
@@ -236,7 +237,7 @@ export default function NutrilucentCaseStudy() {
                   </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-logoinspiration.png"
                     className="w-full h-auto rounded-[16px] object-contain"
@@ -265,7 +266,7 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Packaging</h3>
                   <p className="text-body1 text-foreground">
                     The packaging system emphasizes clarity and trust through strong hierarchy,
@@ -274,7 +275,7 @@ export default function NutrilucentCaseStudy() {
                   </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-packaging.png"
                     className="w-full h-auto rounded-[16px] object-contain"

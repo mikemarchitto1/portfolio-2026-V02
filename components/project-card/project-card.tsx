@@ -10,6 +10,8 @@ export type ProjectCardProps = {
   description: string;
   image: string;
   href?: string;
+  /** Default: “See Case Study”. */
+  ctaLabel?: string;
   /** Default: side-by-side on md+ (home). `vertical`: image on top, copy + CTA below (case study “Next project”). */
   layout?: "horizontal" | "vertical";
 };
@@ -19,6 +21,7 @@ export default function ProjectCard({
   description,
   image,
   href,
+  ctaLabel = "See Case Study",
   layout = "horizontal",
 }: ProjectCardProps) {
   const imageArea = (
@@ -67,10 +70,10 @@ export default function ProjectCard({
         >
           {href ? (
             <a href={href} className="text-button">
-              See Case Study
+              {ctaLabel}
             </a>
           ) : (
-            <span className="text-button">See Case Study</span>
+            <span className="text-button">{ctaLabel}</span>
           )}
         </Button>
       </CardContent>
@@ -88,7 +91,7 @@ export default function ProjectCard({
 
   return (
     <div className="w-full min-w-0">
-      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[448px] rounded-2xl overflow-hidden bg-transparent">
+      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[480px] rounded-2xl overflow-hidden bg-transparent">
         {imageArea}
         {textCard}
       </div>

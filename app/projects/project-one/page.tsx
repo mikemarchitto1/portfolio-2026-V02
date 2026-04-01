@@ -82,7 +82,7 @@ export default function Work() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/glorifi-workshops.png"
                     className="w-full h-auto rounded-[16px] object-contain"
@@ -90,7 +90,7 @@ export default function Work() {
                   />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                   <p className="text-body1 text-foreground">
                     I conducted empathy mapping workshops to comprehend our users better.
@@ -154,7 +154,7 @@ export default function Work() {
               </div>
 
               <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
                     I used our brand styles and design system components to create
@@ -164,7 +164,7 @@ export default function Work() {
                   </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/glorifi-uiexploration.png"
                     className="w-full h-auto rounded-[16px] object-contain"

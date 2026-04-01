@@ -93,7 +93,7 @@ function Work() {
 
 
             <ProjectOverview
-              situation="The objective of the Microsoft HITS team is to enhance the usability and functionality of the system within a six-month timeline. The team plans to achieve this goal by implementing a new design system and style guide in the redesign and reskinning of the system."
+              situation="The initiative centered on elevating usability and functionality through the creation of a unified design system and style guide. This provided a consistent visual and interaction framework that supports a more efficient and scalable product development life cycle."
               task="Create an enhanced web‑tool software that utilizes Microsoft’s branding standards to help attract and engage significantly more users throughout the organization, improving overall visibility and adoption, and long‑term internal product success."
               result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control."
             />
@@ -126,7 +126,7 @@ function Work() {
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img
                       src={image_empathy}
                       className="w-full h-auto rounded-[16px] object-contain"
@@ -136,7 +136,7 @@ function Work() {
                     />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                     <p className="text-body1 text-foreground">
                     To enhance our user experience, I engaged in empathy mapping workshops which gave me an immersive opportunity to gain a deeper understanding of our target audience.
@@ -155,7 +155,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
                     <p className="text-body1 text-foreground">
-                    Collaborating with stakeholders, I created low to medium-fidelity wireframes as a strategic tool to extract valuable insights and better understand the intricacies of the design goals.
+                    Collaborating with stakeholders, I created low to medium fidelity wireframes as a strategic tool to extract valuable insights and better understand the intricacies of the design goals.
                     </p>
                 </div>
 
@@ -198,7 +198,7 @@ function Work() {
 
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img
                       src={image_uiexplore}
                       className="w-full h-auto rounded-[16px] object-contain"
@@ -208,7 +208,7 @@ function Work() {
                     />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                     <p className="text-body1 text-foreground">
                     By considering every element of the wireframes and incorporating relevant design elements, I was able to ensure that the resulting mockups were both visually appealing and functional, bringing the wireframes to life and providing a clear representation of the final product.
