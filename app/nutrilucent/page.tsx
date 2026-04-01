@@ -205,122 +205,162 @@ export default function NutrilucentCaseStudy() {
 
               <ProjectSectionHeader
                 title="Branding"
-                intro="I defined a scalable system for typography, color, spacing, and components—aligned to Nutrilucent’s luminous, clinical brand language."
+                intro="This brand system is still evolving, but the goal is consistent: to build a clear, cohesive identity that feels modern, credible, and scalable across every touchpoint."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Brand Audit</h3>
                   <p className="text-body1 text-foreground">
-                    A shared UI framework accelerates delivery and keeps experiences
-                    consistent across web and collateral touchpoints. Replace with
-                    Nutrilucent system details when finalized.
+                    I reviewed leading wellness and supplement brands to understand how they
+                    communicate value and build trust. This revealed visual patterns, credibility
+                    cues, and opportunities for stronger differentiation.
                   </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-designsystem.png"
+                    src="/images/nutrilucent-brandaudit.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent design system"
+                    alt="Nutrilucent brand audit"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Inspiration</h3>
                   <p className="text-body1 text-foreground">
-                    Explorations applied brand and system components to key screens—
-                    validating hierarchy, density, and accessibility before build.
+                    I explored visual themes from science, wellness, and technology to shape a
+                    brand language that feels energetic, intelligent, and future-focused.
                   </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
                   <img
-                    src="/images/glorifi-uiexploration.png"
+                    src="/images/nutrilucent-logoinspiration.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent UI exploration"
+                    alt="Nutrilucent logo inspiration"
                   />
                 </div>
               </div>
 
-              <ProjectSectionHeader
-                title="Product Features"
-                intro="Placeholder feature narrative for Nutrilucent—replace with product-specific highlights when content and imagery are ready."
-                className="mt-[128px]"
-              />
-
-              <div className="grid grid-cols-12 gap-8 pt-32">
-                <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Today</h3>
-                  <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    Placeholder section—replace with Nutrilucent feature copy and imagery
-                    (e.g. hero campaign, daily digest, or retail moment).
+              <div className="grid grid-cols-12 gap-8 mt-[128px]">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Sketching</h3>
+                  <p className="text-body1 text-foreground">
+                    Early sketches translate core ideas—energy, clarity, and cellular
+                    vitality—into logo concepts and structural motifs that will guide the visual
+                    direction.
                   </p>
                 </div>
 
-                <div className="col-span-12">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-today.png"
+                    src="/images/nutrilucent-logosketch.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent feature"
+                    alt="Nutrilucent logo sketching"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
-                  <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    Placeholder section—replace with Nutrilucent dashboard or summary
-                    experience description.
+              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 lg:order-2">
+                  <h3 className="text-h3 text-foreground mb-4">Packaging</h3>
+                  <p className="text-body1 text-foreground">
+                    The packaging system emphasizes clarity and trust through strong hierarchy,
+                    bold color, and clear benefit communication. It scales easily across product
+                    lines while maintaining a unified brand presence.
                   </p>
                 </div>
 
-                <div className="col-span-12">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 lg:order-1">
                   <img
-                    src="/images/glorifi-snapshot.png"
+                    src="/images/nutrilucent-packaging.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent feature"
+                    alt="Nutrilucent packaging"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
-                  <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    Placeholder section—replace with loyalty, community, or partner program
-                    story for Nutrilucent.
-                  </p>
+              <div className="hidden" aria-hidden>
+                <ProjectSectionHeader
+                  title="Product Features"
+                  intro="Placeholder feature narrative for Nutrilucent—replace with product-specific highlights when content and imagery are ready."
+                  className="mt-[128px]"
+                />
+
+                <div className="grid grid-cols-12 gap-8 pt-32">
+                  <div className="col-span-12 text-left min-w-0 mb-4">
+                    <h3 className="text-h3 text-foreground mb-4">Today</h3>
+                    <p className="text-body1 text-foreground w-full lg:w-1/2">
+                      Placeholder section—replace with Nutrilucent feature copy and imagery
+                      (e.g. hero campaign, daily digest, or retail moment).
+                    </p>
+                  </div>
+
+                  <div className="col-span-12">
+                    <img
+                      src="/images/glorifi-today.png"
+                      className="w-full h-auto rounded-[16px] object-contain"
+                      alt="Nutrilucent feature"
+                    />
+                  </div>
                 </div>
 
-                <div className="col-span-12">
-                  <img
-                    src="/images/glorifi-rewards.png"
-                    className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent feature"
-                  />
-                </div>
-              </div>
+                <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                  <div className="col-span-12 text-left min-w-0 mb-4">
+                    <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
+                    <p className="text-body1 text-foreground w-full lg:w-1/2">
+                      Placeholder section—replace with Nutrilucent dashboard or summary
+                      experience description.
+                    </p>
+                  </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
-                  <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    Placeholder section—replace with account, subscription, or commerce
-                    flow narrative for Nutrilucent.
-                  </p>
+                  <div className="col-span-12">
+                    <img
+                      src="/images/glorifi-snapshot.png"
+                      className="w-full h-auto rounded-[16px] object-contain"
+                      alt="Nutrilucent feature"
+                    />
+                  </div>
                 </div>
 
-                <div className="col-span-12">
-                  <img
-                    src="/images/glorifi-accounts.png"
-                    className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Nutrilucent feature"
-                  />
+                <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                  <div className="col-span-12 text-left min-w-0 mb-4">
+                    <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
+                    <p className="text-body1 text-foreground w-full lg:w-1/2">
+                      Placeholder section—replace with loyalty, community, or partner program
+                      story for Nutrilucent.
+                    </p>
+                  </div>
+
+                  <div className="col-span-12">
+                    <img
+                      src="/images/glorifi-rewards.png"
+                      className="w-full h-auto rounded-[16px] object-contain"
+                      alt="Nutrilucent feature"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                  <div className="col-span-12 text-left min-w-0 mb-4">
+                    <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
+                    <p className="text-body1 text-foreground w-full lg:w-1/2">
+                      Placeholder section—replace with account, subscription, or commerce
+                      flow narrative for Nutrilucent.
+                    </p>
+                  </div>
+
+                  <div className="col-span-12">
+                    <img
+                      src="/images/glorifi-accounts.png"
+                      className="w-full h-auto rounded-[16px] object-contain"
+                      alt="Nutrilucent feature"
+                    />
+                  </div>
                 </div>
               </div>
 
