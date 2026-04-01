@@ -16,6 +16,8 @@ export default function Home() {
         {/* IMPACT + TECH STACK */}
         <ImpactTechStackSection />
 
+        <ImpactTechStackSection title="Companies" hideStats />
+
         {/* Clients */}
         <ClientsSection projects={HOME_PROJECT_CARDS} />
       </main>

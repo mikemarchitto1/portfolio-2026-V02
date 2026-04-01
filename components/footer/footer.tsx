@@ -38,7 +38,7 @@ export default function Footer() {
                 <div className="w-full flex flex-col sm:flex-row justify-between items-end gap-4">
                   <div className="hidden lg:flex flex-col sm:flex-row flex-wrap gap-4">
                     <Button className="nav-button bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" size="lg" asChild>
-                      <a href="mailto:hello@carlwalker.com" className="text-button">Email</a>
+                      <a href="mailto:mikemarchitto@gmail.com" className="text-button">Email</a>
                     </Button>
 
                     <Button className="nav-button bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" size="lg" asChild>

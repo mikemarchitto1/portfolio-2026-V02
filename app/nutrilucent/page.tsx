@@ -250,8 +250,8 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Sketching</h3>
                   <p className="text-body1 text-foreground">
-                    Early sketches translate core ideas—energy, clarity, and cellular
-                    vitality—into logo concepts and structural motifs that will guide the visual
+                    Early sketches translate core ideas like energy, clarity, and cellular
+                    vitality into logo concepts and structural motifs that will guide the visual
                     direction.
                   </p>
                 </div>
