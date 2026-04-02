@@ -194,7 +194,7 @@ function CompaniesTechStackLogos() {
         <img
           src="/images/logo-eddiebauer.png"
           alt="Eddie Bauer"
-          className="max-h-[104px] md:max-h-[120px] lg:max-h-[128px] w-full max-w-[211px] h-auto object-contain object-center shrink-0 translate-y-1"
+          className="max-h-[104px] md:max-h-[120px] lg:max-h-[128px] w-full max-w-[211px] h-auto object-contain object-center shrink-0"
         />
       </div>
 
