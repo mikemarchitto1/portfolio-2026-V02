@@ -37,6 +37,9 @@ export default function ProjectCard({
         src={image}
         alt={title}
         fill
+        // Thumbnails are swapped frequently; bypass Next's image optimizer cache
+        // so updates to same-filename assets show immediately.
+        unoptimized
         className="object-cover object-center"
         sizes="(max-width: 768px) 100vw, 50vw"
       />

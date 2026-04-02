@@ -20,7 +20,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "AI Labs",
     description:
       "Dedicated space for exploring emerging AI technologies, experimenting with new creative workflows, and documenting studies that expand modern design.",
-    image: "/images/thumb-large-ai experiments.png",
+    image: "/images/ailabs-thumb.png",
     ctaLabel: "Coming Soon",
   },
   {
@@ -34,14 +34,14 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     title: "ServSafe",
     description:
       "Industry standard food safety training and certification platform strengthened through clearer learning flows, improved usability and more intuitive training experiences.",
-    image: "/images/nationalrestaurantassociation-thumb.png",
+    image: "/images/servsafe-thumb.png",
     ctaLabel: "Coming soon",
   },
   {
     title: "Microsoft HITS",
     description:
       "Research repository platform focused on streamlining operational workflows, improving clarity, usability, and interaction patterns to help teams work more efficiently.",
-    image: "/images/microsofthits-thumb.png",
+    image: "/images/microsoft-thumb.png",
     href: "/projects/project-two",
   },
   {
