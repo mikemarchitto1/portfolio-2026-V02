@@ -33,7 +33,7 @@ function Work() {
               subtitle="The Microsoft HITS experience enhances research ingestion, improves navigation, and introduces a consistent visual system."
               tags={[
                 "Enterprise",
-                "Internal Tools",
+                "Internal Software",
                 "Website",
                 "Research Ops",
                 "UX Design",

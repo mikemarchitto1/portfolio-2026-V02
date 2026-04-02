@@ -161,7 +161,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                     <p className="text-body1 text-foreground">
-                    Brand styles and design components were developed to bring the wireframes to life, ensuring the mockups reflected a cohesive visual system aligned with the brand’s values and aesthetic.
+                    Key components were designed utilizing the design system to bring wireframes to life. This ensured mockups were visually cohesive and aligned with the brand’s values and aesthetic.
                     </p>
                 </div>
 
@@ -173,7 +173,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">System Icons</h3>
                     <p className="text-body1 text-foreground">
-                    Crafting a custom icon set strengthened the brand’s visual language, ensured consistent interaction patterns across the product, and provided development with a unified, scalable asset library that supports a clearer and more intuitive user experience.
+                    Crafting a custom system icon library strengthened the brand’s visual language, ensured consistent interaction patterns across the product, and provided development with a unified, scalable asset package that supports a clear and intuitive user experience.
                     </p>
                 </div>
 
