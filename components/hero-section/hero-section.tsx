@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   return (
@@ -33,15 +33,29 @@ export default function HeroSection() {
               <div className="w-full md:flex-1 md:min-w-0 flex flex-col h-full gap-0 bg-transparent">
                 <Card className="flex flex-col flex-1 gap-0 border-0 bg-transparent p-0 shadow-none">
                   {/* Image area: same min-height and rounding as original */}
-                  <div className="w-full flex-1 min-h-0 rounded-2xl overflow-hidden mb-6">
-                    <div className="w-full h-full min-h-[376px] md:min-h-[480px] relative rounded-2xl overflow-hidden">
-                      <Image
-                        src="/images/knight-wide.png"
+                  <div className="w-full flex-1 min-h-0 mb-6">
+                    {/* Native img + one clipping box: Next/Image fill wrappers often ignore rounded clipping */}
+                    <div
+                      className={cn(
+                        "relative isolate w-full min-h-[376px] md:min-h-[440px]",
+                        "overflow-hidden rounded-2xl",
+                        /* bg-card: contrasts with page bg so rounded letterboxing reads */
+                        "bg-card"
+                      )}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/king-head.png"
                         alt="Mike profile"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        width={1600}
+                        height={1200}
+                        className={cn(
+                          "absolute inset-0 h-full w-full object-cover object-center",
+                          "rounded-2xl"
+                        )}
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
                       />
                     </div>
                   </div>

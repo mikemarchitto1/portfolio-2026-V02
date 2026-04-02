@@ -91,7 +91,7 @@ export default function ProjectCard({
 
   return (
     <div className="w-full min-w-0">
-      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[480px] rounded-2xl overflow-hidden bg-transparent">
+      <div className="w-full min-w-0 grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch min-h-0 md:min-h-[440px] rounded-2xl overflow-hidden bg-transparent">
         {imageArea}
         {textCard}
       </div>

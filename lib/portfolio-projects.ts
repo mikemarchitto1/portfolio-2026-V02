@@ -12,7 +12,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
   {
     title: "Nutrilucent",
     description:
-      "UX Founder driving research, UI design and build to shape packaging, product architecture, and visual systems that express clinical trust and luminous vitality.",
+      "Build for a wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
     image: "/images/nutrilucent-thumb.png",
     href: "/nutrilucent",
   },
