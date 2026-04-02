@@ -235,7 +235,9 @@ export default function NutrilucentCaseStudy() {
                   <h3 className="text-h3 text-foreground mb-4">Inspiration</h3>
                   <p className="text-body1 text-foreground">
                     I explored visual themes from science, wellness, and technology to shape a
-                    brand language that feels energetic, intelligent, and future-focused.
+                    brand language that feels energetic, intelligent, and future-focused. This
+                    illustration represents the inner structure of a mitochondrion, reflecting one
+                    of the core wellness benefits of Nutrilucent gummies.
                   </p>
                 </div>
 
@@ -252,9 +254,8 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Sketching</h3>
                   <p className="text-body1 text-foreground">
-                    Early sketches translate core ideas like energy, clarity, and cellular
-                    vitality into logo concepts and structural motifs that will guide the visual
-                    direction.
+                    Early sketches translate ideas of energy, clarity, and cellular vitality into
+                    structural motifs that shape the visual direction.
                   </p>
                 </div>
 
@@ -271,7 +272,7 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Packaging</h3>
                   <p className="text-body1 text-foreground">
-                    The packaging system emphasizes clarity and trust through strong hierarchy,
+                    This packaging concept emphasizes clarity and trust through strong hierarchy,
                     bold color, and clear benefit communication. It scales easily across product
                     lines while maintaining a unified brand presence.
                   </p>
