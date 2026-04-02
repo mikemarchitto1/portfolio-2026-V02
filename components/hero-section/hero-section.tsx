@@ -33,7 +33,7 @@ export default function HeroSection() {
               <div className="w-full md:flex-1 md:min-w-0 flex flex-col h-full gap-0 bg-transparent">
                 <Card className="flex flex-col flex-1 gap-0 border-0 bg-transparent p-0 shadow-none">
                   {/* Image area: same min-height and rounding as original */}
-                  <div className="w-full flex-1 min-h-0 mb-6">
+                  <div className="w-full flex-1 min-h-0">
                     {/* Native img + one clipping box: Next/Image fill wrappers often ignore rounded clipping */}
                     <div
                       className={cn(
@@ -45,7 +45,7 @@ export default function HeroSection() {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="/images/king-head.png"
+                        src="/images/profile.png"
                         alt="Mike profile"
                         width={1600}
                         height={1200}
@@ -59,7 +59,7 @@ export default function HeroSection() {
                       />
                     </div>
                   </div>
-                  <CardContent className="p-0">
+                  <CardContent className="hidden p-0" aria-hidden="true">
                     <blockquote className="profile-quote text-body2 text-foreground font-light text-center m-0 p-0 mb-8">
                       <p className="italic text-foreground [font-size:var(--text-body2)] [line-height:24px]">
                         "A king is a man who turns hope into action."
