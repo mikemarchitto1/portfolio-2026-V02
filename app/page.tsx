@@ -13,8 +13,10 @@ export default function Home() {
         {/* Hero */}
         <HeroSection />
 
-        {/* IMPACT + TECH STACK */}
-        <ImpactTechStackSection />
+        {/* IMPACT + TECH STACK — 64px gap below hero */}
+        <div className="mt-16">
+          <ImpactTechStackSection />
+        </div>
 
         <div className="pt-12">
           <ImpactTechStackSection title="Companies" hideStats />
