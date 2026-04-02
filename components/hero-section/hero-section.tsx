@@ -20,7 +20,7 @@ export default function HeroSection() {
                   Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
                 </h1>
                 <h4 className="text-h4 max-w-[528px] text-foreground">
-                  I design modern digital experiences for startups and global brands.
+                  I design modern AI‑driven digital experiences for organizations.
                 </h4>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
