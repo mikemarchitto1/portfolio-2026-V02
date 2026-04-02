@@ -29,7 +29,7 @@ export default function ProjectCard({
       className={cn(
         "relative w-full overflow-hidden bg-transparent",
         layout === "vertical"
-          ? "min-h-[240px] aspect-[16/10] shrink-0 rounded-t-2xl"
+          ? "min-h-[240px] aspect-[16/8] shrink-0 rounded-t-2xl"
           : "h-full min-h-[240px] md:min-h-[320px] rounded-t-2xl md:rounded-t-none md:rounded-l-2xl",
       )}
     >

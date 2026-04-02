@@ -12,7 +12,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
   {
     title: "Nutrilucent",
     description:
-      "Build for a wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
+      "Wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
     image: "/images/nutrilucent-thumb.png",
     href: "/nutrilucent",
   },
