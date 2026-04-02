@@ -30,13 +30,14 @@ function Work() {
 
             <ProjectHero
               title="An ecommerce experience to modernize the brand"
-              subtitle="An Eddie Bauer platform design that enhances product discovery, strengthens brand identity, and improves the overall shopping experience."
+              subtitle="The Eddie Bauer Ecommerce platform design enhances product discovery, strengthens brand identity, and improves the overall shopping experience."
               tags={[
                 "Ecommerce",
-                "Website Design",
-                "Product Design",
+                "Website",
                 "Cross Platform",
-                "Conversion",
+                "Product Strategy",
+                "UX Design",
+                "Design System",
               ]}
             />
 

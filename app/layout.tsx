@@ -79,7 +79,7 @@ export default function RootLayout({
   if (stored === 'dark' || stored === 'color' || stored === 'light') {
     theme = stored;
   } else {
-    theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    theme = 'light';
   }
   var path = window.location.pathname || '';
   var onProjects = path === '/projects' || path.indexOf('/projects/') === 0;

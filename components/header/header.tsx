@@ -292,7 +292,7 @@ try {
                             Projects
                           </SidebarGroupLabel>
                           <SidebarMenu className="mobile-menu-clients-list gap-0 mt-0 w-full">
-                            {SIDEBAR_PROJECTS[0] && (
+                            {SIDEBAR_PROJECTS[0]?.href != null && (
                               <SidebarMenuItem key={SIDEBAR_PROJECTS[0].href} className="w-full">
                                 <SidebarMenuButton asChild>
                                   <Link
@@ -310,17 +310,21 @@ try {
                                 AI Labs
                               </SidebarMenuButton>
                             </SidebarMenuItem>
-                            {SIDEBAR_PROJECTS.slice(1).map(({ label, href }) => (
-                              <SidebarMenuItem key={href} className="w-full">
-                                <SidebarMenuButton asChild>
-                                  <Link
-                                    href={href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="no-underline w-full"
-                                  >
-                                    {label}
-                                  </Link>
-                                </SidebarMenuButton>
+                            {SIDEBAR_PROJECTS.slice(1).map((item) => (
+                              <SidebarMenuItem key={item.href ?? item.label} className="w-full">
+                                {item.href ? (
+                                  <SidebarMenuButton asChild>
+                                    <Link
+                                      href={item.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="no-underline w-full"
+                                    >
+                                      {item.label}
+                                    </Link>
+                                  </SidebarMenuButton>
+                                ) : (
+                                  <SidebarMenuButton type="button">{item.label}</SidebarMenuButton>
+                                )}
                               </SidebarMenuItem>
                             ))}
                           </SidebarMenu>

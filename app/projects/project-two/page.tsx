@@ -32,9 +32,11 @@ function Work() {
               title="A research repository built to streamline discovery"
               subtitle="The Microsoft HITS experience enhances research ingestion, improves navigation, and introduces a consistent visual system."
               tags={[
+                "Enterprise",
                 "Internal Tools",
-                "Enterprise UX",
+                "Website",
                 "Research Ops",
+                "UX Design",
                 "Design System",
               ]}
             />

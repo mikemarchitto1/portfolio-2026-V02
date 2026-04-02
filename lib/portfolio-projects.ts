@@ -35,7 +35,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     description:
       "Industry standard food safety training and certification platform strengthened through clearer learning flows, improved usability and more intuitive training experiences.",
     image: "/images/nationalrestaurantassociation-thumb.png",
-    href: "/nra",
+    ctaLabel: "Coming soon",
   },
   {
     title: "Microsoft HITS",

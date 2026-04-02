@@ -29,11 +29,12 @@ export default function NutrilucentCaseStudy() {
                 title="A unified system for modern nutrition solutions"
                 subtitle="Nutrilucent integrates product systems, brand identity, and digital experience through clear structure and thoughtful design."
                 tags={[
-                  "Research",
-                  "Strategy",
-                  "Architecture",
-                  "Design",
-                  "Development",
+                  "Ecommerce",
+                  "Website",
+                  "Brand",
+                  "Product Strategy",
+                  "UX Design",
+                  "Design System",
                 ]}
               />
 
@@ -48,7 +49,7 @@ export default function NutrilucentCaseStudy() {
               <ProjectOverview
                 situation="Nutrilucent’s goal is to shape a cohesive product story that resonates with consumers and retail partners. This case study documents research, information architecture, branding and visual systems used to align the brand with its science driven positioning."
                 task="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
-                intro="This project is a work in progress currently focusing on research and brand identity. All deliverables were created with an AI-forward workflow. Future phases will expand the full Nutrilucent ecosystem."
+                intro="This project is a work in progress currently focusing on research and brand identity. All deliverables were created with an AI forward workflow. Future phases will expand the full Nutrilucent ecosystem."
                 result="This section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into later phases, allowing the full experience to be evaluated and thoroughly measured against the goals defined in the discovery phase."
               />
 
@@ -187,10 +188,11 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
                   <p className="text-body1 text-foreground">
-                    Evaluated five leading CBD brands across key UX categories to identify
-                    strengths and gaps. Scoring 100+ features revealed consistent weaknesses in
-                    accessibility, personalization, trust signals, and compliance, highlighting
-                    clear opportunities to differentiate and guide Nutrilucent’s UX direction.
+                    A deeper dive evaluating five leading CBD brands across key UX categories to
+                    identify strengths and gaps. Scoring 100+ features revealed consistent
+                    weaknesses in accessibility, personalization, trust signals, and compliance,
+                    highlighting clear opportunities to differentiate and guide Nutrilucent’s UX
+                    direction.
                   </p>
                 </div>
 

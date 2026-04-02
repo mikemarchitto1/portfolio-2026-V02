@@ -35,8 +35,8 @@ export default function Work() {
                   "Fintech",
                   "Mobile App",
                   "Website",
-                  "UX Design",
                   "Product Strategy",
+                  "UX Design",
                   "Design System",
                 ]}
               />
