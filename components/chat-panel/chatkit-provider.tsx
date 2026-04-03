@@ -29,54 +29,61 @@ const CHATKIT_INTER_TYPOGRAPHY: NonNullable<ThemeOption["typography"]> = {
   ],
 };
 
-const CHATKIT_THEME_BY_SITE_THEME: Record<Theme, ThemeOption> = {
+/**
+ * ChatKit chrome (greeting, shell inside the iframe). Keep `colorScheme` aligned with the surface
+ * pair so text/UI contrast is predictable. Message bubble colors: `globals.css` `--chat-message-*`.
+ */
+const CHATKIT_SURFACE: Record<
+  Theme,
+  {
+    colorScheme: "light" | "dark";
+    background: string;
+    foreground: string;
+    accentPrimary: string;
+  }
+> = {
   light: {
-    /**
-     * `colorScheme: "dark"` + light hex avoids a black iframe canvas. Foreground must be dark on
-     * light `surface.background` (greeting / primary text). Bubble vars: `globals.css` light scope.
-     */
-    colorScheme: "dark",
-    density: "compact",
-    radius: "soft",
-    typography: CHATKIT_INTER_TYPOGRAPHY,
-    color: {
-      surface: {
-        background: "#F5F5F6",
-        foreground: "#171717",
-      },
-      accent: { primary: "#E5E5E5", level: 1 },
-      grayscale: { hue: 210, tint: 7 },
-    },
+    colorScheme: "light",
+    background: "#F5F5F6",
+    foreground: "#F5F5F5",
+    accentPrimary: "#000000",
   },
   dark: {
     colorScheme: "dark",
-    density: "compact",
-    radius: "soft",
-    typography: CHATKIT_INTER_TYPOGRAPHY,
-    color: {
-      surface: {
-        /** Overridden with computed `getComputedStyle` from `bg-background` (matches chat sheet). */
-        background: "#14161A",
-        foreground: "#ffffff" /* --foreground */,
-      },
-      accent: { primary: "oklch(55% 0.02 264)" /* --accent */, level: 0 },
-      grayscale: { hue: 0, tint: 0 },
-    },
+    background: "#14161A",
+    foreground: "#222429",
+    accentPrimary: "#ffffff",
   },
   color: {
     colorScheme: "dark",
+    background: "#13241C",
+    foreground: "#36483F",
+    accentPrimary: "#ffffff",
+  },
+};
+
+function chatKitThemeForSiteTheme(theme: Theme): ThemeOption {
+  const s = CHATKIT_SURFACE[theme];
+  return {
+    colorScheme: s.colorScheme,
     density: "compact",
     radius: "soft",
     typography: CHATKIT_INTER_TYPOGRAPHY,
     color: {
       surface: {
-        background: "#13241C",
-        foreground: "#ffffff" /* light text */,
+        background: s.background,
+        foreground: s.foreground,
       },
-      accent: { primary: "ffffff", level: 0 },
+      accent: { primary: s.accentPrimary, level: 0 },
       grayscale: { hue: 0, tint: 0 },
     },
-  },
+  };
+}
+
+const CHATKIT_THEME_BY_SITE_THEME: Record<Theme, ThemeOption> = {
+  light: chatKitThemeForSiteTheme("light"),
+  dark: chatKitThemeForSiteTheme("dark"),
+  color: chatKitThemeForSiteTheme("color"),
 };
 
 const ChatKitControlContext = React.createContext<ChatKitControl | null>(null);

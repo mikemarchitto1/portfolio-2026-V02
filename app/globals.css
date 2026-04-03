@@ -435,7 +435,7 @@
 
   }
 
-  /* ChatKit message bubbles (color mode only): only override bubble-related CSS variables. */
+  /* ChatKit message bubbles (color mode): light text on dark green surfaces */
   .color openai-chatkit,
   [data-theme="color"] openai-chatkit {
     --chat-message-user-background: #0d2a1f;
@@ -446,18 +446,29 @@
     --chat-message-radius: 16px;
   }
 
-  /* ChatKit message bubbles (light mode only): strong chip + text contrast; vars on html + host for inheritance. */
+  /* ChatKit bubbles (light): black text on white / light-gray chips */
   html.light,
   html:not(.dark):not(.color),
   [data-theme="light"],
   html.light openai-chatkit,
   html:not(.dark):not(.color) openai-chatkit,
   [data-theme="light"] openai-chatkit {
-    --chat-message-user-background: #d4d4d8;
-    --chat-message-user-foreground: #09090b;
-    --chat-message-assistant-background: #f4f4f5;
-    --chat-message-assistant-foreground: #18181b;
-    --chat-message-border-color: #71717a;
+    --chat-message-user-background: #f5f5f5;
+    --chat-message-user-foreground: #000000;
+    --chat-message-assistant-background: #ffffff;
+    --chat-message-assistant-foreground: #000000;
+    --chat-message-border-color: #000000;
+    --chat-message-radius: 16px;
+  }
+
+  /* ChatKit bubbles (dark): white text on black / near-black */
+  html.dark openai-chatkit,
+  [data-theme="dark"] openai-chatkit {
+    --chat-message-user-background: #1f1f1f;
+    --chat-message-user-foreground: #ffffff;
+    --chat-message-assistant-background: #000000;
+    --chat-message-assistant-foreground: #ffffff;
+    --chat-message-border-color: #525252;
     --chat-message-radius: 16px;
   }
 
