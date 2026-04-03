@@ -35,7 +35,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     description:
       "Industry standard food safety training and certification platform strengthened through clearer learning flows, improved usability and more intuitive training experiences.",
     image: "/images/servsafe-thumb.png",
-    ctaLabel: "Coming soon",
+    href: "/projects/servsafe",
   },
   {
     title: "Microsoft HITS",
@@ -56,6 +56,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
 const CASE_STUDY_HREFS = [
   "/nutrilucent",
   "/projects/project-one",
+  "/projects/servsafe",
   "/projects/project-two",
   "/projects/project-three",
 ] as const;
@@ -66,7 +67,7 @@ function normalizePath(path: string) {
   return p;
 }
 
-/** Next case study in rotation (Nutrilucent → GloriFi → Microsoft HITS → Eddie Bauer → Nutrilucent). */
+/** Next case study in rotation (Nutrilucent → GloriFi → ServSafe → Microsoft HITS → Eddie Bauer → Nutrilucent). */
 export function getNextCaseStudyHomeCard(currentHref: string): HomeProjectCard | undefined {
   const key = normalizePath(currentHref);
   const order = CASE_STUDY_HREFS as readonly string[];
