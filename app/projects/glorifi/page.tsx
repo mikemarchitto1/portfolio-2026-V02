@@ -20,7 +20,7 @@ const image_rewards = "/assets/project_one/glorifi_rewards.png";
 const image_accounts = "/assets/project_one/glorifi_accounts.png";
 
 export default function Work() {
-  const nextProject = getNextCaseStudyHomeCard("/projects/project-one");
+  const nextProject = getNextCaseStudyHomeCard("/projects/glorifi");
 
   return (
     <>

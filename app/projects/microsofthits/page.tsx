@@ -20,7 +20,7 @@ const image_empathy = "/images/microsofthits_workshops.png";
 const image_finaldesign = "/images/microsofthits-contentingestioneditor.png";
 
 function Work() {
-    const nextProject = getNextCaseStudyHomeCard("/projects/project-two");
+    const nextProject = getNextCaseStudyHomeCard("/projects/microsofthits");
 
     return (
         <>

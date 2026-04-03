@@ -20,7 +20,7 @@ const image_systemicons = "/images/eddiebauer-systemiconography.png";
 const image_productdetails = "/images/eddiebauer-productdetails.png";
 
 function Work() {
-    const nextProject = getNextCaseStudyHomeCard("/projects/project-three");
+    const nextProject = getNextCaseStudyHomeCard("/projects/eddiebauer");
 
     return (
         <>

@@ -5,9 +5,9 @@ export type SidebarProjectItem = {
 };
 
 export const SIDEBAR_PROJECTS: SidebarProjectItem[] = [
-  { label: "Nutrilucent", href: "/nutrilucent" },
-  { label: "GloriFi", href: "/projects/project-one" },
+  { label: "Nutrilucent", href: "/projects/nutrilucent" },
+  { label: "GloriFi", href: "/projects/glorifi" },
   { label: "ServSafe", href: "/projects/servsafe" },
-  { label: "Microsoft Hits", href: "/projects/project-two" },
-  { label: "Eddie Bauer", href: "/projects/project-three" },
+  { label: "Microsoft Hits", href: "/projects/microsofthits" },
+  { label: "Eddie Bauer", href: "/projects/eddiebauer" },
 ];

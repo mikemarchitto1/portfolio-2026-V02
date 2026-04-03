@@ -83,8 +83,7 @@ export default function RootLayout({
   }
   var path = window.location.pathname || '';
   var onProjects = path === '/projects' || path.indexOf('/projects/') === 0;
-  var onNutrilucent = path === '/nutrilucent';
-  var onCaseStudies = onProjects || onNutrilucent;
+  var onCaseStudies = onProjects;
   if (onCaseStudies && theme === 'color') {
     theme = 'light';
   }

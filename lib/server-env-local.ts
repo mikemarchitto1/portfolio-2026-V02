@@ -111,7 +111,7 @@ function collectAllEnvFilePaths(): string[] {
 
 /**
  * Merge all candidate files: smaller files first, larger last so richer files override
- * (e.g. root `.env.local` may be a 3-key stub; another file may hold DEEPSEEK).
+ * (e.g. root `.env.local` may be a 3-key stub; another file may hold OPENAI_API_KEY).
  */
 function mergeDotenvFromAllCandidates(): Map<string, string> {
   const paths = collectAllEnvFilePaths();
@@ -159,7 +159,7 @@ function loadDotenvFromDisk(): Map<string, string> {
       return new Map();
     }
     const map = mergeDotenvFromAllCandidates();
-    const rawDs = map.get("DEEPSEEK_API_KEY");
+    const rawOpenai = map.get("OPENAI_API_KEY");
     const lens = paths.map((p) => {
       try {
         return readFileSync(p, "utf8").length;
@@ -175,8 +175,8 @@ function loadDotenvFromDisk(): Map<string, string> {
         candidateFileCount: paths.length,
         maxSingleFileLen: lens.length ? Math.max(...lens) : 0,
         mergedKeyCount: map.size,
-        hasDeepseekKey: map.has("DEEPSEEK_API_KEY"),
-        deepseekValueLen: rawDs?.length ?? 0,
+        hasOpenaiKey: map.has("OPENAI_API_KEY"),
+        openaiValueLen: rawOpenai?.length ?? 0,
         cwd: process.cwd(),
         nodeEnv: process.env.NODE_ENV,
       },
@@ -226,7 +226,7 @@ export function debugEnvFileStatus(): {
   cwd: string;
   moduleDir: string | null;
   parsedKeyCount: number;
-  hasDeepseekKey: boolean;
+  hasOpenaiKey: boolean;
   candidateFileCount: number;
   /** Largest on-disk env candidate size (bytes); compare to editor unsaved buffer. */
   maxEnvFileBytes: number;
@@ -255,7 +255,7 @@ export function debugEnvFileStatus(): {
     cwd: process.cwd(),
     moduleDir,
     parsedKeyCount: merged.size,
-    hasDeepseekKey: merged.has("DEEPSEEK_API_KEY"),
+    hasOpenaiKey: merged.has("OPENAI_API_KEY"),
     candidateFileCount: paths.length,
     maxEnvFileBytes,
     parsedKeyNames: [...merged.keys()].sort(),
@@ -282,7 +282,7 @@ export function readServerEnv(name: string): string {
   }
 
   // #region agent log
-  if (name === "DEEPSEEK_API_KEY" || name === "LLM_API_KEY") {
+  if (name === "OPENAI_API_KEY" || name === "LLM_API_KEY") {
     agentLog(
       "server-env-local.ts:readServerEnv",
       "key still empty after dev+process",

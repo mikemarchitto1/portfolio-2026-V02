@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Nutrilucent case study — structure cloned from GloriFi (`/projects/project-one`).
+ * Nutrilucent case study — structure cloned from Glorifi (`/projects/glorifi`).
  * Replace copy and image paths with Nutrilucent-specific assets when ready.
  */
 
@@ -17,7 +17,7 @@ import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 const image_hero = "/images/nutrilucent-hero.png";
 
 export default function NutrilucentCaseStudy() {
-  const nextProject = getNextCaseStudyHomeCard("/nutrilucent");
+  const nextProject = getNextCaseStudyHomeCard("/projects/nutrilucent");
 
   return (
     <>
@@ -254,8 +254,8 @@ export default function NutrilucentCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Sketching</h3>
                   <p className="text-body1 text-foreground">
-                    Early sketches translate ideas of energy, clarity, and cellular vitality into
-                    structural motifs that shape the visual direction.
+                    Early sketches translate ideas of energy and cellular vitality into structural
+                    motifs that will shape the visual direction.
                   </p>
                 </div>
 

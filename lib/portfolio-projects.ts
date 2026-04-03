@@ -14,7 +14,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     description:
       "Wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
     image: "/images/nutrilucent-thumb.png",
-    href: "/nutrilucent",
+    href: "/projects/nutrilucent",
   },
   {
     title: "AI Labs",
@@ -28,7 +28,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     description:
       "Fintech startup focused on modernizing mobile and web banking product experiences that clarify financial information and strengthen the brand's digital presence.",
     image: "/images/glorifi-thumb.png",
-    href: "/projects/project-one",
+    href: "/projects/glorifi",
   },
   {
     title: "ServSafe",
@@ -42,23 +42,23 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     description:
       "Research repository platform focused on streamlining operational workflows, improving clarity, usability, and interaction patterns to help teams work more efficiently.",
     image: "/images/microsoft-thumb.png",
-    href: "/projects/project-two",
+    href: "/projects/microsofthits",
   },
   {
     title: "Eddie Bauer",
     description:
       "Ecommerce experience design for product pages, interaction patterns, and design‑system to create a cohesive and effective shopping journey.",
     image: "/images/eddiebauer-thumb.png",
-    href: "/projects/project-three",
+    href: "/projects/eddiebauer",
   },
 ];
 
 const CASE_STUDY_HREFS = [
-  "/nutrilucent",
-  "/projects/project-one",
+  "/projects/nutrilucent",
+  "/projects/glorifi",
   "/projects/servsafe",
-  "/projects/project-two",
-  "/projects/project-three",
+  "/projects/microsofthits",
+  "/projects/eddiebauer",
 ] as const;
 
 function normalizePath(path: string) {

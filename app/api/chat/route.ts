@@ -1,21 +1,38 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { buildRagSystemContent } from "@/lib/rag/build-rag-system-content";
+import { getRelevantChunks } from "@/lib/rag/get-relevant-chunks";
+import {
+  extractLastUserText,
+  mergeRagSystemIntoMessages,
+} from "@/lib/rag/merge-chat-messages";
+import {
+  buildOpenAIChatCompletionPayload,
+  coerceMessagesArray,
+  normalizeMessagesForOpenAI,
+  type JsonRecord,
+} from "@/lib/openai-chat-request";
+
 export const runtime = "nodejs";
 
-const DEEPSEEK_CHAT_COMPLETIONS = "https://api.deepseek.com/v1/chat/completions";
-
-type JsonRecord = Record<string, unknown>;
+const OPENAI_CHAT_COMPLETIONS = "https://api.openai.com/v1/chat/completions";
+const DEFAULT_MODEL = "gpt-4.1-mini";
 
 function jsonError(message: string, status: number, extra?: JsonRecord) {
   return NextResponse.json({ error: message, ...extra }, { status });
 }
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.DEEPSEEK_API_KEY;
-  const defaultModel = process.env.MODEL_NAME;
+  const apiKey = process.env.OPENAI_API_KEY?.trim();
+  const defaultModel = process.env.MODEL_NAME?.trim() || DEFAULT_MODEL;
 
-  if (!apiKey?.trim()) {
-    return jsonError("Missing DEEPSEEK_API_KEY", 500);
+  if (!apiKey) {
+    return jsonError("Missing OPENAI_API_KEY", 500);
+  }
+
+  const contentType = req.headers.get("content-type") ?? "";
+  if (!contentType.includes("application/json")) {
+    return jsonError("Expected Content-Type: application/json", 415);
   }
 
   let raw: unknown;
@@ -29,16 +46,25 @@ export async function POST(req: NextRequest) {
     return jsonError("Expected a JSON object body", 400);
   }
 
-  const body = raw as JsonRecord;
+  let body = raw as JsonRecord;
 
-  if (!Array.isArray(body.messages)) {
+  const coerced = coerceMessagesArray(body);
+  if (!coerced) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[/api/chat] Missing messages; body keys:", Object.keys(body));
+    }
     return jsonError("Missing or invalid messages array", 400);
   }
+
+  const messagesNormalized = normalizeMessagesForOpenAI(coerced);
+  body = { ...body, messages: messagesNormalized };
+
+  const messages = body.messages as unknown[];
 
   const model =
     typeof body.model === "string" && body.model.trim() !== ""
       ? body.model
-      : defaultModel?.trim() || "";
+      : defaultModel;
 
   if (!model) {
     return jsonError(
@@ -47,15 +73,32 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const upstreamBody: JsonRecord = {
-    ...body,
+  let ragMessages = messages;
+  try {
+    const lastUser = extractLastUserText(messages);
+    if (lastUser) {
+      const chunks = await getRelevantChunks(lastUser, { apiKey });
+      const systemContent = buildRagSystemContent(chunks);
+      ragMessages = mergeRagSystemIntoMessages(messages, systemContent);
+    }
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : "RAG retrieval failed";
+    if (process.env.NODE_ENV === "development") {
+      console.error("[/api/chat] RAG failed:", detail);
+    }
+    return jsonError("Retrieval or embedding failed", 502, { detail });
+  }
+
+  const upstreamBody = buildOpenAIChatCompletionPayload(
+    body,
+    ragMessages,
     model,
-    stream: true,
-  };
+    true
+  );
 
   let upstream: Response;
   try {
-    upstream = await fetch(DEEPSEEK_CHAT_COMPLETIONS, {
+    upstream = await fetch(OPENAI_CHAT_COMPLETIONS, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,9 +110,9 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     const detail = err instanceof Error ? err.message : "Network error";
     if (process.env.NODE_ENV === "development") {
-      console.error("[/api/chat] DeepSeek fetch failed:", detail);
+      console.error("[/api/chat] OpenAI fetch failed:", detail);
     }
-    return jsonError("Failed to reach the language model API", 502, { detail });
+    return jsonError("Failed to reach the OpenAI API", 502, { detail });
   }
 
   const ct = upstream.headers.get("content-type") ?? "";
@@ -85,13 +128,13 @@ export async function POST(req: NextRequest) {
     if (parsed && typeof parsed === "object") {
       return NextResponse.json(parsed, { status: upstream.status });
     }
-    return jsonError("Language model API returned an error", upstream.status, {
+    return jsonError("OpenAI API returned an error", upstream.status, {
       detail: errText.slice(0, 2000) || upstream.statusText,
     });
   }
 
   if (!upstream.body) {
-    return jsonError("Empty response from language model API", 502);
+    return jsonError("Empty response from OpenAI API", 502);
   }
 
   const outHeaders = new Headers();

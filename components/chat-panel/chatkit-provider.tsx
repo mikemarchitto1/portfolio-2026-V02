@@ -138,11 +138,35 @@ function getOrCreateChatKitUserId(): string {
 }
 
 /**
- * If set (e.g. `/api/chat`), ChatKit uses your custom completions URL + domain key (DeepSeek, etc.).
+ * If set (e.g. `/api/chat`), ChatKit uses your custom completions URL + domain key (OpenAI Chat Completions + RAG).
  * If unset, ChatKit uses OpenAI-hosted workflow sessions (`OPENAI_API_KEY` + `WORKFLOW_ID` on the server).
  */
 function getCustomChatApiUrl(): string {
   return process.env.NEXT_PUBLIC_CHATKIT_CUSTOM_API_URL?.trim() ?? "";
+}
+
+/**
+ * ChatKit loads the API URL inside an iframe; relative paths resolve against the iframe origin,
+ * not the page. Resolve `/api/chat` to `https://this-site/api/chat` on the client.
+ */
+function useResolvedCustomChatApiUrl(envUrl: string): string {
+  const [resolved, setResolved] = React.useState(envUrl);
+
+  React.useEffect(() => {
+    if (!envUrl) return;
+    if (/^https?:\/\//i.test(envUrl)) {
+      setResolved(envUrl);
+      return;
+    }
+    try {
+      const path = envUrl.startsWith("/") ? envUrl : `/${envUrl}`;
+      setResolved(new URL(path, window.location.origin).href);
+    } catch {
+      setResolved(envUrl);
+    }
+  }, [envUrl]);
+
+  return resolved;
 }
 
 /**
@@ -153,7 +177,8 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
   const { resolvedTheme } = useTheme();
   const domainKey =
     process.env.NEXT_PUBLIC_CHATKIT_DOMAIN_KEY?.trim() ?? "";
-  const customApiUrl = getCustomChatApiUrl();
+  const envCustomApiUrl = getCustomChatApiUrl();
+  const customApiUrl = useResolvedCustomChatApiUrl(envCustomApiUrl);
   const resolvedPanelBg = useResolvedChatPanelBackground();
 
   const options: UseChatKitOptions = React.useMemo(() => {
