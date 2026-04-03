@@ -18,12 +18,13 @@ export default function Home() {
           <ImpactTechStackSection />
         </div>
 
-        <div className="pt-12">
+        <div className="pt-16">
           <ImpactTechStackSection title="Companies" hideStats />
         </div>
 
-        {/* Clients */}
-        <ClientsSection projects={HOME_PROJECT_CARDS} />
+        <div className="mt-4">
+          <ClientsSection projects={HOME_PROJECT_CARDS} />
+        </div>
       </main>
 
       <Footer />

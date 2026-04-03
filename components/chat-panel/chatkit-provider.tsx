@@ -44,8 +44,8 @@ const CHATKIT_SURFACE: Record<
 > = {
   light: {
     colorScheme: "light",
-    background: "#F5F5F6",
-    foreground: "#F5F5F5",
+    background: "#F5F5F5",
+    foreground: "#ECECEC",
     accentPrimary: "#000000",
   },
   dark: {

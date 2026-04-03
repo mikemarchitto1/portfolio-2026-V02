@@ -455,9 +455,9 @@
   [data-theme="light"] openai-chatkit {
     --chat-message-user-background: #f5f5f5;
     --chat-message-user-foreground: #000000;
-    --chat-message-assistant-background: #ffffff;
+    --chat-message-assistant-background: #000000;
     --chat-message-assistant-foreground: #000000;
-    --chat-message-border-color: #000000;
+    --chat-message-border-color: #a1a1aa;
     --chat-message-radius: 16px;
   }
 
