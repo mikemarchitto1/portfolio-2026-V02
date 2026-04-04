@@ -14,4 +14,4 @@ A "Companies" grid includes logos and names for: Starbucks, Microsoft, Eddie Bau
 
 ## Projects (home cards)
 
-Project cards on the home page include: Nutrilucent (wellness retailer, supplements and cosmetics, research and product systems), AI Labs (emerging AI, creative workflows, coming soon), GloriFi (fintech, mobile and web banking), ServSafe (food safety training and certification), Microsoft HITS (research repository, workflows and usability), Eddie Bauer (ecommerce, product pages, design system).
+Project cards on the home page include: Nutrilucent (wellness retailer, supplements and cosmetics, research and product systems), AI Labs (emerging AI, creative workflows, coming soon), GloriFi (fintech, mobile and web banking), ServSafe (food safety training and certification), Microsoft Hits (research repository, workflows and usability), Eddie Bauer (ecommerce, product pages, design system).

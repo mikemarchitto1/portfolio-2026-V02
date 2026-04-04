@@ -30,7 +30,7 @@ function Work() {
 
             <ProjectHero
               title="A research repository built to streamline discovery"
-              subtitle="The Microsoft HITS experience enhances research ingestion, improves navigation, and introduces a consistent visual system."
+              subtitle="The Microsoft Hits experience enhances research ingestion, improves navigation, and introduces a consistent visual system."
               tags={[
                 "Enterprise",
                 "Internal Software",
@@ -80,7 +80,7 @@ function Work() {
                     <Box sx={{ height: 400, backgroundColor: 'blue' }}>
                         <ActionAreaCard 
                             thumbnail={image_hero} 
-                            name={'Microsoft HITS'} 
+                            name={'Microsoft Hits'} 
                             descriptions={''} 
                             route={'/designSystem'} />
                     </Box>
@@ -111,7 +111,7 @@ function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
                     <p className="text-body1 text-foreground">
-                    To comply with the new design direction HITS was audited to identify areas where changes could be made.
+                    To comply with the new design direction Microsoft Hits was audited to identify areas where changes could be made.
                     </p>
                 </div>
 

@@ -38,7 +38,7 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     href: "/projects/servsafe",
   },
   {
-    title: "Microsoft HITS",
+    title: "Microsoft Hits",
     description:
       "Research repository platform designed to make it easier for teams to access, share, and reuse insights through clearer navigation, consistent structure, and improved usability.",
     image: "/images/microsoft-thumb.png",
@@ -67,7 +67,7 @@ function normalizePath(path: string) {
   return p;
 }
 
-/** Next case study in rotation (Nutrilucent → GloriFi → ServSafe → Microsoft HITS → Eddie Bauer → Nutrilucent). */
+/** Next case study in rotation (Nutrilucent → GloriFi → ServSafe → Microsoft Hits → Eddie Bauer → Nutrilucent). */
 export function getNextCaseStudyHomeCard(currentHref: string): HomeProjectCard | undefined {
   const key = normalizePath(currentHref);
   const order = CASE_STUDY_HREFS as readonly string[];

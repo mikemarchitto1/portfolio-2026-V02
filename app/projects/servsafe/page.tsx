@@ -8,8 +8,7 @@ import ProjectOverview from "@/components/project-overview/project-overview";
 import ProjectSectionHeader from "@/components/project-section-header/project-section-header";
 import { getNextCaseStudyHomeCard } from "@/lib/portfolio-projects";
 
-/** Structure and assets match Glorifi (`/projects/glorifi`) until ServSafe-specific imagery is added. */
-const image_hero = "/images/glorifi-hero.png";
+const image_hero = "/images/servsafe-hero.png";
 
 export default function ServSafeCaseStudy() {
   const nextProject = getNextCaseStudyHomeCard("/projects/servsafe");

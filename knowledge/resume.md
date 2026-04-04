@@ -59,7 +59,7 @@ Product Designer with over 10 years of expertise creating intuitive, accessible 
 
 ### **Microsoft**  
 **Product Designer — April 2019–December 2019**  
-- Created Microsoft HITS, an internal research repository platform.  
+- Created Microsoft Hits, an internal research repository platform.  
 - Executed full‑cycle UX: research, wireframes, prototypes, and UI design.  
 - Ensured alignment with development teams through agile handoff.  
 - Improved discoverability and workflow efficiency for internal research teams.

@@ -255,7 +255,7 @@ export default function NutrilucentCaseStudy() {
                   <h3 className="text-h3 text-foreground mb-4">Sketching</h3>
                   <p className="text-body1 text-foreground">
                     Early sketches translate ideas of energy and cellular vitality into structural
-                    motifs that will shape the visual direction.
+                    motifs that will shape the visual direction of the Mark and Logotype moving forward.
                   </p>
                 </div>
 
