@@ -84,10 +84,10 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                   <p className="text-body1 text-foreground">
-                    I conducted empathy mapping workshops to comprehend our users better.
-                    The workshops aided me in creating personas that reflect their
-                    distinct qualities and motivations, revealing areas for improvement
-                    and leading to a better user experience.
+                    Empathy mapping workshops were done to comprehend our users better.
+                    The workshops aided in creating personas that reflect distinct
+                    qualities and motivations, revealing areas for improvement and leading
+                    to a better user experience.
                   </p>
                 </div>
               </div>
@@ -160,6 +160,52 @@ export default function ServSafeCaseStudy() {
                     pre-built components and promoting best UI practices. The framework
                     also allowed for easier maintenance and updates without compromising
                     the site's integrity.
+                  </p>
+                </div>
+              </div>
+
+              <ProjectSectionHeader
+                title="Testing"
+                intro="The interactive flow was reviewed to assess clarity, ease of navigation, and overall usability. This evaluation surfaced opportunities to strengthen the experience and better align it with user expectations."
+                className="mt-[128px]"
+              />
+
+              <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                  <h3 className="text-h3 text-foreground mb-4">Prototyping</h3>
+                  <p className="text-body1 text-foreground">
+                    High‑fidelity screens were organized into an interactive flow that
+                    demonstrated the intended behaviors and end‑to‑end journey. This step
+                    made it possible to validate structure and interaction logic before
+                    moving into refinement.
+                  </p>
+                </div>
+
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                  <img
+                    src="/images/servsafe-prototype.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Prototyping"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                  <img
+                    src="/images/servsafe-wireframeflows.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Insights and iteration"
+                  />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                  <h3 className="text-h3 text-foreground mb-4">Insights and Iteration</h3>
+                  <p className="text-body1 text-foreground">
+                    Testing surfaced several opportunities to improve clarity, reduce
+                    friction, and strengthen the overall flow. These insights guided a
+                    focused round of refinements to ensure the experience felt intuitive,
+                    consistent, and aligned with user expectations.
                   </p>
                 </div>
               </div>
