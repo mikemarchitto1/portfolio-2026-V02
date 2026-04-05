@@ -129,42 +129,22 @@ export default function Work() {
 
               <ProjectSectionHeader
                 title="Visual Design"
-                intro="I created a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
+                intro="UI exploration established the foundation for a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
-                  <p className="text-body1 text-foreground">
-                    This UI framework saved time and effort for the team by providing
-                    pre-built components and promoting best UI practices. The framework
-                    also allowed for easier maintenance and updates without compromising
-                    the site's integrity.
-                  </p>
-                </div>
-
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                  <img
-                    src="/images/glorifi-designsystem.png"
-                    className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Design system"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
-                    I used our brand styles and design system components to create
-                    consistent and visually appealing mockups. This approach ensured
-                    that our final product was effective and aligned with our brand's
+                    Applied brand styles across early layouts and interaction patterns to
+                    establish a consistent visual direction. This work created the
+                    foundation for mockups that were both effective and aligned with our
                     guidelines and design principles.
                   </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
                     src="/images/glorifi-uiexploration.png"
                     className="w-full h-auto rounded-[16px] object-contain"
@@ -173,8 +153,28 @@ export default function Work() {
                 </div>
               </div>
 
+              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                  <img
+                    src="/images/glorifi-designsystem.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Design system"
+                  />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                  <p className="text-body1 text-foreground">
+                    This UI framework saved time and effort for the team by providing
+                    pre-built components and promoting best UI practices. The framework
+                    also allowed for easier maintenance and updates without compromising
+                    the site's integrity.
+                  </p>
+                </div>
+              </div>
+
               <ProjectSectionHeader
-                title="Product Features"
+                title="Product Shipped"
                 intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
                 className="mt-[128px]"
               />

@@ -23,9 +23,9 @@ export default function ServSafeCaseStudy() {
                 title="Food safety training and certification, made clearer"
                 subtitle="ServSafe strengthens learning flows, usability, and intuitive training experiences for teams and learners across the food service industry."
                 tags={[
-                  "Enterprise",
-                  "Training",
+                  "Foodservice",
                   "Website",
+                  "Training",
                   "Product Strategy",
                   "UX Design",
                   "Design System",
@@ -41,21 +41,21 @@ export default function ServSafeCaseStudy() {
               </div>
 
               <ProjectOverview
-                situation="ServSafe aims to standardize food safety training and certification with clearer learning paths, improved usability, and experiences that scale across organizations and regions."
-                task="Design a cohesive training and certification experience that supports learners and administrators with predictable navigation, strong hierarchy, and trust-building patterns throughout the product."
-                intro="This project focused on clarifying core workflows, strengthening the visual system, and making training content easier to discover, complete, and manage."
-                result="Following launch, the platform supported improved completion rates and more consistent adoption of food safety practices across participating organizations."
+                situation="ServSafe standardizes food‑safety training and certification through clearer learning paths, improved usability, and scalable experiences. By refining how learners engage with content, the platform strengthens consistency, accessibility, and overall trust."
+                task="Design a cohesive training and certification experience that supports learners and administrators with predictable navigation, strong hierarchy, and trust‑building patterns woven consistently throughout the broader product ecosystem."
+                intro="This project improved a web‑based enterprise training platform by clarifying workflows, strengthening the visual system, and making training content easier to find and complete."
+                result="Following launch, the platform supported improved completion rates and more consistent adoption of food‑safety practices across participating organizations, reinforcing clearer workflows and strengthening long‑term training outcomes overall."
               />
 
               <ProjectSectionHeader
                 title="Discovery"
-                intro="I conducted a series of qualitative and competitive research activities to understand user expectations around financial literacy, mobile banking, and trust‑building patterns."
+                intro="I conducted a series of research activities to understand user expectations around food safety training and certification workflows."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
                   <p className="text-body1 text-foreground">
                     I carefully reviewed several banking and financial apps, evaluating
                     their features and identifying areas for improvement. This helped me
@@ -65,9 +65,9 @@ export default function ServSafeCaseStudy() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-competitiveaudit.png"
+                    src="/images/servsafe-systemaudit.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Personas"
+                    alt="System audit"
                   />
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default function ServSafeCaseStudy() {
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
-                    src="/images/glorifi-workshops.png"
+                    src="/images/servsafe-workshops.png"
                     className="w-full h-auto rounded-[16px] object-contain"
                     alt="Workshop synthesis"
                   />
@@ -111,7 +111,7 @@ export default function ServSafeCaseStudy() {
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-wireframeflows.png"
+                    src="/images/servsafe-wireframeflows.png"
                     className="w-full h-auto rounded-[16px] object-contain"
                     alt="Wireframes"
                   />
@@ -126,26 +126,6 @@ export default function ServSafeCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
-                  <p className="text-body1 text-foreground">
-                    This UI framework saved time and effort for the team by providing
-                    pre-built components and promoting best UI practices. The framework
-                    also allowed for easier maintenance and updates without compromising
-                    the site's integrity.
-                  </p>
-                </div>
-
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                  <img
-                    src="/images/glorifi-designsystem.png"
-                    className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Design system"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
                     I used our brand styles and design system components to create
@@ -155,17 +135,37 @@ export default function ServSafeCaseStudy() {
                   </p>
                 </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/glorifi-uiexploration.png"
+                    src="/images/servsafe-uiexploration.png"
                     className="w-full h-auto rounded-[16px] object-contain"
                     alt="UI explorations"
                   />
                 </div>
               </div>
 
+              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                  <img
+                    src="/images/glorifi-designsystem.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Design system"
+                  />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                  <p className="text-body1 text-foreground">
+                    This UI framework saved time and effort for the team by providing
+                    pre-built components and promoting best UI practices. The framework
+                    also allowed for easier maintenance and updates without compromising
+                    the site's integrity.
+                  </p>
+                </div>
+              </div>
+
               <ProjectSectionHeader
-                title="Product Features"
+                title="Product Shipped"
                 intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
                 className="mt-[128px]"
               />

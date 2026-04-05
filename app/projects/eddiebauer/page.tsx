@@ -137,48 +137,44 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
-                    <p className="text-body1 text-foreground">
-                    To maintain a consistent user experience, styles and UI components were established and documented for seamless handoff to development, resulting in a polished and cohesive interface.
-                    </p>
-                </div>
-
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img
-                      src={image_designsystem}
-                      className="w-full h-auto rounded-[16px] object-contain"
-                      alt="Design system"
-                    />
-                </div>
-            </div>
-
-
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
-                    <img src={image_uiexplore} className="w-full h-auto rounded-[16px] object-contain" alt="UI exploration" />
-                </div>
-
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                     <p className="text-body1 text-foreground">
                     Key components were designed utilizing the design system to bring wireframes to life. This ensured mockups were visually cohesive and aligned with the brand’s values and aesthetic.
                     </p>
                 </div>
 
-
+                <div className="col-span-12 sm:col-span-8 md:col-span-8">
+                    <img src={image_uiexplore} className="w-full h-auto rounded-[16px] object-contain" alt="UI exploration" />
+                </div>
             </div>
 
+            <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                    <img src={image_systemicons} className="w-full h-auto rounded-[16px] object-contain" alt="System icons" />
+                </div>
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-4 md:col-span-4">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                     <h3 className="text-h3 text-foreground mb-4">System Icons</h3>
                     <p className="text-body1 text-foreground">
                     Crafting a custom system icon library strengthened the brand’s visual language, ensured consistent interaction patterns across the product, and provided development with a unified, scalable asset package that supports a clear and intuitive user experience.
                     </p>
                 </div>
+            </div>
 
-                <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img src={image_systemicons} className="w-full h-auto rounded-[16px] object-contain" alt="System icons" />
+            <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                    <img
+                      src={image_designsystem}
+                      className="w-full h-auto rounded-[16px] object-contain"
+                      alt="Design system"
+                    />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                    <p className="text-body1 text-foreground">
+                    To maintain a consistent user experience, styles and UI components were established and documented for seamless handoff to development, resulting in a polished and cohesive interface.
+                    </p>
                 </div>
             </div>
 

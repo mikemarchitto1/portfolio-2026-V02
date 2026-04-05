@@ -181,26 +181,13 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                    <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                     <p className="text-body1 text-foreground">
-                    I crafted a series of reusable UI components that could be seamlessly integrated throughout the product design cycle so we could maintain a consistent and streamlined user experience.
+                    By considering every element of the wireframes and incorporating relevant design elements, I was able to ensure that the resulting mockups were both visually appealing and functional, bringing the wireframes to life and providing a clear representation of the final product.
                     </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
-                    <img
-                      src={image_designsystem}
-                      className="w-full h-auto rounded-[16px] object-contain"
-                      width={"100%"}
-                      height={"100%"}
-                      alt="Large Pizza"
-                    />
-                </div>
-            </div>
-
-
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img
                       src={image_uiexplore}
                       className="w-full h-auto rounded-[16px] object-contain"
@@ -209,15 +196,25 @@ function Work() {
                       alt="Large Pizza"
                     />
                 </div>
+            </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                    <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
-                    <p className="text-body1 text-foreground">
-                    By considering every element of the wireframes and incorporating relevant design elements, I was able to ensure that the resulting mockups were both visually appealing and functional, bringing the wireframes to life and providing a clear representation of the final product.
-                    </p>
+            <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                    <img
+                      src={image_designsystem}
+                      className="w-full h-auto rounded-[16px] object-contain"
+                      width={"100%"}
+                      height={"100%"}
+                      alt="Large Pizza"
+                    />
                 </div>
 
-
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                    <p className="text-body1 text-foreground">
+                    I crafted a series of reusable UI components that could be seamlessly integrated throughout the product design cycle so we could maintain a consistent and streamlined user experience.
+                    </p>
+                </div>
             </div>
 
 
