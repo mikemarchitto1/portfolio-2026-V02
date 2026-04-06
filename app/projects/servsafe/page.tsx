@@ -57,9 +57,11 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
                   <p className="text-body1 text-foreground">
-                    I carefully reviewed several banking and financial apps, evaluating
-                    their features and identifying areas for improvement. This helped me
-                    gain a comprehensive understanding of the app landscape.
+                    ServSafe’s training and certification products were examined to
+                    understand their structure, content flow, and overall user experience.
+                    This review provided clarity on how the existing system supports
+                    learners and administrators, and highlighted opportunities to improve
+                    usability, navigation, and task completion across the platform.
                   </p>
                 </div>
 
@@ -94,7 +96,7 @@ export default function ServSafeCaseStudy() {
 
               <ProjectSectionHeader
                 title="Information Architecture"
-                intro="I mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
+                intro="The core navigation, content hierarchy, and user flows were mapped to ensure the experience remained intuitive, predictable, and aligned with established user mental models."
                 className="mt-[128px]"
               />
 
@@ -102,10 +104,11 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
                   <p className="text-body1 text-foreground">
-                    I created user flows and wireframes, examining the design process
-                    and identifying areas for improvement. We discussed potential
-                    issues and brainstormed solutions to ensure a seamless and
-                    user-friendly experience.
+                    User flows and wireframes were developed to examine the end‑to‑end
+                    experience, surface potential issues, and identify opportunities for
+                    improvement. This collaborative review process supported early
+                    problem‑solving and helped shape a more seamless, user‑friendly product
+                    direction.
                   </p>
                 </div>
 
@@ -120,7 +123,7 @@ export default function ServSafeCaseStudy() {
 
               <ProjectSectionHeader
                 title="Visual Design"
-                intro="I created a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
+                intro="A scalable design system was developed to unify typography, color, spacing, and component patterns across mobile and web, ensuring consistency and predictability throughout the product experience."
                 className="mt-32"
               />
 
@@ -128,10 +131,10 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
-                    I used our brand styles and design system components to create
-                    consistent and visually appealing mockups. This approach ensured
-                    that our final product was effective and aligned with our brand's
-                    guidelines and design principles.
+                    Brand styles and existing design system components were applied to
+                    produce consistent, visually aligned mockups. This process ensured
+                    that the resulting product direction remained cohesive, effective, and
+                    fully aligned with established brand guidelines and design principles.
                   </p>
                 </div>
 
@@ -147,7 +150,7 @@ export default function ServSafeCaseStudy() {
               <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
-                    src="/images/glorifi-designsystem.png"
+                    src="/images/servsafe_designsystem.png"
                     className="w-full h-auto rounded-[16px] object-contain"
                     alt="Design system"
                   />
@@ -156,10 +159,10 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Design System</h3>
                   <p className="text-body1 text-foreground">
-                    This UI framework saved time and effort for the team by providing
-                    pre-built components and promoting best UI practices. The framework
-                    also allowed for easier maintenance and updates without compromising
-                    the site's integrity.
+                    This UI framework streamlined the team’s workflow by offering
+                    ready‑made components and reinforcing established interface standards.
+                    It also supported smoother long‑term maintenance and updates while
+                    preserving the overall stability and consistency of the site.
                   </p>
                 </div>
               </div>
@@ -193,14 +196,14 @@ export default function ServSafeCaseStudy() {
               <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
-                    src="/images/servsafe-wireframeflows.png"
+                    src="/images/servsafe_observinsights.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Insights and iteration"
+                    alt="Observations and insights"
                   />
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Insights and Iteration</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Observations and Insights</h3>
                   <p className="text-body1 text-foreground">
                     Testing surfaced several opportunities to improve clarity, reduce
                     friction, and strengthen the overall flow. These insights guided a
@@ -218,7 +221,7 @@ export default function ServSafeCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Today</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Dashboard</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     This news feed presents global and financial news with a TikTok-style
                     swipe interface. It's easy to browse and visually engaging for both
@@ -228,16 +231,16 @@ export default function ServSafeCaseStudy() {
 
                 <div className="col-span-12">
                   <img
-                    src="/images/glorifi-today.png"
+                    src="/images/servsafe-dashboard.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Today feature"
+                    alt="Dashboard"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Login</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     This dashboard helps you view income, expenses, investments, and
                     debts. You can monitor progress, identify improvement areas, and
@@ -247,16 +250,16 @@ export default function ServSafeCaseStudy() {
 
                 <div className="col-span-12">
                   <img
-                    src="/images/glorifi-snapshot.png"
+                    src="/images/servsafe-login.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Snapshot feature"
+                    alt="Login"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Profile Settings</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                     We redesigned and reskinned the vendor loyalty feature so users get
                     rewards and discounts from their favorite service providers.
@@ -265,31 +268,14 @@ export default function ServSafeCaseStudy() {
 
                 <div className="col-span-12">
                   <img
-                    src="/images/glorifi-rewards.png"
+                    src="/images/servsafe-profilesettings.png"
                     className="w-full h-auto rounded-[16px] object-contain"
                     alt="Rewards feature"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
-                <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
-                  <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    Reusable marketing cards and user flow screens simplify banking
-                    account opening. This approach helps users select the right account
-                    and quickly complete the task.
-                  </p>
-                </div>
-
-                <div className="col-span-12">
-                  <img
-                    src="/images/glorifi-accounts.png"
-                    className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Accounts feature"
-                  />
-                </div>
-              </div>
+              
 
               <div className="grid grid-cols-12 gap-8 mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">

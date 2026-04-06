@@ -24,7 +24,7 @@ export default function HeroSection() {
                 </h4>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
-                    I’m from Chicago, where I studied graphic design at UIC, a program grounded in Swiss and International design principles that shaped my early approach to visual storytelling. After moving to Seattle, I transitioned into UX design and spent several years working across corporations, agencies, and startups, learning how research‑driven design creates more authentic user experiences. I’m now based in Miami, balancing product design with ongoing AI‑driven exploration and time outdoors cycling in the warm coastal environment.
+                    I’m from Chicago, where I studied graphic design at UIC, a program grounded in Swiss and International design principles. That foundation shaped my early approach to visual storytelling. After moving to Seattle, I transitioned into UX design and spent several years working across corporations, agencies, and startups, learning how research helps create more authentic user experiences. I’m now based in Miami, balancing product design with AI‑driven exploration and time outdoors cycling in the warm coastal environment.
                   </p>
                 </div>
               </div>
