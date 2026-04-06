@@ -223,9 +223,7 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Dashboard</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    This news feed presents global and financial news with a TikTok-style
-                    swipe interface. It's easy to browse and visually engaging for both
-                    casual readers and investors who want to stay informed.
+                  The dashboard brings courses, certifications, and exam activity into one clear view. Learners can quickly see what’s required, track progress, and take action without navigating multiple pages.
                   </p>
                 </div>
 
@@ -242,9 +240,7 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Login</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    This dashboard helps you view income, expenses, investments, and
-                    debts. You can monitor progress, identify improvement areas, and
-                    make informed decisions.
+                  The login flow provides a straightforward entry point into the ServSafe training platform, with clear fields, simple choices, and predictable steps that help users create an account quickly and confidently.
                   </p>
                 </div>
 
@@ -261,8 +257,7 @@ export default function ServSafeCaseStudy() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Profile Settings</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    We redesigned and reskinned the vendor loyalty feature so users get
-                    rewards and discounts from their favorite service providers.
+                  A structured settings interface allows learners to manage key account details with clarity and consistency. Standardized components and clear validation patterns ensure secure updates and reduce support overhead.
                   </p>
                 </div>
 
