@@ -97,29 +97,43 @@ export default function ServSafeCaseStudy() {
               <ProjectSectionHeader
                 title="Information Architecture"
                 intro="The core navigation, content hierarchy, and user flows were mapped to ensure the experience remained intuitive, predictable, and aligned with established user mental models."
-                className="mt-[128px]"
+                className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                  <h3 className="text-h3 text-foreground mb-4">User Flows</h3>
                   <p className="text-body1 text-foreground">
-                    User flows and wireframes were developed to examine the end‑to‑end
-                    experience, surface potential issues, and identify opportunities for
-                    improvement. This collaborative review process supported early
-                    problem‑solving and helped shape a more seamless, user‑friendly product
-                    direction.
+                  User flows mapped the key decision paths learners take, clarifying steps, branches, and system responses so the team could validate logic early and remove friction.
                   </p>
                 </div>
 
                 <div className="col-span-12 sm:col-span-8 md:col-span-8">
                   <img
-                    src="/images/servsafe-wireframeflows.png"
+                    src="/images/servsafe-userflows.png"
                     className="w-full h-auto rounded-[16px] object-contain"
-                    alt="Wireframes"
+                    alt="UI explorations"
                   />
                 </div>
               </div>
+
+              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                  <img
+                    src="/images/servsafe-wireframeflows.png"
+                    className="w-full h-auto rounded-[16px] object-contain"
+                    alt="Design system"
+                  />
+                </div>
+
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                  <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                  <p className="text-body1 text-foreground">
+                  Wireframe flows translated those paths into screen‑level structure, showing layout, hierarchy, and interactions across the journey before moving into high‑fidelity design.
+                  </p>
+                </div>
+              </div>
+
 
               <ProjectSectionHeader
                 title="Visual Design"
