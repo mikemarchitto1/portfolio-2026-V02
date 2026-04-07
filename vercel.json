@@ -1,6 +1,6 @@
 {
     "functions": {
-      "api/**": {
+      "app/api/chat/route.ts": {
         "includeFiles": "knowledge/vectors.json"
       }
     }
