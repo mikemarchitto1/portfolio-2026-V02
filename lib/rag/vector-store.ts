@@ -1,14 +1,28 @@
 import "server-only";
-import vectors from "@/knowledge/vectors.json";
+import { readFileSync, existsSync } from "node:fs";
+import { join } from "node:path";
+
 import type { VectorStoreFile } from "./types";
 
-/**
- * Production-safe vector store loader.
- * Next.js bundles `vectors.json` automatically when imported.
- */
+const VECTORS_REL = join("knowledge", "vectors.json");
+
+export function getVectorStorePath(): string {
+  return join(process.cwd(), VECTORS_REL);
+}
+
 export function loadVectorStore(): VectorStoreFile | null {
-  if (!vectors || !Array.isArray(vectors.records)) {
+  const p = getVectorStorePath();
+  if (!existsSync(p)) {
     return null;
   }
-  return vectors;
+  try {
+    const raw = readFileSync(p, "utf8");
+    const parsed = JSON.parse(raw) as VectorStoreFile;
+    if (!parsed || !Array.isArray(parsed.records)) {
+      return null;
+    }
+    return parsed;
+  } catch {
+    return null;
+  }
 }
