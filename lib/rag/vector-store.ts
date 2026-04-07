@@ -1,15 +1,27 @@
 import "server-only";
 
+import { existsSync, readFileSync } from "node:fs";
+import { join, resolve } from "node:path";
 import type { VectorStoreFile } from "./types";
-import vectorsJson from "@/knowledge/vectors.json";
 
 export function loadVectorStore(): VectorStoreFile | null {
-  const parsed = vectorsJson as VectorStoreFile;
-  // #region agent log
-  fetch('http://127.0.0.1:7561/ingest/7444ee45-a2ad-4c62-b96b-1da1dcfaad47',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f12903'},body:JSON.stringify({sessionId:'f12903',runId:'pre-fix',hypothesisId:'H1',location:'lib/rag/vector-store.ts:7',message:'loadVectorStore invoked',data:{hasParsed:Boolean(parsed),recordsCount:Array.isArray(parsed?.records)?parsed.records.length:-1},timestamp:Date.now()})}).catch(()=>{});
-  // #endregion
-  if (!parsed || !Array.isArray(parsed.records)) {
-    return null;
+  const candidates = [
+    join(process.cwd(), "knowledge", "vectors.json"),
+    resolve(__dirname, "../../knowledge/vectors.json"),
+    resolve(__dirname, "../../../knowledge/vectors.json"),
+  ];
+
+  for (const p of candidates) {
+    if (!existsSync(p)) continue;
+    try {
+      const parsed = JSON.parse(readFileSync(p, "utf8")) as VectorStoreFile;
+      if (parsed && Array.isArray(parsed.records)) {
+        return parsed;
+      }
+    } catch {
+      // try next candidate
+    }
   }
-  return parsed;
+
+  return null;
 }
