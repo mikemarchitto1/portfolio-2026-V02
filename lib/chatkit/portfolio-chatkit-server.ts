@@ -113,15 +113,38 @@ export class PortfolioChatKitServer extends ChatKitServer<PortfolioChatKitContex
     let ragMessages = baseMessages;
     try {
       const lastUser = extractLastUserText(baseMessages);
+      console.log("[RAG_DEBUG] extracted_last_user", {
+        runId: "pre-fix",
+        baseMessagesCount: baseMessages.length,
+        lastUserLength: lastUser.length,
+      });
+      // #region agent log
+      fetch('http://127.0.0.1:7561/ingest/7444ee45-a2ad-4c62-b96b-1da1dcfaad47',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f12903'},body:JSON.stringify({sessionId:'f12903',runId:'pre-fix',hypothesisId:'H3',location:'lib/chatkit/portfolio-chatkit-server.ts:117',message:'chatkit extracted last user text',data:{baseMessagesCount:baseMessages.length,lastUserLength:lastUser.length},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion
       if (lastUser) {
         const chunks = await getRelevantChunks(lastUser, {
           apiKey: context.apiKey,
         });
+        console.log("[RAG_DEBUG] retrieval_completed", {
+          runId: "pre-fix",
+          chunksCount: chunks.length,
+          firstChunkSource: chunks[0]?.source ?? null,
+        });
+        // #region agent log
+        fetch('http://127.0.0.1:7561/ingest/7444ee45-a2ad-4c62-b96b-1da1dcfaad47',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f12903'},body:JSON.stringify({sessionId:'f12903',runId:'pre-fix',hypothesisId:'H4',location:'lib/chatkit/portfolio-chatkit-server.ts:123',message:'chatkit retrieval completed',data:{chunksCount:chunks.length,firstChunkSource:chunks[0]?.source??null},timestamp:Date.now()})}).catch(()=>{});
+        // #endregion
         const systemContent = buildRagSystemContent(chunks);
         ragMessages = mergeRagSystemIntoMessages(baseMessages, systemContent);
       }
     } catch (err) {
       const detail = err instanceof Error ? err.message : "RAG failed";
+      console.error("[RAG_DEBUG] rag_exception", {
+        runId: "pre-fix",
+        detail,
+      });
+      // #region agent log
+      fetch('http://127.0.0.1:7561/ingest/7444ee45-a2ad-4c62-b96b-1da1dcfaad47',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'f12903'},body:JSON.stringify({sessionId:'f12903',runId:'pre-fix',hypothesisId:'H5',location:'lib/chatkit/portfolio-chatkit-server.ts:130',message:'chatkit rag exception',data:{detail},timestamp:Date.now()})}).catch(()=>{});
+      // #endregion
       throw new CustomStreamError(
         `Retrieval or embedding failed: ${detail}`,
         false
