@@ -341,7 +341,7 @@ try {
                           <SidebarMenuItem className="w-full">
                             <SidebarMenuButton asChild>
                               <a
-                                href="mailto:"
+                                href="mailto:mikemarchitto@gmail.com"
                                 onClick={() => setMobileMenuOpen(false)}
                                 aria-label="Email Mike"
                                 className="no-underline w-full"
