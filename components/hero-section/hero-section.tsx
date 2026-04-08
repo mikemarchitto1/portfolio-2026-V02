@@ -13,7 +13,7 @@ export default function HeroSection() {
           <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
 
             {/* INNER GRID: left column 50% so profile card starts at center */}
-            <div className="w-full min-w-0 flex flex-col md:flex-row gap-16 items-stretch">
+            <div className="w-full min-w-0 flex flex-col md:flex-row gap-12 items-stretch">
               {/* LEFT — exactly 50% so profile left edge is at center */}
               <div className="w-full md:w-[calc(50%-4rem)] md:min-w-0 shrink-0 text-foreground bg-transparent">
                 <h1 className="text-h1 font-light tracking-[0] whitespace-nowrap">

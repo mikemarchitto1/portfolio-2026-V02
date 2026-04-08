@@ -9,19 +9,19 @@ import { HOME_PROJECT_CARDS } from "@/lib/portfolio-projects";
 export default function Home() {
   return (
     <>
-      <main className="min-h-screen min-w-0 pb-4">
+      <main className="min-h-screen min-w-0 pb-0 md:pb-4">
         {/* Hero */}
         <HeroSection />
 
-        <div className="mt-[4px]">
+        <div className="mt-0">
           <ImpactTechStackSection />
         </div>
 
-        <div className="pt-1">
+        <div className="pt-0">
           <ImpactTechStackSection title="Companies" hideStats />
         </div>
 
-        <div className="mt-4">
+        <div className="mt-0">
           <ClientsSection projects={HOME_PROJECT_CARDS} />
         </div>
       </main>

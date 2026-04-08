@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="text-foreground w-full">
       {/* 1. SECTION — full bleed */}
-      <section className="w-full py-6 md:py-9 lg:pt-0 lg:pb-12 bg-transparent">
+      <section className="w-full pt-2 pb-6 md:py-9 lg:pt-0 lg:pb-12 bg-transparent">
         {/* 2. GUTTER */}
         <div className="w-full px-4 md:px-8 lg:px-16">
           {/* 3. MAX-WIDTH */}
