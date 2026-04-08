@@ -13,7 +13,7 @@ export default function Home() {
         {/* Hero */}
         <HeroSection />
 
-        <div className="mt-0">
+        <div className="mt-0 lg:mt-[40px]">
           <ImpactTechStackSection />
         </div>
 
