@@ -14,6 +14,6 @@ Task: Design a cohesive training and certification experience that supports lear
 
 Result: Following launch, the platform supported improved completion rates and more consistent adoption of food‑safety practices across participating organizations, reinforcing clearer workflows and strengthening long‑term training outcomes overall.
 
-Discovery: I conducted a series of research activities to understand user expectations around food safety training and certification workflows.
+Discovery: A series of research activities were conducted to understand user expectations around food safety training and certification workflows.
 
 The page structure mirrors the GloriFi case study for layout; imagery may still use placeholder assets until ServSafe-specific screens replace them.

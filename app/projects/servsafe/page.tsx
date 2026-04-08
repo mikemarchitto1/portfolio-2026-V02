@@ -49,7 +49,7 @@ export default function ServSafeCaseStudy() {
 
               <ProjectSectionHeader
                 title="Discovery"
-                intro="I conducted a series of research activities to understand user expectations around food safety training and certification workflows."
+                intro="A series of research activities were conducted to understand user expectations around food safety training and certification workflows."
                 className="mt-32"
               />
 
