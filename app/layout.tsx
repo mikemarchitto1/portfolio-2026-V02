@@ -58,12 +58,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mike Marchitto Design",
-  description: "Portfolio website for Mike Marchitto",
-  openGraph: {
-    title: "Mike Marchitto Design",
-    description: "Portfolio website for Mike Marchitto",
-  },
+  title: "Michael Marchitto — Portfolio",
+  description: "UX Engineer / Product Designer",
 };
 
 export default function RootLayout({
