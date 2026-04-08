@@ -10,6 +10,13 @@ export type HomeProjectCard = {
 /** Same list as the home page Projects section — single source of truth. */
 export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
   {
+    title: "GloriFi",
+    description:
+      "Fintech startup focused on modernizing mobile and web banking product experiences that clarify financial information and strengthen the brand's digital presence.",
+    image: "/images/glorifi-thumb.png",
+    href: "/projects/glorifi",
+  },
+  {
     title: "Nutrilucent",
     description:
       "Wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
@@ -22,13 +29,6 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
       "Dedicated space for exploring emerging AI technologies, experimenting with new creative workflows, and documenting studies that expand modern design.",
     image: "/images/ailabs-thumb.png",
     ctaLabel: "Coming Soon",
-  },
-  {
-    title: "GloriFi",
-    description:
-      "Fintech startup focused on modernizing mobile and web banking product experiences that clarify financial information and strengthen the brand's digital presence.",
-    image: "/images/glorifi-thumb.png",
-    href: "/projects/glorifi",
   },
   {
     title: "ServSafe",
@@ -54,8 +54,8 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
 ];
 
 const CASE_STUDY_HREFS = [
-  "/projects/nutrilucent",
   "/projects/glorifi",
+  "/projects/nutrilucent",
   "/projects/servsafe",
   "/projects/microsofthits",
   "/projects/eddiebauer",
@@ -67,7 +67,7 @@ function normalizePath(path: string) {
   return p;
 }
 
-/** Next case study in rotation (Nutrilucent → GloriFi → ServSafe → Microsoft Hits → Eddie Bauer → Nutrilucent). */
+/** Next case study in rotation (GloriFi → Nutrilucent → ServSafe → Microsoft Hits → Eddie Bauer → GloriFi). */
 export function getNextCaseStudyHomeCard(currentHref: string): HomeProjectCard | undefined {
   const key = normalizePath(currentHref);
   const order = CASE_STUDY_HREFS as readonly string[];
