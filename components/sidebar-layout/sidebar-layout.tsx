@@ -17,7 +17,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { SIDEBAR_PROJECTS } from "@/lib/projects";
-import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 import { Sun, Moon, Palette } from "lucide-react";
 import Header from "@/components/header/header";
@@ -180,16 +179,13 @@ try {
             <SidebarGroup>
               <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ml-[2px]">Connect</SidebarGroupLabel>
               <SidebarMenu className="gap-0">
-              <SidebarMenuItem>
-  <a
-    href="mailto:mikemarchitto@gmail.com"
-    aria-label="Email Mike"
-    className="flex w-full -ml-[6px] items-center gap-2 rounded-md border-0 bg-transparent py-2 px-2 text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:bg-[var(--sidebar-hover)] hover:text-sidebar-accent-foreground focus-visible:ring-2"
-  >
-    Email
-  </a>
-</SidebarMenuItem>
-
+                <SidebarMenuItem>
+                  <SidebarMenuButton variant="text" asChild>
+                    <a href="mailto:mikemarchitto@gmail.com" aria-label="Email Mike" className="text-button text-foreground no-underline w-full">
+                      Email
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
                     <a
@@ -219,13 +215,6 @@ try {
                   <SchedulingDialog
                     trigger={
                       <SidebarMenuButton variant="text">Schedule</SidebarMenuButton>
-                    }
-                  />
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <ChatPanel
-                    trigger={
-                      <SidebarMenuButton variant="text">Chat</SidebarMenuButton>
                     }
                   />
                 </SidebarMenuItem>

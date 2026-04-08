@@ -3,11 +3,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { BrainCircuit, Calendar, Download, Linkedin, Mail, MessageCircle, Menu, Moon, Palette, Sun } from "lucide-react";
+import { BrainCircuit, Calendar, Download, Linkedin, Mail, Menu, Moon, Palette, Sun } from "lucide-react";
 import { useSidebar } from "@/components/ui/sidebar";
 import { useTheme } from "@/hooks/use-theme";
 import { SIDEBAR_PROJECTS } from "@/lib/projects";
-import { ChatPanel } from "@/components/chat-panel/chat-panel";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import {
@@ -104,8 +103,6 @@ function NavItems({
   hideIcons,
   scheduleOpen,
   setScheduleOpen,
-  chatOpen,
-  setChatOpen,
   deferRadixTriggers = false,
 }: {
   onItemClick?: () => void;
@@ -114,9 +111,7 @@ function NavItems({
   hideIcons?: boolean;
   scheduleOpen?: boolean;
   setScheduleOpen?: (open: boolean) => void;
-  chatOpen?: boolean;
-  setChatOpen?: (open: boolean) => void;
-  /** When true, render static buttons for Schedule/Chat to avoid Radix ID hydration mismatch */
+  /** When true, render static buttons for Schedule to avoid Radix ID hydration mismatch */
   deferRadixTriggers?: boolean;
 }) {
   const { toggle } = useSidebar();
@@ -182,24 +177,6 @@ function NavItems({
             }
           />
         ))}
-      {setChatOpen != null &&
-        (deferRadixTriggers ? (
-          <Button className="nav-button flex items-center gap-2 bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline">
-            {!hideIcons && <MessageCircle className={navIconClass} />}
-            <span className="text-button">Chat</span>
-          </Button>
-        ) : (
-          <ChatPanel
-            open={chatOpen}
-            onOpenChange={setChatOpen}
-            trigger={
-              <Button className="nav-button flex items-center gap-2 bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" onClick={onItemClick}>
-                {!hideIcons && <MessageCircle className={navIconClass} />}
-                <span className="text-button">Chat</span>
-              </Button>
-            }
-          />
-        ))}
     </>
   );
 }
@@ -209,7 +186,6 @@ try {
   Header = function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scheduleOpen, setScheduleOpen] = useState(false);
-    const [chatOpen, setChatOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -256,8 +232,6 @@ try {
                   hideIcons
                   scheduleOpen={scheduleOpen}
                   setScheduleOpen={setScheduleOpen}
-                  chatOpen={chatOpen}
-                  setChatOpen={setChatOpen}
                   deferRadixTriggers={!mounted}
                 />
               </div>
@@ -386,16 +360,6 @@ try {
                               }}
                             >
                               Schedule
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                          <SidebarMenuItem className="w-full">
-                            <SidebarMenuButton
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setChatOpen(true);
-                              }}
-                            >
-                              Chat
                             </SidebarMenuButton>
                           </SidebarMenuItem>
                         </SidebarMenu>
