@@ -67,7 +67,7 @@ try {
     const { resolvedTheme, setTheme } = useTheme();
     return (
       <nav
-        className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8 -ml-1"
+        className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8"
         aria-label="Theme and preferences"
       >
         <Button
@@ -132,12 +132,18 @@ try {
       <SidebarProvider>
         <Sidebar>
           <SidebarHeader className="p-4">
-            <SidebarCrown />
-            <SidebarThemeSwitcher />
+            <div className="ps-sidebar-crown-row">
+              <SidebarCrown />
+            </div>
+            <div className="ps-sidebar-theme-row">
+              <SidebarThemeSwitcher />
+            </div>
           </SidebarHeader>
           <SidebarContent className="px-4 -mt-[72px]">
             <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ml-[2px]">Projects</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
+                Projects
+              </SidebarGroupLabel>
               <SidebarMenu className="gap-0">
                 {SIDEBAR_PROJECTS[0]?.href != null && (
                   <SidebarMenuItem key={SIDEBAR_PROJECTS[0].href}>
@@ -177,7 +183,9 @@ try {
               </SidebarMenu>
             </SidebarGroup>
             <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ml-[2px]">Connect</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
+                Connect
+              </SidebarGroupLabel>
               <SidebarMenu className="gap-0">
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>

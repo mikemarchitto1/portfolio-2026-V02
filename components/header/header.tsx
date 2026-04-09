@@ -53,7 +53,7 @@ function MobileMenuThemeSwitcher() {
   const { resolvedTheme, setTheme } = useTheme();
   return (
     <nav
-      className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8 -ml-1"
+      className="mobile-menu-theme-nav flex flex-row gap-2 shrink-0 w-full mb-8"
       aria-label="Theme and preferences"
     >
       <Button
@@ -258,11 +258,15 @@ try {
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
           <div className="flex flex-col items-start p-4">
-                      <MobileMenuCrown onNavigate={() => setMobileMenuOpen(false)} />
-                      <MobileMenuThemeSwitcher />
+                      <div className="ps-sidebar-crown-row">
+                        <MobileMenuCrown onNavigate={() => setMobileMenuOpen(false)} />
+                      </div>
+                      <div className="ps-sidebar-theme-row">
+                        <MobileMenuThemeSwitcher />
+                      </div>
                       <div className="mt-[4px] w-full pl-0 min-w-0">
                         <SidebarGroup>
-                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ml-[2px]">
+                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
                             Projects
                           </SidebarGroupLabel>
                           <SidebarMenu className="mobile-menu-clients-list gap-0 mt-0 w-full">
@@ -305,7 +309,7 @@ try {
                         </SidebarGroup>
                       </div>
                       <SidebarGroup>
-                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ml-[2px]">
+                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
                           Connect
                         </SidebarGroupLabel>
                         <SidebarMenu
