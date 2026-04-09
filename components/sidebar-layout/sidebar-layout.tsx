@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { SIDEBAR_PROJECTS } from "@/lib/projects";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
+import { ChatPanelProvider, ChatTrigger } from "@/components/chat-panel/chat-panel";
 import { Sun, Moon, Palette } from "lucide-react";
 import Header from "@/components/header/header";
 
@@ -130,6 +131,7 @@ try {
     }, []);
     return (
       <SidebarProvider>
+        <ChatPanelProvider>
         <Sidebar>
           <SidebarHeader className="p-4">
             <div className="ps-sidebar-crown-row">
@@ -226,6 +228,13 @@ try {
                     }
                   />
                 </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <ChatTrigger>
+                    <SidebarMenuButton variant="text" type="button">
+                      Chat
+                    </SidebarMenuButton>
+                  </ChatTrigger>
+                </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroup>
           </SidebarContent>
@@ -234,6 +243,7 @@ try {
           <Header />
           <main className="min-h-screen min-w-0 w-full max-w-full overflow-x-clip flex-1 pt-16">{children}</main>
         </div>
+        </ChatPanelProvider>
       </SidebarProvider>
     );
   };

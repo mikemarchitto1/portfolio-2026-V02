@@ -3,11 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { BrainCircuit, Calendar, Download, Linkedin, Mail, Menu, Moon, Palette, Sun } from "lucide-react";
+import { Calendar, Download, Linkedin, Mail, Menu, Moon, Palette, Sun } from "lucide-react";
 import { useSidebar } from "@/components/ui/sidebar";
 import { useTheme } from "@/hooks/use-theme";
 import { SIDEBAR_PROJECTS } from "@/lib/projects";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
+import { ChatTrigger } from "@/components/chat-panel/chat-panel";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import {
   SidebarGroup,
@@ -177,6 +178,18 @@ function NavItems({
             }
           />
         ))}
+      {!hideAIExploration && (
+        <ChatTrigger>
+          <Button
+            className="nav-button flex items-center gap-2 bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]"
+            variant="outline"
+            aria-label="Open chat"
+            onClick={() => onItemClick?.()}
+          >
+            <span className="text-button">Chat</span>
+          </Button>
+        </ChatTrigger>
+      )}
     </>
   );
 }
@@ -228,7 +241,6 @@ try {
                 </Button>
                 <NavItems
                   hideSidebarToggle
-                  hideAIExploration
                   hideIcons
                   scheduleOpen={scheduleOpen}
                   setScheduleOpen={setScheduleOpen}
@@ -365,6 +377,20 @@ try {
                             >
                               Schedule
                             </SidebarMenuButton>
+                          </SidebarMenuItem>
+                          <SidebarMenuItem className="w-full">
+                            <ChatTrigger>
+                              <SidebarMenuButton
+                                variant="text"
+                                type="button"
+                                className="w-full"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                <span className="text-button text-foreground no-underline w-full">
+                                  Chat
+                                </span>
+                              </SidebarMenuButton>
+                            </ChatTrigger>
                           </SidebarMenuItem>
                         </SidebarMenu>
                       </SidebarGroup>
