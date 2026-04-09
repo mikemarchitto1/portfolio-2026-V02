@@ -57,7 +57,7 @@ let SidebarTrigger: React.ForwardRefExoticComponent<
 >;
 
 try {
-  const SIDEBAR_WIDTH = 280;
+  const SIDEBAR_WIDTH = 240;
 
   type SidebarContextValue = {
     open: boolean;

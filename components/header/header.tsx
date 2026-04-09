@@ -253,7 +253,7 @@ try {
         <SheetContent
           id="mobile-menu-sheet"
           side="left"
-          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[280px] bg-sidebar border-border text-sidebar-foreground"
+          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[240px] bg-sidebar border-border text-sidebar-foreground"
           closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
