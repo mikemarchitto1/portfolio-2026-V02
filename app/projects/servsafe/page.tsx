@@ -229,7 +229,7 @@ export default function ServSafeCaseStudy() {
 
               <ProjectSectionHeader
                 title="Product Shipped"
-                intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
+                intro="A refined, intuitive training experience built on clearer workflows, consistent design, and streamlined paths that help learners complete courses and manage certifications with confidence."
                 className="mt-[128px]"
               />
 
