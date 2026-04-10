@@ -11,6 +11,7 @@ import {
   type UseChatKitOptions,
 } from "@openai/chatkit-react";
 
+import { Button } from "@/components/ui/button";
 import { type Theme, useTheme } from "@/hooks/use-theme";
 import { cn } from "@/lib/utils";
 
@@ -152,6 +153,31 @@ function getCustomChatApiUrl(): string {
   return process.env.NEXT_PUBLIC_CHATKIT_CUSTOM_API_URL?.trim() ?? "";
 }
 
+function ChatSessionErrorFallback({
+  message,
+  onRetry,
+}: {
+  message: string;
+  onRetry: () => void;
+}) {
+  return (
+    <div
+      role="alert"
+      className="mx-4 flex min-h-[200px] flex-col justify-center gap-4 rounded-md border border-destructive/35 bg-destructive/5 px-4 py-6 text-left text-sm text-foreground"
+    >
+      <p className="font-medium">Chat couldn’t start</p>
+      <p className="text-muted-foreground">{message}</p>
+      <Button type="button" variant="outline" size="sm" className="w-fit" onClick={onRetry}>
+        Try again
+      </Button>
+      <p className="text-xs text-muted-foreground">
+        If this keeps happening on the live site, check deployment env (OpenAI keys, workflow ID) and
+        ChatKit domain settings for this origin.
+      </p>
+    </div>
+  );
+}
+
 /**
  * ChatKit loads the API URL inside an iframe; relative paths resolve against the iframe origin,
  * not the page. Resolve `/api/chat` to `https://this-site/api/chat` on the client.
@@ -188,6 +214,9 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
   const customApiUrl = useResolvedCustomChatApiUrl(envCustomApiUrl);
   const resolvedPanelBg = useResolvedChatPanelBackground();
 
+  const [sessionError, setSessionError] = React.useState<string | null>(null);
+  const [retryNonce, setRetryNonce] = React.useState(0);
+
   const options: UseChatKitOptions = React.useMemo(() => {
     const base = CHATKIT_THEME_BY_SITE_THEME[resolvedTheme];
 
@@ -213,13 +242,11 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
               error?: unknown;
             } | null;
             if (!res.ok || !data?.client_secret) {
-              if (process.env.NODE_ENV === "development") {
-                console.error(
-                  "[ChatKit] /api/chatkit/session failed:",
-                  res.status,
-                  data ?? "(no JSON body)"
-                );
-              }
+              console.error(
+                "[ChatKit] /api/chatkit/session failed:",
+                res.status,
+                data ?? "(no JSON body)"
+              );
               const errField = data?.error;
               const msg =
                 typeof errField === "string"
@@ -231,8 +258,10 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
                       typeof (errField as { message?: unknown }).message === "string"
                     ? (errField as { message: string }).message
                     : "Could not start ChatKit session";
+              setSessionError(msg);
               throw new Error(msg);
             }
+            setSessionError(null);
             return data.client_secret;
           },
         };
@@ -251,17 +280,19 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
       threadItemActions: {
         feedback: false,
       },
+      onError: (detail: { error: Error }) => {
+        const err = detail.error;
+        console.error("[ChatKit] chatkit.error:", err);
+        setSessionError((prev) => prev ?? err.message);
+      },
     };
   }, [customApiUrl, domainKey, resolvedTheme]);
-
-  const kit = useChatKit(options);
 
   const showDomainKeyWarning = customApiUrl !== "" && !domainKey;
 
   return (
-    <ChatKitControlContext.Provider value={kit.control}>
-      <ResolvedChatPanelBgContext.Provider value={resolvedPanelBg}>
-        <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col">
+    <ResolvedChatPanelBgContext.Provider value={resolvedPanelBg}>
+      <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col">
           {showDomainKeyWarning ? (
             <div
               role="status"
@@ -295,10 +326,35 @@ export function ChatKitProvider({ children }: { children: React.ReactNode }) {
             src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
             strategy="afterInteractive"
           />
-          {children}
+          {sessionError ? (
+            <ChatSessionErrorFallback
+              message={sessionError}
+              onRetry={() => {
+                setSessionError(null);
+                setRetryNonce((n) => n + 1);
+              }}
+            />
+          ) : (
+            <ChatKitSessionBridge key={retryNonce} options={options}>
+              <div className="flex min-h-0 min-w-0 w-full flex-1 flex-col">{children}</div>
+            </ChatKitSessionBridge>
+          )}
         </div>
       </ResolvedChatPanelBgContext.Provider>
-    </ChatKitControlContext.Provider>
+  );
+}
+
+/** Mounts `useChatKit` so `key` changes reset session state after errors or retry. */
+function ChatKitSessionBridge({
+  options,
+  children,
+}: {
+  options: UseChatKitOptions;
+  children: React.ReactNode;
+}) {
+  const kit = useChatKit(options);
+  return (
+    <ChatKitControlContext.Provider value={kit.control}>{children}</ChatKitControlContext.Provider>
   );
 }
 
