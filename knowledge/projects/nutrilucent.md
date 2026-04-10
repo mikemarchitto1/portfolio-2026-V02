@@ -10,6 +10,6 @@ Overview situation: Nutrilucent’s goal is to shape a cohesive product story th
 
 Task: Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction.
 
-Intro: Work in progress, currently focused on research and brand identity. Deliverables created using an AI-forward workflow. Future phases will expand the full Nutrilucent ecosystem.
+Intro: This case study reflects the current phase of an ongoing engagement, focused on research, brand foundations, and early system design. As the product evolves, additional phases will expand the full Nutrilucent ecosystem.
 
 Discovery sections include Research Plan, Competitive Audit, Empathy Map, Stakeholder Interview Notes, Stakeholder Debrief, and Packaging. Inspiration section covers visual themes from science, wellness, and technology; sketching translates ideas of energy, clarity, and cellular vitality into structural motifs. Packaging concept emphasizes clarity and trust through hierarchy, bold color, and benefit communication.

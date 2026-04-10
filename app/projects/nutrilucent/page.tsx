@@ -49,7 +49,7 @@ export default function NutrilucentCaseStudy() {
               <ProjectOverview
                 situation="Nutrilucent’s goal is to shape a cohesive product story that resonates with consumers and retail partners. This case study documents research, information architecture, branding and visual systems used to align the brand with its science driven positioning."
                 task="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
-                intro="This project is a work in progress, currently focused on research and brand identity. All deliverables were created using an AI-forward workflow. Future phases will expand the full Nutrilucent ecosystem."
+                intro="This case study reflects the current phase of an ongoing engagement, focused on research, brand foundations, and early system design. As the product evolves, additional phases will expand the full Nutrilucent ecosystem."
                 result="This section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into later phases, allowing the full experience to be evaluated and thoroughly measured against the goals defined in the discovery phase."
               />
 
@@ -207,7 +207,7 @@ export default function NutrilucentCaseStudy() {
 
               <ProjectSectionHeader
                 title="Branding"
-                intro="The Nutrilucent brand system is still evolving. The goal is to build a clear and cohesive identity that feels modern, credible and scalable across every touchpoint."
+                intro="The Nutrilucent brand system is in an active development phase, establishing a modern, credible, and scalable identity that can extend seamlessly across every touchpoint."
                 className="mt-32"
               />
 
