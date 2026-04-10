@@ -4,8 +4,6 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/hooks/use-theme";
 import { SchedulingDialog } from "@/components/scheduling-dialog/scheduling-dialog";
-import { ChatTrigger } from "@/components/chat-panel/chat-panel";
-
 export default function Footer() {
   const { resolvedTheme } = useTheme();
 
@@ -75,16 +73,6 @@ export default function Footer() {
                         </Button>
                       }
                     />
-                    <ChatTrigger>
-                      <Button
-                        className="nav-button bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]"
-                        variant="outline"
-                        size="lg"
-                        aria-label="Open chat"
-                      >
-                        <span className="text-button">Chat</span>
-                      </Button>
-                    </ChatTrigger>
                   </div>
                   <img
                     suppressHydrationWarning
