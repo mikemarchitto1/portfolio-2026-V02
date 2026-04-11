@@ -1,16 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
+import {
+  CAL_API_VERSION_BOOKINGS,
+  calErrorMessageFromBody,
+  calV2Headers,
+  calV2Url,
+} from "@/lib/cal-api";
 
 export const runtime = "nodejs";
 
 function getCalEnv() {
   const env = {
-    calApiUrl: process.env.CAL_API_URL,
     calApiKey: process.env.CAL_API_KEY,
     eventTypeId: process.env.CAL_EVENT_TYPE_ID,
   };
 
   const missing: string[] = [];
-  if (!env.calApiUrl) missing.push("CAL_API_URL");
   if (!env.calApiKey) missing.push("CAL_API_KEY");
   if (!env.eventTypeId) missing.push("CAL_EVENT_TYPE_ID");
   return { ...env, missing };
@@ -37,7 +41,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required field: email" }, { status: 400 });
     }
 
-    const { calApiUrl, calApiKey, eventTypeId, missing } = getCalEnv();
+    const { calApiKey, eventTypeId, missing } = getCalEnv();
     if (missing.length > 0) {
       return NextResponse.json(
         {
@@ -47,42 +51,79 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       );
     }
-    if (!calApiUrl || !calApiKey || !eventTypeId) {
+    if (!calApiKey || !eventTypeId) {
       return NextResponse.json({ error: "Missing required env vars." }, { status: 500 });
     }
 
-    // Cal.com v1 expects apiKey as a query param.
-    const url = `${calApiUrl}/bookings?apiKey=${encodeURIComponent(calApiKey)}`;
+    const tz =
+      typeof timeZone === "string" && timeZone.trim()
+        ? timeZone.trim()
+        : "America/New_York";
 
-    const calPayload = {
+    const calPayload: Record<string, unknown> = {
       eventTypeId: Number(eventTypeId),
       start,
-      timeZone: typeof timeZone === "string" && timeZone.trim() ? timeZone.trim() : "America/New_York",
-      language: "en",
-      metadata: {},
-      responses: {
+      attendee: {
         name,
         email,
-        location: {
-          // Event type `4968537` uses Daily: `locations: [{ type: "integrations:daily" }]`
-          value: "integrations:daily",
-          optionValue: "",
-        },
+        timeZone: tz,
+        language: "en",
       },
-      title: `Introduction Call between ${name} and Mike Marchitto`,
-      description: notes && notes.trim() ? notes.trim() : null,
+      metadata: {},
     };
 
-    const calRes = await fetch(url, {
+    if (notes && notes.trim()) {
+      (calPayload.metadata as Record<string, string>).notes = notes.trim();
+    }
+
+    const calRes = await fetch(calV2Url("/bookings"), {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: calV2Headers(calApiKey, CAL_API_VERSION_BOOKINGS),
       body: JSON.stringify(calPayload),
     });
 
-    const json = await calRes.json().catch(() => ({}));
-    return NextResponse.json(json, { status: calRes.status });
+    const json: unknown = await calRes.json().catch(() => ({}));
+
+    if (!calRes.ok) {
+      return NextResponse.json(
+        {
+          error: calErrorMessageFromBody(json) ?? `Cal.com returned ${calRes.status}`,
+        },
+        { status: calRes.status }
+      );
+    }
+
+    const root = json && typeof json === "object" ? (json as Record<string, unknown>) : {};
+    const booking =
+      root.data && typeof root.data === "object"
+        ? (root.data as Record<string, unknown>)
+        : root;
+
+    const uid = typeof booking.uid === "string" ? booking.uid : undefined;
+    const startVal = typeof booking.start === "string" ? booking.start : undefined;
+    const endVal = typeof booking.end === "string" ? booking.end : undefined;
+    const titleVal = typeof booking.title === "string" ? booking.title : undefined;
+    const meetingUrlRaw = booking.meetingUrl;
+    const locationRaw = booking.location;
+    const meetingUrl =
+      typeof meetingUrlRaw === "string"
+        ? meetingUrlRaw
+        : typeof locationRaw === "string"
+          ? locationRaw
+          : undefined;
+
+    const normalized = {
+      ...root,
+      booking,
+      uid,
+      startTime: startVal,
+      endTime: endVal,
+      title: titleVal,
+      meetingUrl,
+      eventType: booking.eventType,
+    };
+
+    return NextResponse.json(normalized, { status: calRes.status });
   } catch (err) {
     return NextResponse.json(
       { error: err instanceof Error ? err.message : "Failed to fetch booking" },
@@ -90,4 +131,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-

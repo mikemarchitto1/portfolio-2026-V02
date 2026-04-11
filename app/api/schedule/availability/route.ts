@@ -1,16 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
+import {
+  CAL_API_VERSION_SLOTS,
+  calErrorMessageFromBody,
+  calV2Headers,
+  calV2Url,
+} from "@/lib/cal-api";
 
 export const runtime = "nodejs";
 
 function getCalEnv() {
   const env = {
-    calApiUrl: process.env.CAL_API_URL,
     calApiKey: process.env.CAL_API_KEY,
     eventTypeId: process.env.CAL_EVENT_TYPE_ID,
   };
 
   const missing: string[] = [];
-  if (!env.calApiUrl) missing.push("CAL_API_URL");
   if (!env.calApiKey) missing.push("CAL_API_KEY");
   if (!env.eventTypeId) missing.push("CAL_EVENT_TYPE_ID");
   return { ...env, missing };
@@ -37,7 +41,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { calApiUrl, calApiKey, eventTypeId, missing } = getCalEnv();
+    const { calApiKey, eventTypeId, missing } = getCalEnv();
     if (missing.length > 0) {
       return NextResponse.json(
         {
@@ -47,31 +51,49 @@ export async function POST(req: NextRequest) {
         { status: 500 }
       );
     }
-    if (!calApiUrl || !calApiKey || !eventTypeId) {
+    if (!calApiKey || !eventTypeId) {
       return NextResponse.json({ error: "Missing required env vars." }, { status: 500 });
     }
 
-    // Cal.com v1 slots endpoint expects a datetime range.
     const nextDate = addDaysYmd(date, 1);
     if (!nextDate) {
       return NextResponse.json({ error: "Invalid date format. Use YYYY-MM-DD." }, { status: 400 });
     }
 
-    const startTime = `${date}T00:00:00.000Z`;
-    const endTime = `${nextDate}T00:00:00.000Z`;
+    const url = new URL(calV2Url("/slots"));
+    url.searchParams.set("eventTypeId", String(eventTypeId));
+    url.searchParams.set("start", date);
+    url.searchParams.set("end", nextDate);
+    url.searchParams.set("timeZone", "UTC");
 
-    const url = `${calApiUrl}/slots?eventTypeId=${encodeURIComponent(
-      eventTypeId
-    )}&startTime=${encodeURIComponent(startTime)}&endTime=${encodeURIComponent(
-      endTime
-    )}&timeZone=${encodeURIComponent("UTC")}&apiKey=${encodeURIComponent(calApiKey)}`;
-
-    const calRes = await fetch(url, {
+    const calRes = await fetch(url.toString(), {
       method: "GET",
+      headers: calV2Headers(calApiKey, CAL_API_VERSION_SLOTS),
     });
 
-    const json = await calRes.json().catch(() => ({}));
-    return NextResponse.json(json, { status: calRes.status });
+    const json: unknown = await calRes.json().catch(() => ({}));
+
+    if (!calRes.ok) {
+      return NextResponse.json(
+        {
+          error:
+            calErrorMessageFromBody(json) ??
+            `Cal.com returned ${calRes.status}`,
+        },
+        { status: calRes.status }
+      );
+    }
+
+    const payload =
+      json &&
+      typeof json === "object" &&
+      json !== null &&
+      "data" in json &&
+      (json as { data: unknown }).data !== undefined
+        ? (json as { data: unknown }).data
+        : json;
+
+    return NextResponse.json(payload ?? {}, { status: 200 });
   } catch (err) {
     return NextResponse.json(
       {
