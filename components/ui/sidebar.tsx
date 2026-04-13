@@ -116,7 +116,7 @@ try {
         {...props}
       >
         <aside
-          className="h-full min-w-0 w-full flex flex-col bg-sidebar-background text-sidebar-foreground overflow-hidden border-r border-border"
+          className="h-full min-w-0 w-full flex flex-col bg-sidebar-background text-sidebar-foreground overflow-hidden"
           style={{ width }}
         >
           {children}
@@ -228,7 +228,7 @@ try {
     React.ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean; variant?: "default" | "text" }
   >(function SidebarMenuButton({ className, asChild = false, variant = "default", children, ...props }, ref) {
     const baseClasses =
-      "flex w-full items-center gap-2 rounded-md border-0 bg-transparent py-2 px-[var(--sidebar-menu-text-inset,0.5rem)] text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:bg-[var(--sidebar-hover)] color:hover:bg-[oklch(42%_0.035_165)] hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:transition-colors";
+      "flex w-full items-center gap-2 rounded-md border-0 bg-transparent py-2 pl-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)] pr-[var(--sidebar-menu-text-inset,0.25rem)] text-button text-left no-underline outline-none ring-sidebar-ring transition-colors hover:bg-[var(--sidebar-hover)] color:hover:bg-[oklch(42%_0.035_165)] hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-5 [&_svg]:text-current hover:[&_svg]:text-sidebar-accent-foreground [&_svg]:transition-colors";
 
     if (asChild) {
       return (

@@ -250,20 +250,20 @@ try {
         <SheetContent
           id="mobile-menu-sheet"
           side="left"
-          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[240px] bg-sidebar border-border text-sidebar-foreground"
-          closeButtonClassName="h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
+          className="mobile-menu-sheet w-full max-w-full sm:max-w-full lg:max-w-[240px] border-r-0 bg-sidebar border-border text-sidebar-foreground"
+          closeButtonClassName="top-6 right-[10px] h-8 w-8 min-h-8 min-w-8 p-0 rounded-md border-0 bg-transparent hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)] text-foreground hover:text-sidebar-accent-foreground !data-[state=open]:bg-transparent transition-colors flex items-center justify-center [&_svg]:text-current [&_svg]:transition-colors hover:[&_svg]:text-sidebar-accent-foreground"
         >
           <SheetTitle className="sr-only">Menu</SheetTitle>
-          <div className="flex flex-col items-start p-4">
+          <div className="flex flex-col items-start px-2 py-4">
                       <div className="ps-sidebar-crown-row">
                         <MobileMenuCrown onNavigate={() => setMobileMenuOpen(false)} />
                       </div>
-                      <div className="ps-sidebar-theme-row">
+                      <div className="ps-sidebar-theme-row ms-[2px]">
                         <MobileMenuThemeSwitcher />
                       </div>
                       <div className="mt-[4px] w-full pl-0 min-w-0">
                         <SidebarGroup>
-                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
+                          <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)]">
                             Projects
                           </SidebarGroupLabel>
                           <SidebarMenu className="mobile-menu-clients-list gap-0 mt-0 w-full">
@@ -306,7 +306,7 @@ try {
                         </SidebarGroup>
                       </div>
                       <SidebarGroup>
-                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
+                        <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)]">
                           Connect
                         </SidebarGroupLabel>
                         <SidebarMenu

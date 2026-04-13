@@ -131,17 +131,17 @@ try {
     return (
       <SidebarProvider>
         <Sidebar>
-          <SidebarHeader className="p-4">
+          <SidebarHeader className="px-2 py-4">
             <div className="ps-sidebar-crown-row">
               <SidebarCrown />
             </div>
-            <div className="ps-sidebar-theme-row">
+            <div className="ps-sidebar-theme-row ms-[2px]">
               <SidebarThemeSwitcher />
             </div>
           </SidebarHeader>
-          <SidebarContent className="px-4 -mt-[72px]">
+          <SidebarContent className="px-2 py-4 -mt-[72px]">
             <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)]">
                 Projects
               </SidebarGroupLabel>
               <SidebarMenu className="gap-0">
@@ -183,7 +183,7 @@ try {
               </SidebarMenu>
             </SidebarGroup>
             <SidebarGroup>
-              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[var(--sidebar-menu-text-inset,0.5rem)]">
+              <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)]">
                 Connect
               </SidebarGroupLabel>
               <SidebarMenu className="gap-0">
