@@ -92,6 +92,7 @@
   --text-h1: var(--text-h1-fluid);
   --text-h1--line-height: var(--text-h1-line);
   --text-h1--font-weight: var(--text-h1-weight);
+  --text-h1--letter-spacing: var(--text-h1-letter-spacing);
   --text-h2: var(--text-h2-fluid);
   --text-h2--line-height: var(--text-h2-line);
   --text-h2--font-weight: var(--text-h2-weight);
@@ -145,6 +146,7 @@
   --line-height-overline: var(--text-overline-line);
 
   --font-weight-h1: var(--text-h1-weight);
+  --letter-spacing-h1: var(--text-h1-letter-spacing);
   --font-weight-h2: var(--text-h2-weight);
   --font-weight-h3: var(--text-h3-weight);
   --font-weight-h4: var(--text-h4-weight);
@@ -240,6 +242,7 @@
     --text-h1-fluid: clamp(2.5rem, 1.253rem + 5.12vw, calc(5.5rem - 10px));
     --text-h1-line: clamp(48px, calc(48px + 56 * (100vw - 390px) / 938), calc(104px - 10px));
     --text-h1-weight: 400;
+    --text-h1-letter-spacing: -0.5px;
 
     --text-h2-fluid: clamp(1.75rem, 0.918rem + 3.41vw, 3.75rem);
     --text-h2-line: clamp(36px, calc(36px + 40 * (100vw - 390px) / 938), 76px);
@@ -787,7 +790,7 @@
     font-size: var(--font-h1);
     line-height: var(--font-h1-line);
     font-weight: var(--text-h1-weight);
-    letter-spacing: -0.02em;
+    letter-spacing: var(--text-h1-letter-spacing);
   }
   .text-h2 {
     font-size: var(--font-h2);

@@ -17,10 +17,10 @@ export default function HeroSection() {
               {/* LEFT — exactly 50% so profile left edge is at center */}
               <div className="w-full md:w-[calc(50%-4rem)] md:min-w-0 shrink-0 text-foreground bg-transparent">
                 <h1 className="text-h1 font-light tracking-[0] whitespace-nowrap">
-                  Hi, <span className="tracking-[-0.04em]">I'm</span> Mike
+                  Mike Marchitto
                 </h1>
                 <h4 className="text-h4 max-w-[528px] text-foreground">
-                  I design modern digital experiences for startups and global brands.
+                  Product Design Engineer building modern digital experiences.
                 </h4>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
