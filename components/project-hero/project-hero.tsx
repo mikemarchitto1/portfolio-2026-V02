@@ -28,7 +28,7 @@ export default function ProjectHero({
         className
       )}
     >
-      <h1 className="text-h1 font-light tracking-[0] text-foreground min-w-0">
+      <h1 className="text-h1 font-light text-foreground min-w-0">
         {title}
       </h1>
       <h4 className="text-h4 text-foreground mt-4 max-w-[800px]">

@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
   return (
@@ -12,11 +11,10 @@ export default function HeroSection() {
           {/* OUTER BOX */}
           <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
 
-            {/* INNER GRID: left column 50% so profile card starts at center */}
-            <div className="w-full min-w-0 flex flex-col md:flex-row gap-12 items-stretch">
-              {/* LEFT — exactly 50% so profile left edge is at center */}
-              <div className="w-full md:w-[calc(50%-4rem)] md:min-w-0 shrink-0 text-foreground bg-transparent">
-                <h1 className="text-h1 font-light tracking-[0] whitespace-nowrap">
+            {/* Desktop: flex row — image exactly 50% width; gap-12 gutter; text flexes (not 1fr/1fr grid) */}
+            <div className="flex w-full min-w-0 flex-col gap-12 md:flex-row md:items-stretch md:gap-12">
+              <div className="min-w-0 flex-1 basis-0 text-foreground bg-transparent">
+                <h1 className="text-h1 font-light whitespace-nowrap ![font-size:clamp(1.875rem,0.75rem+4.5vw,calc(5.5rem-10px))]">
                   Mike Marchitto
                 </h1>
                 <h4 className="text-h4 max-w-[528px] text-foreground">
@@ -29,35 +27,21 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* RIGHT — shadcn Card wrapping profile image + quote */}
-              <div className="w-full md:flex-1 md:min-w-0 flex flex-col h-full gap-0 bg-transparent">
-                <Card className="flex flex-col flex-1 gap-0 border-0 bg-transparent p-0 shadow-none">
-                  {/* Image area: same min-height and rounding as original */}
-                  <div className="w-full flex-1 min-h-0">
-                    {/* Native img + one clipping box: Next/Image fill wrappers often ignore rounded clipping */}
-                    <div
-                      className={cn(
-                        "relative isolate w-full min-h-[376px] md:min-h-[440px]",
-                        "overflow-hidden rounded-2xl",
-                        /* bg-card: contrasts with page bg so rounded letterboxing reads */
-                        "bg-card"
-                      )}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="/images/profile.png"
-                        alt="Mike profile"
-                        width={1600}
-                        height={1200}
-                        className={cn(
-                          "absolute inset-0 h-full w-full object-cover object-center",
-                          "rounded-2xl"
-                        )}
-                        loading="eager"
-                        decoding="async"
-                        fetchPriority="high"
-                      />
-                    </div>
+              {/* Image: ~51% of row; min-w-0 + shrink-0 keeps layout stable without overlapping text */}
+              <div className="flex min-w-0 w-full shrink-0 flex-col gap-0 bg-transparent md:w-[51%]">
+                <Card className="flex min-w-0 w-full flex-col gap-0 border-0 bg-transparent p-0 shadow-none">
+                  <div className="w-full min-w-0 overflow-hidden rounded-2xl bg-card">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/profile.png"
+                      alt="Mike profile"
+                      width={1600}
+                      height={1200}
+                      className="block h-auto w-full max-w-full object-cover rounded-2xl"
+                      loading="eager"
+                      decoding="async"
+                      fetchPriority="high"
+                    />
                   </div>
                   <CardContent className="hidden p-0" aria-hidden="true">
                     <blockquote className="profile-quote text-body2 text-foreground font-light text-center m-0 p-0 mb-8">

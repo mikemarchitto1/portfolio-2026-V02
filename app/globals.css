@@ -242,7 +242,7 @@
     --text-h1-fluid: clamp(2.5rem, 1.253rem + 5.12vw, calc(5.5rem - 10px));
     --text-h1-line: clamp(48px, calc(48px + 56 * (100vw - 390px) / 938), calc(104px - 10px));
     --text-h1-weight: 400;
-    --text-h1-letter-spacing: -0.5px;
+    --text-h1-letter-spacing: -1px;
 
     --text-h2-fluid: clamp(1.75rem, 0.918rem + 3.41vw, 3.75rem);
     --text-h2-line: clamp(36px, calc(36px + 40 * (100vw - 390px) / 938), 76px);
