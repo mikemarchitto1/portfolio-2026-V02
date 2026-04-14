@@ -58,7 +58,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Michael Marchitto — Portfolio",
+  title: "Mike Marchitto — Design",
   description: "UX Engineer / Product Designer",
 };
 
