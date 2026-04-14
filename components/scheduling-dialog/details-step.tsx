@@ -104,7 +104,7 @@ const DetailsStep = React.memo(function DetailsStep({
         </Button>
         <Button
           variant="black"
-          className="flex-1 min-w-0 text-[length:var(--text-button)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)] dark:bg-white dark:hover:bg-[oklch(92%_0_0)] color:bg-white color:hover:bg-[oklch(94%_0.03_160)] dark:!text-black color:!text-[oklch(24%_0.035_165)]"
+          className="flex-1 min-w-0 text-[length:var(--text-button-size)] leading-[var(--line-height-button)] font-[var(--font-weight-button)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(44%_0.035_165)] dark:bg-white dark:hover:bg-[oklch(92%_0_0)] color:bg-white color:hover:bg-[oklch(94%_0.03_160)] dark:!text-black color:!text-[oklch(24%_0.035_165)]"
           onClick={onConfirm}
           disabled={isSubmitting}
           aria-busy={isSubmitting}
