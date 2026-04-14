@@ -11,8 +11,8 @@ export default function HeroSection() {
           {/* OUTER BOX */}
           <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
 
-            {/* Desktop: flex row — image exactly 50% width; gap-12 gutter; text flexes (not 1fr/1fr grid) */}
-            <div className="flex w-full min-w-0 flex-col gap-12 md:flex-row md:items-stretch md:gap-12">
+            {/* Desktop: flex row — image exactly 50% width; gap-24 gutter; text flexes (not 1fr/1fr grid) */}
+            <div className="flex w-full min-w-0 flex-col gap-24 md:flex-row md:items-stretch md:gap-24">
               <div className="min-w-0 flex-1 basis-0 text-foreground bg-transparent">
                 <h1 className="text-h1 font-light whitespace-nowrap">
                   Mike Marchitto
