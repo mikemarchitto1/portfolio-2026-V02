@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Calendar, Download, Linkedin, Mail, Menu, Moon, Palette, Sun } from "lucide-react";
@@ -185,10 +185,84 @@ try {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scheduleOpen, setScheduleOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [headerHidden, setHeaderHidden] = useState(false);
+    const [reduceMotion, setReduceMotion] = useState(false);
+
+    const lastScrollYRef = useRef(0);
+    const headerHiddenRef = useRef(false);
+    const mobileMenuOpenRef = useRef(false);
+    const scrollRafRef = useRef(0);
+
+    mobileMenuOpenRef.current = mobileMenuOpen;
 
     useEffect(() => {
       setMounted(true);
     }, []);
+
+    useEffect(() => {
+      const TOP_REVEAL_PX = 80;
+
+      const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const syncReduceMotion = () => setReduceMotion(mqReduce.matches);
+      syncReduceMotion();
+      mqReduce.addEventListener("change", syncReduceMotion);
+
+      lastScrollYRef.current = window.scrollY;
+
+      const runScrollFrame = () => {
+        scrollRafRef.current = 0;
+
+        if (mobileMenuOpenRef.current) {
+          if (headerHiddenRef.current) {
+            headerHiddenRef.current = false;
+            setHeaderHidden(false);
+          }
+          lastScrollYRef.current = window.scrollY;
+          return;
+        }
+
+        const y = window.scrollY;
+        const prev = lastScrollYRef.current;
+        lastScrollYRef.current = y;
+
+        let nextHidden = headerHiddenRef.current;
+        if (y <= TOP_REVEAL_PX) {
+          nextHidden = false;
+        } else if (y < prev) {
+          nextHidden = false;
+        } else if (y > prev) {
+          nextHidden = true;
+        }
+
+        if (nextHidden !== headerHiddenRef.current) {
+          headerHiddenRef.current = nextHidden;
+          setHeaderHidden(nextHidden);
+        }
+      };
+
+      const onScroll = () => {
+        if (scrollRafRef.current) return;
+        scrollRafRef.current = requestAnimationFrame(runScrollFrame);
+      };
+
+      runScrollFrame();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      return () => {
+        mqReduce.removeEventListener("change", syncReduceMotion);
+        window.removeEventListener("scroll", onScroll);
+        cancelAnimationFrame(scrollRafRef.current);
+        scrollRafRef.current = 0;
+      };
+    }, []);
+
+    useEffect(() => {
+      if (!mobileMenuOpen) return;
+      if (headerHiddenRef.current) {
+        headerHiddenRef.current = false;
+        setHeaderHidden(false);
+      }
+    }, [mobileMenuOpen]);
 
     useEffect(() => {
       const mq = window.matchMedia("(min-width: 1024px)");
@@ -206,7 +280,15 @@ try {
     console.log("MOUNT:", "Header");
     return (
       <>
-      <header className="fixed top-0 left-0 right-0 z-50 w-full min-w-0 bg-background text-foreground">
+      <header
+        className="site-header-scroll fixed top-0 left-0 right-0 z-50 w-full min-w-0 bg-background text-foreground will-change-transform"
+        style={{
+          transform: headerHidden ? "translateY(-100%)" : "translateY(0)",
+          transition: reduceMotion ? "none" : "transform 200ms ease-out",
+          pointerEvents: headerHidden ? "none" : "auto",
+        }}
+        aria-hidden={headerHidden}
+      >
         <div className="w-full px-4 md:px-8 lg:px-16">
           <div className="max-w-[1328px] mx-auto">
             <div className="w-full min-w-0 flex items-center justify-between gap-2 py-4 px-0 lg:px-16">

@@ -782,6 +782,13 @@
   }
 }
 
+/* Site header hide-on-scroll: no transform transition when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+  .site-header-scroll {
+    transition: none !important;
+  }
+}
+
 @layer components {
 }
 
