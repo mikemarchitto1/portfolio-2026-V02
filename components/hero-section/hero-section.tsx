@@ -22,7 +22,7 @@ export default function HeroSection() {
                 </h4>
                 <div className="text-body1 space-y-4 mt-7">
                   <p>
-                  with a design practice grounded in UX, systems thinking, and AI‑augmented workflows to create clarity, structure, and scalable patterns. The work emphasizes reducing friction, strengthening product decisions, and supporting teams as they ship confidently across web and mobile.
+                  A design practice grounded in UX, systems thinking, and AI‑augmented workflows to create clarity, structure, and scalable patterns. The work emphasizes reducing friction, strengthening product decisions, and supporting teams as they ship confidently across web and mobile.
                   </p>
                 </div>
               </div>
