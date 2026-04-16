@@ -61,7 +61,7 @@ export default function NutrilucentCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Research Plan</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Research plan</h3>
                   <p className="text-body1 text-foreground">
                     Outlined a focused discovery process grounding the CBGenius to
                     Nutrilucent design migration in real user needs. Through interviews,
@@ -90,7 +90,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Stakeholder interview</h3>
                   <p className="text-body1 text-foreground">
                     Clarified core business goals, target audiences, and the strategic
                     challenges shaping the design. Surfaced priorities around modernizing the
@@ -102,7 +102,7 @@ export default function NutrilucentCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Insights Matrix</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Insights matrix</h3>
                   <p className="text-body1 text-foreground">
                     Synthesized patterns across roles, product strategy, brand, operations, and
                     customer behavior. The work revealed founder‑driven workflows, a scattered
@@ -131,7 +131,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Empathy Map</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Empathy map</h3>
                   <p className="text-body1 text-foreground">
                     The founder is weighed down by an outdated site, compliance issues, and limited
                     resources. Thinking about regulatory constraints and the need for education.
@@ -144,7 +144,7 @@ export default function NutrilucentCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Stakeholder Interview Debrief</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Stakeholder interview debrief</h3>
                   <p className="text-body1 text-foreground">
                     Consolidated the findings into a clear narrative of the business direction.
                     Emphasized the priorities ahead by modernizing the digital experience,
@@ -186,7 +186,7 @@ export default function NutrilucentCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                   <p className="text-body1 text-foreground">
                     A deeper dive evaluating five leading CBD brands across key UX categories to
                     identify strengths and gaps. Scoring 100+ features revealed consistent
@@ -213,7 +213,7 @@ export default function NutrilucentCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Brand Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Brand audit</h3>
                   <p className="text-body1 text-foreground">
                     I reviewed leading wellness and supplement brands to understand how they
                     communicate value and build trust. This revealed visual patterns, credibility
@@ -289,7 +289,7 @@ export default function NutrilucentCaseStudy() {
 
               <div className="hidden" aria-hidden>
                 <ProjectSectionHeader
-                  title="Product Features"
+                  title="Product features"
                   intro="Placeholder feature narrative for Nutrilucent—replace with product-specific highlights when content and imagery are ready."
                   className="mt-[128px]"
                 />
@@ -370,7 +370,7 @@ export default function NutrilucentCaseStudy() {
               <div className="grid grid-cols-12 gap-8 mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">
                   <div className="w-full">
-                    <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
+                    <h2 className="text-h2 text-foreground mb-4">Next project</h2>
                   </div>
                 </div>
 

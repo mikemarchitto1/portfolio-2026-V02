@@ -109,7 +109,7 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
+                    <h3 className="text-h3 text-foreground mb-4">System audit</h3>
                     <p className="text-body1 text-foreground">
                     To comply with the new design direction Microsoft Hits was audited to identify areas where changes could be made.
                     </p>
@@ -148,14 +148,14 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Information Architecture"
+              title="Information architecture"
               intro="I restructured the navigation and content hierarchy to reduce cognitive load and make key workflows easier to discover and complete."
               className="mt-[128px]"
             />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                    <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                     <p className="text-body1 text-foreground">
                     Collaborating with stakeholders, I created low to medium fidelity wireframes as a strategic tool to extract valuable insights and better understand the intricacies of the design goals.
                     </p>
@@ -174,14 +174,14 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Visual Design"
+              title="Visual design"
               intro="I applied Microsoft’s design principles to create a cleaner, more accessible interface that supports clarity, consistency, and long‑term scalability."
               className="mt-32"
             />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
+                    <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                     <p className="text-body1 text-foreground">
                     By considering every element of the wireframes and incorporating relevant design elements, I was able to ensure that the resulting mockups were both visually appealing and functional, bringing the wireframes to life and providing a clear representation of the final product.
                     </p>
@@ -210,7 +210,7 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                    <h3 className="text-h3 text-foreground mb-4">Design system</h3>
                     <p className="text-body1 text-foreground">
                     I crafted a series of reusable UI components that could be seamlessly integrated throughout the product design cycle so we could maintain a consistent and streamlined user experience.
                     </p>
@@ -220,7 +220,7 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">UI Specs</h3>
+                    <h3 className="text-h3 text-foreground mb-4">UI specs</h3>
                     <p className="text-body1 text-foreground">
                     To promote smooth and efficient teamwork during the implementation of the design system we decided to use Redline documentation as a way of communicating important information about the structure and functionality of all components.
                     </p>
@@ -240,7 +240,7 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Product Shipped"
+              title="Product shipped"
               intro="The final release delivered a modernized research platform that improved usability, reduced friction, and enabled teams to work more efficiently."
               className="mt-[128px]"
             />
@@ -248,7 +248,7 @@ function Work() {
             <div className="grid grid-cols-12 gap-4 pt-[128px]">
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">
-                      Content Ingestion Editor
+                      Content ingestion editor
                     </h3>
                     <p className="text-body1 text-foreground mt-4 mb-8">
                       This customizable tool facilitates the ingestion, editing, and collaborative management of UX research content for Microsoft, providing valuable insights and data to the organization.
@@ -271,7 +271,7 @@ function Work() {
 
                 <div className="col-span-12 lg:col-span-5">
                     <div className="w-full">
-                        <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
+                        <h2 className="text-h2 text-foreground mb-4">Next project</h2>
                     </div>
                 </div>
 

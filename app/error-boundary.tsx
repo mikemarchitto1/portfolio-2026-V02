@@ -20,7 +20,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div style={{ padding: 40, fontFamily: "monospace" }}>
-          <h1>Runtime Error</h1>
+          <h1>Runtime error</h1>
           <pre>{String(this.state.error)}</pre>
         </div>
       );

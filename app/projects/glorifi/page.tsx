@@ -64,7 +64,7 @@ export default function Work() {
 
               <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                   <p className="text-body1 text-foreground">
                     I carefully reviewed several banking and financial apps, evaluating
                     their features and identifying areas for improvement. This helped me
@@ -102,14 +102,14 @@ export default function Work() {
               </div>
 
               <ProjectSectionHeader
-                title="Information Architecture"
+              title="Information architecture"
                 intro="I mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
                 className="mt-[128px]"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                   <p className="text-body1 text-foreground">
                     I created user flows and wireframes, examining the design process
                     and identifying areas for improvement. We discussed potential
@@ -128,14 +128,14 @@ export default function Work() {
               </div>
 
               <ProjectSectionHeader
-                title="Visual Design"
+              title="Visual design"
                 intro="UI exploration established the foundation for a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
+                  <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                   <p className="text-body1 text-foreground">
                     Applied brand styles across early layouts and interaction patterns to
                     establish a consistent visual direction. This work created the
@@ -163,7 +163,7 @@ export default function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Design system</h3>
                   <p className="text-body1 text-foreground">
                     This UI framework saved time and effort for the team by providing
                     pre-built components and promoting best UI practices. The framework
@@ -174,7 +174,7 @@ export default function Work() {
               </div>
 
               <ProjectSectionHeader
-                title="Product Shipped"
+              title="Product shipped"
                 intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
                 className="mt-[128px]"
               />
@@ -257,7 +257,7 @@ export default function Work() {
               <div className="grid grid-cols-12 gap-8 mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">
                   <div className="w-full">
-                    <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
+                    <h2 className="text-h2 text-foreground mb-4">Next project</h2>
                   </div>
                 </div>
 

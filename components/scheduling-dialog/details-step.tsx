@@ -41,7 +41,12 @@ const DetailsStep = React.memo(function DetailsStep({
 }: DetailsStepProps) {
   return (
     <div className="flex flex-col">
-      <h2 className="text-subtitle1 font-medium text-foreground dark:text-white color:text-white mb-4">Your Details</h2>
+      <h2
+        className="text-subtitle1 font-medium text-foreground dark:text-white color:text-white mb-4"
+        style={{ textTransform: "none" }}
+      >
+        Your Details
+      </h2>
       <div className="flex flex-col gap-6">
         <div>
           <label htmlFor="scheduling-name" className="block text-subtitle2 text-foreground mb-1.5">Name *</label>

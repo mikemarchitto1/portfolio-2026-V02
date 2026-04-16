@@ -82,7 +82,7 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Competitive Audit</h3>
+                    <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                     <p className="text-body1 text-foreground">
                     In order to gain a deeper understanding for designs in the context of outdoor clothing websites, I conducted an audit and examined patterns and strategies to engage customers.
                     </p>
@@ -110,14 +110,14 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Information Architecture"
+              title="Information architecture"
               intro="I refined the site structure and product hierarchy to make browsing easier and ensure customers could quickly find relevant gear and apparel."
               className="mt-[128px]"
             />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                    <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                     <p className="text-body1 text-foreground">
                     I created wireframes with the aim of gaining valuable insight into the user experience of customers and to identify any areas that required improvement.
                     </p>
@@ -130,14 +130,14 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Visual Design"
+              title="Visual design"
               intro="I developed updated visual styles and UI components that modernized the brand while maintaining its heritage and outdoor identity."
               className="mt-[128px]"
             />
 
             <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                    <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
+                    <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                     <p className="text-body1 text-foreground">
                     Key components were designed utilizing the design system to bring wireframes to life. This ensured mockups were visually cohesive and aligned with the brand’s values and aesthetic.
                     </p>
@@ -154,7 +154,7 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                    <h3 className="text-h3 text-foreground mb-4">System Icons</h3>
+                    <h3 className="text-h3 text-foreground mb-4">System icons</h3>
                     <p className="text-body1 text-foreground">
                     Crafting a custom system icon library strengthened the brand’s visual language, ensured consistent interaction patterns across the product, and provided development with a unified, scalable asset package that supports a clear and intuitive user experience.
                     </p>
@@ -171,7 +171,7 @@ function Work() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                    <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                    <h3 className="text-h3 text-foreground mb-4">Design system</h3>
                     <p className="text-body1 text-foreground">
                     To maintain a consistent user experience, styles and UI components were established and documented for seamless handoff to development, resulting in a polished and cohesive interface.
                     </p>
@@ -180,7 +180,7 @@ function Work() {
 
 
             <ProjectSectionHeader
-              title="Product Shipped"
+              title="Product shipped"
               intro="The final experience delivered a cleaner, more cohesive ecommerce platform with reusable components that support ongoing marketing and merchandising needs."
               className="mt-[128px]"
             />
@@ -188,7 +188,7 @@ function Work() {
 
             <div className="grid grid-cols-12 gap-4 pt-[128px]">
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
-                    <h3 className="text-h3 text-foreground mb-0">Product Details</h3>
+                    <h3 className="text-h3 text-foreground mb-0">Product details</h3>
                     <p className="text-body1 text-foreground mt-4 mb-8">
                       The product details page now has a modern and minimalistic design giving a sophisticated impression. The search function helps users navigate reviews and questions, boosting customer confidence in purchasing decisions.
                     </p>
@@ -205,7 +205,7 @@ function Work() {
 
                 <div className="col-span-12 lg:col-span-5">
                     <div className="w-full">
-                        <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
+                        <h2 className="text-h2 text-foreground mb-4">Next project</h2>
                     </div>
                 </div>
 

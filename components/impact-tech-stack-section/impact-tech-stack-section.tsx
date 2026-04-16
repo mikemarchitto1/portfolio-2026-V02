@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 
 const metrics = [
   { value: "10", label: "Years" },
-  { value: "4", label: "Products" },
-  { value: "27", label: "Testings" },
-  { value: "3", label: "AI Labs" },
+  { value: "7", label: "Products" },
+  { value: "60", label: "Testings" },
+  { value: "4", label: "AI Labs" },
 ];
 
 /** Full tech stack grid — Impact Stats and Tech Stack section only */
@@ -230,7 +230,7 @@ type ImpactTechStackSectionProps = {
 };
 
 export default function ImpactTechStackSection({
-  title = "Impact Stats and Tech Stack",
+  title = "Impact stats and tech stack",
   hideStats = false,
 }: ImpactTechStackSectionProps) {
   const { ref: statsTriggerRef, triggered: statsTriggered } =

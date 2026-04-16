@@ -22,7 +22,7 @@ export default function Footer() {
                 <div className="w-full min-w-0 text-left flex flex-col">
                   <div className="w-fit p-0 m-0">
                     <h1 className="text-h1 font-light text-foreground p-0 m-0">
-                      Let's Connect
+                      Let's connect
                     </h1>
                   </div>
                   <div className="max-w-[576px] p-0 m-0 mt-4">

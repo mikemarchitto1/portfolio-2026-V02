@@ -55,7 +55,7 @@ export default function ServSafeCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">System Audit</h3>
+                  <h3 className="text-h3 text-foreground mb-4">System audit</h3>
                   <p className="text-body1 text-foreground">
                     ServSafe’s training and certification products were examined to
                     understand their structure, content flow, and overall user experience.
@@ -95,14 +95,14 @@ export default function ServSafeCaseStudy() {
               </div>
 
               <ProjectSectionHeader
-                title="Information Architecture"
+              title="Information architecture"
                 intro="The core navigation, content hierarchy, and user flows were mapped to ensure the experience remained intuitive, predictable, and aligned with established user mental models."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">User Flows</h3>
+                  <h3 className="text-h3 text-foreground mb-4">User flows</h3>
                   <p className="text-body1 text-foreground">
                   User flows mapped the key decision paths learners take, clarifying steps, branches, and system responses so the team could validate logic early and remove friction.
                   </p>
@@ -127,7 +127,7 @@ export default function ServSafeCaseStudy() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Wireframe Flows</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                   <p className="text-body1 text-foreground">
                   Wireframe flows translated those paths into screen‑level structure, showing layout, hierarchy, and interactions across the journey before moving into high‑fidelity design.
                   </p>
@@ -136,14 +136,14 @@ export default function ServSafeCaseStudy() {
 
 
               <ProjectSectionHeader
-                title="Visual Design"
+              title="Visual design"
                 intro="A scalable design system was developed to unify typography, color, spacing, and component patterns across mobile and web, ensuring consistency and predictability throughout the product experience."
                 className="mt-32"
               />
 
               <div className="grid grid-cols-12 gap-8 pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
+                  <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                   <p className="text-body1 text-foreground">
                     Brand styles and existing design system components were applied to
                     produce consistent, visually aligned mockups. This process ensured
@@ -171,7 +171,7 @@ export default function ServSafeCaseStudy() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Design System</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Design system</h3>
                   <p className="text-body1 text-foreground">
                     This UI framework streamlined the team’s workflow by offering
                     ready‑made components and reinforcing established interface standards.
@@ -217,7 +217,7 @@ export default function ServSafeCaseStudy() {
                 </div>
 
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
-                  <h3 className="text-h3 text-foreground mb-4">Observations and Insights</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Observations and insights</h3>
                   <p className="text-body1 text-foreground">
                     Testing surfaced several opportunities to improve clarity, reduce
                     friction, and strengthen the overall flow. These insights guided a
@@ -228,7 +228,7 @@ export default function ServSafeCaseStudy() {
               </div>
 
               <ProjectSectionHeader
-                title="Product Shipped"
+              title="Product shipped"
                 intro="A refined, intuitive training experience built on clearer workflows, consistent design, and streamlined paths that help learners complete courses and manage certifications with confidence."
                 className="mt-[128px]"
               />
@@ -269,7 +269,7 @@ export default function ServSafeCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-[128px]">
                 <div className="col-span-12 text-left min-w-0 mb-4">
-                  <h3 className="text-h3 text-foreground mb-4">Profile Settings</h3>
+                  <h3 className="text-h3 text-foreground mb-4">Profile settings</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
                   A structured settings interface allows learners to manage key account details with clarity and consistency. Standardized components and clear validation patterns ensure secure updates and reduce support overhead.
                   </p>
@@ -289,7 +289,7 @@ export default function ServSafeCaseStudy() {
               <div className="grid grid-cols-12 gap-8 mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">
                   <div className="w-full">
-                    <h2 className="text-h2 text-foreground mb-4">Next Project</h2>
+                    <h2 className="text-h2 text-foreground mb-4">Next project</h2>
                   </div>
                 </div>
 
