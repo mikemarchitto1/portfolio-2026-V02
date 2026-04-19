@@ -61,7 +61,7 @@ export default function ServSafeCaseStudy() {
                     understand their structure, content flow, and overall user experience.
                     This review provided clarity on how the existing system supports
                     learners and administrators, and highlighted opportunities to improve
-                    usability, navigation, and task completion across the platform.
+                    usability, navigation, and task completion.
                   </p>
                 </div>
 
