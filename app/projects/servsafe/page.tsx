@@ -20,7 +20,7 @@ export default function ServSafeCaseStudy() {
           <div className="max-w-[1328px] mx-auto">
             <div className="w-full min-w-0 flex flex-col pt-0 pb-4 md:pt-0 md:pb-8 lg:pt-0 lg:pb-16 px-0 lg:px-16 bg-transparent">
               <ProjectHero
-                title="Food safety training and certification, made clearer"
+                title="Food safety training and certification made clearer"
                 subtitle="ServSafe strengthens learning flows, usability, and intuitive training experiences for teams and learners across the food service industry."
                 tags={[
                   "Foodservice",
