@@ -41,7 +41,7 @@ export default function Work() {
                 ]}
               />
 
-              <div className="grid grid-cols-12 gap-4 pb-20">
+              <div className="grid grid-cols-12 gap-4 pb-0 md:pb-20">
                 <div className="col-span-12">
                   <div className="h-[504px] overflow-hidden rounded-[16px]">
                     <ActionAreaCard thumbnail={image_hero} thumbHeight={"520"} />
@@ -62,10 +62,10 @@ export default function Work() {
               <ProjectSectionHeader
                 title="Discovery"
                 intro="I conducted a series of qualitative and competitive research activities to understand user expectations around financial literacy, mobile banking, and trust‑building patterns."
-                className="mt-32"
+                className="mt-12 md:mt-32"
               />
 
-              <div className="grid grid-cols-12 gap-8 mt-32">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                   <p className="text-body1 text-foreground">
@@ -84,7 +84,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/glorifi-workshops.png"
@@ -107,10 +107,10 @@ export default function Work() {
               <ProjectSectionHeader
               title="Information architecture"
                 intro="I mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
-                className="mt-[128px]"
+                className="mt-12 md:mt-[128px]"
               />
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                   <p className="text-body1 text-foreground">
@@ -133,10 +133,10 @@ export default function Work() {
               <ProjectSectionHeader
               title="Visual design"
                 intro="UI exploration established the foundation for a scalable design system that unified typography, color, spacing, and component patterns across mobile and web."
-                className="mt-32"
+                className="mt-12 md:mt-32"
               />
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                   <p className="text-body1 text-foreground">
@@ -156,7 +156,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/glorifi-designsystem.png"
@@ -179,10 +179,10 @@ export default function Work() {
               <ProjectSectionHeader
               title="Product shipped"
                 intro="The final product delivered a cohesive financial experience that combined news, insights, rewards, and account management into a polished, user‑friendly interface."
-                className="mt-[128px]"
+                className="mt-12 md:mt-[128px]"
               />
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Today</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -201,7 +201,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -220,7 +220,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -238,7 +238,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-[128px]">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -257,7 +257,7 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[128px]">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">
                   <div className="w-full">
                     <h2 className="text-h2 text-foreground mb-4">Next project</h2>

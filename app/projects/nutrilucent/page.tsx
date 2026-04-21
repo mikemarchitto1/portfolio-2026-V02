@@ -38,7 +38,7 @@ export default function NutrilucentCaseStudy() {
                 ]}
               />
 
-              <div className="grid grid-cols-12 gap-4 pb-20">
+              <div className="grid grid-cols-12 gap-4 pb-0 md:pb-20">
                 <div className="col-span-12">
                   <div className="h-[520px] overflow-hidden rounded-[16px]">
                     <ActionAreaCard thumbnail={image_hero} thumbHeight={"520"} />
@@ -59,10 +59,10 @@ export default function NutrilucentCaseStudy() {
               <ProjectSectionHeader
                 title="Discovery"
                 intro="Conducted research to understand user needs for the wellness landscape. These insights shaped the foundation for Nutrilucent’s emerging identity."
-                className="mt-32"
+                className="mt-12 md:mt-32"
               />
 
-              <div className="grid grid-cols-12 gap-8 mt-32">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Research plan</h3>
                   <p className="text-body1 text-foreground">
@@ -83,7 +83,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-stakeint.png"
@@ -103,7 +103,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Insights matrix</h3>
                   <p className="text-body1 text-foreground">
@@ -124,7 +124,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-empathymap.png"
@@ -145,7 +145,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Stakeholder interview debrief</h3>
                   <p className="text-body1 text-foreground">
@@ -166,7 +166,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                   <img
                     src="/images/nutrilucent-snapshot.png"
@@ -187,7 +187,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                   <p className="text-body1 text-foreground">
@@ -211,10 +211,10 @@ export default function NutrilucentCaseStudy() {
               <ProjectSectionHeader
                 title="Branding"
                 intro="The Nutrilucent brand system is in an active development phase, establishing a modern, credible, and scalable identity that can extend seamlessly across every touchpoint."
-                className="mt-32"
+                className="mt-12 md:mt-32"
               />
 
-              <div className="grid grid-cols-12 gap-8 pt-32">
+              <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Brand audit</h3>
                   <p className="text-body1 text-foreground">
@@ -233,7 +233,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Inspiration</h3>
                   <p className="text-body1 text-foreground">
@@ -253,7 +253,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[128px]">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Sketching</h3>
                   <p className="text-body1 text-foreground">
@@ -271,7 +271,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Packaging</h3>
                   <p className="text-body1 text-foreground">
@@ -294,10 +294,10 @@ export default function NutrilucentCaseStudy() {
                 <ProjectSectionHeader
                   title="Product features"
                   intro="Placeholder feature narrative for Nutrilucent—replace with product-specific highlights when content and imagery are ready."
-                  className="mt-[128px]"
+                  className="mt-12 md:mt-[128px]"
                 />
 
-                <div className="grid grid-cols-12 gap-8 pt-32">
+                <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                   <div className="col-span-12 text-left min-w-0 mb-4">
                     <h3 className="text-h3 text-foreground mb-4">Today</h3>
                     <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -315,7 +315,7 @@ export default function NutrilucentCaseStudy() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                   <div className="col-span-12 text-left min-w-0 mb-4">
                     <h3 className="text-h3 text-foreground mb-4">Snapshot</h3>
                     <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -333,7 +333,7 @@ export default function NutrilucentCaseStudy() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                   <div className="col-span-12 text-left min-w-0 mb-4">
                     <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
                     <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -351,7 +351,7 @@ export default function NutrilucentCaseStudy() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-12 gap-8 pt-[128px]">
+                <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                   <div className="col-span-12 text-left min-w-0 mb-4">
                     <h3 className="text-h3 text-foreground mb-4">Accounts</h3>
                     <p className="text-body1 text-foreground w-full lg:w-1/2">
@@ -370,7 +370,7 @@ export default function NutrilucentCaseStudy() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-8 mt-[128px]">
+              <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px]">
                 <div className="col-span-12 lg:col-span-5 pb-0">
                   <div className="w-full">
                     <h2 className="text-h2 text-foreground mb-4">Next project</h2>

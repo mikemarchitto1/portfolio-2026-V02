@@ -41,7 +41,7 @@ function Work() {
               ]}
             />
 
-            <div className="grid grid-cols-12 gap-4 pb-[80px]">
+            <div className="grid grid-cols-12 gap-4 pb-0 md:pb-[80px]">
 
                 <div className="col-span-12">
                     <div className="h-[520px] rounded-[16px] overflow-hidden">
@@ -79,11 +79,11 @@ function Work() {
             <ProjectSectionHeader
               title="Discovery"
               intro="I analyzed customer behavior, ecommerce patterns, and outdoor retail trends to identify opportunities for a more engaging and conversion‑friendly experience."
-              className="mt-32"
+              className="mt-12 md:mt-32"
             />
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                     <p className="text-body1 text-foreground">
@@ -97,7 +97,7 @@ function Work() {
             </div>
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img src={image_workshops} className="w-full h-auto rounded-[16px] object-contain" alt="Workshops" />
                 </div>
@@ -115,10 +115,10 @@ function Work() {
             <ProjectSectionHeader
               title="Information architecture"
               intro="I refined the site structure and product hierarchy to make browsing easier and ensure customers could quickly find relevant gear and apparel."
-              className="mt-[128px]"
+              className="mt-12 md:mt-[128px]"
             />
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                     <p className="text-body1 text-foreground">
@@ -135,10 +135,10 @@ function Work() {
             <ProjectSectionHeader
               title="Visual design"
               intro="I developed updated visual styles and UI components that modernized the brand while maintaining its heritage and outdoor identity."
-              className="mt-[128px]"
+              className="mt-12 md:mt-[128px]"
             />
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                     <p className="text-body1 text-foreground">
@@ -151,7 +151,7 @@ function Work() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+            <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img src={image_systemicons} className="w-full h-auto rounded-[16px] object-contain" alt="System icons" />
                 </div>
@@ -164,7 +164,7 @@ function Work() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+            <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img
                       src={image_designsystem}
@@ -185,11 +185,11 @@ function Work() {
             <ProjectSectionHeader
               title="Product shipped"
               intro="The final experience delivered a cleaner, more cohesive ecommerce platform with reusable components that support ongoing marketing and merchandising needs."
-              className="mt-[128px]"
+              className="mt-12 md:mt-[128px]"
             />
 
 
-            <div className="grid grid-cols-12 gap-4 pt-[128px]">
+            <div className="grid grid-cols-12 gap-4 pt-12 md:pt-[128px]">
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">Product details</h3>
                     <p className="text-body1 text-foreground mt-4 mb-8">
@@ -204,7 +204,7 @@ function Work() {
 
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
 
                 <div className="col-span-12 lg:col-span-5">
                     <div className="w-full">

@@ -41,7 +41,7 @@ function Work() {
               ]}
             />
 
-            <div className="grid grid-cols-12 gap-4 pb-[80px]">
+            <div className="grid grid-cols-12 gap-4 pb-0 md:pb-[80px]">
 
                 <div className="col-span-12">
                     <div className="h-[520px] rounded-[16px] overflow-hidden">
@@ -107,11 +107,11 @@ function Work() {
             <ProjectSectionHeader
               title="Discovery"
               intro="I conducted foundational research to understand how teams interacted with the legacy system, identifying friction points and opportunities for improvement."
-              className="mt-32"
+              className="mt-12 md:mt-32"
             />
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">System audit</h3>
                     <p className="text-body1 text-foreground">
@@ -131,7 +131,7 @@ function Work() {
             </div>
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img
                       src={image_empathy}
@@ -154,10 +154,10 @@ function Work() {
             <ProjectSectionHeader
               title="Information architecture"
               intro="I restructured the navigation and content hierarchy to reduce cognitive load and make key workflows easier to discover and complete."
-              className="mt-[128px]"
+              className="mt-12 md:mt-[128px]"
             />
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                     <p className="text-body1 text-foreground">
@@ -180,10 +180,10 @@ function Work() {
             <ProjectSectionHeader
               title="Visual design"
               intro="I applied Microsoft’s design principles to create a cleaner, more accessible interface that supports clarity, consistency, and long‑term scalability."
-              className="mt-32"
+              className="mt-12 md:mt-32"
             />
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
                     <p className="text-body1 text-foreground">
@@ -202,7 +202,7 @@ function Work() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-8 mt-[128px] pt-0">
+            <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
                 <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
                     <img
                       src={image_designsystem}
@@ -222,7 +222,7 @@ function Work() {
             </div>
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                     <h3 className="text-h3 text-foreground mb-4">UI specs</h3>
                     <p className="text-body1 text-foreground">
@@ -246,10 +246,10 @@ function Work() {
             <ProjectSectionHeader
               title="Product shipped"
               intro="The final release delivered a modernized research platform that improved usability, reduced friction, and enabled teams to work more efficiently."
-              className="mt-[128px]"
+              className="mt-12 md:mt-[128px]"
             />
 
-            <div className="grid grid-cols-12 gap-4 pt-[128px]">
+            <div className="grid grid-cols-12 gap-4 pt-12 md:pt-[128px]">
                 <div className="col-span-12 lg:col-span-6 text-left min-w-0">
                     <h3 className="text-h3 text-foreground mb-0">
                       Content ingestion editor
@@ -271,7 +271,7 @@ function Work() {
             </div>
 
 
-            <div className="grid grid-cols-12 gap-8 pt-[128px]">
+            <div className="grid grid-cols-12 gap-8 pt-12 md:pt-[128px]">
 
                 <div className="col-span-12 lg:col-span-5">
                     <div className="w-full">

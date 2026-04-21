@@ -30,7 +30,7 @@ export default function ProjectOverview({
     <section className={cn("w-full pt-12 text-left min-w-0", className)}>
       <h2 className="text-h2 font-light text-foreground">{title}</h2>
       <h4 className="text-h4 text-foreground mt-4 max-w-[800px]">{intro}</h4>
-      <div className="mt-[128px] md:mt-[128px] grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10 lg:gap-12">
+      <div className="mt-12 md:mt-[128px] grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10 lg:gap-12">
         <div className="min-w-0">
           <h3 className="text-h3 text-foreground mb-3">{situationLabel}</h3>
           <p className="text-body1 text-foreground">{situation}</p>

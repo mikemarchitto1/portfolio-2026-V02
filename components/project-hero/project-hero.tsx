@@ -24,7 +24,7 @@ export default function ProjectHero({
   return (
     <section
       className={cn(
-        "pt-[17px] md:pt-[33px] lg:pt-[65px] pb-[48px] mb-20 text-left min-w-0",
+        "pt-[17px] md:pt-[33px] lg:pt-[65px] pb-0 md:pb-[48px] mb-12 md:mb-20 text-left min-w-0",
         className
       )}
     >
