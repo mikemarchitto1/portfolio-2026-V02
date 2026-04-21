@@ -66,7 +66,7 @@ function Work() {
               taskLabel="Action"
               situation="Build a stronger contemporary brand with current signature technologies, engage the outdoor apparel community, and create a product description page and branded design system that cater to the users' interests while reinforcing long‑term loyalty and trust."
               task="Discovery research, competitive audits, and workshops clarified customer needs and UX gaps. These insights shaped the IA, wireframes, updated visuals, and a cohesive design system with custom icons, resulting in a cleaner, more intuitive Ecommerce experience."
-              intro="This project modernized Eddie Bauer’s Ecommerce experience by improving UX patterns, updating brand visuals, and creating a more intuitive product journey to strengthen marketing performance and long‑term customer engagement."
+              intro="Modernized Ecommerce experience by improving UX patterns, updating brand visuals, and creating a more intuitive product journey to strengthen marketing performance and long‑term customer engagement."
               result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control over the narrative."
             />
 

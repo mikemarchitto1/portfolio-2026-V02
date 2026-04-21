@@ -52,7 +52,7 @@ export default function NutrilucentCaseStudy() {
                 taskLabel="Action"
                 situation="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
                 task="Discovery research, stakeholder interviews, competitive analysis, and persona work clarified user needs and business priorities. These insights guided early brand foundations, visual exploration, and packaging concepts for Nutrilucent’s direction."
-                intro="Nutrilucent is in an early phase of building a science‑driven wellness brand, focusing on discovery research, brand foundations, and initial system design to shape a cohesive product story and guide future ecosystem development."
+                intro="Nutrilucent is in an early phase of building a wellness brand, focusing on discovery research, brand, and system design to shape a cohesive product story and guide future ecosystem development."
                 result="The research and brand foundations directly informed ongoing site iterations, strengthening clarity, trust signals, and product positioning. Early updates contributed to increased engagement and improved sales performance for the new product line."
               />
 
