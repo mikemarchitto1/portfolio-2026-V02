@@ -50,9 +50,12 @@ export default function Work() {
               </div>
 
               <ProjectOverview
-                situation="GloriFi’s goal is to offer a functional financial banking app that focuses on financial wellness information via their mobile and web application. The timeline is to launch a beta and MVP application in eight months to validate market interest and secure more funding."
-                task="Design a global financial news feed and financial data insights hub that meaningfully engages U.S. cultural and financial communities by strengthening trust, security, and privacy throughout the entire modern bank‑account‑opening experience."
-                intro="This project focused on creating a cohesive financial ecosystem that supports users through clear information architecture, personalized insights, and a secure onboarding experience."
+                title="Situation"
+                situationLabel="Task"
+                taskLabel="Action"
+                situation="Design a global financial news feed and financial data insights hub that meaningfully engages U.S. cultural and financial communities by strengthening trust, security, and privacy throughout the entire modern bank‑account‑opening experience."
+                task="Combined research, competitive analysis, persona development, information architecture, and wireframing to shape the product direction. UI exploration then established a scalable system that unified mobile and web, creating a cohesive and maintainable design framework."
+                intro="GloriFi set out to build a unified financial wellness platform across mobile and web, with an eight‑month deadline to deliver an MVP and beta that could validate market demand and support future funding."
                 result="Following the initial release, which involved a successful launch of the app, it was reported that more than 40,000 individuals had downloaded the application, which was a significant achievement, as it ranked 11th among all financial apps available on the market."
               />
 

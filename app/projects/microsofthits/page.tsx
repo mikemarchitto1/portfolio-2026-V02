@@ -95,8 +95,12 @@ function Work() {
 
 
             <ProjectOverview
-              situation="The initiative centered on elevating usability and functionality through the creation of a unified design system and style guide. This provided a consistent visual and interaction framework that supports a more efficient and scalable product development life cycle."
-              task="Create an enhanced web‑tool software that utilizes Microsoft’s branding standards to help attract and engage significantly more users throughout the organization, improving overall visibility and adoption, and long‑term internal product success."
+              title="Situation"
+              situationLabel="Task"
+              taskLabel="Action"
+              intro="This initiative modernized a legacy research tool into a more intuitive platform by improving usability and establishing a unified design system, creating a scalable foundation for ongoing product development."
+              situation="Create an enhanced web‑tool software that utilizes Microsoft’s branding standards to help attract and engage significantly more users throughout the organization, improving overall visibility and adoption, and long‑term internal product success."
+              task="Discovery research, system audits, and empathy‑mapping clarified user needs and friction in the legacy tool. These insights shaped the new IA, wireframes and design system, resulting in a cleaner, more scalable platform with an improved content‑ingestion workflow."
               result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control."
             />
 

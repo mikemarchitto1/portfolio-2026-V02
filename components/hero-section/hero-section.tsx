@@ -11,13 +11,13 @@ export default function HeroSection() {
           {/* OUTER BOX */}
           <div className="w-full min-w-0 flex flex-col py-4 md:py-8 lg:py-16 px-0 lg:px-16 bg-transparent">
 
-            {/* Desktop: flex row — image exactly 50% width; gap-24 gutter; text flexes (not 1fr/1fr grid) */}
-            <div className="flex w-full min-w-0 flex-col gap-24 md:flex-row md:items-stretch md:gap-24">
-              <div className="min-w-0 flex-1 basis-0 text-foreground bg-transparent">
+            {/* Tablet uses a tighter gutter; desktop restores the full visual gap */}
+            <div className="flex w-full min-w-0 flex-col gap-12 md:flex-row md:items-stretch md:gap-8 lg:gap-24">
+              <div className="min-w-0 flex-1 basis-0 md:min-w-[20rem] text-foreground bg-transparent">
                 <h1 className="text-h1 font-light whitespace-nowrap">
                   Mike Marchitto
                 </h1>
-                <h4 className="text-h4 max-w-[528px] text-foreground">
+                <h4 className="text-h4 text-foreground">
                   Product designer building modern AI‑powered digital experiences
                 </h4>
                 <div className="text-body1 space-y-4 mt-5">

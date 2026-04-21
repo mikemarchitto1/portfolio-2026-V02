@@ -29,14 +29,14 @@ function ImpactStatsTechStackLogos() {
         <img
           src="/images/logo-cursor.svg"
           alt="Cursor"
-          className="w-full max-w-[96px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
+          className="w-full max-w-[96px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className="flex h-full w-full items-center justify-center">
         <img
           src="/images/logo-openai.svg"
           alt="OpenAI"
-          className="w-full max-w-[91px] h-auto object-contain object-center shrink-0 translate-y-[2px]"
+          className="w-full max-w-[91px] h-auto object-contain object-center shrink-0"
         />
       </div>
 
@@ -68,21 +68,21 @@ function ImpactStatsTechStackLogos() {
         <img
           src="/images/logo-shopify.svg"
           alt="Shopify"
-          className="w-full max-w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[4px]"
+          className="w-full max-w-[93px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className="flex h-full w-full items-center justify-center">
         <img
           src="/images/logo-framer.svg"
           alt="Framer"
-          className="w-full max-w-[93px] h-auto object-contain object-center shrink-0 -translate-y-[1px]"
+          className="w-full max-w-[93px] h-auto object-contain object-center shrink-0"
         />
       </div>
       <div className="flex h-full w-full items-center justify-center">
         <img
           src="/images/logo-adobe.svg"
           alt="Adobe"
-          className="w-full max-w-[62px] h-auto object-contain object-center shrink-0 -translate-y-[3px]"
+          className="w-full max-w-[62px] h-auto object-contain object-center shrink-0"
         />
       </div>
 
@@ -105,7 +105,7 @@ function ImpactStatsTechStackLogos() {
         <img
           src="/images/logo-vercel.svg"
           alt="Vercel"
-          className="w-full max-w-[86px] h-auto object-contain object-center shrink-0 translate-y-[1px]"
+          className="w-full max-w-[86px] h-auto object-contain object-center shrink-0"
         />
       </div>
 
@@ -172,7 +172,7 @@ function ImpactStatsTechStackLogos() {
 /** Slim grid + centered layout — Companies section only */
 function CompaniesTechStackLogos() {
   const cell =
-    "flex w-full min-h-0 h-full items-center justify-center";
+    "flex w-full min-h-[56px] md:min-h-[72px] lg:min-h-[80px] items-center justify-center";
 
   return (
     <>
@@ -254,7 +254,7 @@ export default function ImpactTechStackSection({
                 "w-full grid gap-4",
                 hideStats
                   ? "grid-cols-1"
-                  : "grid-cols-1 md:grid-cols-2 md:items-stretch md:h-[440px] md:min-h-[440px] md:max-h-[440px]"
+                  : "grid-cols-1 md:grid-cols-2 md:items-stretch md:min-h-[426px]"
               )}
             >
               {/* Metrics */}
@@ -292,25 +292,25 @@ export default function ImpactTechStackSection({
               >
                 <Card
                   className={cn(
-                    "rounded-2xl w-full min-w-0 flex flex-col overflow-hidden bg-[oklch(100%_0_0)] border-0 gap-0",
+                    "rounded-2xl w-full min-w-0 flex flex-col bg-[oklch(100%_0_0)] border-0 gap-0",
                     hideStats
-                      ? "py-10 px-4 md:py-14 md:px-8 lg:py-[72px] lg:px-12 min-h-0 md:min-h-[440px] flex-1"
-                      : "h-full min-h-0 pt-[29px] px-4 pb-10 md:pt-[21px] md:px-8 md:pb-8 lg:pt-[61px] lg:px-12 lg:pb-12 flex-1"
+                      ? "py-10 px-4 md:py-14 md:px-8 lg:py-[68px] lg:px-12 min-h-0 md:min-h-[426px] flex-1"
+                      : "h-full min-h-0 py-[34px] px-4 md:py-[26px] md:px-8 lg:py-[44px] lg:px-12 flex-1"
                   )}
                 >
                   <CardContent
                     className={cn(
                       "p-0 w-full",
                       hideStats && "flex flex-1 flex-col justify-center min-h-0",
-                      !hideStats && "flex flex-1 flex-col min-h-0 overflow-hidden"
+                      !hideStats && "flex flex-1 flex-col justify-center min-h-0"
                     )}
                   >
                     <div
                       className={cn(
                         "logo-columns-grid grid w-full min-w-0",
                         hideStats
-                          ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-auto-rows-[56px] md:grid-auto-rows-[72px] lg:grid-auto-rows-[80px] content-center max-w-none items-center justify-items-center gap-8 md:gap-x-14 md:gap-y-14 lg:gap-x-4 lg:gap-y-[104px]"
-                          : "grid-cols-2 lg:grid-cols-3 grid-auto-rows-[36px] md:grid-auto-rows-[38px] lg:grid-auto-rows-[40px] content-start max-w-xl lg:max-w-4xl mx-auto items-stretch gap-x-2 gap-y-[38px] md:gap-x-3 md:gap-y-12 lg:gap-x-4 lg:gap-y-12"
+                          ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(56px,_auto)] md:auto-rows-[minmax(72px,_auto)] lg:auto-rows-[minmax(80px,_auto)] content-center max-w-none items-center justify-items-center gap-x-8 gap-y-[27px] md:gap-x-14 md:gap-y-[51px] lg:gap-x-4 lg:gap-y-[91px]"
+                          : "grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(36px,_auto)] md:auto-rows-[minmax(38px,_auto)] lg:auto-rows-[minmax(40px,_auto)] content-center max-w-xl lg:max-w-4xl mx-auto items-center gap-x-2 gap-y-[33px] md:gap-x-3 md:gap-y-[27px] lg:gap-x-4 lg:gap-y-[35px]"
                       )}
                     >
                       {hideStats ? (

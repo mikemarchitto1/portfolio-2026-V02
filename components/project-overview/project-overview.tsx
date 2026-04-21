@@ -12,6 +12,7 @@ export type ProjectOverviewProps = {
   intro?: string;
   title?: string;
   situationLabel?: string;
+  taskLabel?: string;
   className?: string;
 };
 
@@ -22,6 +23,7 @@ export default function ProjectOverview({
   intro = DEFAULT_INTRO,
   title = "Overview",
   situationLabel = "Situation",
+  taskLabel = "Task",
   className,
 }: ProjectOverviewProps) {
   return (
@@ -34,7 +36,7 @@ export default function ProjectOverview({
           <p className="text-body1 text-foreground">{situation}</p>
         </div>
         <div className="min-w-0">
-          <h3 className="text-h3 text-foreground mb-3">Task</h3>
+          <h3 className="text-h3 text-foreground mb-3">{taskLabel}</h3>
           <p className="text-body1 text-foreground">{task}</p>
         </div>
         <div className="min-w-0">

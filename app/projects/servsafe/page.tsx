@@ -41,9 +41,12 @@ export default function ServSafeCaseStudy() {
               </div>
 
               <ProjectOverview
-                situation="ServSafe standardizes food‑safety training and certification through clearer learning paths, improved usability, and scalable experiences. By refining how learners engage with content, the platform strengthens consistency, accessibility, and overall trust."
-                task="Design a cohesive training and certification experience that supports learners and administrators with predictable navigation, strong hierarchy, and trust‑building patterns woven consistently throughout the broader product ecosystem."
-                intro="This project improved a web‑based enterprise training platform by clarifying workflows, strengthening the visual system, and making training content easier to find and complete."
+                title="Situation"
+                situationLabel="Task"
+                taskLabel="Action"
+                situation="Design a cohesive training and certification experience that supports learners and administrators with predictable navigation, strong hierarchy, and trust‑building patterns woven consistently throughout the broader product ecosystem."
+                task="Discovery research, system audits, and empathy‑mapping clarified learner needs and workflow gaps. These insights shaped the information architecture and a scalable design system, refined through testing to create a clearer, more consistent training experience."
+                intro="ServSafe is a platform for standardizing food‑safety training. This project improved usability by refining workflows, strengthening the visual system, and making training content easier to navigate."
                 result="Following launch, the platform supported improved completion rates and more consistent adoption of food‑safety practices across participating organizations, reinforcing clearer workflows and strengthening long‑term training outcomes overall."
               />
 

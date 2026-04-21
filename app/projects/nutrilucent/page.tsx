@@ -47,10 +47,13 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <ProjectOverview
-                situation="Nutrilucent’s goal is to shape a cohesive product story that resonates with consumers and retail partners. This case study documents research, information architecture, branding and visual systems used to align the brand with its science driven positioning."
-                task="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
-                intro="This case study reflects the current phase of an ongoing engagement, focused on research, brand foundations, and early system design. As the product evolves, additional phases will expand the full Nutrilucent ecosystem."
-                result="This section will be updated with launch metrics, research outcomes, and adoption insights once Nutrilucent progresses into later phases, allowing the full experience to be evaluated and thoroughly measured against the goals defined in the discovery phase."
+                title="Situation"
+                situationLabel="Task"
+                taskLabel="Action"
+                situation="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
+                task="Discovery research, stakeholder interviews, competitive analysis, and persona work clarified user needs and business priorities. These insights guided early brand foundations, visual exploration, and packaging concepts for Nutrilucent’s direction."
+                intro="Nutrilucent is in an early phase of building a science‑driven wellness brand, focusing on discovery research, brand foundations, and initial system design to shape a cohesive product story and guide future ecosystem development."
+                result="The research and brand foundations directly informed ongoing site iterations, strengthening clarity, trust signals, and product positioning. Early updates contributed to increased engagement and improved sales performance for the new product line."
               />
 
               <ProjectSectionHeader
