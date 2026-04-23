@@ -309,7 +309,7 @@ export default function ImpactTechStackSection({
                       className={cn(
                         "logo-columns-grid grid w-full min-w-0",
                         hideStats
-                          ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(56px,_auto)] md:auto-rows-[minmax(72px,_auto)] lg:auto-rows-[minmax(80px,_auto)] content-center max-w-none items-center justify-items-center gap-x-8 gap-y-[27px] md:gap-x-14 md:gap-y-[51px] lg:gap-x-4 lg:gap-y-[91px]"
+                          ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(56px,_auto)] md:auto-rows-[minmax(72px,_auto)] lg:auto-rows-[minmax(80px,_auto)] content-center max-w-none items-center justify-items-center gap-x-8 gap-y-[23px] md:gap-x-14 md:gap-y-[47px] lg:gap-x-4 lg:gap-y-[87px]"
                           : "grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(36px,_auto)] md:auto-rows-[minmax(38px,_auto)] lg:auto-rows-[minmax(40px,_auto)] content-center max-w-xl lg:max-w-4xl mx-auto items-center gap-x-2 gap-y-[33px] md:gap-x-3 md:gap-y-[27px] lg:gap-x-4 lg:gap-y-[35px]"
                       )}
                     >
