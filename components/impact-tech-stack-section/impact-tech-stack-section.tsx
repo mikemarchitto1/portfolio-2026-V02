@@ -117,9 +117,9 @@ function ImpactStatsTechStackLogos() {
           className="w-full max-w-[27px] h-auto object-contain object-center shrink-0"
         />
         <img
-          src="/images/logo-fluent.svg"
-          alt="Fluent UI"
-          className="w-full max-w-[17px] h-auto object-contain object-center shrink-0"
+          src="/images/logo-notion.svg"
+          alt="Notion"
+          className="w-full max-w-[24px] h-auto object-contain object-center shrink-0"
         />
         <img
           src="/images/logo-tailwindcss.svg"
