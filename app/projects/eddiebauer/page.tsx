@@ -165,7 +165,7 @@ function Work() {
             </div>
 
             <div className="grid grid-cols-12 gap-8 mt-12 md:mt-[128px] pt-0">
-                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-1">
+                <div className="col-span-12 sm:col-span-8 md:col-span-8 order-2 sm:order-2">
                     <img
                       src={image_designsystem}
                       className="w-full h-auto rounded-[16px] object-contain"
@@ -173,7 +173,7 @@ function Work() {
                     />
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
+                <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-1">
                     <h3 className="text-h3 text-foreground mb-4">Design system</h3>
                     <p className="text-body1 text-foreground">
                     To maintain a consistent user experience, styles and UI components were established and documented for seamless handoff to development, resulting in a polished and cohesive interface.
