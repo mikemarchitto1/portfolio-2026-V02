@@ -33,7 +33,7 @@ export default function HeroSection() {
                   <div className="w-full min-w-0 overflow-hidden rounded-2xl bg-card">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/profile.png"
+                      src="/images/mike-head.png"
                       alt="Mike profile"
                       width={1600}
                       height={1200}
