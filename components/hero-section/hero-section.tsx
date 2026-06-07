@@ -35,8 +35,8 @@ export default function HeroSection() {
                     <img
                       src="/images/mike-head.png"
                       alt="Mike profile"
-                      width={1600}
-                      height={1200}
+                      width={1200}
+                      height={878}
                       className="block h-auto w-full max-w-full object-cover rounded-2xl"
                       loading="eager"
                       decoding="async"
