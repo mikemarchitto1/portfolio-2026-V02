@@ -824,6 +824,11 @@
     font-weight: var(--text-h4-weight);
     letter-spacing: var(--text-h4-letter-spacing);
   }
+  @media (min-width: 1024px) {
+    .hero h4.text-h4 {
+      line-height: 1.5;
+    }
+  }
   .text-h6 {
     font-size: var(--text-h6-size);
     line-height: var(--text-h6-line);
