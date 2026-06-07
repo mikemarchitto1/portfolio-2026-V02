@@ -902,6 +902,21 @@
     );
   }
 
+  /* Light desktop: nav button borders one step darker than default --border (92% → 88%). */
+  @media (min-width: 1024px) {
+    html.light .nav-button,
+    html:not(.dark):not(.color) .nav-button,
+    [data-theme="light"] .nav-button {
+      border-color: oklch(88% 0 0);
+    }
+
+    html.light .nav-button:focus-visible,
+    html:not(.dark):not(.color) .nav-button:focus-visible,
+    [data-theme="light"] .nav-button:focus-visible {
+      border-color: oklch(88% 0 0);
+    }
+  }
+
   /* Case study hero metadata tags: visible grey pill in light mode (--muted matches page bg). */
   html.light .project-hero-metadata span,
   html:not(.dark):not(.color) .project-hero-metadata span,
