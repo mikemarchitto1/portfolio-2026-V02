@@ -17,12 +17,12 @@ export default function HeroSection() {
                 <h1 className="text-h1 font-light whitespace-nowrap">
                   Mike Marchitto
                 </h1>
-                <h4 className="text-h4 text-foreground mt-[8px]">
+                <h4 className="text-h4 text-foreground mt-[0px]">
                   Product Designer Building Modern AI‑Powered Digital Experiences
                 </h4>
                 
                 {/* Tactical Value Propositions List */}
-                <div className="mt-6 flex flex-col gap-2 max-w-xl text-left">
+                <div className="mt-3.5 flex flex-col gap-2.75 max-w-xl text-left">
                   
                   {/* Item 01 */}
                   <div className="flex items-start gap-4">
@@ -30,7 +30,7 @@ export default function HeroSection() {
                       01
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Build scalable UX systems with AI-augmented workflows.
+                    Build scalable design systems that stay consistent and ship cleanly across teams.
                     </p>
                   </div>
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
                       02
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Reduce friction to strengthen complex user decisions.
+                    Simplify complex workflows so users move faster with less friction and greater clarity.
                     </p>
                   </div>
 
@@ -50,7 +50,7 @@ export default function HeroSection() {
                       03
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Help product teams ship consistently with confidence.
+                    Accelerate delivery with AI‑augmented research, IA, and prototyping automation.
                     </p>
                   </div>
 
