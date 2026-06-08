@@ -20,11 +20,42 @@ export default function HeroSection() {
                 <h4 className="text-h4 text-foreground mt-[8px]">
                   Product Designer Building Modern AI‑Powered Digital Experiences
                 </h4>
-                <div className="text-body1 space-y-4 mt-5">
-                  <p>
-                  I design clear, scalable product experiences grounded in UX, systems thinking, and AI‑supported workflows. I focus on reducing friction, strengthening decisions, and helping teams ship confidently and consistently across web and mobile platforms.
-                  </p>
+                
+                {/* Tactical Value Propositions List */}
+                <div className="mt-6 flex flex-col gap-2 max-w-xl text-left">
+                  
+                  {/* Item 01 */}
+                  <div className="flex items-start gap-4">
+                    <span className="font-sans tabular-nums text-[14px] font-semibold tracking-tight text-muted-foreground select-none pt-0.5">
+                      01
+                    </span>
+                    <p className="text-body1 text-foreground leading-relaxed">
+                    Build scalable UX systems with AI-augmented workflows.
+                    </p>
+                  </div>
+
+                  {/* Item 02 */}
+                  <div className="flex items-start gap-4">
+                    <span className="font-sans tabular-nums text-[14px] font-semibold tracking-tight text-muted-foreground select-none pt-0.5">
+                      02
+                    </span>
+                    <p className="text-body1 text-foreground leading-relaxed">
+                    Reduce friction to strengthen complex user decisions.
+                    </p>
+                  </div>
+
+                  {/* Item 03 */}
+                  <div className="flex items-start gap-4">
+                    <span className="font-sans tabular-nums text-[14px] font-semibold tracking-tight text-muted-foreground select-none pt-0.5">
+                      03
+                    </span>
+                    <p className="text-body1 text-foreground leading-relaxed">
+                    Help product teams ship consistently with confidence.
+                    </p>
+                  </div>
+
                 </div>
+
               </div>
 
               {/* Image: 50% of row; min-w-0 + shrink-0 keeps layout stable without overlapping text */}
