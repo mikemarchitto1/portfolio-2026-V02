@@ -13,6 +13,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/hooks/use-theme";
 import ErrorBoundary from "./error-boundary";
 import SidebarLayout from "@/components/sidebar-layout/sidebar-layout";
+import { Analytics } from "@vercel/analytics/react"; // ⭐ ADDED
 
 const inter = Inter({
   subsets: ["latin"],
@@ -90,11 +91,15 @@ export default function RootLayout({
 `;
 
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${geistMono.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      {/* To switch font: use one of inter.variable | ibmPlexSans.variable | workSans.variable | plusJakartaSans.variable | publicSans.variable | sourceSans.variable */}
+
       <body
         className={`${inter.variable} font-sans antialiased bg-background`}
         suppressHydrationWarning
@@ -104,6 +109,8 @@ export default function RootLayout({
             <SidebarLayout>{children}</SidebarLayout>
           </ErrorBoundary>
         </ThemeProvider>
+
+        <Analytics /> {/* ⭐ ADDED */}
       </body>
     </html>
   );
