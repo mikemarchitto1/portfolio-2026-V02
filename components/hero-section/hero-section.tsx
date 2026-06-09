@@ -50,7 +50,7 @@ export default function HeroSection() {
                       03
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Accelerate delivery with AI‑augmented research, IA, rapid prototyping and automation.
+                    Accelerate delivery with AI‑augmented research, information architecture, rapid prototyping and automation.
                     </p>
                   </div>
 
