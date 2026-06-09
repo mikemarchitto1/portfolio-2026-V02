@@ -17,26 +17,29 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
     href: "/projects/glorifi",
   },
   {
-    title: "Nutrilucent",
-    description:
-      "Wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
-    image: "/images/nutrilucent-thumb.png",
-    href: "/projects/nutrilucent",
-  },
-  {
-    title: "AI Labs",
-    description:
-      "Dedicated space for exploring emerging AI technologies, experimenting with new creative workflows, and documenting studies that expand modern design.",
-    image: "/images/ailabs-thumb.png",
-    ctaLabel: "Coming Soon",
-  },
-  {
     title: "ServSafe",
     description:
       "Industry standard food safety training and certification platform strengthened through clearer learning flows, improved usability and more intuitive training experiences.",
     image: "/images/servsafe-thumb.png",
     href: "/projects/servsafe",
   },
+  {
+    title: "Nutrilucent",
+    description:
+      "Wellness retailer specializing in nutritional supplements and cosmetic products, grounded in research and product systems that convey trust and vitality.",
+    image: "/images/nutrilucent-thumb.png",
+    href: "/projects/nutrilucent",
+  },
+
+  // --- Hidden temporarily (AI Labs) ---
+  // {
+  //   title: "AI Labs",
+  //   description:
+  //     "Dedicated space for exploring emerging AI technologies, experimenting with new creative workflows, and documenting studies that expand modern design.",
+  //   image: "/images/ailabs-thumb.png",
+  //   ctaLabel: "Coming Soon",
+  // },
+
   {
     title: "Microsoft Hits",
     description:
@@ -55,8 +58,8 @@ export const HOME_PROJECT_CARDS: HomeProjectCard[] = [
 
 const CASE_STUDY_HREFS = [
   "/projects/glorifi",
-  "/projects/nutrilucent",
   "/projects/servsafe",
+  "/projects/nutrilucent",
   "/projects/microsofthits",
   "/projects/eddiebauer",
 ] as const;
@@ -67,8 +70,10 @@ function normalizePath(path: string) {
   return p;
 }
 
-/** Next case study in rotation (GloriFi → Nutrilucent → ServSafe → Microsoft Hits → Eddie Bauer → GloriFi). */
-export function getNextCaseStudyHomeCard(currentHref: string): HomeProjectCard | undefined {
+/** Next case study in rotation (GloriFi → ServSafe → Nutrilucent → Microsoft Hits → Eddie Bauer → GloriFi). */
+export function getNextCaseStudyHomeCard(
+  currentHref: string
+): HomeProjectCard | undefined {
   const key = normalizePath(currentHref);
   const order = CASE_STUDY_HREFS as readonly string[];
   const i = order.indexOf(key);

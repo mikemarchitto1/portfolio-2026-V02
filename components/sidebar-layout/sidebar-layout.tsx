@@ -118,16 +118,19 @@ try {
   }: {
     children: React.ReactNode;
   }) {
-    console.log("🔥 COMPONENT RENDER:", "SidebarLayout");
-    console.log("MOUNT:", "SidebarLayout");
     useEffect(() => {
-      console.log("EFFECT:", "SidebarLayout");
       IMAGE_PATHS_TO_CHECK.forEach((path) => {
         const img = new Image();
         img.onerror = () => console.error("Missing image:", path);
         img.src = path;
       });
     }, []);
+
+    // 1. Filter out AI Labs completely from the source array first to prevent any string/case mismatches
+    const visibleProjects = SIDEBAR_PROJECTS.filter(
+      (item) => item.label?.toLowerCase().trim() !== "ai labs"
+    );
+
     return (
       <SidebarProvider>
         <Sidebar>
@@ -139,30 +142,30 @@ try {
               <SidebarThemeSwitcher />
             </div>
           </SidebarHeader>
+
           <SidebarContent className="px-2 py-4 -mt-[72px]">
             <SidebarGroup>
               <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 ps-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)]">
                 Projects
               </SidebarGroupLabel>
+
               <SidebarMenu className="gap-0">
-                {SIDEBAR_PROJECTS[0]?.href != null && (
-                  <SidebarMenuItem key={SIDEBAR_PROJECTS[0].href}>
+                {/* Render the first item from the cleanly filtered array */}
+                {visibleProjects[0]?.href != null && (
+                  <SidebarMenuItem key={visibleProjects[0].href}>
                     <SidebarMenuButton variant="text" asChild>
                       <Link
-                        href={SIDEBAR_PROJECTS[0].href}
+                        href={visibleProjects[0].href}
                         className="text-button text-foreground no-underline w-full"
                       >
-                        {SIDEBAR_PROJECTS[0].label}
+                        {visibleProjects[0].label}
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 )}
-                <SidebarMenuItem>
-                  <SidebarMenuButton variant="text">
-                    AI Labs
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                {SIDEBAR_PROJECTS.slice(1).map((item) => (
+
+                {/* Render the rest of the filtered array */}
+                {visibleProjects.slice(1).map((item) => (
                   <SidebarMenuItem key={item.href ?? item.label}>
                     {item.href ? (
                       <SidebarMenuButton variant="text" asChild>
@@ -182,18 +185,25 @@ try {
                 ))}
               </SidebarMenu>
             </SidebarGroup>
+
             <SidebarGroup>
               <SidebarGroupLabel className="text-subtitle1 font-medium mb-2 mt-6 ps-[calc(var(--sidebar-menu-text-inset,0.25rem)+4px)]">
                 Connect
               </SidebarGroupLabel>
+
               <SidebarMenu className="gap-0">
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
-                    <a href="mailto:mikemarchitto@gmail.com" aria-label="Email Mike" className="text-button text-foreground no-underline w-full">
+                    <a
+                      href="mailto:mikemarchitto@gmail.com"
+                      aria-label="Email Mike"
+                      className="text-button text-foreground no-underline w-full"
+                    >
                       Email
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
+
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
                     <a
@@ -206,6 +216,7 @@ try {
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
+
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
                     <a
@@ -219,6 +230,7 @@ try {
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
+
                 <SidebarMenuItem>
                   <SchedulingDialog
                     trigger={
@@ -230,9 +242,12 @@ try {
             </SidebarGroup>
           </SidebarContent>
         </Sidebar>
+
         <div className="flex flex-col w-full min-w-0 overflow-x-clip">
           <Header />
-          <main className="min-h-screen min-w-0 w-full max-w-full overflow-x-clip flex-1 pt-16">{children}</main>
+          <main className="min-h-screen min-w-0 w-full max-w-full overflow-x-clip flex-1 pt-16">
+            {children}
+          </main>
         </div>
       </SidebarProvider>
     );
