@@ -276,6 +276,11 @@ try {
       return () => mq.removeEventListener("change", onMediaChange);
     }, []);
 
+    // Filter out AI Labs systematically from the projects mapping
+    const visibleProjects = SIDEBAR_PROJECTS.filter(
+      (item) => item.label?.toLowerCase().trim() !== "ai labs"
+    );
+
     console.log("🔥 COMPONENT RENDER:", "Header");
     console.log("MOUNT:", "Header");
     return (
@@ -349,25 +354,21 @@ try {
                             Projects
                           </SidebarGroupLabel>
                           <SidebarMenu className="mobile-menu-clients-list gap-0 mt-0 w-full">
-                            {SIDEBAR_PROJECTS[0]?.href != null && (
-                              <SidebarMenuItem key={SIDEBAR_PROJECTS[0].href} className="w-full">
+                            {visibleProjects[0]?.href != null && (
+                              <SidebarMenuItem key={visibleProjects[0].href} className="w-full">
                                 <SidebarMenuButton asChild>
                                   <Link
-                                    href={SIDEBAR_PROJECTS[0].href}
+                                    href={visibleProjects[0].href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className="no-underline w-full"
                                   >
-                                    {SIDEBAR_PROJECTS[0].label}
+                                    {visibleProjects[0].label}
                                   </Link>
                                 </SidebarMenuButton>
                               </SidebarMenuItem>
                             )}
-                            <SidebarMenuItem className="w-full">
-                              <SidebarMenuButton>
-                                AI Labs
-                              </SidebarMenuButton>
-                            </SidebarMenuItem>
-                            {SIDEBAR_PROJECTS.slice(1).map((item) => (
+
+                            {visibleProjects.slice(1).map((item) => (
                               <SidebarMenuItem key={item.href ?? item.label} className="w-full">
                                 {item.href ? (
                                   <SidebarMenuButton asChild>
