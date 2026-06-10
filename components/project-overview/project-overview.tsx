@@ -2,42 +2,42 @@
 
 import { cn } from "@/lib/utils";
 
-const DEFAULT_INTRO =
-  "This design focused on elevating the legacy tool into a modern, intuitive platform that supports researchers, analysts, and cross‑functional teams.";
+const DEFAULT_TASK =
+  "Lorem ipsum dolor sit amet consectetur. Sed at tincidunt tempor sagittis erat congue ut rhoncus.";
 
 export type ProjectOverviewProps = {
+  intro: string;
   situation: string;
-  task: string;
+  action: string;
   result: string;
-  intro?: string;
-  title?: string;
-  situationLabel?: string;
-  taskLabel?: string;
+  task?: string;
   className?: string;
 };
 
 export default function ProjectOverview({
+  intro,
   situation,
-  task,
+  action,
   result,
-  intro = DEFAULT_INTRO,
-  title = "Overview",
-  situationLabel = "Situation",
-  taskLabel = "Task",
+  task = DEFAULT_TASK,
   className,
 }: ProjectOverviewProps) {
   return (
     <section className={cn("w-full pt-12 text-left min-w-0", className)}>
-      <h2 className="text-h2 font-light text-foreground">{title}</h2>
+      <h2 className="text-h2 font-light text-foreground">Summary</h2>
       <h4 className="text-h4 text-foreground mt-4 max-w-[800px]">{intro}</h4>
-      <div className="mt-12 md:mt-[128px] grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10 lg:gap-12">
+      <div className="mt-12 md:mt-[128px] grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:gap-12">
         <div className="min-w-0">
-          <h3 className="text-h3 text-foreground mb-3">{situationLabel}</h3>
+          <h3 className="text-h3 text-foreground mb-3">Situation</h3>
           <p className="text-body1 text-foreground">{situation}</p>
         </div>
         <div className="min-w-0">
-          <h3 className="text-h3 text-foreground mb-3">{taskLabel}</h3>
+          <h3 className="text-h3 text-foreground mb-3">Task</h3>
           <p className="text-body1 text-foreground">{task}</p>
+        </div>
+        <div className="min-w-0">
+          <h3 className="text-h3 text-foreground mb-3">Action</h3>
+          <p className="text-body1 text-foreground">{action}</p>
         </div>
         <div className="min-w-0">
           <h3 className="text-h3 text-foreground mb-3">Result</h3>

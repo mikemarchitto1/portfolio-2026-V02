@@ -41,13 +41,11 @@ export default function ServSafeCaseStudy() {
               </div>
 
               <ProjectOverview
-                title="Situation"
-                situationLabel="Task"
-                taskLabel="Action"
-                situation="Design a cohesive training and certification experience that supports learners and administrators with predictable navigation, strong hierarchy, and trust‑building patterns woven consistently throughout the broader product ecosystem."
-                task="Discovery research, system audits, and empathy‑mapping clarified learner needs and workflow gaps. These insights shaped the information architecture and a scalable design system, refined through testing to create a clearer, more consistent training experience."
-                intro="ServSafe is a platform for standardizing food‑safety training. This project improved usability by refining workflows, strengthening the visual system, and making training content easier to navigate."
-                result="Following launch, the platform supported improved completion rates and more consistent adoption of food‑safety practices across participating organizations, reinforcing clearer workflows and strengthening long‑term training outcomes overall."
+                intro="Led the UX overhaul of this enterprise culinary compliance platform, refactoring dense information architecture to reduce friction within critical workforce certification workflows."
+                situation="ServSafe needed to modernize its legacy digital training ecosystem to fix fragmented educational content and disjointed workflows. The existing platform suffered from high user drop-off rates as hospitality workers struggled to navigate mandatory regulatory training."
+                task="As the Lead Product Designer, my mandate was to overhaul the end-to-end training journey and streamline compliance tracking. I owned the strategic redesign of the course delivery interfaces, progress dashboards, and core certification testing workflows."
+                action="I conducted behavioral analysis to isolate friction points, mapped a unified user journey, and engineered a modular design system. This structured UI framework simplified dense compliance content into highly intuitive, digestible learning tracks."
+                result="The redesigned platform drastically reduced user drop-off rates and significantly accelerated course completion speeds. The streamlined interface optimized workforce compliance velocity, enabling hospitality professionals to secure required certifications much faster."
               />
 
               <ProjectSectionHeader

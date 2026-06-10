@@ -50,13 +50,11 @@ export default function Work() {
               </div>
 
               <ProjectOverview
-                title="Situation"
-                situationLabel="Task"
-                taskLabel="Action"
-                situation="Design a global financial news feed and financial data insights hub that meaningfully engages U.S. cultural and financial communities by strengthening trust, security, and privacy throughout the entire modern bank‑account‑opening experience."
-                task="Combined research, competitive analysis, persona development, information architecture, and wireframing to shape the product direction. UI exploration then established a scalable system that unified mobile and web, creating a cohesive and maintainable design framework."
-                intro="GloriFi set out to build a unified financial wellness platform across mobile and web, with an eight‑month deadline to deliver an MVP and beta that could validate market demand and support future funding."
-                result="Following the initial release, which involved a successful launch of the app, it was reported that more than 40,000 individuals had downloaded the application, which was a significant achievement, as it ranked 11th among all financial apps available on the market."
+                intro="Engineered the cross-platform design system and visual foundation for this digital banking ecosystem to streamline core transaction experiences and accelerate user adoption."
+                situation="GloriFi set out to build a unified financial wellness platform across mobile and web, with an eight‑month deadline to deliver an MVP and beta that could validate market demand and support future funding."
+                task="As a Product Designer, my explicit mandate was to architect the end-to-end user experience and design system for the core mobile banking platform. I owned the comprehensive design strategy for the snapshot, the real-time data insights hub, Rewards and Account flows."
+                action="Conducted qualitative user research and competitive audits to establish trust, mapped the complex cross-platform information architecture, and engineered a scalable UI component system that unified our web and mobile frameworks."
+                result="Following the initial release, the design framework successfully supported scaling the application to over 40,000 active individual downloads during the launch phase. This user adoption secured an 11th-place ranking among all financial applications on the market."
               />
 
               <ProjectSectionHeader

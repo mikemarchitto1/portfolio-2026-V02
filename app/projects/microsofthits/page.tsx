@@ -95,13 +95,11 @@ function Work() {
 
 
             <ProjectOverview
-              title="Situation"
-              situationLabel="Task"
-              taskLabel="Action"
-              intro="This initiative modernized a legacy research tool into a more intuitive platform by improving usability and establishing a unified design system, creating a scalable foundation for ongoing product development."
-              situation="Create an enhanced web‑tool software that utilizes Microsoft’s branding standards to help attract and engage significantly more users throughout the organization, improving overall visibility and adoption, and long‑term internal product success."
-              task="Discovery research, system audits, and empathy‑mapping clarified user needs and friction in the legacy tool. These insights shaped the new IA, wireframes and design system, resulting in a cleaner, more scalable platform with an improved content‑ingestion workflow."
-              result="Following the launch, the findings of the qualitative research indicated that the level of satisfaction among users had increased, primarily because the design of the product was less obtrusive, and it allowed users to have greater control."
+              intro="Structured the secure user experience and search patterns for this internal data intelligence repository to minimize friction for technical teams parsing cross-organizational data sets."
+              situation="Microsoft's internal engineering teams relied on a legacy data intelligence repository that was throttled by rigid search structures and high workflow friction. The existing tool lacked a cohesive system foundation, severely limiting cross-organizational knowledge sharing and user visibility."
+              task="As a Product Designer, my mandate was to architect a high-performance web platform that integrated corporate system standards to scale adoption. I owned the structural overhaul of the search patterns, complex data filtering interfaces, and the end-to-end user navigation layout."
+              action="Conducted system audits, stakeholder interviews, and empathy mapping to isolate the core operational bottlenecks of the legacy layout. From these findings, I refactored the platform's information architecture and engineered a unified layout system that optimized the data-ingestion workflow."
+              result="The redesigned repository significantly accelerated cross-functional knowledge discovery by giving technical teams greater control over complex data views. Post-launch qualitative evaluations confirmed a substantial lift in internal user satisfaction, directly driven by the cleaner, less obtrusive design framework."
             />
 
             <ProjectSectionHeader

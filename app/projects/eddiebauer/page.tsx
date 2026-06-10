@@ -61,13 +61,11 @@ function Work() {
 
 
             <ProjectOverview
-              title="Situation"
-              situationLabel="Task"
-              taskLabel="Action"
-              situation="Build a stronger contemporary brand with current signature technologies, engage the outdoor apparel community, and create a product description page and branded design system that cater to the users' interests while reinforcing long‑term loyalty and trust."
-              task="Discovery research, competitive audits, and workshops clarified customer needs and UX gaps. These insights shaped the IA, wireframes, updated visuals, and a cohesive design system with custom icons, resulting in a cleaner, more intuitive Ecommerce experience."
-              intro="Modernized Ecommerce experience by improving UX patterns, updating brand visuals, and creating a more intuitive product journey to strengthen marketing performance and long‑term customer engagement."
-              result="After launch, task completion got faster, PDP drop‑offs decreased, and users consistently described the new experience as clearer and more modern. The design system also cut design and dev time because teams finally had consistent components to build with."
+              intro="Spearheaded a responsive web overhaul to optimize the digital commerce funnel and modernize product discovery while preserving legacy brand identity."
+              situation="Eddie Bauer needed to modernize its digital retail ecosystem to address outdated user patterns and fragmented visual systems. The legacy interface created friction along the product journey, directly impacting digital marketing conversion velocity and long-term customer engagement."
+              task="As a Product Designer, my mandate was to engineer a responsive, contemporary e-commerce interface while safeguarding core brand trust. I owned the strategic redesign of the core Product Description Page (PDP) architecture, cross-platform navigation schemas, and the overarching design system framework."
+              action="Executed user discovery research, competitive retail audits, and stakeholder alignment workshops to map existing user experience gaps. From these insights, I structured the refined information architecture, engineered responsive mid-fidelity wireframes, and produced a custom-icon design system to streamline the buying funnel."
+              result="The redesigned responsive experience accelerated task completion speeds and drove a measurable decrease in critical PDP checkout drop-off rates. Additionally, the unified design system component library successfully optimized internal product shipping velocity, drastically reducing cross-functional design and engineering development time."
             />
 
 

@@ -47,13 +47,11 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <ProjectOverview
-                title="Situation"
-                situationLabel="Task"
-                taskLabel="Action"
-                situation="Guide research, interface direction, and development decisions to shape the product, brand, and experience foundations, ensuring every touchpoint communicates trust and vitality while supporting Nutrilucent’s emerging brand direction."
-                task="Discovery research, stakeholder interviews, competitive analysis, and persona work clarified user needs and business priorities. These insights guided early brand foundations, visual exploration, and packaging concepts for Nutrilucent’s direction."
-                intro="Nutrilucent is in an early phase of building a wellness brand, focusing on discovery research, brand, and system design to shape a cohesive product story and guide future ecosystem development."
-                result="The research and brand foundations directly informed ongoing site iterations, strengthening clarity, trust signals, and product positioning. Early updates contributed to increased engagement and improved sales performance for the new product line."
+                intro="Architected a high-contrast, modular digital product layout that transforms complex biometric and nutritional telemetry into clear, scannable analytics dashboards."
+                situation="Nutrilucent needed to launch an emerging digital wellness brand from the ground up, requiring a cohesive product narrative and system design to anchor its ecosystem. The primary challenge was establishing core interface patterns and visual trust for early users before scaling the product line."
+                task="As a Product Designer, my mandate was to establish the comprehensive interface direction, brand foundations, and design system patterns. I owned the user experience strategy, translation of health metrics, and layout guidelines for the digital touchpoints."
+                action="Executed user discovery research, stakeholder interviews, and competitive audits to align user needs with business priorities. From these insights, I engineered the high-contrast typography system, modular telemetry grid layouts, and physical packaging concepts."
+                result="The foundational design system accelerated product iteration speeds and established a highly credible web presence. The unified experience drove a measurable increase in early digital user engagement and supported successful sales performance for the product launch."
               />
 
               <ProjectSectionHeader
