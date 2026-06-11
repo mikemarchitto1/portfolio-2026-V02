@@ -50,16 +50,16 @@ export default function Work() {
               </div>
 
               <ProjectOverview
-                intro="Defined the cross‑platform design system and visual foundation for this digital banking ecosystem to streamline core transaction experiences and accelerate user adoption."
+                intro="Led the end‑to‑end design process for the digital banking ecosystem — from wireframing through iterative UX/UI refinement, system definition, and final handoff."
                 situation="GloriFi set out to build a unified financial wellness platform across mobile and web, with an eight‑month deadline to deliver an MVP and beta that could validate market demand and support future funding."
                 task="As a Product Designer, my explicit mandate was to architect the end-to-end user experience and design system for the core mobile banking platform. I owned the comprehensive design strategy for the snapshot, the real-time data insights hub, Rewards and Account flows."
-                action="Conducted qualitative user research and competitive audits to establish trust, mapped the complex cross-platform information architecture, and engineered a scalable UI component system that unified our web and mobile frameworks."
+                action="Led qualitative user research and competitive audits to establish trust, mapped the complex cross‑platform information architecture, and built a scalable UI component system that unified our web and mobile frameworks."
                 result="Following the initial release, the design framework successfully supported scaling the application to over 40,000 active individual downloads during the launch phase. This user adoption secured an 11th-place ranking among all financial applications on the market."
               />
 
               <ProjectSectionHeader
                 title="Discovery"
-                intro="I conducted a series of qualitative and competitive research activities to understand user expectations around financial literacy, mobile banking, and trust‑building patterns."
+                intro="Conducted a series of qualitative and competitive research activities to understand user expectations around financial literacy, mobile banking, and trust‑building patterns."
                 className="mt-12 md:mt-32"
               />
 
@@ -67,7 +67,7 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Competitive audit</h3>
                   <p className="text-body1 text-foreground">
-                    I carefully reviewed several banking and financial apps, evaluating
+                    Reviewed several banking and financial apps, evaluating
                     their features and identifying areas for improvement. This helped me
                     gain a comprehensive understanding of the app landscape.
                   </p>
@@ -94,17 +94,16 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4 order-1 sm:order-2">
                   <h3 className="text-h3 text-foreground mb-4">Workshops</h3>
                   <p className="text-body1 text-foreground">
-                    I conducted empathy mapping workshops to comprehend our users better.
-                    The workshops aided me in creating personas that reflect their
-                    distinct qualities and motivations, revealing areas for improvement
-                    and leading to a better user experience.
+                    Facilitated empathy‑mapping workshops to uncover user motivations and
+                    behaviors, informing personas that highlighted opportunity areas and
+                    guided experience improvements.
                   </p>
                 </div>
               </div>
 
               <ProjectSectionHeader
               title="Information architecture"
-                intro="I mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
+                intro="Mapped the core navigation, content hierarchy, and user flows to ensure the experience remained intuitive, predictable, and aligned with user mental models."
                 className="mt-12 md:mt-[128px]"
               />
 
@@ -112,7 +111,7 @@ export default function Work() {
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
                   <h3 className="text-h3 text-foreground mb-4">Wireframe flows</h3>
                   <p className="text-body1 text-foreground">
-                    I created user flows and wireframes, examining the design process
+                    Created user flows and wireframes, examining the design process
                     and identifying areas for improvement. We discussed potential
                     issues and brainstormed solutions to ensure a seamless and
                     user-friendly experience.
@@ -222,7 +221,7 @@ export default function Work() {
                 <div className="col-span-12 text-left min-w-0 mb-4">
                   <h3 className="text-h3 text-foreground mb-4">Rewards</h3>
                   <p className="text-body1 text-foreground w-full lg:w-1/2">
-                    We redesigned and reskinned the vendor loyalty feature so users get
+                    Redesigned and reskinned the vendor loyalty feature so users get
                     rewards and discounts from their favorite service providers.
                   </p>
                 </div>
