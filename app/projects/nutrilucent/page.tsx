@@ -47,7 +47,6 @@ export default function NutrilucentCaseStudy() {
               </div>
 
               <ProjectOverview
-                intro="Architected a high-contrast, modular digital product layout that transforms complex biometric and nutritional telemetry into clear, scannable analytics dashboards."
                 situation="Nutrilucent needed to launch an emerging digital wellness brand from the ground up, requiring a cohesive product narrative and system design to anchor its ecosystem. The primary challenge was establishing core interface patterns and visual trust for early users before scaling the product line."
                 task="As a Product Designer, my mandate was to establish the comprehensive interface direction, brand foundations, and design system patterns. I owned the user experience strategy, translation of health metrics, and layout guidelines for the digital touchpoints."
                 action="Executed user discovery research, stakeholder interviews, and competitive audits to align user needs with business priorities. From these insights, I engineered the high-contrast typography system, modular telemetry grid layouts, and physical packaging concepts."

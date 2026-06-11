@@ -61,7 +61,6 @@ function Work() {
 
 
             <ProjectOverview
-              intro="Spearheaded a responsive web overhaul to optimize the digital commerce funnel and modernize product discovery while preserving legacy brand identity."
               situation="Eddie Bauer needed to modernize its digital retail ecosystem to address outdated user patterns and fragmented visual systems. The legacy interface created friction along the product journey, directly impacting digital marketing conversion velocity and long-term customer engagement."
               task="As a Product Designer, my mandate was to engineer a responsive, contemporary e-commerce interface while safeguarding core brand trust. I owned the strategic redesign of the core Product Description Page (PDP) architecture, cross-platform navigation schemas, and the overarching design system framework."
               action="Executed user discovery research, competitive retail audits, and stakeholder alignment workshops to map existing user experience gaps. From these insights, I structured the refined information architecture, engineered responsive mid-fidelity wireframes, and produced a custom-icon design system to streamline the buying funnel."

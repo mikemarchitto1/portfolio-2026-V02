@@ -41,7 +41,6 @@ export default function ServSafeCaseStudy() {
               </div>
 
               <ProjectOverview
-                intro="Led the UX overhaul of this enterprise culinary compliance platform, refactoring dense information architecture to reduce friction within critical workforce certification workflows."
                 situation="ServSafe needed to modernize its legacy digital training ecosystem to fix fragmented educational content and disjointed workflows. The existing platform suffered from high user drop-off rates as hospitality workers struggled to navigate mandatory regulatory training."
                 task="As the Lead Product Designer, my mandate was to overhaul the end-to-end training journey and streamline compliance tracking. I owned the strategic redesign of the course delivery interfaces, progress dashboards, and core certification testing workflows."
                 action="I conducted behavioral analysis to isolate friction points, mapped a unified user journey, and engineered a modular design system. This structured UI framework simplified dense compliance content into highly intuitive, digestible learning tracks."
