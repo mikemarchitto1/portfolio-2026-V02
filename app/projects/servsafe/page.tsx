@@ -144,12 +144,14 @@ export default function ServSafeCaseStudy() {
 
               <div className="grid grid-cols-12 gap-8 pt-12 md:pt-32">
                 <div className="col-span-12 sm:col-span-4 md:col-span-4">
-                  <h3 className="text-h3 text-foreground mb-4">UI exploration</h3>
+                  <h3 className="text-h3 text-foreground mb-4">UI Exploration</h3>
                   <p className="text-body1 text-foreground">
-                    Brand styles and existing design system components were applied to
-                    produce consistent, visually aligned mockups. This process ensured
-                    that the resulting product direction remained cohesive, effective, and
-                    fully aligned with established brand guidelines and design principles.
+                    Early UI exploration established the initial visual language for the
+                    product. With minimal existing brand styles and no design system in
+                    place, these explorations defined the core patterns, components, and
+                    structural principles that later evolved into a cohesive, scalable system. This
+                    groundwork ensured consistency, clarity, and alignment across all
+                    subsequent design work.
                   </p>
                 </div>
 
