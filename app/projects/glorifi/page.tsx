@@ -50,7 +50,7 @@ export default function Work() {
               </div>
 
               <ProjectOverview
-                intro="Engineered the cross-platform design system and visual foundation for this digital banking ecosystem to streamline core transaction experiences and accelerate user adoption."
+                intro="Defined the cross‑platform design system and visual foundation for this digital banking ecosystem to streamline core transaction experiences and accelerate user adoption."
                 situation="GloriFi set out to build a unified financial wellness platform across mobile and web, with an eight‑month deadline to deliver an MVP and beta that could validate market demand and support future funding."
                 task="As a Product Designer, my explicit mandate was to architect the end-to-end user experience and design system for the core mobile banking platform. I owned the comprehensive design strategy for the snapshot, the real-time data insights hub, Rewards and Account flows."
                 action="Conducted qualitative user research and competitive audits to establish trust, mapped the complex cross-platform information architecture, and engineered a scalable UI component system that unified our web and mobile frameworks."
