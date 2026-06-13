@@ -30,7 +30,7 @@ export default function HeroSection() {
                       01
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Build scalable design systems that stay consistent and ship cleanly across teams.
+                    Simplify complex workflows so users move faster with less friction and greater clarity.
                     </p>
                   </div>
 
@@ -40,7 +40,7 @@ export default function HeroSection() {
                       02
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Simplify complex workflows so users move faster with less friction and greater clarity.
+                    Build scalable design systems that stay consistent and ship cleanly across teams.
                     </p>
                   </div>
 
