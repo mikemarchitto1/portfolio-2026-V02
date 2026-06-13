@@ -140,8 +140,8 @@ function NavItems({
       </Button>
       <Button className="nav-button flex items-center gap-2 bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" asChild>
         <a
-          href="/images/mikemarchitto_cv.pdf"
-          download="mikemarchitto_cv.pdf"
+          href="/images/mikemarchitto-cv.pdf"
+          download="mikemarchitto-cv.pdf"
           className="text-button"
         >
           Resume
@@ -411,8 +411,8 @@ try {
                           <SidebarMenuItem className="w-full">
                             <SidebarMenuButton asChild>
                               <a
-                                href="/images/mikemarchitto_cv.pdf"
-                                download="mikemarchitto_cv.pdf"
+                                href="/images/mikemarchitto-cv.pdf"
+                                download="mikemarchitto-cv.pdf"
                                 onClick={() => setMobileMenuOpen(false)}
                                 aria-label="Download Resume"
                                 className="no-underline w-full"

@@ -40,7 +40,7 @@ export default function HeroSection() {
                       02
                     </span>
                     <p className="text-body1 text-foreground leading-relaxed">
-                    Build scalable design systems that stay consistent and ship cleanly across teams.
+                    Build scalable design systems that maintain consistency and enable teams to ship cleanly across products.
                     </p>
                   </div>
 
