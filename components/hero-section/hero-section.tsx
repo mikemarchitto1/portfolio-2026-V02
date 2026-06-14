@@ -24,7 +24,7 @@ export default function HeroSection() {
                 {/* Tactical Value Propositions List */}
                 <div className="mt-3.5 flex flex-col gap-2.75 max-w-xl text-left">
                   <p className="text-body1 text-foreground leading-relaxed">
-                    Simplify complex workflows so users move faster with less friction and greater clarity.
+                    Simplify complex workflows so users can move faster with less friction and greater clarity.
                   </p>
                   <p className="text-body1 text-foreground leading-relaxed">
                     Build scalable design systems that maintain consistency and enable teams to ship cleanly across products.
