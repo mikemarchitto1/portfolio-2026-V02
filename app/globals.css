@@ -247,7 +247,7 @@
     --text-h3-letter-spacing: -0.25px;
 
     --text-h4-fluid: clamp(1rem, 0.584rem + 1.706vw, 1.875rem);
-    --text-h4-line: 1.2;
+    --text-h4-line: 1.4;
     --text-h4-weight: 500;
     --text-h4-letter-spacing: 0px;
 
@@ -823,11 +823,6 @@
     line-height: var(--text-h4-line);
     font-weight: var(--text-h4-weight);
     letter-spacing: var(--text-h4-letter-spacing);
-  }
-  @media (min-width: 1024px) {
-    .text-h4 {
-      line-height: 1.5;
-    }
   }
   .text-h6 {
     font-size: var(--text-h6-size);
