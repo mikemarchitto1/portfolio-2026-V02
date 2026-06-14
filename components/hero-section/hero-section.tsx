@@ -23,37 +23,15 @@ export default function HeroSection() {
                 
                 {/* Tactical Value Propositions List */}
                 <div className="mt-3.5 flex flex-col gap-2.75 max-w-xl text-left">
-                  
-                  {/* Item 01 */}
-                  <div className="flex items-start gap-4">
-                    <span className="font-sans tabular-nums text-[14px] font-semibold tracking-tight text-muted-foreground select-none pt-0.5">
-                      01
-                    </span>
-                    <p className="text-body1 text-foreground leading-relaxed">
+                  <p className="text-body1 text-foreground leading-relaxed">
                     Simplify complex workflows so users move faster with less friction and greater clarity.
-                    </p>
-                  </div>
-
-                  {/* Item 02 */}
-                  <div className="flex items-start gap-4">
-                    <span className="font-sans tabular-nums text-[14px] font-semibold tracking-tight text-muted-foreground select-none pt-0.5">
-                      02
-                    </span>
-                    <p className="text-body1 text-foreground leading-relaxed">
+                  </p>
+                  <p className="text-body1 text-foreground leading-relaxed">
                     Build scalable design systems that maintain consistency and enable teams to ship cleanly across products.
-                    </p>
-                  </div>
-
-                  {/* Item 03 */}
-                  <div className="flex items-start gap-4">
-                    <span className="font-sans tabular-nums text-[14px] font-semibold tracking-tight text-muted-foreground select-none pt-0.5">
-                      03
-                    </span>
-                    <p className="text-body1 text-foreground leading-relaxed">
+                  </p>
+                  <p className="text-body1 text-foreground leading-relaxed">
                     Accelerate delivery with AI‑augmented research, information architecture, rapid prototyping and automation.
-                    </p>
-                  </div>
-
+                  </p>
                 </div>
 
               </div>
