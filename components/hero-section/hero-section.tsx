@@ -17,8 +17,8 @@ export default function HeroSection() {
                 <h1 className="text-h1 font-light whitespace-nowrap">
                   Mike Marchitto
                 </h1>
-                <h4 className="text-h4 text-foreground mt-[0px]">
-                  Product designer building modern AI‑powered digital experiences
+                <h4 className="text-h4 !font-medium text-foreground mt-[0px]">
+                  Product Designer Building Modern AI‑Powered Digital Experiences
                 </h4>
                 
                 {/* Tactical Value Propositions List */}
