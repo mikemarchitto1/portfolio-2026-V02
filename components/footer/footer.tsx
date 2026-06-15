@@ -43,8 +43,8 @@ export default function Footer() {
 
                     <Button className="nav-button bg-transparent border border-[oklch(92%_0_0)] focus-visible:border-[oklch(92%_0_0)] dark:border-[oklch(30%_0.01_264)] color:border-[oklch(40%_0.035_165)] hover:bg-[var(--sidebar-hover)] dark:hover:bg-[oklch(30%_0.01_264)] color:hover:bg-[oklch(40%_0.035_165)]" variant="outline" size="lg" asChild>
                       <a
-                        href="/images/mikemarchitto-resume.pdf"
-                        download="mikemarchitto-resume.pdf"
+                        href="/images/mikemarchitto-cv.pdf"
+                        download="mikemarchitto-cv.pdf"
                         className="text-button"
                       >
                         Resume

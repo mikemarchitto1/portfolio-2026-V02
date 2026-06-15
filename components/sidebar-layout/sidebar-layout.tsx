@@ -207,8 +207,8 @@ try {
                 <SidebarMenuItem>
                   <SidebarMenuButton variant="text" asChild>
                     <a
-                      href="/images/mikemarchitto-resume.pdf"
-                      download="mikemarchitto-resume.pdf"
+                      href="/images/mikemarchitto-cv.pdf"
+                      download="mikemarchitto-cv.pdf"
                       aria-label="Download Resume"
                       className="text-button text-foreground no-underline w-full"
                     >
